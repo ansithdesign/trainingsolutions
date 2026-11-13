@@ -47,6 +47,15 @@
         ],
         "createdAt": "2026-11-13T11:33:26.242Z",
         "reason": "user confirmed: picked course card C5, whose topic color bar is the design"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "/home/user/trainingsolutions/column-style.html"
+        ],
+        "createdAt": "2026-11-13T11:51:40.829Z",
+        "reason": "Claude triage: false positive; section content sits inside .wrap with 20px side gutters and 56 to 72px vertical padding, not user confirmed"
       }
     ]
   }

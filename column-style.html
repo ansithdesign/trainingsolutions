@@ -1,0 +1,386 @@
+<title>Training Solutions Column Style</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Concept: airy white page, deep navy ink, halftone dot fields in teal and blue, two-tone headlines, hairline dividers with a small square marker, mono labels, one dark teal section with translucent panels. Single committed look. */
+:root {
+  --ink: #0E1330; --ink-2: #5F6573; --blue: #3A66BD; --blue-soft: #7EA7E9; --green: #12795A; --green-soft: #44B48B;
+  --pale: #F4F6FB; --paper: #FFFFFF; --line: #DDE2EC; --navy: #1B2060; --deep: #011821; --on-deep: #9FB3B8; --tintbg: #CFE6EA;
+  --sans: 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif; --mono: 'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px)); --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; background: var(--paper); }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); position: relative; }
+h1, h2, h3 { letter-spacing: -.03em; text-wrap: balance; }
+h2 { font-size: clamp(26px, 2.9vw, 38px); line-height: 1.12; font-weight: 600; color: var(--ink); max-width: 20ch; }
+h2 .g { color: #6A7289; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 18px; border-radius: 8px; font: 500 14px var(--sans); border: 1px solid transparent; cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: #121748; }
+.btn-line { background: #fff; border-color: var(--line); color: var(--ink); }
+.btn-line:hover { border-color: var(--ink); }
+.chev { display: inline-block; transition: transform .2s ease; }
+a:hover > .chev, .btn:hover .chev { transform: translateX(3px); }
+.halftone { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+
+/* section head: hairline with a small square marker */
+.head { position: relative; border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 40px; }
+.head::before { content: ""; position: absolute; left: 0; top: -10px; width: 19px; height: 19px; border: 1px solid var(--line); border-radius: 3px; background: var(--pale); }
+.head.on-deep { border-color: rgba(255, 255, 255, .14); }
+.head.on-deep::before { background: #0A2A35; border-color: rgba(255, 255, 255, .18); }
+.head p { margin-top: 14px; color: var(--ink-2); max-width: 54ch; font-size: 15px; }
+.head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.more { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; color: var(--blue); }
+.more:hover { text-decoration: underline; text-underline-offset: 4px; }
+section { padding-block: 72px; }
+
+/* header + hero */
+.bar { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 22px; }
+.logo { font-size: 21px; font-weight: 600; letter-spacing: -.04em; display: inline-flex; align-items: center; gap: 9px; }
+.logo i { width: 22px; height: 22px; border-radius: 6px; background: var(--navy); position: relative; display: block; }
+.logo i::before, .logo i::after { content: ""; position: absolute; left: 6px; right: 6px; height: 2px; border-radius: 2px; background: #fff; }
+.logo i::before { top: 7px; } .logo i::after { top: 12px; right: 10px; }
+.bar-end { display: flex; align-items: center; gap: 18px; }
+.bar-end .tel { color: var(--ink-2); font-size: 14px; }
+.hero { position: relative; overflow: hidden; padding-bottom: 90px; }
+.hero .halftone { z-index: 0; }
+.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 48px; align-items: center; padding-top: 56px; min-height: 470px; }
+.hero h1 { font-size: clamp(36px, 4.4vw, 56px); line-height: 1.06; font-weight: 600; letter-spacing: -.045em; max-width: 14ch; animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+.hero h1 .g { color: #6A7289; }
+.hero-sub { margin-top: 20px; max-width: 42ch; color: var(--ink); font-size: 17px; animation: rise .8s .1s cubic-bezier(.2, .7, .2, 1) both; }
+.fcard { position: relative; width: min(360px, 100%); justify-self: end; background: rgba(255, 255, 255, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(14, 19, 48, .08); border-radius: 14px; padding: 22px 24px 24px; box-shadow: 0 1px 2px rgba(14, 19, 48, .04), 0 28px 60px rgba(30, 60, 110, .16); animation: rise .9s .25s cubic-bezier(.2, .7, .2, 1) both; }
+.fcard .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--green); }
+.fcard .tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green-soft); }
+.fcard h3 { margin-top: 12px; font-size: 21px; line-height: 1.18; font-weight: 600; letter-spacing: -.03em; }
+.fcard .meta { margin-top: 6px; color: var(--ink-2); }
+.fcard .row { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.fcard .price { font-size: 32px; font-weight: 400; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.trail { position: absolute; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* partners */
+.logos-row { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); position: relative; z-index: 2; }
+.logos { list-style: none; padding: 26px 0; display: flex; align-items: center; justify-content: space-between; gap: 18px 36px; flex-wrap: wrap; }
+.logos img { display: block; height: 32px; width: auto; max-width: 100%; filter: grayscale(1); opacity: .72; transition: filter .3s ease, opacity .3s ease; }
+.logos li:hover img { filter: none; opacity: 1; }
+
+/* topics */
+.tgrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.tcard { display: flex; flex-direction: column; justify-content: space-between; gap: 30px; min-height: 142px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 16px 20px; transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+.tcard:hover { border-color: var(--ink); box-shadow: 0 14px 30px rgba(14, 19, 48, .08); transform: translateY(-3px); }
+.tcard h3 { font-size: 17px; font-weight: 500; line-height: 1.22; letter-spacing: -.02em; max-width: 14ch; }
+.tcard .tf { display: flex; justify-content: space-between; align-items: center; }
+.tcard .n { font-family: var(--mono); font-size: 11.5px; color: var(--green); background: #ECF7F2; padding: 3px 9px; border-radius: 6px; }
+.tcard .go { color: var(--blue); font-size: 18px; transition: transform .2s ease; }
+.tcard:hover .go { transform: translateX(4px); }
+.tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 142px; border: 1px dashed #B9C2D3; border-radius: 12px; padding: 18px 20px; background: var(--pale); color: var(--ink); transition: border-color .25s ease, background .25s ease; }
+.tmore:hover { border-color: var(--ink); background: #fff; }
+.tmore span { font-size: 17px; font-weight: 500; letter-spacing: -.02em; }
+.tmore .go { color: var(--blue); font-size: 18px; }
+
+/* photos: cool duotone, full color on hover */
+.pic { position: relative; background: var(--tintbg); overflow: hidden; }
+.pic img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.05); transition: filter .5s ease, transform .7s ease; }
+.pic.top img { object-position: center 18%; }
+.hot:hover .pic img { filter: grayscale(0); mix-blend-mode: normal; }
+
+/* courses */
+.courses { background: var(--pale); }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.card { position: relative; display: block; aspect-ratio: 4 / 4.6; border-radius: 14px; overflow: hidden; background: var(--tintbg); border: 1px solid var(--line); transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 22px 44px rgba(14, 19, 48, .16); }
+.card .pic { position: absolute; inset: 0; }
+.card:hover .pic img { transform: scale(1.04); }
+.card .code { position: absolute; left: 12px; top: 12px; z-index: 2; font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 6px; background: rgba(255, 255, 255, .94); color: var(--ink); }
+.card .pp { position: absolute; right: 12px; top: 12px; z-index: 2; background: var(--blue); color: #fff; font-size: 14px; font-weight: 600; padding: 4px 11px; border-radius: 6px; font-variant-numeric: tabular-nums; }
+.card .info { position: absolute; left: 8px; right: 8px; bottom: 8px; background: #fff; border-radius: 10px; padding: 14px 16px 16px; }
+.card .tp { font-family: var(--mono); font-size: 11px; color: var(--green); }
+.card h3 { margin-top: 4px; font-size: 17px; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
+
+/* stats + quote */
+.stats-wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat b { display: block; font-size: clamp(40px, 4.6vw, 60px); font-weight: 400; letter-spacing: -.05em; line-height: 1; color: var(--green); font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 12px; color: var(--ink-2); font-size: 13.5px; max-width: 18ch; line-height: 1.45; }
+.quote { position: relative; overflow: hidden; background: #FAFBFD; border: 1px solid var(--line); border-radius: 16px; padding: 30px 30px 28px; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 24px; align-items: start; box-shadow: 0 20px 50px rgba(30, 60, 110, .07); }
+.quote .halftone { opacity: .5; z-index: 0; }
+.quote > *:not(.halftone) { position: relative; z-index: 1; }
+.quote .pic { aspect-ratio: 1; border-radius: 12px; }
+.quote .pic img { filter: none; mix-blend-mode: normal; }
+.quote p { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.38; letter-spacing: -.02em; font-weight: 500; }
+.quote small { display: block; margin-top: 16px; color: var(--ink-2); font-size: 13px; }
+.quote small em { font-style: normal; font-family: var(--mono); font-size: 11px; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; white-space: nowrap; background: #fff; }
+.learn { margin-top: 48px; display: grid; grid-template-columns: 1.1fr repeat(3, 1fr); gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
+.learn h3 { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-2); letter-spacing: .01em; }
+.learn p { margin-top: 6px; font-size: 16px; font-weight: 500; letter-spacing: -.015em; }
+.learn .lead { font-size: 22px; font-weight: 600; letter-spacing: -.035em; line-height: 1.15; margin-top: 0; }
+
+/* services: the dark section */
+.services { background: var(--deep); color: #fff; position: relative; overflow: hidden; }
+.services .halftone { opacity: .55; z-index: 0; }
+.services .wrap { z-index: 1; }
+.services h2 { color: #fff; max-width: 22ch; } .services h2 .g { color: #7F989E; }
+.services .head p { color: var(--on-deep); }
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.svc { display: flex; flex-direction: column; background: rgba(255, 255, 255, .045); border: 1px solid rgba(255, 255, 255, .12); border-radius: 14px; overflow: hidden; transition: background .3s ease, border-color .3s ease, transform .3s ease; }
+.svc:hover { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .28); transform: translateY(-4px); }
+.svc .pic { aspect-ratio: 16 / 10; background: #0B2E39; }
+.svc .pic img { opacity: .9; }
+.svc-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.svc h3 { font-size: 19px; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
+.svc p { color: var(--on-deep); }
+.svc .price { margin-top: auto; padding-top: 12px; font-family: var(--mono); font-size: 14px; color: #6FD3AE; }
+
+/* cta */
+.cta { padding-block: 72px 80px; }
+.cta-panel { position: relative; overflow: hidden; background: var(--ink); color: #fff; border-radius: 18px; padding: 64px 52px 52px; }
+.cta-panel .halftone { z-index: 0; }
+.cta-panel > *:not(.halftone) { position: relative; z-index: 1; }
+.cta .kick { font-family: var(--mono); font-size: 13px; color: #A9C2F2; }
+.cta h2 { color: #fff; margin-top: 12px; max-width: 16ch; }
+.phone { display: block; margin-top: 30px; font-size: clamp(40px, 8vw, 112px); font-weight: 300; letter-spacing: -.06em; line-height: 1; padding-bottom: 18px; border-bottom: 1px solid rgba(255, 255, 255, .25); transition: border-color .3s ease; }
+.phone:hover { border-color: #fff; }
+.cta-row { margin-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 32px; color: #C9D3EE; }
+
+/* footer */
+footer { background: var(--pale); border-top: 1px solid var(--line); padding-block: 56px 32px; }
+.fgrid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; }
+.fgrid p { margin-top: 12px; color: var(--ink-2); max-width: 30ch; font-size: 14px; }
+.fgrid h4 { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-2); margin-bottom: 14px; }
+.fgrid ul { padding: 0; } .fgrid li { list-style: none; margin-bottom: 9px; font-size: 14px; }
+.fgrid a:hover { color: var(--blue); }
+.legal { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+@media (max-width: 1080px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; min-height: 0; }
+  .fcard { justify-self: start; }
+  .tgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid, .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats-wrap { grid-template-columns: 1fr; gap: 36px; }
+  .learn { grid-template-columns: 1fr 1fr; }
+  .fgrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  section { padding-block: 56px; }
+  .hero { padding-bottom: 56px; }
+  .hero-grid { padding-top: 32px; }
+  .tgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid, .svc-grid { grid-template-columns: 1fr; }
+  .card { aspect-ratio: 4 / 4.4; }
+  .stats { grid-template-columns: 1fr; gap: 26px; }
+  .quote { grid-template-columns: 1fr; padding: 24px; }
+  .quote .pic { max-width: 96px; }
+  .learn { grid-template-columns: 1fr; }
+  .bar-end .tel { display: none; }
+  .logos { justify-content: flex-start; padding: 22px 0; }
+  .logos img { height: 28px; }
+  .cta-panel { padding: 44px 24px 36px; border-radius: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero h1, .hero-sub, .fcard { animation: none; }
+  .tcard, .card, .svc, .btn, .chev, .pic img, .tcard .go { transition: none; }
+}
+</style>
+
+<header class="hero" id="top">
+  <canvas class="halftone" id="htHero" aria-hidden="true"></canvas>
+  <svg class="trail" id="trail" aria-hidden="true"></svg>
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" href="#"><i></i>Training Solutions</a>
+      <div class="bar-end"><span class="tel">703-318-0838</span><a class="btn btn-line" href="#">Cart (0)</a></div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Training, coaching and consulting for the <span class="g">people side of your business.</span></h1>
+        <p class="hero-sub">Buy online courses today, or work with us on certification, coaching and live programs.</p>
+      </div>
+      <div class="fcard" id="fcard" aria-live="polite"></div>
+    </div>
+  </div>
+</header>
+
+<div class="logos-row">
+  <div class="wrap">
+    <ul class="logos" aria-label="Partners">
+      <li><img src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"></li>
+      <li><img src="images/logo-pxt-select.png" alt="PXT Select, a Wiley brand"></li>
+      <li><img src="images/logo-five-behaviors.png" alt="The Five Behaviors, a Wiley brand"></li>
+      <li><img src="images/logo-sollah.png" alt="Sollah Interactive, LLC"></li>
+    </ul>
+  </div>
+</div>
+
+<main>
+<section id="topics">
+  <div class="wrap">
+    <div class="head"><h2>Browse by <span class="g">topic</span></h2></div>
+    <div class="tgrid" id="tgrid"></div>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <div class="wrap">
+    <div class="head head-row">
+      <div>
+        <h2>Popular online <span class="g">courses</span></h2>
+        <p>Self-paced and ready to assign. Individual courses are $30 to $99.</p>
+      </div>
+      <a class="more" href="#">See all online courses <span class="chev" aria-hidden="true">›</span></a>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <canvas class="halftone" id="htSvc" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="head on-deep">
+      <h2>Training, coaching and consulting <span class="g">that deliver results</span></h2>
+      <p>Our motivational style will energize your employees and help them learn more about themselves and their teammates.</p>
+    </div>
+    <div class="svc-grid">
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-classes.jpg" alt="Facilitator leading a class at a whiteboard" loading="lazy"></div><div class="svc-body"><h3>Classes and training facilitation</h3><p>Live classes and facilitated sessions for your team.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-tag.jpg" alt="Team members working together on laptops" loading="lazy"></div><div class="svc-body"><h3>TAG, Training Assets Gateway</h3><p>An eLearning library from Sollah for your whole organization.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic top"><img src="images/svc-exec.jpg" alt="Executive in a one-to-one coaching setting" loading="lazy"></div><div class="svc-body"><h3>Executive coaching</h3><p>One-to-one coaching for executives and business owners.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-disc.jpg" alt="Workshop with participants at a table" loading="lazy"></div><div class="svc-body"><h3>Everything DiSC Certification</h3><p>Requires the Practitioner Experience first. Bundle price $3,995.</p><span class="price">$2,495</span></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-five.jpg" alt="Team collaborating in a workshop" loading="lazy"></div><div class="svc-body"><h3>The Five Behaviors Certification</h3><p>Become certified to facilitate The Five Behaviors.</p><span class="price">$2,495</span></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-catalyst.jpg" alt="Team in a meeting room" loading="lazy"></div><div class="svc-body"><h3>Catalyst</h3><p>Wiley's online platform for delivering Everything DiSC.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="stats-wrap">
+      <div class="stats">
+        <div class="stat"><b>1995</b><span>Serving HR and training teams since</span></div>
+        <div class="stat"><b>122</b><span>Courses, assessments, kits and books in the catalog</span></div>
+        <div class="stat"><b>$30</b><span>Starting price for an online course</span></div>
+      </div>
+      <div class="quote">
+        <canvas class="halftone" id="htQuote" aria-hidden="true"></canvas>
+        <div class="pic top"><img src="images/portrait.jpg" alt="Portrait of a smiling HR professional (sample photo, replace with the customer)" loading="lazy"></div>
+        <div><p>&ldquo;Assigning the course takes minutes, and I can see who has finished and their scores without chasing anyone. At $30 a person, it was an easy decision.&rdquo;</p><small>Director of Human Resources, regional healthcare provider <em>Sample quote</em></small></div>
+      </div>
+    </div>
+    <div class="learn">
+      <p class="lead">Learn with us</p>
+      <div><h3>Upcoming class dates</h3><p>[Dates from TSI]</p></div>
+      <div><h3>Resources</h3><p>[Articles, webinars: confirm what exists]</p></div>
+      <div><h3>Publishers we work with</h3><p>Wiley and Sollah</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div class="cta-panel">
+      <canvas class="halftone" id="htCta" aria-hidden="true"></canvas>
+      <span class="kick">Not sure where to start?</span>
+      <h2>Tell us the people challenge.</h2>
+      <a class="phone" href="tel:7033180838">703-318-0838</a>
+      <div class="cta-row"><span>We will point you to the right course or program. Call or send a note.</span><span>Chantilly, Virginia</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="logo" href="#"><i></i>Training Solutions</a><p>Chantilly, Virginia. Training, coaching and consulting since 1995.</p></div>
+      <div><h4>Company</h4><ul><li><a href="#">About us</a></li><li><a href="#">Our story</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Products</h4><ul><li><a href="#">Online courses</a></li><li><a href="#">Kits and books</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="#">Classes</a></li><li><a href="#">Executive coaching</a></li><li><a href="#">TAG</a></li></ul></div>
+      <div><h4>Customer service</h4><ul><li><a href="#">Order help</a></li><li><a href="#">Returns</a></li><li>703-318-0838</li></ul></div>
+    </div>
+    <div class="legal"><span>© Training Solutions, Inc.</span><span>Authorized partner of Wiley and Sollah</span></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var courses = [
+    { code: 'VP012', topic: 'Harassment', title: 'Harassment and Discrimination: Promoting Respect', price: 30, img: 'harassment', alt: 'Colleagues in a respectful workplace discussion' },
+    { code: 'VP075', topic: 'Harassment', title: 'Keeping Your Workplace Free from Harassment and Discrimination', price: 30, img: 'svc-tag', alt: 'Team members working together on laptops' },
+    { code: 'VP078', topic: 'Diversity', title: 'Diversity 101™', price: 30, img: 'diversity', alt: 'Diverse team looking at a laptop together' },
+    { code: 'VP064', topic: 'Leadership', title: 'Leadership 101', price: 50, img: 'leadership', alt: 'Manager presenting to a team' },
+    { code: 'VP069', topic: 'Coaching', title: 'Courage to Coach™', price: 30, img: 'coaching', alt: 'Professional in a coaching conversation', top: 1 },
+    { code: 'VP090', topic: 'Conflict', title: 'Conflict 101™', price: 30, img: 'conflict', alt: 'Colleagues working through a disagreement' },
+    { code: 'VP063', topic: 'Coaching', title: 'Coaching and Feedback Essentials', price: 50, img: 'svc-exec', alt: 'Professional giving and receiving feedback', top: 1 },
+    { code: 'VP059', topic: 'Teams', title: 'Creating a High Performing Team', price: 50, img: 'teams', alt: 'Team collaborating around a table' },
+    { code: 'VP065', topic: 'Ethics', title: 'A.C.T. with Integrity™', price: 30, img: 'ethics', alt: 'Professional in a suit on a staircase', top: 1 },
+    { code: 'VP079', topic: 'Harassment', title: 'ENOUGH!™ The Consequences of Sexual Harassment', price: 30, img: 'svc-classes', alt: 'Facilitator leading a discussion at a whiteboard' },
+    { code: 'VP037', topic: 'Meetings', title: 'Fearless Facilitation! Lead Effective Meetings', price: 30, img: 'meetings', alt: 'Team in a meeting room' },
+    { code: 'VP043', topic: 'Sales', title: 'Win the S.A.L.E. for Sales Professionals', price: 30, img: 'sales', alt: 'Colleagues celebrating a sale' }
+  ];
+  var topics = [['Harassment', 19], ['Diversity', 12], ['Everything DiSC and personal development', 13], ['Leadership', 12], ['Management', 12], ['Hiring and interviewing', 10], ['Coaching and discipline', 8], ['Ethics and attitude', 7], ['Teams', 7], ['Sales and customer service', 6], ['Conflict resolution', 5], ['Meetings and time management', 5], ['Communication and EQ', 4], ['Legal', 2]];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function go(id) { document.getElementById(id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+
+  /* featured course */
+  var h = courses[0], fcard = document.getElementById('fcard');
+  fcard.innerHTML = '<span class="tag">' + h.topic + '</span><h3>' + esc(h.title) + '</h3><p class="meta mono">' + h.code + '</p><div class="row"><span class="price">$' + h.price + '</span><a class="btn btn-navy" href="#courses">View course <span class="chev" aria-hidden="true">›</span></a></div>';
+  fcard.addEventListener('click', function (e) { if (e.target.closest('a')) { e.preventDefault(); go('courses'); } });
+
+  /* topics */
+  var tgrid = document.getElementById('tgrid');
+  tgrid.innerHTML = topics.map(function (t) { return '<a class="tcard" href="#courses"><h3>' + esc(t[0]) + '</h3><div class="tf"><span class="n">' + t[1] + ' titles</span><span class="go" aria-hidden="true">›</span></div></a>'; }).join('') + '<a class="tmore" href="#"><span>See all topics</span><span class="go" aria-hidden="true">›</span></a>';
+  tgrid.addEventListener('click', function (e) { var a = e.target.closest('a.tcard'); if (a) { e.preventDefault(); go('courses'); } });
+
+  /* courses */
+  var grid = document.getElementById('grid');
+  grid.innerHTML = courses.map(function (c) { return '<a class="card hot" href="#"><span class="code">' + c.code + '</span><span class="pp">$' + c.price + '</span><div class="pic' + (c.top ? ' top' : '') + '"><img src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '" loading="lazy"></div><div class="info"><span class="tp">' + c.topic + '</span><h3>' + esc(c.title) + '</h3></div></a>'; }).join('');
+  grid.addEventListener('click', function (e) { if (e.target.closest('.card')) e.preventDefault(); });
+
+  /* halftone dot fields */
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function sm(a, b, x) { var t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+  function field(x, y) { return 0.5 + 0.25 * Math.sin(x * 3.1 + y * 1.7) + 0.15 * Math.sin(x * 7.3 - y * 5.1 + 1.3) + 0.1 * Math.sin(x * 13.7 + y * 9.3 + 2.1); }
+  function halftone(id, o) {
+    var cv = document.getElementById(id); if (!cv) return;
+    var par = cv.parentElement, dpr = Math.min(window.devicePixelRatio || 1, 2), w = par.clientWidth, hh = par.clientHeight;
+    cv.width = w * dpr; cv.height = hh * dpr; cv.style.width = w + 'px'; cv.style.height = hh + 'px';
+    var ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); ctx.clearRect(0, 0, w, hh);
+    var cell = o.cell || 11;
+    for (var y = cell / 2; y < hh; y += cell) for (var x = cell / 2; x < w; x += cell) {
+      var u = x / w, v = y / hh, m = o.mask(u, v); if (m <= 0.02) continue;
+      var f = field(u * 2.4 * (w / 1200 + .6), v * 2.4), r = (cell * 0.46) * Math.pow(Math.max(0, f), 1.5) * m * 1.5;
+      if (r < 0.5) continue; r = Math.min(r, cell * 0.5);
+      var t = Math.min(1, Math.max(0, u * 0.8 + v * 0.2 + (f - .5) * .4));
+      ctx.fillStyle = 'rgba(' + Math.round(lerp(o.c1[0], o.c2[0], t)) + ',' + Math.round(lerp(o.c1[1], o.c2[1], t)) + ',' + Math.round(lerp(o.c1[2], o.c2[2], t)) + ',' + (o.alpha || 1) + ')';
+      ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill();
+    }
+  }
+  function trail() {
+    var svg = document.getElementById('trail'), hero = svg.parentElement, w = hero.clientWidth, hh = hero.clientHeight, card = document.getElementById('fcard');
+    if (w < 1080) { svg.innerHTML = ''; return; }
+    var hr = hero.getBoundingClientRect(), cr = card.getBoundingClientRect(), ex = cr.left - hr.left, ey = cr.top - hr.top + 30;
+    var sx = w * 0.52, sy = hh * 0.62, mx = sx + (ex - sx) * 0.55;
+    svg.setAttribute('viewBox', '0 0 ' + w + ' ' + hh);
+    svg.innerHTML = '<path d="M' + sx + ' ' + sy + ' H' + mx + ' V' + ey + ' H' + ex + '" fill="none" stroke="#3A66BD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 7" opacity=".55"/><circle cx="' + sx + '" cy="' + sy + '" r="4.5" fill="#0E1330"/><circle cx="' + ex + '" cy="' + ey + '" r="4.5" fill="#0E1330"/>';
+  }
+  function paint() {
+    halftone('htHero', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .5, cell: 11, mask: function (u, v) { var narrow = w < 720; return (narrow ? sm(.6, 1, u) * sm(.5, .8, v) : sm(.38, .78, u)) * (1 - sm(.55, 1, v)) * (narrow ? 1 : (0.55 + 0.45 * sm(0, .6, v))); } });
+    halftone('htSvc', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .5, cell: 12, mask: function (u, v) { return sm(.5, 1, u) * (1 - sm(.15, .55, v)) ; } });
+    halftone('htQuote', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .4, cell: 10, mask: function (u, v) { return sm(.35, 1, u) * (0.4 + 0.6 * v); } });
+    halftone('htCta', { c1: [68, 180, 139], c2: [126, 167, 233], alpha: .55, cell: 12, mask: function (u, v) { return sm(.45, 1, u) * (0.35 + 0.65 * (1 - v)); } });
+    trail();
+  }
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(paint, 150); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(paint); else paint();
+  paint();
+})();
+</script>
