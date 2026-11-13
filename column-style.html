@@ -373,7 +373,7 @@ footer { background: var(--pale); border-top: 1px solid var(--line); padding-blo
     svg.innerHTML = '<path d="M' + sx + ' ' + sy + ' H' + mx + ' V' + ey + ' H' + ex + '" fill="none" stroke="#3A66BD" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 7" opacity=".55"/><circle cx="' + sx + '" cy="' + sy + '" r="4.5" fill="#0E1330"/><circle cx="' + ex + '" cy="' + ey + '" r="4.5" fill="#0E1330"/>';
   }
   function paint() {
-    halftone('htHero', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .5, cell: 11, mask: function (u, v) { var narrow = w < 720; return (narrow ? sm(.6, 1, u) * sm(.5, .8, v) : sm(.38, .78, u)) * (1 - sm(.55, 1, v)) * (narrow ? 1 : (0.55 + 0.45 * sm(0, .6, v))); } });
+    halftone('htHero', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .5, cell: 11, mask: function (u, v) { var narrow = window.innerWidth < 720; return (narrow ? sm(.6, 1, u) * sm(.5, .8, v) : sm(.38, .78, u)) * (1 - sm(.55, 1, v)) * (narrow ? 1 : (0.55 + 0.45 * sm(0, .6, v))); } });
     halftone('htSvc', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .5, cell: 12, mask: function (u, v) { return sm(.5, 1, u) * (1 - sm(.15, .55, v)) ; } });
     halftone('htQuote', { c1: [68, 180, 139], c2: [69, 117, 205], alpha: .4, cell: 10, mask: function (u, v) { return sm(.35, 1, u) * (0.4 + 0.6 * v); } });
     halftone('htCta', { c1: [68, 180, 139], c2: [126, 167, 233], alpha: .55, cell: 12, mask: function (u, v) { return sm(.45, 1, u) * (0.35 + 0.65 * (1 - v)); } });
