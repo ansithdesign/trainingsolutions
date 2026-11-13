@@ -203,6 +203,15 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
 .pic.prod img { mix-blend-mode: normal; filter: none; object-fit: contain; background: transparent; }
 .card .pic.prod { padding: 48px 22px 112px; }
 .hot:hover .pic.prod img { transform: scale(1.04); }
+
+/* design switcher */
+.switch { position: fixed; z-index: 9999; left: 50%; transform: translateX(-50%); bottom: max(14px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 3px; padding: 5px; border-radius: 999px; background: rgba(11, 16, 32, .94); color: #fff; box-shadow: 0 12px 34px rgba(0, 0, 0, .3); font: 500 13px 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif; line-height: 1; max-width: calc(100% - 24px); }
+.switch .sw-l { padding: 0 10px 0 14px; color: #B7BED6; white-space: nowrap; }
+.switch a { min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; color: #fff; text-decoration: none; }
+.switch a:hover { background: rgba(255, 255, 255, .16); }
+.switch a[aria-current="true"] { background: #fff; color: #0B1020; }
+.switch .sw-n { padding: 0 14px 0 10px; color: #fff; white-space: nowrap; font-weight: 500; }
+@media (max-width: 720px) { .switch .sw-l, .switch .sw-n { display: none; } }
 </style>
 
 <header>
@@ -380,3 +389,5 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
   px();
 })();
 </script>
+
+<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="home.html#a" data-t="a" title="Layered Night">1</a><a href="home.html#b" data-t="b" title="Forest and Orange">2</a><a href="home.html#c" data-t="c" title="Airy Light">3</a><a href="home.html#d" data-t="d" title="Editorial">4</a><a href="home.html#e" data-t="e" title="Color Block">5</a><a href="column-style.html" title="Column" data-p="column">6</a><a href="maze-style.html" title="Maze" data-p="maze" aria-current="true">7</a><span class="sw-n" id="swName">Maze</span></nav>

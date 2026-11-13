@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Training Solutions Homepage Option</title>
+<title>Training Solutions Homepages</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap">
@@ -248,13 +248,14 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 .legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid currentColor; color: var(--foot-muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 .legal span { opacity: .9; }
 
-/* option switcher */
-.switch { position: fixed; z-index: 50; left: 50%; transform: translateX(-50%); bottom: max(16px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 4px; padding: 5px; border-radius: 999px; background: rgba(11, 16, 32, .92); color: #fff; box-shadow: 0 12px 34px rgba(0, 0, 0, .3); font-size: 13px; }
-.switch span { padding: 0 12px 0 14px; color: #B7BED6; white-space: nowrap; }
-.switch a { min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; }
-.switch a:hover { background: rgba(255, 255, 255, .15); }
+/* design switcher */
+.switch { position: fixed; z-index: 9999; left: 50%; transform: translateX(-50%); bottom: max(14px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 3px; padding: 5px; border-radius: 999px; background: rgba(11, 16, 32, .94); color: #fff; box-shadow: 0 12px 34px rgba(0, 0, 0, .3); font: 500 13px 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif; line-height: 1; max-width: calc(100% - 24px); }
+.switch .sw-l { padding: 0 10px 0 14px; color: #B7BED6; white-space: nowrap; }
+.switch a { min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; color: #fff; text-decoration: none; }
+.switch a:hover { background: rgba(255, 255, 255, .16); }
 .switch a[aria-current="true"] { background: #fff; color: #0B1020; }
-.switch .back { color: #fff; font-weight: 500; padding: 0 14px; }
+.switch .sw-n { padding: 0 14px 0 10px; color: #fff; white-space: nowrap; font-weight: 500; }
+@media (max-width: 720px) { .switch .sw-l, .switch .sw-n { display: none; } }
 
 /* ---------- per-option structure ---------- */
 /* B: centered hero with one wide framed photo */
@@ -518,11 +519,7 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   </div>
 </footer>
 
-<nav class="switch" id="switch" aria-label="Design options">
-  <a class="back" href="./">All options</a>
-  <span>Option</span>
-  <a href="#a" data-t="a">1</a><a href="#b" data-t="b">2</a><a href="#c" data-t="c">3</a><a href="#d" data-t="d">4</a><a href="#e" data-t="e">5</a>
-</nav>
+<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="home.html#a" data-t="a" title="Layered Night">1</a><a href="home.html#b" data-t="b" title="Forest and Orange">2</a><a href="home.html#c" data-t="c" title="Airy Light">3</a><a href="home.html#d" data-t="d" title="Editorial">4</a><a href="home.html#e" data-t="e" title="Color Block">5</a><a href="column-style.html" title="Column" data-p="column">6</a><a href="maze-style.html" title="Maze" data-p="maze">7</a><span class="sw-n" id="swName"></span></nav>
 
 <script>
 (function () {
@@ -559,6 +556,8 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
     if (!/^[a-e]$/.test(t)) t = 'a';
     document.documentElement.setAttribute('data-theme', t);
     Array.prototype.forEach.call(document.querySelectorAll('#switch [data-t]'), function (a) { a.setAttribute('aria-current', String(a.getAttribute('data-t') === t)); });
+    var NAMES = { a: 'Layered Night', b: 'Forest and Orange', c: 'Airy Light', d: 'Editorial', e: 'Color Block' };
+    document.getElementById('swName').textContent = NAMES[t];
   }
   window.addEventListener('hashchange', function () { applyTheme(); window.scrollTo(0, 0); });
   applyTheme();
