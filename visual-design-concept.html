@@ -4,7 +4,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
 <style>
-/* Concept: start from the situation HR is facing. Hero answers with a course. Catalog is a scannable ledger with a sticky photo preview. Topics are one big typographic statement. One photo treatment (tinted, color on hover) unifies the stock. */
+/* Concept: the hero answers a topic with a real course. Catalog is a scannable ledger with a sticky photo preview. Topics are one typographic statement. One photo treatment (tinted, color on hover) unifies the stock. */
 :root {
   --ink: #0A1226;
   --ink-2: #566079;
@@ -63,18 +63,19 @@ section { padding-block: 96px; }
 /* hero */
 .hero { padding-block: 24px 88px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 6.2fr) minmax(0, 5.8fr); gap: 64px; align-items: center; }
-.hero h1 { margin-top: 22px; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.04; font-weight: 600; letter-spacing: -.04em; }
+.hero h1 { margin-top: 22px; font-size: clamp(32px, 3.7vw, 52px); line-height: 1.08; font-weight: 600; letter-spacing: -.04em; }
 .hero h1 em { font-style: normal; color: var(--blue); }
 .hero-sub { margin-top: 18px; max-width: 46ch; color: var(--ink-2); font-size: 16px; }
-.ask { margin-top: 36px; font-size: 13px; font-weight: 500; color: var(--ink-2); }
-.sits { margin-top: 12px; display: grid; gap: 8px; }
+.sits { margin-top: 34px; display: grid; gap: 8px; }
 .sit { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; width: 100%; text-align: left; padding: 15px 18px 15px 22px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); font-size: 16px; font-weight: 500; letter-spacing: -.01em; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.sit .n { font-size: 13px; font-weight: 400; color: var(--ink-2); margin-right: 14px; }
+.sit[aria-pressed="true"] .n { color: #B9C2DC; }
+.sit .end { display: inline-flex; align-items: center; }
 .sit i { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-style: normal; background: var(--pale); color: var(--blue); transition: background .2s ease, color .2s ease, transform .2s ease; }
 .sit:hover { border-color: var(--ink); }
 .sit[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
 .sit[aria-pressed="true"] i { background: var(--blue); color: var(--white); transform: rotate(-45deg); }
 .find { margin-top: 18px; display: flex; align-items: center; gap: 12px; max-width: 480px; }
-.find label { font-size: 13px; color: var(--ink-2); white-space: nowrap; }
 .find input { flex: 1; min-width: 0; height: 40px; border: 0; border-bottom: 1.5px solid var(--line); background: transparent; font: 400 15px var(--sans); color: var(--ink); padding: 0 2px; }
 .find input:focus-visible { outline: none; border-color: var(--blue); }
 .find button { height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--ink); color: var(--white); font: 500 14px var(--sans); cursor: pointer; }
@@ -90,7 +91,6 @@ section { padding-block: 96px; }
 .result .meta { margin-top: 6px; font-size: 13px; color: var(--ink-2); }
 .result .row { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
 .result .price { font-size: 28px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-.result .price small { font-size: 12px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; margin-left: 4px; }
 .result .btn { min-height: 40px; padding: 0 18px; font-size: 14px; }
 .fade { animation: rise .45s ease both; }
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
@@ -127,7 +127,6 @@ section { padding-block: 96px; }
 .pv-body h3 { margin-top: 6px; font-size: 24px; line-height: 1.15; font-weight: 600; }
 .pv-body .row { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .pv-body .price { font-size: 30px; font-weight: 600; letter-spacing: -.03em; }
-.pv-body .price small { font-size: 13px; font-weight: 400; color: var(--ink-2); margin-left: 4px; letter-spacing: 0; }
 .empty { padding: 48px 0; font-size: 17px; color: var(--ink-2); }
 .empty a { color: var(--blue); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
 .all { margin-top: 28px; }
@@ -149,19 +148,16 @@ section { padding-block: 96px; }
 
 /* services */
 .services { background: var(--pale); }
-.svc-head { max-width: 640px; margin-bottom: 48px; }
+.svc-head { max-width: 680px; margin-bottom: 44px; }
 .svc-head p { margin-top: 14px; color: var(--ink-2); font-size: 16px; }
-.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; }
-.svc { display: flex; flex-direction: column; background: var(--white); border-radius: 28px; overflow: hidden; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.svc { display: flex; flex-direction: column; background: var(--white); border-radius: 28px; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+.svc:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(10, 18, 38, .1); }
 .svc .pic { aspect-ratio: 16 / 10; }
-.svc-body { padding: 26px 26px 20px; }
-.svc h3 { font-size: 24px; font-weight: 600; line-height: 1.15; }
-.svc .sub { margin-top: 8px; color: var(--ink-2); }
-.srow { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: start; padding: 16px 26px; border-top: 1px solid var(--line); }
-.srow b { font-weight: 500; font-size: 16px; letter-spacing: -.01em; }
-.srow span { grid-column: 1; color: var(--ink-2); font-size: 14px; }
-.srow em { grid-column: 2; grid-row: 1; font-style: normal; font-size: 12px; font-weight: 600; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; white-space: nowrap; }
-.svc .go { padding: 18px 26px 24px; border-top: 1px solid var(--line); }
+.svc-body { padding: 24px 26px 28px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.svc h3 { font-size: 21px; font-weight: 600; line-height: 1.2; }
+.svc p { color: var(--ink-2); }
+.svc .price { margin-top: auto; padding-top: 12px; font-size: 24px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 
 /* proof */
 .proof-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 72px; align-items: center; }
@@ -208,7 +204,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   .item { grid-template-columns: 56px 70px minmax(0, 1fr) auto; }
   .item .thumb { display: block; width: 56px; height: 56px; border-radius: 12px; }
   .item .topic { display: none; }
-  .svc-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .learn-grid { grid-template-columns: 1fr 1fr; }
   .fgrid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -217,6 +213,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   .hero { padding-bottom: 56px; }
   .item { grid-template-columns: 56px minmax(0, 1fr) auto; }
   .item .code { display: none; }
+  .svc-grid { grid-template-columns: 1fr; }
   .quote { grid-template-columns: 1fr; }
   .quote .pic { max-width: 140px; }
   .stats { grid-template-columns: 1fr; }
@@ -255,14 +252,13 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="kicker">Since 1995 · Chantilly, Virginia</span>
-      <h1>Training for the <em>people side</em> of your business.</h1>
-      <p class="hero-sub">Online courses, certification and coaching for HR and learning teams. Start with what is happening on your team.</p>
-      <p class="ask" id="ask">What is going on?</p>
-      <div class="sits" id="sits" role="group" aria-labelledby="ask"></div>
+      <span class="kicker">Educating, inspiring and serving since 1995</span>
+      <h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1>
+      <p class="hero-sub">Buy online courses today, or work with us on certification, coaching and live programs.</p>
+      <div class="sits" id="sits" role="group" aria-label="Popular topics"></div>
       <form class="find" id="searchForm" role="search">
-        <label for="q">Or search all 122 listings</label>
-        <input id="q" type="search" placeholder="Course, topic or code" autocomplete="off">
+        <label for="q" style="position:absolute;left:-9999px">Search courses and programs</label>
+        <input id="q" type="search" placeholder="Search courses and programs" autocomplete="off">
         <button type="submit">Search</button>
       </form>
     </div>
@@ -289,7 +285,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     <div class="cat-head">
       <div>
         <h2>Popular online courses</h2>
-        <p>Self-paced and ready to assign. Priced per person, $30 to $99 each.</p>
+        <p>Self-paced and ready to assign. Individual courses are $30 to $99.</p>
       </div>
     </div>
     <div class="seg" id="filters" role="group" aria-label="Filter courses by topic"></div>
@@ -308,39 +304,23 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   <div class="wrap">
     <span class="kicker">Browse by topic</span>
     <p class="statement" id="statement"></p>
-    <div class="t-foot"><span>122 listings across 14 topics. The small number shows how many titles each holds.</span><a class="link" style="color:var(--white)" href="#">See all topics <span aria-hidden="true">→</span></a></div>
+    <div class="t-foot"><span></span><a class="link" style="color:var(--white)" href="#">See all topics <span aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
 <section class="services" id="services">
   <div class="wrap">
     <div class="svc-head">
-      <span class="kicker">Work with us</span>
-      <h2 style="margin-top:14px">Live training, coaching and certification</h2>
-      <p>Our motivational style energizes your people and helps them learn more about themselves and their teammates.</p>
+      <h2>Training, coaching and consulting that deliver results</h2>
+      <p>Our motivational style will energize your employees and help them learn more about themselves and their teammates.</p>
     </div>
     <div class="svc-grid">
-      <article class="svc hot">
-        <div class="pic"><img src="images/svc-classes.jpg" alt="Facilitator leading a class at a whiteboard" loading="lazy"></div>
-        <div class="svc-body"><h3>Live classes and facilitation</h3><p class="sub">Your team, in a room or online, with a facilitator.</p></div>
-        <div class="srow"><b>Classes and training facilitation</b><em>Live</em><span>Live classes and facilitated sessions for your team.</span></div>
-        <div class="srow"><b>TAG, Training Assets Gateway</b><em>Online</em><span>An eLearning library from Sollah for your whole organization.</span></div>
-        <div class="go"><a class="link" href="#">Ask about classes <span aria-hidden="true">→</span></a></div>
-      </article>
-      <article class="svc hot">
-        <div class="pic top"><img src="images/svc-exec.jpg" alt="Executive in a one-to-one coaching setting" loading="lazy"></div>
-        <div class="svc-body"><h3>Executive coaching</h3><p class="sub">Private, one-to-one work on the people side of leading.</p></div>
-        <div class="srow"><b>Executive coaching</b><em>One to one</em><span>One-to-one coaching for executives and business owners.</span></div>
-        <div class="go"><a class="link" href="#">Talk about coaching <span aria-hidden="true">→</span></a></div>
-      </article>
-      <article class="svc hot">
-        <div class="pic"><img src="images/svc-disc.jpg" alt="Workshop with participants at a table" loading="lazy"></div>
-        <div class="svc-body"><h3>Certification</h3><p class="sub">Become the person who runs the programs.</p></div>
-        <div class="srow"><b>Everything DiSC Certification</b><em>$2,495</em><span>Requires the Practitioner Experience first. Bundle price $3,995.</span></div>
-        <div class="srow"><b>The Five Behaviors Certification</b><em>$2,495</em><span>Become certified to facilitate The Five Behaviors.</span></div>
-        <div class="srow"><b>Catalyst</b><em>Platform</em><span>Wiley's online platform for delivering Everything DiSC.</span></div>
-        <div class="go"><a class="link" href="#">See certification <span aria-hidden="true">→</span></a></div>
-      </article>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-classes.jpg" alt="Facilitator leading a class at a whiteboard" loading="lazy"></div><div class="svc-body"><h3>Classes and training facilitation</h3><p>Live classes and facilitated sessions for your team.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-tag.jpg" alt="Team members working together on laptops" loading="lazy"></div><div class="svc-body"><h3>TAG, Training Assets Gateway</h3><p>An eLearning library from Sollah for your whole organization.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic top"><img src="images/svc-exec.jpg" alt="Executive in a one-to-one coaching setting" loading="lazy"></div><div class="svc-body"><h3>Executive coaching</h3><p>One-to-one coaching for executives and business owners.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-disc.jpg" alt="Workshop with participants at a table" loading="lazy"></div><div class="svc-body"><h3>Everything DiSC Certification</h3><p>Requires the Practitioner Experience first. Bundle price $3,995.</p><span class="price">$2,495</span></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-five.jpg" alt="Team collaborating in a workshop" loading="lazy"></div><div class="svc-body"><h3>The Five Behaviors Certification</h3><p>Become certified to facilitate The Five Behaviors.</p><span class="price">$2,495</span></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-catalyst.jpg" alt="Team in a meeting room" loading="lazy"></div><div class="svc-body"><h3>Catalyst</h3><p>Wiley's online platform for delivering Everything DiSC.</p></div></a>
     </div>
   </div>
 </section>
@@ -348,11 +328,9 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 <section id="about">
   <div class="wrap proof-grid">
     <div>
-      <span class="kicker">Trusted by HR teams</span>
-      <h2 style="margin-top:14px;max-width:16ch">Three decades of people-side training</h2>
-      <div class="stats">
+      <div class="stats" style="margin-top:0">
         <div class="stat"><b>1995</b><span>Serving HR and training teams since</span></div>
-        <div class="stat"><b>122</b><span>Courses, assessments, kits and books</span></div>
+        <div class="stat"><b>122</b><span>Courses, assessments, kits and books in the catalog</span></div>
         <div class="stat"><b>$30</b><span>Starting price for an online course</span></div>
       </div>
     </div>
@@ -391,7 +369,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
       <div><h4>Services</h4><ul><li><a href="#">Classes</a></li><li><a href="#">Executive coaching</a></li><li><a href="#">TAG</a></li></ul></div>
       <div><h4>Customer service</h4><ul><li><a href="#">Order help</a></li><li><a href="#">Returns</a></li><li>703-318-0838</li></ul></div>
     </div>
-    <div class="legal"><span>© Training Solutions, Inc.</span><span>Authorized partner of Wiley and Sollah. Sample photos from Unsplash.</span></div>
+    <div class="legal"><span>© Training Solutions, Inc.</span><span>Authorized partner of Wiley and Sollah</span></div>
   </div>
 </footer>
 
@@ -413,13 +391,13 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     { code: 'VP043', topic: 'Sales', title: 'Win the S.A.L.E. for Sales Professionals', price: 30, img: 'sales', alt: 'Colleagues celebrating a sale' }
   ];
   var byCode = {}; courses.forEach(function (c) { byCode[c.code] = c; });
-  // Draft situations written by Claude from the catalog. TSI should review the wording.
-  var situations = [
-    { q: 'A complaint came in about how a manager treats people', code: 'VP075' },
-    { q: 'Two people on my team have stopped talking', code: 'VP090' },
-    { q: 'A new supervisor has to start giving feedback', code: 'VP069' },
-    { q: 'Our meetings run long and decide nothing', code: 'VP037' },
-    { q: 'Everyone needs the same foundation on respect', code: 'VP078' }
+  // Hero rows use existing topics and a real course from each.
+  var featured = [
+    { topic: 'Harassment', n: 19, code: 'VP012' },
+    { topic: 'Diversity', n: 12, code: 'VP078' },
+    { topic: 'Leadership', n: 12, code: 'VP064' },
+    { topic: 'Coaching and discipline', n: 8, code: 'VP069' },
+    { topic: 'Conflict resolution', n: 5, code: 'VP090' }
   ];
   var topics = [
     ['Harassment', 19, 'Harassment'], ['Diversity', 12, 'Diversity'], ['Everything DiSC and personal development', 13, null],
@@ -436,24 +414,24 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   function img(c, extra) { return '<img src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '"' + (extra || '') + '>'; }
   function go(id) { document.getElementById(id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
 
-  /* ---- hero: situation finder ---- */
+  /* ---- hero: topic rows with a featured course ---- */
   var sits = document.getElementById('sits'), stagePic = document.getElementById('stagePic'), result = document.getElementById('result');
-  sits.innerHTML = situations.map(function (s, i) {
-    return '<button class="sit" type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '"><span>' + esc(s.q) + '</span><i aria-hidden="true">→</i></button>';
+  sits.innerHTML = featured.map(function (f, i) {
+    return '<button class="sit" type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '"><span>' + esc(f.topic) + '</span><span class="end"><span class="n">' + f.n + ' titles</span><i aria-hidden="true">→</i></span></button>';
   }).join('');
-  stagePic.innerHTML = situations.map(function (s, i) {
-    var c = byCode[s.code];
+  stagePic.innerHTML = featured.map(function (f, i) {
+    var c = byCode[f.code];
     return '<img data-i="' + i + '" class="' + (i === 0 ? 'on' : '') + '" src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '"' + (c.top ? ' style="object-position:center 18%"' : '') + '>';
   }).join('');
   stagePic.classList.add('live');
-  function pickSituation(i, user) {
+  function pickSituation(i) {
     state.sit = i;
     Array.prototype.forEach.call(sits.children, function (b, k) { b.setAttribute('aria-pressed', String(k === i)); });
     Array.prototype.forEach.call(stagePic.children, function (im, k) { im.classList.toggle('on', k === i); });
-    var c = byCode[situations[i].code];
-    result.innerHTML = '<div class="fade"><span class="tag">Start with this course</span><h3>' + esc(c.title) + '</h3><p class="meta">' + c.code + ' · ' + c.topic + ' · self-paced online course</p><div class="row"><span class="price">$' + c.price + '<small>per person</small></span><a class="btn btn-blue" href="#courses" data-code="' + c.code + '">View course</a></div></div>';
+    var c = byCode[featured[i].code];
+    result.innerHTML = '<div class="fade"><span class="tag">' + esc(featured[i].topic) + '</span><h3>' + esc(c.title) + '</h3><p class="meta">' + c.code + '</p><div class="row"><span class="price">$' + c.price + '</span><a class="btn btn-blue" href="#courses" data-code="' + c.code + '">View course</a></div></div>';
   }
-  sits.addEventListener('click', function (e) { var b = e.target.closest('.sit'); if (b) pickSituation(+b.getAttribute('data-i'), true); });
+  sits.addEventListener('click', function (e) { var b = e.target.closest('.sit'); if (b) pickSituation(+b.getAttribute('data-i')); });
   sits.addEventListener('mouseover', function (e) { var b = e.target.closest('.sit'); if (b && +b.getAttribute('data-i') !== state.sit) pickSituation(+b.getAttribute('data-i')); });
   result.addEventListener('click', function (e) { var a = e.target.closest('a[data-code]'); if (!a) return; e.preventDefault(); state.topic = 'All'; state.q = ''; document.getElementById('q').value = ''; render(); showPreview(byCode[a.getAttribute('data-code')]); go('courses'); });
   pickSituation(0);
@@ -468,7 +446,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   function showPreview(c) {
     state.hover = c.code;
     Array.prototype.forEach.call(list.querySelectorAll('.item'), function (el) { el.classList.toggle('on', el.getAttribute('data-code') === c.code); });
-    preview.innerHTML = '<div class="pic live' + (c.top ? ' top' : '') + '">' + img(c) + '</div><div class="pv-body fade"><p class="meta">' + c.code + ' · ' + c.topic + ' · self-paced</p><h3>' + esc(c.title) + '</h3><div class="row"><span class="price">$' + c.price + '<small>per person</small></span><a class="btn btn-blue" href="#">View course</a></div></div>';
+    preview.innerHTML = '<div class="pic live' + (c.top ? ' top' : '') + '">' + img(c) + '</div><div class="pv-body fade"><p class="meta">' + c.code + ' · ' + c.topic + '</p><h3>' + esc(c.title) + '</h3><div class="row"><span class="price">$' + c.price + '</span><a class="btn btn-blue" href="#">View course</a></div></div>';
   }
   function render() {
     var term = state.q.trim().toLowerCase(), shown = [];
