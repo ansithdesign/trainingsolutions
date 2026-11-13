@@ -38,6 +38,15 @@
         ],
         "createdAt": "2026-11-13T11:28:18.020Z",
         "reason": "Claude triage: false positive; detector pairs dark-mode token colors with light backgrounds. Stage cards use fixed light palettes and chrome measured passes in both schemes, not user confirmed"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "/home/user/trainingsolutions/home.html"
+        ],
+        "createdAt": "2026-11-13T11:33:26.242Z",
+        "reason": "user confirmed: picked course card C5, whose topic color bar is the design"
       }
     ]
   }
