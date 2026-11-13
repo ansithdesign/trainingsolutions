@@ -6,7 +6,7 @@
 <style>
 /* Concept: warm off-white page, near-black ink, huge light tightly tracked headlines, a lime gradient band for topics, a pixelated lime circle behind the services heading, white rounded cards with tiny outlined chips, pill buttons, a mint stats panel. Single committed look. */
 :root {
-  --tint: #BFDDF7; --bg: #F4F3EF; --ink: #1E1E1E; --mute: #66655E; --lime: #BFDDF7; --lime-2: #DCEBFA; --mint: #ABEBD8; --card: #FFFFFF; --line: rgba(30, 30, 30, .13);
+  --tint: #CFE5F9; --bg: #F4F3EF; --ink: #1E1E1E; --mute: #66655E; --lime: #CFE5F9; --lime-2: #E6F1FC; --mint: #D4E8FB; --card: #FFFFFF; --line: rgba(30, 30, 30, .13);
   --sans: 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif;
   --gutter-l: max(20px, env(safe-area-inset-left, 0px)); --gutter-r: max(20px, env(safe-area-inset-right, 0px));
   color-scheme: light;
@@ -73,7 +73,7 @@ section { padding-block: 88px; }
 .logos li:hover img { filter: none; opacity: 1; }
 
 /* topics: lime gradient band */
-.topics { background: linear-gradient(180deg, var(--bg) 0%, #DCEBFA 16%, var(--lime) 50%, #D4E7F9 84%, var(--bg) 100%); padding-block: 130px; }
+.topics { background: linear-gradient(180deg, var(--bg) 0%, #E6F1FC 16%, var(--lime) 50%, #DCEBFA 84%, var(--bg) 100%); padding-block: 130px; }
 .topics h2 { margin-bottom: 48px; }
 .tgrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .tcard { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 164px; background: var(--card); border-radius: 12px; padding: 20px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
@@ -140,7 +140,7 @@ section { padding-block: 88px; }
 
 /* cta */
 .cta { padding-block: 40px 100px; }
-.cta-panel { background: linear-gradient(180deg, #DCEBFA 0%, var(--lime) 100%); border-radius: 28px; padding: 64px 56px 48px; position: relative; overflow: hidden; }
+.cta-panel { background: linear-gradient(180deg, #E6F1FC 0%, var(--lime) 100%); border-radius: 28px; padding: 64px 56px 48px; position: relative; overflow: hidden; }
 .cta h2 { margin-top: 20px; max-width: 12ch; }
 .phone { display: block; margin-top: 44px; font-size: clamp(44px, 9.5vw, 138px); font-weight: 300; letter-spacing: -.075em; line-height: 1; padding-bottom: 22px; border-bottom: 1px solid rgba(30, 30, 30, .35); transition: border-color .3s ease; }
 .phone:hover { border-color: var(--ink); }
@@ -367,7 +367,7 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
       var edge = d > 0.86 ? (d - 0.86) / 0.26 : 0;
       if (hash(x, y) < edge * 1.05) continue;
       var s = d > 0.86 ? cell * (1 - edge * 0.55) : cell;
-      ctx.fillStyle = '#BFDDF7'; ctx.fillRect(x + (cell - s) / 2, y + (cell - s) / 2, s - 0.5, s - 0.5);
+      ctx.fillStyle = '#CFE5F9'; ctx.fillRect(x + (cell - s) / 2, y + (cell - s) / 2, s - 0.5, s - 0.5);
     }
   }
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(px, 150); });
