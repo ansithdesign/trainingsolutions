@@ -25,7 +25,7 @@ a { color: inherit; text-decoration: none; }
 h1, h2, h3 { letter-spacing: -.03em; text-wrap: balance; }
 h2 { font-size: clamp(23px, 2.55vw, 33.5px); line-height: 1.12; font-weight: 600; color: var(--ink); max-width: 20ch; }
 h2 .g { color: #6A7289; }
-.mono { font-family: var(--mono); font-size: 11px; letter-spacing: .02em; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 18px; border-radius: 8px; font: 500 12.9px var(--sans); border: 1px solid transparent; cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
 .btn:hover { transform: translateY(-1px); }
 .btn-navy { background: var(--navy); color: #fff; }
@@ -62,7 +62,7 @@ section { padding-block: 72px; }
 .hero h1 .g { color: #6A7289; }
 .hero-sub { margin-top: 20px; max-width: 42ch; color: var(--ink); font-size: 15.5px; animation: rise .8s .1s cubic-bezier(.2, .7, .2, 1) both; }
 .fcard { position: relative; width: min(360px, 100%); justify-self: end; background: rgba(255, 255, 255, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(14, 19, 48, .08); border-radius: 14px; padding: 22px 24px 24px; box-shadow: 0 1px 2px rgba(14, 19, 48, .04), 0 28px 60px rgba(14, 19, 48, .14); animation: rise .9s .25s cubic-bezier(.2, .7, .2, 1) both; }
-.fcard .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; color: var(--green); }
+.fcard .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--green); }
 .fcard .tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green-soft); }
 .fcard h3 { margin-top: 12px; font-size: 18.5px; line-height: 1.18; font-weight: 600; letter-spacing: -.03em; }
 .fcard .meta { margin-top: 6px; color: var(--ink-2); }
@@ -83,7 +83,7 @@ section { padding-block: 72px; }
 .tcard:hover { border-color: var(--ink); box-shadow: 0 14px 30px rgba(14, 19, 48, .08); transform: translateY(-3px); }
 .tcard h3 { font-size: 15.5px; font-weight: 500; line-height: 1.22; letter-spacing: -.02em; max-width: 14ch; }
 .tcard .tf { display: flex; justify-content: space-between; align-items: center; }
-.tcard .n { font-family: var(--mono); font-size: 11.5px; color: var(--green); background: #ECF7F2; padding: 3px 9px; border-radius: 6px; }
+.tcard .n { font-family: var(--mono); font-size: 12px; color: var(--green); background: #ECF7F2; padding: 3px 9px; border-radius: 6px; }
 .tcard .go { color: var(--blue); font-size: 16.5px; transition: transform .2s ease; }
 .tcard:hover .go { transform: translateX(4px); }
 .tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 142px; border: 1px dashed #B9C2D3; border-radius: 12px; padding: 18px 20px; background: var(--pale); color: var(--ink); transition: border-color .25s ease, background .25s ease; }
@@ -104,10 +104,10 @@ section { padding-block: 72px; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 22px 44px rgba(14, 19, 48, .16); }
 .card .pic { position: absolute; inset: 0; }
 .card:hover .pic img { transform: scale(1.04); }
-.card .code { position: absolute; left: 12px; top: 12px; z-index: 2; font-family: var(--mono); font-size: 11px; padding: 3px 8px; border-radius: 6px; background: rgba(255, 255, 255, .94); color: var(--ink); }
+.card .code { position: absolute; left: 12px; top: 12px; z-index: 2; font-family: var(--mono); font-size: 12px; padding: 3px 8px; border-radius: 6px; background: rgba(255, 255, 255, .94); color: var(--ink); }
 .card .pp { position: absolute; right: 12px; top: 12px; z-index: 2; background: var(--blue); color: #fff; font-size: 12.9px; font-weight: 600; padding: 4px 11px; border-radius: 6px; font-variant-numeric: tabular-nums; }
 .card .info { position: absolute; left: 8px; right: 8px; bottom: 8px; background: #fff; border-radius: 10px; padding: 14px 16px 16px; }
-.card .tp { font-family: var(--mono); font-size: 11px; color: var(--green); }
+.card .tp { font-family: var(--mono); font-size: 12px; color: var(--green); }
 .card h3 { margin-top: 4px; font-size: 15.5px; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
 
 /* stats + quote */
@@ -122,9 +122,9 @@ section { padding-block: 72px; }
 .quote .pic img { filter: none; mix-blend-mode: normal; }
 .quote p { font-size: clamp(16.5px, 1.5vw, 19.5px); line-height: 1.38; letter-spacing: -.02em; font-weight: 500; }
 .quote small { display: block; margin-top: 16px; color: var(--ink-2); font-size: 12px; }
-.quote small em { font-style: normal; font-family: var(--mono); font-size: 11px; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; white-space: nowrap; background: #fff; }
+.quote small em { font-style: normal; font-family: var(--mono); font-size: 12px; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; white-space: nowrap; background: #fff; }
 .learn { margin-top: 48px; display: grid; grid-template-columns: 1.1fr repeat(3, 1fr); gap: 28px; border-top: 1px solid var(--line); padding-top: 28px; }
-.learn h3 { font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--ink-2); letter-spacing: .01em; }
+.learn h3 { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-2); letter-spacing: .01em; }
 .learn p { margin-top: 6px; font-size: 14.5px; font-weight: 500; letter-spacing: -.015em; }
 .learn .lead { font-size: 19.5px; font-weight: 600; letter-spacing: -.035em; line-height: 1.15; margin-top: 0; }
 
@@ -159,7 +159,7 @@ section { padding-block: 72px; }
 footer { background: var(--pale); border-top: 1px solid var(--line); padding-block: 56px 32px; }
 .fgrid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; }
 .fgrid p { margin-top: 12px; color: var(--ink-2); max-width: 30ch; font-size: 12.9px; }
-.fgrid h4 { font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--ink-2); margin-bottom: 14px; }
+.fgrid h4 { font-family: var(--mono); font-size: 12px; font-weight: 400; color: var(--ink-2); margin-bottom: 14px; }
 .fgrid ul { padding: 0; } .fgrid li { list-style: none; margin-bottom: 9px; font-size: 12.9px; }
 .fgrid a:hover { color: var(--blue); }
 .legal { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
