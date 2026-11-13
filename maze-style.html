@@ -197,6 +197,12 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
   .hero h1, .hero-sub, .fcard { animation: none; }
   .tcard, .card, .svc, .btn, .pic img, .tcard .arr { transition: none; }
 }
+
+/* real product covers: contained on a light backdrop, no tint */
+.pic.prod { background: #EEF1F7; }
+.pic.prod img { mix-blend-mode: normal; filter: none; object-fit: contain; background: transparent; }
+.card .pic.prod { padding: 48px 22px 112px; }
+.hot:hover .pic.prod img { transform: scale(1.04); }
 </style>
 
 <header>
@@ -323,25 +329,25 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
 <script>
 (function () {
   var courses = [
-    { code: 'VP012', topic: 'Harassment', title: 'Harassment and Discrimination: Promoting Respect', price: 30, img: 'harassment', alt: 'Colleagues in a respectful workplace discussion' },
-    { code: 'VP075', topic: 'Harassment', title: 'Keeping Your Workplace Free from Harassment and Discrimination', price: 30, img: 'svc-tag', alt: 'Team members working together on laptops' },
-    { code: 'VP078', topic: 'Diversity', title: 'Diversity 101™', price: 30, img: 'diversity', alt: 'Diverse team looking at a laptop together' },
-    { code: 'VP064', topic: 'Leadership', title: 'Leadership 101', price: 50, img: 'leadership', alt: 'Manager presenting to a team' },
-    { code: 'VP069', topic: 'Coaching', title: 'Courage to Coach™', price: 30, img: 'coaching', alt: 'Professional in a coaching conversation', top: 1 },
-    { code: 'VP090', topic: 'Conflict', title: 'Conflict 101™', price: 30, img: 'conflict', alt: 'Colleagues working through a disagreement' },
-    { code: 'VP063', topic: 'Coaching', title: 'Coaching and Feedback Essentials', price: 50, img: 'svc-exec', alt: 'Professional giving and receiving feedback', top: 1 },
-    { code: 'VP059', topic: 'Teams', title: 'Creating a High Performing Team', price: 50, img: 'teams', alt: 'Team collaborating around a table' },
-    { code: 'VP065', topic: 'Ethics', title: 'A.C.T. with Integrity™', price: 30, img: 'ethics', alt: 'Professional in a suit on a staircase', top: 1 },
-    { code: 'VP079', topic: 'Harassment', title: 'ENOUGH!™ The Consequences of Sexual Harassment', price: 30, img: 'svc-classes', alt: 'Facilitator leading a discussion at a whiteboard' },
-    { code: 'VP037', topic: 'Meetings', title: 'Fearless Facilitation! Lead Effective Meetings', price: 30, img: 'meetings', alt: 'Team in a meeting room' },
-    { code: 'VP043', topic: 'Sales', title: 'Win the S.A.L.E. for Sales Professionals', price: 30, img: 'sales', alt: 'Colleagues celebrating a sale' }
+    { code: "D08", topic: "Team Behaviors", title: "The Five Behaviors® Team & Personal Downloadable Kits", price: "1,345", img: "prod-d08.png", alt: "Five Behaviors Team and Personal Development downloadable kit artwork" },
+    { code: "B107", topic: "DiSC/Personal Development", title: "Everything DiSC® Workplace on Catalyst", price: "90", img: "prod-b107.jpg", alt: "Sample Your DiSC Profile report cover" },
+    { code: "CER3", topic: "DiSC/Personal Development", title: "The Everything DiSC® Certification & Catalyst Practitioner Experience", price: "3,995", img: "prod-cer3.png", alt: "Catalyst Practitioner Experience certification artwork" },
+    { code: "B101", topic: "Sales", title: "Everything DiSC® Sales Profile", price: "150", img: "prod-b101.png", alt: "Sample Everything DiSC Sales Profile report cover" },
+    { code: "PI04", topic: "Interviewing", title: "PXT Select™", price: "295", img: "prod-pi04.png", alt: "Sample PXT Select report cover" },
+    { code: "FB1", topic: "Team Behaviors", title: "The Five Behaviors™ Assessment", price: "210", img: "prod-fb1.jpg", alt: "Sample Five Behaviors assessment report cover" },
+    { code: "PI01", topic: "Management", title: "CheckPoint 360 Feedback", price: "400", img: "prod-pi01.jpg", alt: "CheckPoint 360 Executive Competency Overview sample" },
+    { code: "B104", topic: "Leadership", title: "Everything DiSC® Work of Leaders™ Profile", price: "150", img: "prod-b104.jpg", alt: "Sample Work of Leaders Profile report cover" },
+    { code: "VP065", topic: "Attitudes/Ethics", title: "A.C.T.with Integrity™ (eCourse)", price: "30", img: "prod-vp065.png", alt: "A.C.T. with Integrity eCourse title slide" },
+    { code: "VP078", topic: "Diversity", title: "Diversity 101™ (eCourse)", price: "30", img: "prod-vp078.png", alt: "Diversity 101 eCourse title slide" },
+    { code: "VP069", topic: "Coaching/Discipline", title: "Courage to Coach™ (eCourse)", price: "30", img: "prod-vp069.png", alt: "Courage to Coach eCourse slide" },
+    { code: "VP064", topic: "Leadership", title: "Leadership 101 (eCourse)", price: "50", img: "prod-vp064.png", alt: "Leadership 101 eCourse title slide" }
   ];
   var topics = [['Harassment', 19], ['Diversity', 12], ['Everything DiSC and personal development', 13], ['Leadership', 12], ['Management', 12], ['Hiring and interviewing', 10], ['Coaching and discipline', 8], ['Ethics and attitude', 7], ['Teams', 7], ['Sales and customer service', 6], ['Conflict resolution', 5], ['Meetings and time management', 5], ['Communication and EQ', 4], ['Legal', 2]];
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function go(id) { document.getElementById(id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
 
-  var h = courses[0], fcard = document.getElementById('fcard');
+  var h = courses[9], fcard = document.getElementById('fcard');
   fcard.innerHTML = '<span class="chip">' + h.topic + '</span><h3>' + esc(h.title) + '</h3><p class="meta">' + h.code + '</p><div class="row"><span class="price">$' + h.price + '</span><a class="btn btn-ink" href="#courses">View course</a></div>';
   fcard.addEventListener('click', function (e) { if (e.target.closest('a')) { e.preventDefault(); go('courses'); } });
 
@@ -350,7 +356,7 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
   tgrid.addEventListener('click', function (e) { var a = e.target.closest('a.tcard'); if (a) { e.preventDefault(); go('courses'); } });
 
   var grid = document.getElementById('grid');
-  grid.innerHTML = courses.map(function (c) { return '<a class="card hot" href="#"><span class="chip code">' + c.code + '</span><span class="pp">$' + c.price + '</span><div class="pic' + (c.top ? ' top' : '') + '"><img src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '" loading="lazy"></div><div class="info"><span class="chip">' + c.topic + '</span><h3>' + esc(c.title) + '</h3></div></a>'; }).join('');
+  grid.innerHTML = courses.map(function (c) { return '<a class="card hot" href="#"><span class="chip code">' + c.code + '</span><span class="pp">$' + c.price + '</span><div class="pic' + ' prod' + '"><img src="images/' + c.img + '" alt="' + esc(c.alt) + '" loading="lazy"></div><div class="info"><span class="chip">' + c.topic + '</span><h3>' + esc(c.title) + '</h3></div></a>'; }).join('');
   grid.addEventListener('click', function (e) { if (e.target.closest('.card')) e.preventDefault(); });
 
   /* pixelated lime circle behind the services heading */
