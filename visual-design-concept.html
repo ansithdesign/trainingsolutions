@@ -65,21 +65,8 @@ section { padding-block: 96px; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 6.2fr) minmax(0, 5.8fr); gap: 64px; align-items: center; }
 .hero h1 { margin-top: 0; font-size: clamp(32px, 3.7vw, 52px); line-height: 1.08; font-weight: 600; letter-spacing: -.04em; }
 .hero h1 em { font-style: normal; color: var(--blue); }
-.hero-sub { margin-top: 18px; max-width: 46ch; color: var(--ink-2); font-size: 16px; }
-.sits { margin-top: 34px; display: grid; gap: 8px; }
-.sit { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; width: 100%; text-align: left; padding: 15px 18px 15px 22px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); font-size: 16px; font-weight: 500; letter-spacing: -.01em; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease; }
-.sit .n { font-size: 13px; font-weight: 400; color: var(--ink-2); margin-right: 14px; }
-.sit[aria-pressed="true"] .n { color: #B9C2DC; }
-.sit .end { display: inline-flex; align-items: center; }
-.sit i { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-style: normal; background: var(--pale); color: var(--blue); transition: background .2s ease, color .2s ease, transform .2s ease; }
-.sit:hover { border-color: var(--ink); }
-.sit[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
-.sit[aria-pressed="true"] i { background: var(--blue); color: var(--white); transform: rotate(-45deg); }
-.find { margin-top: 18px; display: flex; align-items: center; gap: 12px; max-width: 480px; }
-.find input { flex: 1; min-width: 0; height: 40px; border: 0; border-bottom: 1.5px solid var(--line); background: transparent; font: 400 15px var(--sans); color: var(--ink); padding: 0 2px; }
-.find input:focus-visible { outline: none; border-color: var(--blue); }
-.find button { height: 40px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--ink); color: var(--white); font: 500 14px var(--sans); cursor: pointer; }
-
+.hero-sub { margin-top: 20px; max-width: 46ch; color: var(--ink-2); font-size: 16px; }
+.hero-cta { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
 .stage { position: relative; }
 .stage .pic { aspect-ratio: 4 / 4.9; border-radius: 36px; }
 .stage .pic img { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease, filter .5s ease; }
@@ -226,12 +213,11 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   .stat { padding: 18px 0 0; }
   .bar-end .tel { display: none; }
   .cat-head { grid-template-columns: 1fr; }
-  .find { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fade { animation: none; }
-  .pic img, .item, .btn, .sit, .sit i { transition: none; }
+  .pic img, .item, .btn { transition: none; }
 }
 </style>
 
@@ -259,12 +245,6 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     <div>
       <h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1>
       <p class="hero-sub">Buy online courses today, or work with us on certification, coaching and live programs.</p>
-      <div class="sits" id="sits" role="group" aria-label="Popular topics"></div>
-      <form class="find" id="searchForm" role="search">
-        <label for="q" style="position:absolute;left:-9999px">Search courses and programs</label>
-        <input id="q" type="search" placeholder="Search courses and programs" autocomplete="off">
-        <button type="submit">Search</button>
-      </form>
     </div>
     <div class="stage">
       <div class="pic" id="stagePic"></div>
@@ -396,14 +376,6 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     { code: 'VP043', topic: 'Sales', title: 'Win the S.A.L.E. for Sales Professionals', price: 30, img: 'sales', alt: 'Colleagues celebrating a sale' }
   ];
   var byCode = {}; courses.forEach(function (c) { byCode[c.code] = c; });
-  // Hero rows use existing topics and a real course from each.
-  var featured = [
-    { topic: 'Harassment', n: 19, code: 'VP012' },
-    { topic: 'Diversity', n: 12, code: 'VP078' },
-    { topic: 'Leadership', n: 12, code: 'VP064' },
-    { topic: 'Coaching and discipline', n: 8, code: 'VP069' },
-    { topic: 'Conflict resolution', n: 5, code: 'VP090' }
-  ];
   var topics = [
     ['Harassment', 19, 'Harassment'], ['Diversity', 12, 'Diversity'], ['Everything DiSC and personal development', 13, null],
     ['Leadership', 12, 'Leadership'], ['Management', 12, null], ['Hiring and interviewing', 10, null],
@@ -412,37 +384,23 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     ['Communication and EQ', 4, null], ['Legal', 2, null]
   ];
   var filterTopics = ['All', 'Harassment', 'Diversity', 'Leadership', 'Coaching', 'Conflict', 'Teams', 'Ethics', 'Meetings', 'Sales'];
-  var state = { topic: 'All', q: '', sit: 0, hover: null };
+  var state = { topic: 'All', q: '', hover: null };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function img(c, extra) { return '<img src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '"' + (extra || '') + '>'; }
   function go(id) { document.getElementById(id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
 
-  /* ---- hero: topic rows with a featured course ---- */
-  var sits = document.getElementById('sits'), stagePic = document.getElementById('stagePic'), result = document.getElementById('result');
-  sits.innerHTML = featured.map(function (f, i) {
-    return '<button class="sit" type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '"><span>' + esc(f.topic) + '</span><span class="end"><span class="n">' + f.n + ' titles</span><i aria-hidden="true">→</i></span></button>';
-  }).join('');
-  stagePic.innerHTML = featured.map(function (f, i) {
-    var c = byCode[f.code];
-    return '<img data-i="' + i + '" class="' + (i === 0 ? 'on' : '') + '" src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '"' + (c.top ? ' style="object-position:center 18%"' : '') + '>';
-  }).join('');
+  /* ---- hero: one featured course from the catalog ---- */
+  var stagePic = document.getElementById('stagePic'), result = document.getElementById('result');
+  var hero = byCode['VP012'];
   stagePic.classList.add('live');
-  function pickSituation(i) {
-    state.sit = i;
-    Array.prototype.forEach.call(sits.children, function (b, k) { b.setAttribute('aria-pressed', String(k === i)); });
-    Array.prototype.forEach.call(stagePic.children, function (im, k) { im.classList.toggle('on', k === i); });
-    var c = byCode[featured[i].code];
-    result.innerHTML = '<div class="fade"><span class="tag">' + esc(featured[i].topic) + '</span><h3>' + esc(c.title) + '</h3><p class="meta">' + c.code + '</p><div class="row"><span class="price">$' + c.price + '</span><a class="btn btn-blue" href="#courses" data-code="' + c.code + '">View course</a></div></div>';
-  }
-  sits.addEventListener('click', function (e) { var b = e.target.closest('.sit'); if (b) pickSituation(+b.getAttribute('data-i')); });
-  sits.addEventListener('mouseover', function (e) { var b = e.target.closest('.sit'); if (b && +b.getAttribute('data-i') !== state.sit) pickSituation(+b.getAttribute('data-i')); });
-  result.addEventListener('click', function (e) { var a = e.target.closest('a[data-code]'); if (!a) return; e.preventDefault(); state.topic = 'All'; state.q = ''; document.getElementById('q').value = ''; render(); showPreview(byCode[a.getAttribute('data-code')]); go('courses'); });
-  pickSituation(0);
+  stagePic.innerHTML = '<img class="on" src="images/' + hero.img + '.jpg" alt="' + esc(hero.alt) + '">';
+  result.innerHTML = '<span class="tag">' + hero.topic + '</span><h3>' + esc(hero.title) + '</h3><p class="meta">' + hero.code + '</p><div class="row"><span class="price">$' + hero.price + '</span><a class="btn btn-blue" href="#courses" data-code="' + hero.code + '">View course</a></div>';
+  result.addEventListener('click', function (e) { var a = e.target.closest('a[data-code]'); if (!a) return; e.preventDefault(); state.topic = 'All'; render(); showPreview(byCode[a.getAttribute('data-code')]); go('courses'); });
 
   /* ---- catalog ---- */
-  var list = document.getElementById('list'), filters = document.getElementById('filters'), status = document.getElementById('status'), preview = document.getElementById('preview'), q = document.getElementById('q');
+  var list = document.getElementById('list'), filters = document.getElementById('filters'), status = document.getElementById('status'), preview = document.getElementById('preview');
   filters.innerHTML = filterTopics.map(function (f) { return '<button class="f" type="button" data-f="' + f + '" aria-pressed="' + (f === 'All') + '">' + f + '</button>'; }).join('');
   list.innerHTML = courses.map(function (c) {
     return '<a class="item hot" href="#" data-code="' + c.code + '"><div class="pic thumb' + (c.top ? ' top' : '') + '">' + img(c, ' loading="lazy"') + '</div><span class="code">' + c.code + '</span><h3>' + esc(c.title) + '</h3><span class="topic">' + c.topic + '</span><span class="price">$' + c.price + '</span></a>';
@@ -470,11 +428,9 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   list.addEventListener('mouseover', function (e) { var it = e.target.closest('.item'); if (it && it.getAttribute('data-code') !== state.hover) showPreview(byCode[it.getAttribute('data-code')]); });
   list.addEventListener('focusin', function (e) { var it = e.target.closest('.item'); if (it) showPreview(byCode[it.getAttribute('data-code')]); });
   list.addEventListener('click', function (e) {
-    if (e.target.id === 'clear') { e.preventDefault(); state.q = ''; q.value = ''; state.topic = 'All'; render(); return; }
+    if (e.target.id === 'clear') { e.preventDefault(); state.topic = 'All'; render(); return; }
     if (e.target.closest('.item')) e.preventDefault();
   });
-  q.addEventListener('input', function () { state.q = q.value; state.topic = 'All'; render(); });
-  document.getElementById('searchForm').addEventListener('submit', function (e) { e.preventDefault(); state.q = q.value; state.topic = 'All'; render(); go('courses'); });
 
   /* ---- topics statement ---- */
   document.getElementById('statement').innerHTML = topics.map(function (t, i) {
@@ -485,7 +441,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   document.getElementById('statement').addEventListener('click', function (e) {
     var a = e.target.closest('a'); if (!a) return; e.preventDefault();
     if (a.classList.contains('plain')) return;
-    state.q = ''; q.value = ''; state.topic = a.getAttribute('data-topic'); render(); go('courses');
+    state.topic = a.getAttribute('data-topic'); render(); go('courses');
   });
   render();
 })();
