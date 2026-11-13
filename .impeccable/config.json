@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "/home/user/trainingsolutions/visual-design-concept.html"
+        ],
+        "createdAt": "2026-11-13T09:41:36.033Z",
+        "reason": "Claude triage: false positive; full-bleed sections and bands get their inset from the inner .wrap (20px gutters, 18 to 96px vertical padding), not user confirmed"
+      }
+    ]
+  }
+}
