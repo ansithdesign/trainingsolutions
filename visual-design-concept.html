@@ -55,8 +55,6 @@ section { padding-block: 96px; }
 .logo i::before, .logo i::after { content: ""; position: absolute; left: 6px; right: 6px; height: 2.5px; border-radius: 2px; background: var(--white); }
 .logo i::before { top: 8px; }
 .logo i::after { top: 13.5px; right: 10px; }
-.nav { display: flex; gap: 30px; }
-.nav a:hover { color: var(--blue); }
 .bar-end { display: flex; align-items: center; gap: 18px; }
 .bar-end .tel { color: var(--ink-2); }
 
@@ -86,55 +84,53 @@ section { padding-block: 96px; }
 .trust { border-block: 1px solid var(--line); }
 .trust .wrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); align-items: center; gap: 32px; padding-block: 26px; }
 .since { font-size: 18px; font-weight: 500; letter-spacing: -.02em; line-height: 1.3; max-width: 18ch; }
-.logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.logos li { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--white); }
-.logos img { display: block; width: 100%; height: auto; }
+.logos { list-style: none; padding: 0; display: flex; align-items: center; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; }
+.logos li { display: flex; align-items: center; }
+.logos img { display: block; height: 52px; width: auto; max-width: 100%; }
 
 /* catalog */
 .cat-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-bottom: 36px; }
 .cat-head p { margin-top: 12px; color: var(--ink-2); font-size: 16px; max-width: 50ch; }
-.seg { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-.f { min-height: 36px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--ink); font: 500 14px var(--sans); cursor: pointer; }
-.f:hover { border-color: var(--ink); }
-.f[aria-pressed="true"] { background: var(--ink); color: var(--white); border-color: var(--ink); }
-.status { font-size: 13px; color: var(--ink-2); min-height: 22px; margin-block: 10px 6px; }
-.cat-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 56px; align-items: start; }
-.list { border-top: 1px solid var(--ink); }
-.item { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto auto; align-items: center; gap: 18px; padding: 18px 8px 18px 0; border-bottom: 1px solid var(--line); cursor: pointer; transition: background .2s ease, padding .2s ease; }
-.item[hidden] { display: none; }
-.item .code { font-size: 12px; font-weight: 500; color: var(--ink-2); letter-spacing: .06em; }
-.item h3 { font-size: 18px; font-weight: 500; line-height: 1.28; letter-spacing: -.02em; }
-.item .topic { font-size: 12px; font-weight: 500; color: var(--blue); background: var(--pale); padding: 3px 12px; border-radius: 999px; }
-.item .price { font-size: 20px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; min-width: 44px; text-align: right; }
-.item .thumb { display: none; }
-.item:hover, .item.on { background: var(--pale); padding-left: 14px; }
-.item.on h3 { color: var(--blue); }
-.preview { position: sticky; top: 24px; }
-.preview .pic { aspect-ratio: 4 / 3.4; border-radius: 28px; }
-.preview .pic img { position: absolute; inset: 0; }
-.pv-body { padding: 22px 6px 0; }
-.pv-body .meta { font-size: 13px; color: var(--ink-2); }
-.pv-body h3 { margin-top: 6px; font-size: 24px; line-height: 1.15; font-weight: 600; }
-.pv-body .row { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.pv-body .price { font-size: 30px; font-weight: 600; letter-spacing: -.03em; }
-.empty { padding: 48px 0; font-size: 17px; color: var(--ink-2); }
-.empty a { color: var(--blue); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
 .all { margin-top: 28px; }
 .link { display: inline-flex; gap: 8px; font-weight: 500; color: var(--blue); }
 .link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* course cards */
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.card { display: flex; flex-direction: column; padding: 10px; background: var(--white); border: 1px solid var(--line); border-radius: 26px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(10, 18, 38, .12); border-color: transparent; }
+.card[hidden] { display: none; }
+.card .pic { aspect-ratio: 16 / 10; border-radius: 18px; }
+.card:hover .pic img { transform: scale(1.04); }
+.card .body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; padding: 16px 10px 8px; }
+.meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--ink-2); letter-spacing: .04em; }
+.meta .topic { font-size: 12px; letter-spacing: 0; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; }
+.card h3 { margin-top: 12px; font-size: 18px; font-weight: 500; line-height: 1.28; letter-spacing: -.02em; }
+.foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.price { font-size: 26px; font-weight: 600; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.go { min-height: 38px; padding: 0 14px 0 16px; font-size: 13px; }
+.go i { font-style: normal; display: inline-flex; width: 22px; height: 22px; border-radius: 50%; align-items: center; justify-content: center; background: var(--pale); color: var(--blue); transition: transform .25s ease, background .25s ease, color .25s ease; }
+.card:hover .go { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.card:hover .go i { background: rgba(255, 255, 255, .22); color: var(--white); transform: rotate(-45deg); }
 
 /* topics: one statement */
 .topics { background: var(--ink); color: var(--white); }
 .topics .kicker { color: var(--on-ink); }
 .topics .kicker::before { background: var(--amber); }
-.statement { margin-top: 24px; font-size: clamp(24px, 2.9vw, 40px); line-height: 1.3; font-weight: 500; letter-spacing: -.03em; color: #5B6685; max-width: 980px; }
-.statement a { color: var(--white); position: relative; transition: color .2s ease; }
-.statement a sup { font-size: .32em; font-weight: 600; letter-spacing: 0; color: var(--amber); margin-left: 3px; vertical-align: super; }
-.statement a:hover { color: var(--blue-hover, #7FA2FF); }
-.statement a.plain { cursor: default; }
-.statement a.plain:hover { color: var(--white); }
-.statement .dim { color: #5B6685; }
-.t-foot { margin-top: 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; color: var(--on-ink); font-size: 14px; }
+.topics h2 { margin-bottom: 40px; }
+.tgrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.tcard { display: flex; flex-direction: column; background: var(--white); color: var(--ink); border-radius: 22px; padding: 8px; transition: transform .25s ease, box-shadow .25s ease; }
+.tcard:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0, 0, 0, .35); }
+.tcard .pic { aspect-ratio: 16 / 10; border-radius: 15px; }
+.tcard:hover .pic img { transform: scale(1.05); }
+.tcard .tb { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; padding: 14px 8px 8px; flex: 1; }
+.tcard h3 { font-size: 16px; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; }
+.tcard .n { align-self: flex-start; font-size: 12px; font-weight: 500; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; }
+.tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 22px; padding: 22px; color: var(--white); transition: background .25s ease, border-color .25s ease; }
+.tmore:hover { background: var(--blue); border-color: var(--blue); }
+.tmore span { font-size: 20px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
+.tmore i { font-style: normal; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; transition: transform .25s ease; }
+.tmore:hover i { transform: rotate(-45deg); }
 
 /* services */
 .services { background: var(--pale); }
@@ -156,10 +152,11 @@ section { padding-block: 96px; }
 .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
 .stat b { display: block; font-size: clamp(40px, 4.6vw, 64px); font-weight: 600; letter-spacing: -.045em; line-height: 1; }
 .stat span { display: block; margin-top: 10px; color: var(--ink-2); font-size: 14px; max-width: 18ch; }
-.quote { display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: center; border: 1px dashed rgba(10, 18, 38, .28); border-radius: 28px; padding: 22px; }
+.quote { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center; border: 1px solid var(--line); border-radius: 28px; padding: 22px; background: var(--white); }
 .quote .pic { aspect-ratio: 1; border-radius: 20px; }
-.quote p { font-size: clamp(19px, 1.9vw, 25px); line-height: 1.3; letter-spacing: -.025em; font-weight: 500; }
-.quote small { display: block; margin-top: 12px; color: var(--ink-2); font-size: 14px; }
+.quote p { font-size: clamp(18px, 1.7vw, 23px); line-height: 1.35; letter-spacing: -.02em; font-weight: 500; }
+.quote small { display: block; margin-top: 14px; color: var(--ink-2); font-size: 14px; }
+.quote small em { font-style: normal; font-size: 11px; font-weight: 500; margin-left: 8px; padding: 2px 9px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
 .learn { border-top: 1px solid var(--line); padding-block: 56px; }
 .learn-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 32px; }
 .learn h3 { font-size: 13px; font-weight: 500; color: var(--ink-2); }
@@ -186,26 +183,22 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 .legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); color: var(--on-ink); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
 @media (max-width: 1080px) {
-  .nav { display: none; }
-  .hero-grid, .cat-grid, .proof-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-grid, .proof-grid { grid-template-columns: 1fr; gap: 40px; }
   .trust .wrap { grid-template-columns: 1fr; gap: 18px; }
   .stage { max-width: 560px; }
   .result { left: 16px; }
-  .preview { display: none; }
-  .item { grid-template-columns: 56px 70px minmax(0, 1fr) auto; }
-  .item .thumb { display: block; width: 56px; height: 56px; border-radius: 12px; }
-  .item .topic { display: none; }
-  .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid, .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .learn-grid { grid-template-columns: 1fr 1fr; }
   .fgrid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   section { padding-block: 64px; }
   .hero { padding-bottom: 56px; }
-  .item { grid-template-columns: 56px minmax(0, 1fr) auto; }
-  .item .code { display: none; }
-  .svc-grid { grid-template-columns: 1fr; }
-  .logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid, .svc-grid { grid-template-columns: 1fr; }
+  .tgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .logos { justify-content: flex-start; }
+  .logos img { height: 44px; }
   .quote { grid-template-columns: 1fr; }
   .quote .pic { max-width: 140px; }
   .stats { grid-template-columns: 1fr; }
@@ -217,7 +210,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fade { animation: none; }
-  .pic img, .item, .btn { transition: none; }
+  .pic img, .card, .btn { transition: none; }
 }
 </style>
 
@@ -225,12 +218,6 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   <div class="wrap">
     <div class="bar">
       <a class="logo" href="#"><i></i>Training Solutions</a>
-      <nav class="nav" aria-label="Main">
-        <a href="#topics">Topics</a>
-        <a href="#courses">Online courses</a>
-        <a href="#services">Live training and coaching</a>
-        <a href="#about">About</a>
-      </nav>
       <div class="bar-end">
         <span class="tel">703-318-0838</span>
         <a class="btn btn-line" href="#">Cart (0)</a>
@@ -256,11 +243,11 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 <div class="trust">
   <div class="wrap">
     <p class="since">Educating, inspiring and serving since 1995</p>
-    <ul class="logos" aria-label="Authorized partners">
-      <li><img src="images/partner-everything-disc.png" alt="Everything DiSC, a Wiley brand. Authorized partner" width="330" height="160"></li>
-      <li><img src="images/partner-pxt-select.png" alt="PXT Select, a Wiley brand. Authorized partner" width="330" height="160"></li>
-      <li><img src="images/partner-five-behaviors.png" alt="The Five Behaviors, a Wiley brand. Authorized partner" width="330" height="160"></li>
-      <li><img src="images/partner-sollah.png" alt="Sollah Interactive, LLC. Authorized distributor" width="330" height="160"></li>
+    <ul class="logos" aria-label="Partners">
+      <li><img src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"></li>
+      <li><img src="images/logo-pxt-select.png" alt="PXT Select, a Wiley brand"></li>
+      <li><img src="images/logo-five-behaviors.png" alt="The Five Behaviors, a Wiley brand"></li>
+      <li><img src="images/logo-sollah.png" alt="Sollah Interactive, LLC"></li>
     </ul>
   </div>
 </div>
@@ -273,23 +260,15 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
         <p>Self-paced and ready to assign. Individual courses are $30 to $99.</p>
       </div>
     </div>
-    <div class="seg" id="filters" role="group" aria-label="Filter courses by topic"></div>
-    <div class="status" id="status" aria-live="polite"></div>
-    <div class="cat-grid">
-      <div>
-        <div class="list" id="list"></div>
-        <div class="all"><a class="link" href="#">See all online courses <span aria-hidden="true">→</span></a></div>
-      </div>
-      <aside class="preview" id="preview" aria-live="polite"></aside>
-    </div>
+    <div class="grid" id="grid"></div>
+    <div class="all" style="text-align:center;margin-top:36px"><a class="link" href="#">See all online courses <span aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
 <section class="topics on-ink" id="topics">
   <div class="wrap">
-    <span class="kicker">Browse by topic</span>
-    <p class="statement" id="statement"></p>
-    <div class="t-foot"><span></span><a class="link" style="color:var(--white)" href="#">See all topics <span aria-hidden="true">→</span></a></div>
+    <h2>Browse by topic</h2>
+    <div class="tgrid" id="tgrid"></div>
   </div>
 </section>
 
@@ -321,7 +300,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     </div>
     <div class="quote">
       <div class="pic top"><img src="images/portrait.jpg" alt="Portrait of a smiling HR professional (sample photo, replace with the customer)" loading="lazy"></div>
-      <div><p>[Customer quote from an HR or L&amp;D buyer]</p><small>[Name, role, company]</small></div>
+      <div><p>&ldquo;Assigning the course takes minutes, and I can see who has finished and their scores without chasing anyone. At $30 a person, it was an easy decision.&rdquo;</p><small>Director of Human Resources, regional healthcare provider <em>Sample quote</em></small></div>
     </div>
   </div>
 </section>
@@ -383,8 +362,6 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     ['Sales and customer service', 6, 'Sales'], ['Conflict resolution', 5, 'Conflict'], ['Meetings and time management', 5, 'Meetings'],
     ['Communication and EQ', 4, null], ['Legal', 2, null]
   ];
-  var filterTopics = ['All', 'Harassment', 'Diversity', 'Leadership', 'Coaching', 'Conflict', 'Teams', 'Ethics', 'Meetings', 'Sales'];
-  var state = { topic: 'All', q: '', hover: null };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -397,52 +374,36 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   stagePic.classList.add('live');
   stagePic.innerHTML = '<img class="on" src="images/' + hero.img + '.jpg" alt="' + esc(hero.alt) + '">';
   result.innerHTML = '<span class="tag">' + hero.topic + '</span><h3>' + esc(hero.title) + '</h3><p class="meta">' + hero.code + '</p><div class="row"><span class="price">$' + hero.price + '</span><a class="btn btn-blue" href="#courses" data-code="' + hero.code + '">View course</a></div>';
-  result.addEventListener('click', function (e) { var a = e.target.closest('a[data-code]'); if (!a) return; e.preventDefault(); state.topic = 'All'; render(); showPreview(byCode[a.getAttribute('data-code')]); go('courses'); });
+  result.addEventListener('click', function (e) { var a = e.target.closest('a[data-code]'); if (!a) return; e.preventDefault(); go('courses'); });
 
-  /* ---- catalog ---- */
-  var list = document.getElementById('list'), filters = document.getElementById('filters'), status = document.getElementById('status'), preview = document.getElementById('preview');
-  filters.innerHTML = filterTopics.map(function (f) { return '<button class="f" type="button" data-f="' + f + '" aria-pressed="' + (f === 'All') + '">' + f + '</button>'; }).join('');
-  list.innerHTML = courses.map(function (c) {
-    return '<a class="item hot" href="#" data-code="' + c.code + '"><div class="pic thumb' + (c.top ? ' top' : '') + '">' + img(c, ' loading="lazy"') + '</div><span class="code">' + c.code + '</span><h3>' + esc(c.title) + '</h3><span class="topic">' + c.topic + '</span><span class="price">$' + c.price + '</span></a>';
-  }).join('') + '<p class="empty" id="empty" hidden>No course matches that yet. <a href="#" id="clear">Show all courses</a>, or call 703-318-0838.</p>';
-
-  function showPreview(c) {
-    state.hover = c.code;
-    Array.prototype.forEach.call(list.querySelectorAll('.item'), function (el) { el.classList.toggle('on', el.getAttribute('data-code') === c.code); });
-    preview.innerHTML = '<div class="pic live' + (c.top ? ' top' : '') + '">' + img(c) + '</div><div class="pv-body fade"><p class="meta">' + c.code + ' · ' + c.topic + '</p><h3>' + esc(c.title) + '</h3><div class="row"><span class="price">$' + c.price + '</span><a class="btn btn-blue" href="#">View course</a></div></div>';
-  }
-  function render() {
-    var term = state.q.trim().toLowerCase(), shown = [];
-    Array.prototype.forEach.call(list.querySelectorAll('.item'), function (el) {
-      var c = byCode[el.getAttribute('data-code')];
-      var ok = (state.topic === 'All' || c.topic === state.topic) && (!term || (c.title + ' ' + c.topic + ' ' + c.code).toLowerCase().indexOf(term) > -1);
-      el.hidden = !ok; if (ok) shown.push(c);
-    });
-    document.getElementById('empty').hidden = shown.length !== 0;
-    Array.prototype.forEach.call(filters.children, function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === state.topic)); });
-    status.textContent = (state.topic !== 'All' || term) ? 'Showing ' + shown.length + ' of ' + courses.length + ' popular courses' : '';
-    if (shown.length) { if (!state.hover || !shown.some(function (c) { return c.code === state.hover; })) showPreview(shown[0]); }
-    else preview.innerHTML = '';
-  }
-  filters.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { state.topic = b.getAttribute('data-f'); render(); } });
-  list.addEventListener('mouseover', function (e) { var it = e.target.closest('.item'); if (it && it.getAttribute('data-code') !== state.hover) showPreview(byCode[it.getAttribute('data-code')]); });
-  list.addEventListener('focusin', function (e) { var it = e.target.closest('.item'); if (it) showPreview(byCode[it.getAttribute('data-code')]); });
-  list.addEventListener('click', function (e) {
-    if (e.target.id === 'clear') { e.preventDefault(); state.topic = 'All'; render(); return; }
-    if (e.target.closest('.item')) e.preventDefault();
-  });
-
-  /* ---- topics statement ---- */
-  document.getElementById('statement').innerHTML = topics.map(function (t, i) {
-    var sep = i === topics.length - 1 ? '.' : ', ';
-    var inner = esc(t[0]) + '<sup>' + t[1] + '</sup>';
-    return t[2] ? '<a href="#courses" data-topic="' + t[2] + '">' + inner + '</a><span class="dim">' + sep + '</span>' : '<a class="plain" href="#topics" tabindex="-1">' + inner + '</a><span class="dim">' + sep + '</span>';
+  /* ---- catalog: card grid ---- */
+  var grid = document.getElementById('grid');
+  grid.innerHTML = courses.map(function (c) {
+    return '<a class="card hot" href="#" data-code="' + c.code + '"><div class="pic' + (c.top ? ' top' : '') + '">' + img(c, ' loading="lazy"') + '</div><div class="body"><div><div class="meta"><span>' + c.code + '</span><span class="topic">' + c.topic + '</span></div><h3>' + esc(c.title) + '</h3></div><div class="foot"><span class="price">$' + c.price + '</span><span class="btn btn-line go">View course <i aria-hidden="true">→</i></span></div></div></a>';
   }).join('');
-  document.getElementById('statement').addEventListener('click', function (e) {
-    var a = e.target.closest('a'); if (!a) return; e.preventDefault();
-    if (a.classList.contains('plain')) return;
-    state.topic = a.getAttribute('data-topic'); render(); go('courses');
-  });
-  render();
+  grid.addEventListener('click', function (e) { if (e.target.closest('.card')) e.preventDefault(); });
+
+  /* ---- topic cards ---- */
+  var topicPics = {
+    'Harassment': ['harassment', 'Colleagues in a respectful workplace discussion'],
+    'Diversity': ['diversity', 'Diverse team looking at a laptop together'],
+    'Everything DiSC and personal development': ['svc-disc', 'Workshop with participants at a table'],
+    'Leadership': ['leadership', 'Manager presenting to a team'],
+    'Management': ['svc-exec', 'Manager in a one-to-one conversation', 1],
+    'Hiring and interviewing': ['portrait', 'Smiling professional at an interview', 1],
+    'Coaching and discipline': ['coaching', 'Professional in a coaching conversation', 1],
+    'Ethics and attitude': ['ethics', 'Professional in a suit on a staircase', 1],
+    'Teams': ['teams', 'Team collaborating around a table'],
+    'Sales and customer service': ['sales', 'Colleagues celebrating a sale'],
+    'Conflict resolution': ['conflict', 'Colleagues working through a disagreement'],
+    'Meetings and time management': ['meetings', 'Team in a meeting room'],
+    'Communication and EQ': ['svc-classes', 'Facilitator leading a discussion at a whiteboard'],
+    'Legal': ['svc-catalyst', 'Quiet office corridor']
+  };
+  document.getElementById('tgrid').innerHTML = topics.map(function (t) {
+    var pc = topicPics[t[0]];
+    return '<a class="tcard hot" href="#courses"><div class="pic' + (pc[2] ? ' top' : '') + '"><img src="images/' + pc[0] + '.jpg" alt="' + esc(pc[1]) + '" loading="lazy"></div><div class="tb"><h3>' + esc(t[0]) + '</h3><span class="n">' + t[1] + ' titles</span></div></a>';
+  }).join('') + '<a class="tmore" href="#"><span>See all topics</span><i aria-hidden="true">→</i></a>';
+  document.getElementById('tgrid').addEventListener('click', function (e) { var a = e.target.closest('a.tcard'); if (a) { e.preventDefault(); go('courses'); } });
 })();
 </script>
