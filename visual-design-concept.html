@@ -125,14 +125,15 @@ h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 500; }
 .topics { background: var(--ink); color: var(--white); padding-bottom: calc(var(--sheet) + 96px); }
 .topics h2 { margin-bottom: 40px; }
 .tgrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
-.tcard { display: flex; flex-direction: column; background: var(--white); color: var(--ink); border-radius: 24px; padding: 8px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
-.tcard:hover { transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 22px 44px rgba(0, 0, 0, .4); }
-.tcard .pic { aspect-ratio: 16 / 10; border-radius: 17px; }
-.tcard:hover .pic img { transform: scale(1.06); }
-.tcard .tb { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; padding: 14px 8px 8px; flex: 1; }
-.tcard h3 { font-size: 16px; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; }
-.tcard .n { align-self: flex-start; font-size: 12px; font-weight: 500; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; }
-.tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 24px; padding: 22px; transition: background .3s ease, border-color .3s ease; }
+.tcard { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; min-height: 148px; background: var(--white); color: var(--ink); border-radius: 24px; padding: 20px 20px 18px 22px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, background .3s ease, color .3s ease; }
+.tcard:hover { transform: translateY(-5px); box-shadow: 0 22px 44px rgba(0, 0, 0, .4); background: var(--blue); color: var(--white); }
+.tcard h3 { font-size: 18px; font-weight: 500; line-height: 1.22; letter-spacing: -.025em; max-width: 14ch; }
+.tcard .tf { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tcard .n { font-size: 12px; font-weight: 500; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; transition: background .3s ease, color .3s ease; }
+.tcard:hover .n { background: rgba(255, 255, 255, .22); color: var(--white); }
+.tcard i { font-style: normal; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--white); display: inline-flex; align-items: center; justify-content: center; transition: transform .3s ease, background .3s ease, color .3s ease; }
+.tcard:hover i { transform: rotate(-45deg); background: var(--white); color: var(--blue); }
+.tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 148px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 24px; padding: 22px; transition: background .3s ease, border-color .3s ease; }
 .tmore:hover { background: var(--blue); border-color: var(--blue); }
 .tmore span { font-size: 20px; font-weight: 500; letter-spacing: -.03em; line-height: 1.2; }
 .tmore i { font-style: normal; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; transition: transform .3s ease; }
@@ -396,27 +397,10 @@ footer { background: var(--ink); color: var(--white); padding-block: 72px 32px; 
   }).join('');
   grid.addEventListener('click', function (e) { if (e.target.closest('.card')) e.preventDefault(); });
 
-  /* topic cards */
-  var topicPics = {
-    'Harassment': ['harassment', 'Colleagues in a respectful workplace discussion'],
-    'Diversity': ['diversity', 'Diverse team looking at a laptop together'],
-    'Everything DiSC and personal development': ['svc-disc', 'Workshop with participants at a table'],
-    'Leadership': ['leadership', 'Manager presenting to a team'],
-    'Management': ['svc-exec', 'Manager in a one-to-one conversation', 1],
-    'Hiring and interviewing': ['portrait', 'Smiling professional at an interview', 1],
-    'Coaching and discipline': ['coaching', 'Professional in a coaching conversation', 1],
-    'Ethics and attitude': ['ethics', 'Professional in a suit on a staircase', 1],
-    'Teams': ['teams', 'Team collaborating around a table'],
-    'Sales and customer service': ['sales', 'Colleagues celebrating a sale'],
-    'Conflict resolution': ['conflict', 'Colleagues working through a disagreement'],
-    'Meetings and time management': ['meetings', 'Team in a meeting room'],
-    'Communication and EQ': ['svc-classes', 'Facilitator leading a discussion at a whiteboard'],
-    'Legal': ['svc-catalyst', 'Quiet office corridor']
-  };
+  /* topic cards: text only */
   var tgrid = document.getElementById('tgrid');
   tgrid.innerHTML = topics.map(function (t) {
-    var pc = topicPics[t[0]];
-    return '<a class="tcard hot" href="#courses"><div class="pic' + (pc[2] ? ' top' : '') + '"><img src="images/' + pc[0] + '.jpg" alt="' + esc(pc[1]) + '" loading="lazy"></div><div class="tb"><h3>' + esc(t[0]) + '</h3><span class="n">' + t[1] + ' titles</span></div></a>';
+    return '<a class="tcard" href="#courses"><h3>' + esc(t[0]) + '</h3><div class="tf"><span class="n">' + t[1] + ' titles</span><i aria-hidden="true">→</i></div></a>';
   }).join('') + '<a class="tmore" href="#"><span>See all topics</span><i aria-hidden="true">→</i></a>';
   tgrid.addEventListener('click', function (e) { var a = e.target.closest('a.tcard'); if (a) { e.preventDefault(); go('courses'); } });
 })();

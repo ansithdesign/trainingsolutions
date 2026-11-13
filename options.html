@@ -1,0 +1,200 @@
+<title>Homepage Options</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Options sheet: five complete directions for the same homepage, each with a hero shot, four detail shots, palette, feel and trade-off. */
+:root {
+  --bg: #F5F6FA; --card: #FFFFFF; --ink: #0B1020; --ink-2: #566079; --line: rgba(11, 16, 32, .12); --accent: #2447F5; --accent-ink: #FFFFFF; --chip: #EEF0F8;
+  --sans: 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif;
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0B0E1A; --card: #131829; --ink: #F1F3FA; --ink-2: #A3ACC8; --line: rgba(255, 255, 255, .14); --accent: #7F9BFF; --accent-ink: #0B1020; --chip: #1C2236; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0B0E1A; --card: #131829; --ink: #F1F3FA; --ink-2: #A3ACC8; --line: rgba(255, 255, 255, .14); --accent: #7F9BFF; --accent-ink: #0B1020; --chip: #1C2236; color-scheme: dark; }
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; padding-left: var(--gutter-l); padding-right: var(--gutter-r); padding-block: 48px 96px; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.page { max-width: 1240px; margin-inline: auto; }
+h1 { font-size: clamp(32px, 4.2vw, 56px); line-height: 1.05; font-weight: 500; letter-spacing: -.045em; max-width: 16ch; }
+.lead { margin-top: 18px; max-width: 62ch; color: var(--ink-2); font-size: 17px; }
+.top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; }
+.rec { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 20px 24px; max-width: 360px; }
+.rec b { display: block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.rec p { margin-top: 8px; color: var(--ink); }
+.glance { margin-top: 44px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.g { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 8px 8px 12px; transition: transform .25s ease, box-shadow .25s ease; }
+.g:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(11, 16, 32, .14); }
+.g img { display: block; width: 100%; aspect-ratio: 16 / 11; object-fit: cover; object-position: top; border-radius: 12px; border: 1px solid var(--line); }
+.g span { display: flex; gap: 8px; align-items: center; margin-top: 10px; padding-inline: 4px; font-weight: 500; font-size: 14px; }
+.g span i { font-style: normal; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: var(--bg); font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; }
+.opt { margin-top: 88px; scroll-margin-top: 24px; }
+.opt-head { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 22px; }
+.opt-head .no { font-size: 14px; font-weight: 600; color: var(--accent); }
+.opt-head h2 { font-size: clamp(26px, 2.6vw, 36px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
+.opt-head p { color: var(--ink-2); font-size: 16px; flex-basis: 100%; max-width: 70ch; }
+.opt-body { display: grid; grid-template-columns: minmax(0, 7.4fr) minmax(0, 4.6fr); gap: 36px; align-items: start; }
+.shot { display: block; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--card); box-shadow: 0 20px 50px rgba(11, 16, 32, .1); }
+.shot img { display: block; width: 100%; height: auto; transition: transform .6s ease; }
+.shot:hover img { transform: scale(1.015); }
+.thumbs { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.thumbs figure { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.thumbs img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
+.thumbs figcaption { padding: 6px 10px 8px; font-size: 12px; color: var(--ink-2); }
+.notes { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 26px 26px 24px; position: sticky; top: 24px; }
+.notes h3 { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 10px; }
+.notes section + section { margin-top: 22px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; background: var(--chip); font-size: 12px; font-weight: 500; }
+.chip i { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--line); }
+.notes p { color: var(--ink); }
+.notes .tradeoff p { color: var(--ink); }
+.open { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; font-weight: 500; font-size: 14px; border: 1px solid var(--line); transition: transform .2s ease, background .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.foot-note { margin-top: 96px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--ink-2); max-width: 70ch; }
+@media (max-width: 1080px) {
+  .opt-body { grid-template-columns: 1fr; }
+  .notes { position: static; }
+  .glance { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .top { grid-template-columns: 1fr; }
+  .rec { max-width: none; }
+}
+@media (max-width: 640px) {
+  .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .opt { margin-top: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .g, .shot img, .btn { transition: none; } }
+</style>
+
+<div class="page">
+  <div class="top">
+    <div>
+      <h1>Five directions for the homepage</h1>
+      <p class="lead">Same copy, courses, photos and structure in all five. Only the look and feel changes. Open any option as the full working page and flip between them with the switcher at the bottom.</p>
+    </div>
+    <div class="rec">
+      <b>My pick</b>
+      <p>Option 1 for the strongest identity. Option 3 if the client wants the safest, calmest read. I would not lead with 4 or 5 for compliance buyers.</p>
+    </div>
+  </div>
+
+  <nav class="glance" aria-label="Options at a glance">
+    <a class="g" href="#o1"><img src="images/opt-a-hero.jpg" alt="Option 1 preview"><span><i>1</i>Layered Night</span></a>
+    <a class="g" href="#o2"><img src="images/opt-b-hero.jpg" alt="Option 2 preview"><span><i>2</i>Forest and Orange</span></a>
+    <a class="g" href="#o3"><img src="images/opt-c-hero.jpg" alt="Option 3 preview"><span><i>3</i>Airy Light</span></a>
+    <a class="g" href="#o4"><img src="images/opt-d-hero.jpg" alt="Option 4 preview"><span><i>4</i>Editorial</span></a>
+    <a class="g" href="#o5"><img src="images/opt-e-hero.jpg" alt="Option 5 preview"><span><i>5</i>Color Block</span></a>
+  </nav>
+
+  <article class="opt" id="o1">
+    <header class="opt-head"><span class="no">Option 1</span><h2>Layered Night</h2><p>A dark rounded hero with a collage of arch, circle and pill photos. Sections slide over each other like sheets as you scroll.</p></header>
+    <div class="opt-body">
+      <div>
+        <a class="shot" href="home.html#a"><img src="images/opt-a-hero.jpg" alt="Option 1 hero: dark rounded panel with photo collage and a featured course card"></a>
+        <div class="thumbs">
+          <figure><img src="images/opt-a-topics.jpg" alt="Option 1 topic cards"><figcaption>Topics</figcaption></figure>
+          <figure><img src="images/opt-a-courses.jpg" alt="Option 1 course cards"><figcaption>Courses</figcaption></figure>
+          <figure><img src="images/opt-a-services.jpg" alt="Option 1 services"><figcaption>Services</figcaption></figure>
+          <figure><img src="images/opt-a-proof.jpg" alt="Option 1 proof and quote"><figcaption>Proof</figcaption></figure>
+        </div>
+      </div>
+      <aside class="notes">
+        <section><h3>Palette</h3><div class="chips"><span class="chip"><i style="background:#0B1020"></i>#0B1020 ink</span><span class="chip"><i style="background:#2447F5"></i>#2447F5 blue</span><span class="chip"><i style="background:#FFB020"></i>#FFB020 amber</span><span class="chip"><i style="background:#F3F5FF"></i>#F3F5FF pale</span></div></section>
+        <section><h3>Feels</h3><p>Confident and modern, like a premium learning platform. The photo shapes and rotating 1995 badge give it personality.</p></section>
+        <section class="tradeoff"><h3>Trade-off</h3><p>The most distinctive, and also the busiest hero. A dark opening reads more tech than HR, so it needs warm photography to balance it.</p></section>
+        <div class="open"><a class="btn primary" href="home.html#a">Open option 1</a></div>
+      </aside>
+    </div>
+  </article>
+
+  <article class="opt" id="o2">
+    <header class="opt-head"><span class="no">Option 2</span><h2>Forest and Orange</h2><p>Deep green and warm orange on peach. A centered headline over one wide framed photo, with an orange call to action.</p></header>
+    <div class="opt-body">
+      <div>
+        <a class="shot" href="home.html#b"><img src="images/opt-b-hero.jpg" alt="Option 2 hero: forest green with centered headline and a wide framed photo"></a>
+        <div class="thumbs">
+          <figure><img src="images/opt-b-topics.jpg" alt="Option 2 topic cards"><figcaption>Topics</figcaption></figure>
+          <figure><img src="images/opt-b-courses.jpg" alt="Option 2 course cards"><figcaption>Courses</figcaption></figure>
+          <figure><img src="images/opt-b-services.jpg" alt="Option 2 services"><figcaption>Services</figcaption></figure>
+          <figure><img src="images/opt-b-proof.jpg" alt="Option 2 proof and quote"><figcaption>Proof</figcaption></figure>
+        </div>
+      </div>
+      <aside class="notes">
+        <section><h3>Palette</h3><div class="chips"><span class="chip"><i style="background:#04372F"></i>#04372F forest</span><span class="chip"><i style="background:#F8861E"></i>#F8861E orange</span><span class="chip"><i style="background:#FFF4EA"></i>#FFF4EA peach</span><span class="chip"><i style="background:#FFD9B3"></i>#FFD9B3 photo tint</span></div></section>
+        <section><h3>Feels</h3><p>Warm, human and approachable. Photos take a soft sepia tint that sits well with the orange.</p></section>
+        <section class="tradeoff"><h3>Trade-off</h3><p>Friendliest of the five, but it leans toward consumer education. Less compliance gravity for buyers purchasing harassment and ethics training.</p></section>
+        <div class="open"><a class="btn primary" href="home.html#b">Open option 2</a></div>
+      </aside>
+    </div>
+  </article>
+
+  <article class="opt" id="o3">
+    <header class="opt-head"><span class="no">Option 3</span><h2>Airy Light</h2><p>White canvas, pale blue panels and light two-tone type. Flat sections, soft shadows and a single blue.</p></header>
+    <div class="opt-body">
+      <div>
+        <a class="shot" href="home.html#c"><img src="images/opt-c-hero.jpg" alt="Option 3 hero: white page with photo collage and featured course card"></a>
+        <div class="thumbs">
+          <figure><img src="images/opt-c-topics.jpg" alt="Option 3 topic cards"><figcaption>Topics</figcaption></figure>
+          <figure><img src="images/opt-c-courses.jpg" alt="Option 3 course cards"><figcaption>Courses</figcaption></figure>
+          <figure><img src="images/opt-c-services.jpg" alt="Option 3 services"><figcaption>Services</figcaption></figure>
+          <figure><img src="images/opt-c-proof.jpg" alt="Option 3 proof and quote"><figcaption>Proof</figcaption></figure>
+        </div>
+      </div>
+      <aside class="notes">
+        <section><h3>Palette</h3><div class="chips"><span class="chip"><i style="background:#000F23"></i>#000F23 ink</span><span class="chip"><i style="background:#1D68D8"></i>#1D68D8 blue</span><span class="chip"><i style="background:#F1F6FD"></i>#F1F6FD pale</span><span class="chip"><i style="background:#E6EEFA"></i>#E6EEFA photo tint</span></div></section>
+        <section><h3>Feels</h3><p>Calm, credible and clean. The quietest option, with the most room for the content and the partner logos to breathe.</p></section>
+        <section class="tradeoff"><h3>Trade-off</h3><p>The safest read for HR buyers, and also the closest to a standard SaaS site. Least memorable of the five.</p></section>
+        <div class="open"><a class="btn primary" href="home.html#c">Open option 3</a></div>
+      </aside>
+    </div>
+  </article>
+
+  <article class="opt" id="o4">
+    <header class="opt-head"><span class="no">Option 4</span><h2>Editorial</h2><p>Monochrome with square corners, hairlines and one signal red. Large headline type, photos in black and white that turn to color on hover.</p></header>
+    <div class="opt-body">
+      <div>
+        <a class="shot" href="home.html#d"><img src="images/opt-d-hero.jpg" alt="Option 4 hero: large black headline with three square photos"></a>
+        <div class="thumbs">
+          <figure><img src="images/opt-d-topics.jpg" alt="Option 4 topic cards"><figcaption>Topics</figcaption></figure>
+          <figure><img src="images/opt-d-courses.jpg" alt="Option 4 course cards"><figcaption>Courses</figcaption></figure>
+          <figure><img src="images/opt-d-services.jpg" alt="Option 4 services"><figcaption>Services</figcaption></figure>
+          <figure><img src="images/opt-d-proof.jpg" alt="Option 4 proof and quote"><figcaption>Proof</figcaption></figure>
+        </div>
+      </div>
+      <aside class="notes">
+        <section><h3>Palette</h3><div class="chips"><span class="chip"><i style="background:#0A0A0A"></i>#0A0A0A ink</span><span class="chip"><i style="background:#FF3B1D"></i>#FF3B1D signal red</span><span class="chip"><i style="background:#D92A0E"></i>#D92A0E deep red</span><span class="chip"><i style="background:#F2F2F0"></i>#F2F2F0 paper</span></div></section>
+        <section><h3>Feels</h3><p>Serious and premium, like a catalog or a ledger. Course codes and prices read as data, which suits how HR buyers scan.</p></section>
+        <section class="tradeoff"><h3>Trade-off</h3><p>The most designed look, and the least forgiving. It depends on strong photography, and the hard edges can feel severe for a people-focused brand.</p></section>
+        <div class="open"><a class="btn primary" href="home.html#d">Open option 4</a></div>
+      </aside>
+    </div>
+  </article>
+
+  <article class="opt" id="o5">
+    <header class="opt-head"><span class="no">Option 5</span><h2>Color Block</h2><p>Violet and lime in big rounded blocks. Photos are tinted lime, and each band changes color.</p></header>
+    <div class="opt-body">
+      <div>
+        <a class="shot" href="home.html#e"><img src="images/opt-e-hero.jpg" alt="Option 5 hero: violet panel with photo collage and a lime highlighted headline phrase"></a>
+        <div class="thumbs">
+          <figure><img src="images/opt-e-topics.jpg" alt="Option 5 topic cards"><figcaption>Topics</figcaption></figure>
+          <figure><img src="images/opt-e-courses.jpg" alt="Option 5 course cards"><figcaption>Courses</figcaption></figure>
+          <figure><img src="images/opt-e-services.jpg" alt="Option 5 services"><figcaption>Services</figcaption></figure>
+          <figure><img src="images/opt-e-proof.jpg" alt="Option 5 proof and quote"><figcaption>Proof</figcaption></figure>
+        </div>
+      </div>
+      <aside class="notes">
+        <section><h3>Palette</h3><div class="chips"><span class="chip"><i style="background:#5B3DF5"></i>#5B3DF5 violet</span><span class="chip"><i style="background:#D4F25C"></i>#D4F25C lime</span><span class="chip"><i style="background:#14112B"></i>#14112B ink</span><span class="chip"><i style="background:#EEEAFF"></i>#EEEAFF lilac</span></div></section>
+        <section><h3>Feels</h3><p>Energetic and unmistakable. The lime photo tint ties every image to the palette.</p></section>
+        <section class="tradeoff"><h3>Trade-off</h3><p>The loudest and the most youthful. It would stand out in a sea of beige training sites, but it fits compliance training the least.</p></section>
+        <div class="open"><a class="btn primary" href="home.html#e">Open option 5</a></div>
+      </aside>
+    </div>
+  </article>
+
+  <p class="foot-note">All five use the same Figtree typeface, the same real catalog data and the same Unsplash sample photos. The customer quote is a sample, and class dates and resources are placeholders.</p>
+</div>
