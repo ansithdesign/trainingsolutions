@@ -209,9 +209,9 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
 .hot:hover .pic.prod img { transform: scale(1.04); }
 
 /* design switcher */
-.switch { position: fixed; z-index: 9999; left: 50%; transform: translateX(-50%); bottom: max(14px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 3px; padding: 5px; border-radius: 999px; background: rgba(11, 16, 32, .94); color: #fff; box-shadow: 0 12px 34px rgba(0, 0, 0, .3); font: 500 13px 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif; line-height: 1; max-width: calc(100% - 24px); }
+.switch { position: fixed; z-index: 9999; left: 50%; transform: translateX(-50%); bottom: max(14px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 2px; padding: 5px; border-radius: 999px; background: rgba(11, 16, 32, .94); color: #fff; box-shadow: 0 12px 34px rgba(0, 0, 0, .3); font: 500 13px 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif; line-height: 1; max-width: calc(100% - 24px); overflow-x: auto; scrollbar-width: none; }
 .switch .sw-l { padding: 0 10px 0 14px; color: #B7BED6; white-space: nowrap; }
-.switch a { min-width: 34px; height: 34px; padding: 0 10px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; color: #fff; text-decoration: none; }
+.switch a { flex: none; min-width: 30px; height: 32px; padding: 0 8px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; color: #fff; text-decoration: none; }
 .switch a:hover { background: rgba(255, 255, 255, .16); }
 .switch a[aria-current="true"] { background: #fff; color: #0B1020; }
 .switch .sw-n { padding: 0 14px 0 10px; color: #fff; white-space: nowrap; font-weight: 500; }
@@ -403,6 +403,6 @@ footer { background: #1E1E1E; color: #fff; padding-block: 64px 32px; border-radi
 })();
 </script>
 
-<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#c" data-t="c" title="Airy Light">2</a><a href="#e" data-t="e" title="Color Block">3</a><a href="#f" title="Column" data-p="column">4</a><a href="#g" title="Maze" data-p="maze" aria-current="true">5</a><span class="sw-n" id="swName">Maze</span></nav>
+<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#c" data-t="c" title="Airy Light">2</a><a href="#e" data-t="e" title="Color Block">3</a><a href="#f" title="Column" data-p="column">4</a><a href="#g" title="Maze" data-p="maze" aria-current="true">5</a><a href="#h" data-t="h" title="Ledgerhouse">6</a><a href="#i" data-t="i" title="Arventa">7</a><a href="#j" data-t="j" title="Paylytix">8</a><a href="#k" data-t="k" title="Advisio">9</a><a href="#l" data-t="l" title="Demstra">10</a><a href="#m" data-t="m" title="Arcline">11</a><a href="#n" data-t="n" title="Growth18">12</a><a href="#o" data-t="o" title="Gridixx">13</a><span class="sw-n" id="swName">Maze</span></nav>
 </body>
 </html>
