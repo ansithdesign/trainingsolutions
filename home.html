@@ -519,7 +519,7 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   </div>
 </footer>
 
-<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="home.html#a" data-t="a" title="Layered Night">1</a><a href="home.html#b" data-t="b" title="Forest and Orange">2</a><a href="home.html#c" data-t="c" title="Airy Light">3</a><a href="home.html#d" data-t="d" title="Editorial">4</a><a href="home.html#e" data-t="e" title="Color Block">5</a><a href="column-style.html" title="Column" data-p="column">6</a><a href="maze-style.html" title="Maze" data-p="maze">7</a><span class="sw-n" id="swName"></span></nav>
+<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#b" data-t="b" title="Forest and Orange">2</a><a href="#c" data-t="c" title="Airy Light">3</a><a href="#d" data-t="d" title="Editorial">4</a><a href="#e" data-t="e" title="Color Block">5</a><a href="#f" title="Column" data-p="column">6</a><a href="#g" title="Maze" data-p="maze">7</a><span class="sw-n" id="swName"></span></nav>
 
 <script>
 (function () {
@@ -557,9 +557,9 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
     document.documentElement.setAttribute('data-theme', t);
     Array.prototype.forEach.call(document.querySelectorAll('#switch [data-t]'), function (a) { a.setAttribute('aria-current', String(a.getAttribute('data-t') === t)); });
     var NAMES = { a: 'Layered Night', b: 'Forest and Orange', c: 'Airy Light', d: 'Editorial', e: 'Color Block' };
-    document.getElementById('swName').textContent = NAMES[t];
+    var sn = document.getElementById('swName'); if (sn) sn.textContent = NAMES[t];
   }
-  window.addEventListener('hashchange', function () { applyTheme(); window.scrollTo(0, 0); });
+  window.addEventListener('hashchange', function () { if (!document.getElementById('result')) return; applyTheme(); window.scrollTo(0, 0); });
   applyTheme();
 
   /* hero: one featured course from the catalog */
