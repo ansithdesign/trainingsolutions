@@ -6,7 +6,7 @@
 <style>
 /* Concept: warm off-white page, near-black ink, huge light tightly tracked headlines, a lime gradient band for topics, a pixelated lime circle behind the services heading, white rounded cards with tiny outlined chips, pill buttons, a mint stats panel. Single committed look. */
 :root {
-  --tint: #CFE5F9; --bg: #F4F3EF; --ink: #1E1E1E; --mute: #66655E; --lime: #CFE5F9; --lime-2: #E6F1FC; --mint: #D4E8FB; --card: #FFFFFF; --line: rgba(30, 30, 30, .13);
+  --tint: #CFE5F9; --bg: #FFFFFF; --ink: #1E1E1E; --mute: #66655E; --lime: #CFE5F9; --lime-2: #E6F1FC; --mint: #D4E8FB; --card: #FFFFFF; --line: rgba(30, 30, 30, .13);
   --sans: 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif;
   --gutter-l: max(20px, env(safe-area-inset-left, 0px)); --gutter-r: max(20px, env(safe-area-inset-right, 0px));
   color-scheme: light;
@@ -108,7 +108,7 @@ section { padding-block: 88px; }
 .svc-intro h2 { position: relative; max-width: 16ch; margin-inline: auto; font-size: clamp(36px, 5.2vw, 72px); }
 .svc-intro p { position: relative; max-width: 40ch; margin: 24px auto 0; font-size: 17px; color: var(--ink); }
 .svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.svc { display: flex; flex-direction: column; background: var(--card); border-radius: 16px; padding: 10px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
+.svc { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 10px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
 .svc:hover { transform: translateY(-5px); box-shadow: 0 22px 44px rgba(30, 30, 30, .12); }
 .svc .pic { aspect-ratio: 16 / 10; border-radius: 10px; }
 .svc:hover .pic img { transform: scale(1.04); }
@@ -134,7 +134,7 @@ section { padding-block: 88px; }
 .quote small .chip { margin-left: 6px; }
 .learn { margin-top: 56px; display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 14px; align-items: stretch; }
 .learn .lead { font-size: clamp(30px, 3vw, 44px); font-weight: 300; letter-spacing: -.06em; line-height: 1; align-self: center; }
-.lcard { background: var(--card); border-radius: 14px; padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 22px; }
+.lcard { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 22px; display: flex; flex-direction: column; gap: 22px; }
 .lcard .chip { align-self: flex-start; }
 .lcard p { font-size: 17px; line-height: 1.25; letter-spacing: -.025em; }
 
