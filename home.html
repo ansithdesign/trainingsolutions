@@ -24,20 +24,6 @@
   color-scheme: light;
   --svc-bg: #0B1020; --svc-fg: #FFFFFF; --svc-muted: #A3ACC8;
 }
-[data-theme="b"] {
-  /* B. Forest and Orange: friendly, warm, rounded */
-  --ink: #0B1F1B; --ink-2: #4B5E58; --paper: #FFFFFF; --card: #FFFFFF;
-  --accent: #F8861E; --accent-ink: #0B1F1B; --accent-deep: #E8720A; --accent-text: #B84F00;
-  --tint: #FFD9B3; --pale: #FFF4EA; --chalk: #FFF4EA; --hl: #FFFFFF; --line: rgba(11, 31, 27, .12);
-  --hero-bg: #04372F; --hero-fg: #FFFFFF; --hero-muted: #BFD6CF; --em: #F8861E; --dots: rgba(255, 255, 255, .06);
-  --topics-bg: #FFF4EA; --topics-fg: #0B1F1B; --topics-line: rgba(11, 31, 27, .25);
-  --quote-bg: #04372F; --quote-fg: #FFFFFF; --quote-muted: #BFD6CF;
-  --cta-bg: #F8861E; --cta-fg: #0B1F1B; --cta-muted: #0B1F1B;
-  --foot-bg: #04372F; --foot-fg: #FFFFFF; --foot-muted: #BFD6CF;
-  --r-card: 26px; --r-img: 18px; --r-btn: 999px; --r-panel: 32px; --r-hero: 0px; --sheet: 32px;
-  --w-d: 600; --w-n: 600; --ls-d: -.035em;
-  --svc-bg: #04372F; --svc-fg: #FFFFFF; --svc-muted: #BFD6CF;
-}
 [data-theme="c"] {
   /* C. Airy Light: white, pale blue panels, light two-tone headlines */
   --ink: #000F23; --ink-2: #4B5668; --paper: #FFFFFF; --card: #FFFFFF;
@@ -51,20 +37,6 @@
   --r-card: 28px; --r-img: 18px; --r-btn: 999px; --r-panel: 40px; --r-hero: 0px; --sheet: 0px;
   --w-d: 400; --w-n: 300; --ls-d: -.04em;
   --svc-bg: #F1F6FD; --svc-fg: #000F23; --svc-muted: #4B5668;
-}
-[data-theme="d"] {
-  /* D. Editorial: monochrome, hairlines, square corners, one signal red */
-  --ink: #0A0A0A; --ink-2: #555555; --paper: #FFFFFF; --card: #FFFFFF;
-  --accent: #FF3B1D; --accent-ink: #FFFFFF; --accent-deep: #D92A0E; --accent-text: #D92A0E;
-  --tint: #FFFFFF; --pale: #F2F2F0; --chalk: #F2F2F0; --hl: #FF3B1D; --line: rgba(10, 10, 10, .16);
-  --hero-bg: #FFFFFF; --hero-fg: #0A0A0A; --hero-muted: #555555; --em: #D92A0E; --dots: transparent;
-  --topics-bg: #F2F2F0; --topics-fg: #0A0A0A; --topics-line: rgba(10, 10, 10, .4);
-  --quote-bg: #0A0A0A; --quote-fg: #FFFFFF; --quote-muted: #BDBDBD;
-  --cta-bg: #D92A0E; --cta-fg: #FFFFFF; --cta-muted: #FFFFFF;
-  --foot-bg: #0A0A0A; --foot-fg: #FFFFFF; --foot-muted: #A8A8A8;
-  --r-card: 0px; --r-img: 0px; --r-btn: 0px; --r-panel: 0px; --r-hero: 0px; --sheet: 0px; --r-round: 0px; --r-logo: 0px;
-  --w-d: 600; --w-n: 700; --ls-d: -.05em;
-  --svc-bg: #0A0A0A; --svc-fg: #FFFFFF; --svc-muted: #BDBDBD;
 }
 [data-theme="e"] {
   /* E. Color Block: violet and lime, big shapes, tinted photos */
@@ -259,19 +231,6 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 
 /* ---------- per-option structure ---------- */
 /* B: centered hero with one wide framed photo */
-[data-theme="b"] .hero { margin: 0; padding-bottom: 130px; }
-[data-theme="b"] .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 36px; }
-[data-theme="b"] .hero-sub { margin-inline: auto; }
-[data-theme="b"] .hero h1 { max-width: 20ch; margin-inline: auto; }
-[data-theme="b"] .hero h1 em { box-shadow: none; text-decoration: underline; text-decoration-thickness: .08em; text-underline-offset: .12em; text-decoration-color: #fff; }
-[data-theme="b"] .collage { height: auto; display: flex; justify-content: center; }
-[data-theme="b"] .cshape { animation: none; }
-[data-theme="b"] .c-arch { position: relative; right: auto; top: auto; width: 100%; max-width: 900px; height: 380px; border-radius: 34px; border: 8px solid #fff; }
-[data-theme="b"] .c-pill, [data-theme="b"] .c-circle { display: none; }
-[data-theme="b"] .badge { right: auto; left: 6%; top: -34px; }
-[data-theme="b"] .result { right: 8%; bottom: -80px; }
-[data-theme="b"] .trust { margin-top: -20px; padding-top: 110px; }
-[data-theme="b"] .trust-card { box-shadow: none; }
 
 /* C: light hero, flat sections, pale panels */
 [data-theme="c"] .hero { margin: 0; padding-bottom: 130px; }
@@ -288,34 +247,6 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 [data-theme="c"] .cta .kick { color: #E3EEFD; }
 
 /* D: editorial, wide type, square, hairlines */
-[data-theme="d"] .hero { margin: 0; padding-bottom: 150px; border-bottom: 1px solid var(--ink); }
-[data-theme="d"] .bar { border-bottom: 1px solid var(--ink); }
-[data-theme="d"] .btn-ghost { border-color: var(--ink); color: var(--ink); opacity: 1; }
-[data-theme="d"] .btn-ghost:hover { background: var(--ink); color: #fff; }
-[data-theme="d"] .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-top: 48px; }
-[data-theme="d"] .hero h1 { font-size: clamp(40px, 6.4vw, 92px); line-height: .98; max-width: 16ch; }
-[data-theme="d"] .hero h1 em { box-shadow: none; color: var(--accent-text); }
-[data-theme="d"] .hero-sub { max-width: 52ch; font-size: 17px; color: var(--ink); }
-[data-theme="d"] .collage { height: auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; }
-[data-theme="d"] .cshape { position: relative; inset: auto; right: auto; left: auto; top: auto; width: auto; height: 360px; border-radius: 0; border: 0; animation: none; }
-[data-theme="d"] .c-arch { border-radius: 0; }
-[data-theme="d"] .c-arch img { animation: none; }
-[data-theme="d"] .badge { display: none; }
-[data-theme="d"] .result { left: 24px; right: auto; bottom: -50px; border-radius: 0; box-shadow: none; border: 1px solid var(--ink); animation: none; }
-[data-theme="d"] .cshape .pic img { filter: grayscale(1) contrast(1.1); }
-[data-theme="d"] .cshape:hover .pic img { filter: none; }
-[data-theme="d"] .trust { margin-top: -10px; padding-top: 84px; }
-[data-theme="d"] .trust-card { border: 1px solid var(--ink); box-shadow: none; }
-[data-theme="d"] .card { border: 1px solid var(--ink); }
-[data-theme="d"] .card .info { border: 1px solid var(--ink); }
-[data-theme="d"] .tcard { border-color: var(--ink); }
-[data-theme="d"] .card:hover { box-shadow: 8px 8px 0 var(--accent); transform: translate(-4px, -4px); }
-[data-theme="d"] .tcard:hover { box-shadow: 8px 8px 0 var(--ink); transform: translate(-4px, -4px); }
-[data-theme="d"] .svc .info { border: 1px solid var(--ink); }
-[data-theme="d"] .stat b { font-weight: 700; }
-[data-theme="d"] .quote .pic { border: 0; }
-[data-theme="d"] .cta .kick { color: #fff; }
-[data-theme="d"] .logo i { border-radius: 0; }
 
 /* E: color block */
 [data-theme="e"] .hero h1 em { box-shadow: none; background: var(--hl); color: #14112B; padding: 0 .16em; border-radius: 14px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
@@ -342,10 +273,6 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   .learn { grid-template-columns: 1fr 1fr; }
   .fgrid { grid-template-columns: repeat(2, 1fr); }
   .trust-card { padding: 22px 24px; }
-  [data-theme="d"] .collage { grid-template-columns: 1fr 1fr; max-width: none; }
-  [data-theme="d"] .cshape { height: 240px; }
-  [data-theme="d"] .c-circle { display: none; }
-  [data-theme="b"] .c-arch { height: 300px; }
 }
 @media (max-width: 720px) {
   .sheet { padding-top: 72px; }
@@ -372,13 +299,6 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   .logos img { height: 30px; }
   .svc, .card { aspect-ratio: 4 / 4.9; }
   .switch span { display: none; }
-  [data-theme="b"] .collage { height: auto; }
-  [data-theme="b"] .c-arch { height: 260px; width: 100%; right: auto; border-radius: 28px; }
-  [data-theme="b"] .result { position: relative; right: auto; bottom: auto; margin: -50px auto 0; }
-  [data-theme="d"] .collage { grid-template-columns: 1fr; }
-  [data-theme="d"] .cshape { height: 220px; }
-  [data-theme="d"] .c-pill { display: block; }
-  [data-theme="d"] .result { position: relative; left: auto; bottom: auto; width: 100%; margin-top: -1px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -519,7 +439,7 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   </div>
 </footer>
 
-<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#b" data-t="b" title="Forest and Orange">2</a><a href="#c" data-t="c" title="Airy Light">3</a><a href="#d" data-t="d" title="Editorial">4</a><a href="#e" data-t="e" title="Color Block">5</a><a href="#f" title="Column" data-p="column">6</a><a href="#g" title="Maze" data-p="maze">7</a><span class="sw-n" id="swName"></span></nav>
+<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#c" data-t="c" title="Airy Light">2</a><a href="#e" data-t="e" title="Color Block">3</a><a href="#f" title="Column" data-p="column">4</a><a href="#g" title="Maze" data-p="maze">5</a><span class="sw-n" id="swName"></span></nav>
 
 <script>
 (function () {
@@ -553,10 +473,10 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   /* theme from the URL hash */
   function applyTheme() {
     var t = (location.hash || '#a').replace('#', '');
-    if (!/^[a-e]$/.test(t)) t = 'a';
+    if (!/^[ace]$/.test(t)) t = 'a';
     document.documentElement.setAttribute('data-theme', t);
     Array.prototype.forEach.call(document.querySelectorAll('#switch [data-t]'), function (a) { a.setAttribute('aria-current', String(a.getAttribute('data-t') === t)); });
-    var NAMES = { a: 'Layered Night', b: 'Forest and Orange', c: 'Airy Light', d: 'Editorial', e: 'Color Block' };
+    var NAMES = { a: 'Layered Night', c: 'Airy Light', e: 'Color Block' };
     var sn = document.getElementById('swName'); if (sn) sn.textContent = NAMES[t];
   }
   window.addEventListener('hashchange', function () { if (!document.getElementById('result')) return; applyTheme(); window.scrollTo(0, 0); });
