@@ -2,178 +2,184 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap">
 <style>
-/* Concept: the hero answers a topic with a real course. Catalog is a scannable ledger with a sticky photo preview. Topics are one typographic statement. One photo treatment (tinted, color on hover) unifies the stock. */
+/* Concept: a dark rounded hero with a collage of soft geometric photo shapes (arch, circle, pill), then stacked rounded sheets that overlap each other as you scroll. One tinted photo treatment, color on hover. Light oversized numerals. Image-first service cards. */
 :root {
-  --ink: #0A1226;
-  --ink-2: #566079;
-  --blue: #1F5CFF;
-  --blue-deep: #1448D6;
-  --tint: #D6E2FF;
-  --pale: #F3F6FF;
+  --ink: #0B1020;
+  --ink-2: #565F7A;
+  --blue: #2447F5;
+  --blue-deep: #1A35D0;
+  --lilac: #DDE3FF;
+  --pale: #F3F5FF;
+  --chalk: #F4F2EE;
   --white: #FFFFFF;
-  --amber: #FFB224;
-  --line: rgba(10, 18, 38, .12);
-  --on-ink: #9AA4C0;
+  --amber: #FFB020;
+  --line: rgba(11, 16, 32, .11);
+  --on-ink: #A3ACC8;
   --sans: 'Figtree', 'Segoe UI', system-ui, Arial, sans-serif;
+  --sheet: 56px;
   --gutter-l: max(20px, env(safe-area-inset-left, 0px));
   --gutter-r: max(20px, env(safe-area-inset-right, 0px));
   color-scheme: light;
 }
 * { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
-body { background: var(--white); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body { background: var(--white); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; }
-:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-.on-ink :focus-visible, .on-blue :focus-visible { outline-color: var(--white); }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
 .wrap { max-width: 1200px; margin-inline: auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); position: relative; }
-h1, h2, h3 { letter-spacing: -.03em; text-wrap: balance; }
-h2 { font-size: clamp(28px, 3vw, 42px); line-height: 1.1; font-weight: 600; }
-.kicker { font-size: 13px; font-weight: 500; color: var(--ink-2); display: inline-flex; align-items: center; gap: 10px; }
-.kicker::before { content: ""; width: 22px; height: 2px; background: var(--blue); }
-section { padding-block: 96px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 0 24px; border-radius: 999px; font: 500 15px var(--sans); border: 1px solid transparent; cursor: pointer; transition: background .15s ease, transform .15s ease, box-shadow .15s ease; }
+h1, h2, h3 { letter-spacing: -.035em; text-wrap: balance; }
+h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 500; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 500 14px var(--sans); border: 1px solid transparent; cursor: pointer; transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease; }
 .btn:hover { transform: translateY(-1px); }
 .btn-blue { background: var(--blue); color: var(--white); }
 .btn-blue:hover { background: var(--blue-deep); }
 .btn-line { background: var(--white); border-color: var(--line); color: var(--ink); }
-.btn-line:hover { border-color: var(--ink); }
-.btn-white { background: var(--white); color: var(--ink); }
+.btn-ghost { border-color: rgba(255, 255, 255, .35); color: var(--white); }
+.btn-ghost:hover { background: var(--white); color: var(--ink); }
+.link { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; }
+.link i { font-style: normal; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--white); display: inline-flex; align-items: center; justify-content: center; transition: transform .25s ease, background .25s ease; }
+.link:hover i { transform: rotate(-45deg); background: var(--blue); }
 
-/* photos: one treatment everywhere. Tinted by default, full color on hover or when active. */
-.pic { position: relative; background: var(--tint); overflow: hidden; }
-.pic img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.05); transition: filter .5s ease, transform .6s ease; }
+/* sheets: each section slides over the one before it */
+.sheet { position: relative; border-radius: var(--sheet) var(--sheet) 0 0; margin-top: calc(var(--sheet) * -1); padding-top: 104px; }
+.has-sheet-after { padding-bottom: calc(var(--sheet) + 96px); }
+
+/* photos: tinted by default, full color on hover */
+.pic { position: relative; background: var(--lilac); overflow: hidden; }
+.pic img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.06); transition: filter .5s ease, transform .7s ease; }
 .pic.top img { object-position: center 18%; }
 .hot:hover .pic img, .pic.live img { filter: grayscale(0) contrast(1); }
 
-/* header */
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 22px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
-.logo i { width: 24px; height: 24px; border-radius: 7px; background: var(--blue); position: relative; display: block; }
-.logo i::before, .logo i::after { content: ""; position: absolute; left: 6px; right: 6px; height: 2.5px; border-radius: 2px; background: var(--white); }
-.logo i::before { top: 8px; }
-.logo i::after { top: 13.5px; right: 10px; }
-.bar-end { display: flex; align-items: center; gap: 18px; }
-.bar-end .tel { color: var(--ink-2); }
-
 /* hero */
-.hero { padding-block: 24px 88px; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 6.2fr) minmax(0, 5.8fr); gap: 64px; align-items: center; }
-.hero h1 { margin-top: 0; font-size: clamp(32px, 3.7vw, 52px); line-height: 1.08; font-weight: 600; letter-spacing: -.04em; }
-.hero h1 em { font-style: normal; color: var(--blue); }
-.hero-sub { margin-top: 20px; max-width: 46ch; color: var(--ink-2); font-size: 16px; }
-.hero-cta { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
-.stage { position: relative; }
-.stage .pic { aspect-ratio: 4 / 4.9; border-radius: 36px; }
-.stage .pic img { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease, filter .5s ease; }
-.stage .pic img.on { opacity: 1; }
-.result { position: absolute; left: -44px; bottom: 34px; width: min(330px, 78%); background: var(--white); border-radius: 22px; padding: 20px 22px 22px; box-shadow: 0 2px 4px rgba(10, 18, 38, .05), 0 24px 60px rgba(10, 18, 38, .2); }
+.hero { margin: 12px 12px 0; border-radius: 40px; background-color: var(--ink); background-image: radial-gradient(rgba(255, 255, 255, .1) 1.2px, transparent 1.5px); background-size: 30px 30px; color: var(--white); padding-bottom: 150px; position: relative; z-index: 3; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 26px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
+.logo i { width: 26px; height: 26px; border-radius: 8px; background: var(--blue); position: relative; display: block; }
+.logo i::before, .logo i::after { content: ""; position: absolute; left: 7px; right: 7px; height: 2.5px; border-radius: 2px; background: var(--white); }
+.logo i::before { top: 9px; }
+.logo i::after { top: 14.5px; right: 11px; }
+.bar-end { display: flex; align-items: center; gap: 20px; }
+.bar-end .tel { color: var(--on-ink); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 56px; align-items: center; padding-top: 28px; }
+.hero h1 { font-size: clamp(34px, 4.1vw, 58px); line-height: 1.06; font-weight: 500; letter-spacing: -.045em; animation: rise .9s cubic-bezier(.2, .7, .2, 1) both; }
+.hero h1 em { font-style: normal; color: #A9BAFF; box-shadow: inset 0 -.14em 0 var(--amber); }
+.hero-sub { margin-top: 22px; max-width: 44ch; color: var(--on-ink); font-size: 16px; animation: rise .9s .12s cubic-bezier(.2, .7, .2, 1) both; }
+
+.collage { position: relative; height: 540px; }
+.cshape { position: absolute; overflow: hidden; animation: float 9s ease-in-out infinite alternate; }
+.cshape .pic { width: 100%; height: 100%; background: #1B2440; }
+.c-arch { right: 70px; top: 30px; width: 300px; height: 450px; border-radius: 150px 150px 30px 30px; z-index: 1; animation-duration: 11s; }
+.c-arch img { animation: kb 16s ease-in-out infinite alternate; }
+.c-pill { left: 10px; top: 96px; width: 240px; height: 118px; border-radius: 999px; z-index: 2; border: 6px solid var(--ink); animation-delay: -3s; }
+.c-circle { left: 0; top: 296px; width: 196px; height: 196px; border-radius: 50%; z-index: 2; border: 6px solid var(--ink); animation-delay: -6s; animation-duration: 12s; }
+.c-pill .pic img, .c-circle .pic img, .c-arch .pic img { filter: grayscale(0) contrast(1); mix-blend-mode: normal; }
+.badge { position: absolute; right: 14px; top: 0; width: 124px; height: 124px; z-index: 4; }
+.badge svg { width: 100%; height: 100%; display: block; animation: spin 26s linear infinite; }
+.badge .core { position: absolute; inset: 31px; border-radius: 50%; background: var(--amber); display: flex; align-items: center; justify-content: center; }
+.badge .core i { font-style: normal; font-size: 14px; color: var(--ink); font-weight: 700; letter-spacing: -.02em; }
+.result { position: absolute; right: 0; bottom: 6px; width: 300px; z-index: 5; background: var(--white); color: var(--ink); border-radius: 24px; padding: 20px 22px 22px; box-shadow: 0 30px 70px rgba(0, 0, 0, .4); animation: rise 1s .3s cubic-bezier(.2, .7, .2, 1) both; }
 .result .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
 .result .tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
-.result h3 { margin-top: 10px; font-size: 21px; line-height: 1.18; font-weight: 600; }
-.result .meta { margin-top: 6px; font-size: 13px; color: var(--ink-2); }
+.result h3 { margin-top: 10px; font-size: 19px; line-height: 1.2; font-weight: 600; letter-spacing: -.025em; }
+.result .meta { margin-top: 4px; font-size: 12px; color: var(--ink-2); letter-spacing: .06em; }
 .result .row { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
-.result .price { font-size: 28px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-.result .btn { min-height: 40px; padding: 0 18px; font-size: 14px; }
-.fade { animation: rise .45s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.result .price { font-size: 28px; font-weight: 500; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.result .btn { min-height: 40px; padding: 0 18px; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes float { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes kb { from { transform: scale(1); } to { transform: scale(1.07); } }
 
-/* trust strip */
-.trust { border-block: 1px solid var(--line); }
-.trust .wrap { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); align-items: center; gap: 32px; padding-block: 26px; }
-.since { font-size: 18px; font-weight: 500; letter-spacing: -.02em; line-height: 1.3; max-width: 18ch; }
-.logos { list-style: none; padding: 0; display: flex; align-items: center; justify-content: space-between; gap: 24px 40px; flex-wrap: wrap; }
+/* partners */
+.trust { position: relative; z-index: 6; padding-block: 0; margin-top: -62px; }
+.trust-card { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: 24px 36px; box-shadow: 0 20px 50px rgba(11, 16, 32, .08); }
+.logos { list-style: none; padding: 0; display: flex; align-items: center; justify-content: space-between; gap: 20px 40px; flex-wrap: wrap; }
 .logos li { display: flex; align-items: center; }
-.logos img { display: block; height: 52px; width: auto; max-width: 100%; }
+.logos img { display: block; height: 50px; width: auto; max-width: 100%; }
 
-/* catalog */
-.cat-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-bottom: 36px; }
-.cat-head p { margin-top: 12px; color: var(--ink-2); font-size: 16px; max-width: 50ch; }
-.all { margin-top: 28px; }
-.link { display: inline-flex; gap: 8px; font-weight: 500; color: var(--blue); }
-.link:hover { text-decoration: underline; text-underline-offset: 4px; }
-
-/* course cards */
-.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.card { display: flex; flex-direction: column; padding: 10px; background: var(--white); border: 1px solid var(--line); border-radius: 26px; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
-.card:hover { transform: translateY(-4px); box-shadow: 0 22px 44px rgba(10, 18, 38, .12); border-color: transparent; }
-.card[hidden] { display: none; }
-.card .pic { aspect-ratio: 16 / 10; border-radius: 18px; }
-.card:hover .pic img { transform: scale(1.04); }
+/* courses */
+#courses { padding-block: 72px 100px; position: relative; z-index: 1; }
+#courses.has-sheet-after { padding-bottom: calc(var(--sheet) + 96px); }
+.sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+.sec-head p { margin-top: 12px; color: var(--ink-2); font-size: 16px; max-width: 52ch; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.card { display: flex; flex-direction: column; padding: 10px; background: var(--white); border: 1px solid var(--line); border-radius: 28px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, border-color .3s ease; }
+.card:hover { transform: translateY(-6px); box-shadow: 0 26px 50px rgba(11, 16, 32, .13); border-color: transparent; }
+.card .pic { aspect-ratio: 16 / 11; border-radius: 20px; }
+.card:hover .pic img { transform: scale(1.06); }
+.card .pills { position: absolute; left: 10px; right: 10px; top: 10px; display: flex; justify-content: space-between; gap: 6px; z-index: 2; }
+.card .pills span { font-size: 11px; font-weight: 600; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px; background: rgba(255, 255, 255, .94); color: var(--ink); }
+.card .pills .topic { color: var(--blue); letter-spacing: 0; }
 .card .body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; padding: 16px 10px 8px; }
-.meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--ink-2); letter-spacing: .04em; }
-.meta .topic { font-size: 12px; letter-spacing: 0; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; }
-.card h3 { margin-top: 12px; font-size: 18px; font-weight: 500; line-height: 1.28; letter-spacing: -.02em; }
+.card h3 { font-size: 18px; font-weight: 500; line-height: 1.26; letter-spacing: -.025em; }
 .foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.price { font-size: 26px; font-weight: 600; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
-.go { min-height: 38px; padding: 0 14px 0 16px; font-size: 13px; }
-.go i { font-style: normal; display: inline-flex; width: 22px; height: 22px; border-radius: 50%; align-items: center; justify-content: center; background: var(--pale); color: var(--blue); transition: transform .25s ease, background .25s ease, color .25s ease; }
-.card:hover .go { background: var(--blue); border-color: var(--blue); color: var(--white); }
-.card:hover .go i { background: rgba(255, 255, 255, .22); color: var(--white); transform: rotate(-45deg); }
+.price { font-size: 28px; font-weight: 400; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+.go { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; }
+.go i { font-style: normal; width: 36px; height: 36px; border-radius: 50%; background: var(--pale); color: var(--blue); display: inline-flex; align-items: center; justify-content: center; transition: transform .3s ease, background .3s ease, color .3s ease; }
+.card:hover .go i { background: var(--blue); color: var(--white); transform: rotate(-45deg); }
 
-/* topics: one statement */
-.topics { background: var(--ink); color: var(--white); }
-.topics .kicker { color: var(--on-ink); }
-.topics .kicker::before { background: var(--amber); }
+/* topics */
+.topics { background: var(--ink); color: var(--white); padding-bottom: calc(var(--sheet) + 96px); }
 .topics h2 { margin-bottom: 40px; }
 .tgrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
-.tcard { display: flex; flex-direction: column; background: var(--white); color: var(--ink); border-radius: 22px; padding: 8px; transition: transform .25s ease, box-shadow .25s ease; }
-.tcard:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0, 0, 0, .35); }
-.tcard .pic { aspect-ratio: 16 / 10; border-radius: 15px; }
-.tcard:hover .pic img { transform: scale(1.05); }
+.tcard { display: flex; flex-direction: column; background: var(--white); color: var(--ink); border-radius: 24px; padding: 8px; transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
+.tcard:hover { transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 22px 44px rgba(0, 0, 0, .4); }
+.tcard .pic { aspect-ratio: 16 / 10; border-radius: 17px; }
+.tcard:hover .pic img { transform: scale(1.06); }
 .tcard .tb { display: flex; flex-direction: column; justify-content: space-between; gap: 14px; padding: 14px 8px 8px; flex: 1; }
 .tcard h3 { font-size: 16px; font-weight: 500; line-height: 1.25; letter-spacing: -.02em; }
 .tcard .n { align-self: flex-start; font-size: 12px; font-weight: 500; color: var(--blue); background: var(--pale); padding: 3px 11px; border-radius: 999px; }
-.tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 22px; padding: 22px; color: var(--white); transition: background .25s ease, border-color .25s ease; }
+.tmore { display: flex; flex-direction: column; justify-content: space-between; min-height: 200px; border: 1px solid rgba(255, 255, 255, .22); border-radius: 24px; padding: 22px; transition: background .3s ease, border-color .3s ease; }
 .tmore:hover { background: var(--blue); border-color: var(--blue); }
-.tmore span { font-size: 20px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; }
-.tmore i { font-style: normal; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; transition: transform .25s ease; }
+.tmore span { font-size: 20px; font-weight: 500; letter-spacing: -.03em; line-height: 1.2; }
+.tmore i { font-style: normal; width: 40px; height: 40px; border-radius: 50%; background: var(--white); color: var(--ink); display: inline-flex; align-items: center; justify-content: center; transition: transform .3s ease; }
 .tmore:hover i { transform: rotate(-45deg); }
 
 /* services */
-.services { background: var(--pale); }
-.svc-head { max-width: 680px; margin-bottom: 44px; }
+.services { background: var(--chalk); padding-bottom: calc(var(--sheet) + 96px); }
+.svc-head { max-width: 700px; margin-bottom: 48px; }
 .svc-head p { margin-top: 14px; color: var(--ink-2); font-size: 16px; }
-.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.svc { display: flex; flex-direction: column; background: var(--white); border-radius: 28px; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
-.svc:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(10, 18, 38, .1); }
-.svc .pic { aspect-ratio: 16 / 10; }
-.svc-body { padding: 24px 26px 28px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
-.svc h3 { font-size: 21px; font-weight: 600; line-height: 1.2; }
-.svc p { color: var(--ink-2); }
-.svc .price { margin-top: auto; padding-top: 12px; font-size: 24px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.svc { position: relative; aspect-ratio: 4 / 4.7; border-radius: 32px; overflow: hidden; background: var(--lilac); transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease; }
+.svc:hover { transform: translateY(-6px); box-shadow: 0 28px 54px rgba(11, 16, 32, .18); }
+.svc .pic { position: absolute; inset: 0; }
+.svc:hover .pic img { transform: scale(1.05); }
+.svc .info { position: absolute; left: 10px; right: 10px; bottom: 10px; background: var(--white); border-radius: 24px; padding: 20px 22px 22px; }
+.svc h3 { font-size: 20px; font-weight: 600; line-height: 1.18; letter-spacing: -.03em; }
+.svc p { margin-top: 6px; color: var(--ink-2); }
+.svc .ptag { position: absolute; top: 14px; right: 14px; z-index: 2; background: var(--blue); color: var(--white); font-size: 15px; font-weight: 600; letter-spacing: -.01em; padding: 7px 15px; border-radius: 999px; font-variant-numeric: tabular-nums; }
 
 /* proof */
-.proof-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 72px; align-items: center; }
-.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); margin-top: 36px; }
-.stat { padding: 22px 16px 0 0; }
+.proof { background: var(--white); padding-bottom: calc(var(--sheet) + 72px); }
+.proof-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 56px; align-items: center; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.stat { padding: 24px 16px 0 0; }
 .stat + .stat { padding-left: 20px; border-left: 1px solid var(--line); }
-.stat b { display: block; font-size: clamp(40px, 4.6vw, 64px); font-weight: 600; letter-spacing: -.045em; line-height: 1; }
-.stat span { display: block; margin-top: 10px; color: var(--ink-2); font-size: 14px; max-width: 18ch; }
-.quote { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center; border: 1px solid var(--line); border-radius: 28px; padding: 22px; background: var(--white); }
-.quote .pic { aspect-ratio: 1; border-radius: 20px; }
-.quote p { font-size: clamp(18px, 1.7vw, 23px); line-height: 1.35; letter-spacing: -.02em; font-weight: 500; }
-.quote small { display: block; margin-top: 14px; color: var(--ink-2); font-size: 14px; }
-.quote small em { font-style: normal; font-size: 11px; font-weight: 500; margin-left: 8px; padding: 2px 9px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
-.learn { border-top: 1px solid var(--line); padding-block: 56px; }
-.learn-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 32px; }
-.learn h3 { font-size: 13px; font-weight: 500; color: var(--ink-2); }
-.learn p { margin-top: 8px; font-size: 16px; font-weight: 500; letter-spacing: -.01em; }
-.learn .lead { font-size: 22px; font-weight: 600; letter-spacing: -.03em; color: var(--ink); margin-top: 0; line-height: 1.2; }
+.stat b { display: block; font-size: clamp(44px, 5.4vw, 76px); font-weight: 300; letter-spacing: -.06em; line-height: 1; }
+.stat span { display: block; margin-top: 12px; color: var(--ink-2); font-size: 14px; max-width: 18ch; }
+.quote { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 28px; align-items: center; background: var(--blue); color: var(--white); border-radius: 36px; padding: 36px 32px 36px 40px; position: relative; overflow: hidden; }
+.quote p { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.4; letter-spacing: -.02em; font-weight: 400; }
+.quote small { display: block; margin-top: 18px; font-size: 13px; color: #D5DCFF; }
+.quote small em { font-style: normal; font-size: 11px; font-weight: 500; margin-left: 8px; padding: 2px 9px; border: 1px solid rgba(255, 255, 255, .4); border-radius: 999px; white-space: nowrap; }
+.quote .pic { aspect-ratio: 1; border-radius: 50%; border: 5px solid rgba(255, 255, 255, .25); }
+.learn { margin-top: 56px; display: grid; grid-template-columns: 1.1fr repeat(3, 1fr); gap: 28px; background: var(--pale); border-radius: 32px; padding: 32px 36px; }
+.learn h3 { font-size: 13px; font-weight: 500; color: var(--ink-2); letter-spacing: 0; }
+.learn p { margin-top: 6px; font-size: 16px; font-weight: 500; letter-spacing: -.015em; }
+.learn .lead { font-size: 24px; font-weight: 500; letter-spacing: -.035em; line-height: 1.15; margin-top: 0; }
 
 /* cta */
-.cta { background: var(--blue); color: var(--white); padding-block: 96px 88px; }
-.cta .kicker { color: #DCE6FF; }
-.cta .kicker::before { background: var(--white); }
-.cta h2 { margin-top: 16px; max-width: 18ch; }
-.phone { display: block; margin-top: 36px; font-size: clamp(48px, 9.4vw, 136px); font-weight: 600; letter-spacing: -.05em; line-height: 1; border-bottom: 2px solid rgba(255, 255, 255, .5); padding-bottom: 18px; transition: border-color .2s ease; }
-.phone:hover { border-color: var(--white); }
+.cta { background: var(--blue); color: var(--white); padding-bottom: calc(var(--sheet) + 80px); }
+.cta .kick { font-size: 15px; font-weight: 500; color: #D5DCFF; }
+.cta h2 { margin-top: 12px; max-width: 18ch; }
+.phone { display: block; margin-top: 36px; font-size: clamp(46px, 9.6vw, 140px); font-weight: 300; letter-spacing: -.065em; line-height: 1; padding-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, .4); transition: border-color .3s ease; }
+.phone:hover { border-color: var(--amber); }
 .cta-row { margin-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 32px; font-size: 16px; }
 
 /* footer */
-footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; }
+footer { background: var(--ink); color: var(--white); padding-block: 72px 32px; }
 .fgrid { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 32px; }
 .fgrid p { margin-top: 12px; color: var(--on-ink); max-width: 30ch; font-size: 14px; }
 .fgrid h4 { font-size: 13px; font-weight: 500; color: var(--on-ink); margin-bottom: 14px; }
@@ -183,140 +189,152 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 .legal { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); color: var(--on-ink); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
 @media (max-width: 1080px) {
-    .hero-grid, .proof-grid { grid-template-columns: 1fr; gap: 40px; }
-  .trust .wrap { grid-template-columns: 1fr; gap: 18px; }
-  .stage { max-width: 560px; }
-  .result { left: 16px; }
+  :root { --sheet: 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+  .collage { max-width: 520px; margin-inline: auto; width: 100%; }
   .grid, .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .learn-grid { grid-template-columns: 1fr 1fr; }
+  .proof-grid { grid-template-columns: 1fr; gap: 36px; }
+  .learn { grid-template-columns: 1fr 1fr; }
   .fgrid { grid-template-columns: repeat(2, 1fr); }
+  .trust-card { padding: 22px 24px; }
 }
 @media (max-width: 720px) {
-  section { padding-block: 64px; }
-  .hero { padding-bottom: 56px; }
+  .sheet { padding-top: 72px; }
+  .has-sheet-after, #courses.has-sheet-after, .topics, .services, .proof, .cta { padding-bottom: calc(var(--sheet) + 56px); }
+  #courses { padding-block: 64px; }
+  .hero { border-radius: 28px; padding-bottom: 110px; margin: 8px 8px 0; }
+  .collage { height: 440px; }
+  .c-arch { right: 20px; width: 250px; height: 380px; border-radius: 125px 125px 26px 26px; }
+  .c-pill { display: none; }
+  .c-circle { width: 150px; height: 150px; top: 240px; }
+  .badge { width: 96px; height: 96px; right: 0; }
+  .badge .core { inset: 24px; }
+  .result { width: 250px; padding: 16px 18px 18px; }
   .grid, .svc-grid { grid-template-columns: 1fr; }
   .tgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .logos { justify-content: flex-start; }
-  .logos img { height: 44px; }
-  .quote { grid-template-columns: 1fr; }
-  .quote .pic { max-width: 140px; }
   .stats { grid-template-columns: 1fr; }
   .stat + .stat { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 18px; padding-top: 18px; }
   .stat { padding: 18px 0 0; }
+  .quote { grid-template-columns: 1fr; padding: 28px; }
+  .quote .pic { max-width: 120px; order: -1; }
+  .learn { grid-template-columns: 1fr; padding: 26px; }
   .bar-end .tel { display: none; }
-  .cat-head { grid-template-columns: 1fr; }
+  .logos { justify-content: flex-start; }
+  .logos img { height: 42px; }
+  .svc { aspect-ratio: 4 / 4.9; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .fade { animation: none; }
-  .pic img, .card, .btn { transition: none; }
+  .cshape, .badge svg, .c-arch img, .hero h1, .hero-sub, .result { animation: none; }
+  .pic img, .card, .tcard, .svc, .btn, .go i, .link i { transition: none; }
 }
 </style>
 
-<header>
+<header class="hero">
   <div class="wrap">
     <div class="bar">
       <a class="logo" href="#"><i></i>Training Solutions</a>
       <div class="bar-end">
         <span class="tel">703-318-0838</span>
-        <a class="btn btn-line" href="#">Cart (0)</a>
+        <a class="btn btn-ghost" href="#">Cart (0)</a>
+      </div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1>
+        <p class="hero-sub">Buy online courses today, or work with us on certification, coaching and live programs.</p>
+      </div>
+      <div class="collage">
+        <div class="cshape c-arch"><div class="pic"><img src="images/diversity.jpg" alt="Diverse team looking at a laptop together"></div></div>
+        <div class="cshape c-pill"><div class="pic"><img src="images/meetings.jpg" alt=""></div></div>
+        <div class="cshape c-circle"><div class="pic top"><img src="images/coaching.jpg" alt=""></div></div>
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 124 124"><defs><path id="ring" d="M62 62 m-48 0 a48 48 0 1 1 96 0 a48 48 0 1 1 -96 0"/></defs><circle cx="62" cy="62" r="62" fill="#2447F5"/><text font-family="Figtree, sans-serif" font-size="9" font-weight="600" fill="#fff"><textPath href="#ring" textLength="296" lengthAdjust="spacing">EDUCATING, INSPIRING AND SERVING SINCE 1995 ·</textPath></text></svg>
+          <span class="core"><i>1995</i></span>
+        </div>
+        <div class="result" id="result" aria-live="polite"></div>
       </div>
     </div>
   </div>
 </header>
 
 <main>
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1>
-      <p class="hero-sub">Buy online courses today, or work with us on certification, coaching and live programs.</p>
-    </div>
-    <div class="stage">
-      <div class="pic" id="stagePic"></div>
-      <div class="result" id="result" aria-live="polite"></div>
-    </div>
-  </div>
-</section>
-
 <div class="trust">
   <div class="wrap">
-    <p class="since">Educating, inspiring and serving since 1995</p>
-    <ul class="logos" aria-label="Partners">
-      <li><img src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"></li>
-      <li><img src="images/logo-pxt-select.png" alt="PXT Select, a Wiley brand"></li>
-      <li><img src="images/logo-five-behaviors.png" alt="The Five Behaviors, a Wiley brand"></li>
-      <li><img src="images/logo-sollah.png" alt="Sollah Interactive, LLC"></li>
-    </ul>
+    <div class="trust-card">
+      <ul class="logos" aria-label="Partners">
+        <li><img src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"></li>
+        <li><img src="images/logo-pxt-select.png" alt="PXT Select, a Wiley brand"></li>
+        <li><img src="images/logo-five-behaviors.png" alt="The Five Behaviors, a Wiley brand"></li>
+        <li><img src="images/logo-sollah.png" alt="Sollah Interactive, LLC"></li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<section id="courses">
+<section id="courses" class="has-sheet-after">
   <div class="wrap">
-    <div class="cat-head">
+    <div class="sec-head">
       <div>
         <h2>Popular online courses</h2>
         <p>Self-paced and ready to assign. Individual courses are $30 to $99.</p>
       </div>
+      <a class="link" href="#">See all online courses <i aria-hidden="true">→</i></a>
     </div>
     <div class="grid" id="grid"></div>
-    <div class="all" style="text-align:center;margin-top:36px"><a class="link" href="#">See all online courses <span aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
-<section class="topics on-ink" id="topics">
+<section class="topics sheet" id="topics">
   <div class="wrap">
     <h2>Browse by topic</h2>
     <div class="tgrid" id="tgrid"></div>
   </div>
 </section>
 
-<section class="services" id="services">
+<section class="services sheet" id="services">
   <div class="wrap">
     <div class="svc-head">
       <h2>Training, coaching and consulting that deliver results</h2>
       <p>Our motivational style will energize your employees and help them learn more about themselves and their teammates.</p>
     </div>
     <div class="svc-grid">
-      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-classes.jpg" alt="Facilitator leading a class at a whiteboard" loading="lazy"></div><div class="svc-body"><h3>Classes and training facilitation</h3><p>Live classes and facilitated sessions for your team.</p></div></a>
-      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-tag.jpg" alt="Team members working together on laptops" loading="lazy"></div><div class="svc-body"><h3>TAG, Training Assets Gateway</h3><p>An eLearning library from Sollah for your whole organization.</p></div></a>
-      <a class="svc hot" href="#"><div class="pic top"><img src="images/svc-exec.jpg" alt="Executive in a one-to-one coaching setting" loading="lazy"></div><div class="svc-body"><h3>Executive coaching</h3><p>One-to-one coaching for executives and business owners.</p></div></a>
-      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-disc.jpg" alt="Workshop with participants at a table" loading="lazy"></div><div class="svc-body"><h3>Everything DiSC Certification</h3><p>Requires the Practitioner Experience first. Bundle price $3,995.</p><span class="price">$2,495</span></div></a>
-      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-five.jpg" alt="Team collaborating in a workshop" loading="lazy"></div><div class="svc-body"><h3>The Five Behaviors Certification</h3><p>Become certified to facilitate The Five Behaviors.</p><span class="price">$2,495</span></div></a>
-      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-catalyst.jpg" alt="Team in a meeting room" loading="lazy"></div><div class="svc-body"><h3>Catalyst</h3><p>Wiley's online platform for delivering Everything DiSC.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-classes.jpg" alt="Facilitator leading a class at a whiteboard" loading="lazy"></div><div class="info"><h3>Classes and training facilitation</h3><p>Live classes and facilitated sessions for your team.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-tag.jpg" alt="Team members working together on laptops" loading="lazy"></div><div class="info"><h3>TAG, Training Assets Gateway</h3><p>An eLearning library from Sollah for your whole organization.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic top"><img src="images/svc-exec.jpg" alt="Executive in a one-to-one coaching setting" loading="lazy"></div><div class="info"><h3>Executive coaching</h3><p>One-to-one coaching for executives and business owners.</p></div></a>
+      <a class="svc hot" href="#"><span class="ptag">$2,495</span><div class="pic"><img src="images/svc-disc.jpg" alt="Workshop with participants at a table" loading="lazy"></div><div class="info"><h3>Everything DiSC Certification</h3><p>Requires the Practitioner Experience first. Bundle price $3,995.</p></div></a>
+      <a class="svc hot" href="#"><span class="ptag">$2,495</span><div class="pic"><img src="images/svc-five.jpg" alt="Team collaborating in a workshop" loading="lazy"></div><div class="info"><h3>The Five Behaviors Certification</h3><p>Become certified to facilitate The Five Behaviors.</p></div></a>
+      <a class="svc hot" href="#"><div class="pic"><img src="images/svc-catalyst.jpg" alt="Team in a meeting room" loading="lazy"></div><div class="info"><h3>Catalyst</h3><p>Wiley's online platform for delivering Everything DiSC.</p></div></a>
     </div>
   </div>
 </section>
 
-<section id="about">
-  <div class="wrap proof-grid">
-    <div>
-      <div class="stats" style="margin-top:0">
+<section class="proof sheet" id="about">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="stats">
         <div class="stat"><b>1995</b><span>Serving HR and training teams since</span></div>
         <div class="stat"><b>122</b><span>Courses, assessments, kits and books in the catalog</span></div>
         <div class="stat"><b>$30</b><span>Starting price for an online course</span></div>
       </div>
+      <div class="quote">
+        <div><p>&ldquo;Assigning the course takes minutes, and I can see who has finished and their scores without chasing anyone. At $30 a person, it was an easy decision.&rdquo;</p><small>Director of Human Resources, regional healthcare provider <em>Sample quote</em></small></div>
+        <div class="pic top"><img src="images/portrait.jpg" alt="Portrait of a smiling HR professional (sample photo, replace with the customer)" loading="lazy" style="mix-blend-mode:normal;filter:none"></div>
+      </div>
     </div>
-    <div class="quote">
-      <div class="pic top"><img src="images/portrait.jpg" alt="Portrait of a smiling HR professional (sample photo, replace with the customer)" loading="lazy"></div>
-      <div><p>&ldquo;Assigning the course takes minutes, and I can see who has finished and their scores without chasing anyone. At $30 a person, it was an easy decision.&rdquo;</p><small>Director of Human Resources, regional healthcare provider <em>Sample quote</em></small></div>
+    <div class="learn">
+      <p class="lead">Learn with us</p>
+      <div><h3>Upcoming class dates</h3><p>[Dates from TSI]</p></div>
+      <div><h3>Resources</h3><p>[Articles, webinars: confirm what exists]</p></div>
+      <div><h3>Publishers we work with</h3><p>Wiley and Sollah</p></div>
     </div>
   </div>
 </section>
 
-<div class="learn">
-  <div class="wrap learn-grid">
-    <p class="lead">Learn with us</p>
-    <div><h3>Upcoming class dates</h3><p>[Dates from TSI]</p></div>
-    <div><h3>Resources</h3><p>[Articles, webinars: confirm what exists]</p></div>
-    <div><h3>Publishers we work with</h3><p>Wiley and Sollah</p></div>
-  </div>
-</div>
-
-<section class="cta on-blue" id="cta">
+<section class="cta sheet" id="cta">
   <div class="wrap">
-    <span class="kicker">Not sure where to start?</span>
+    <span class="kick">Not sure where to start?</span>
     <h2>Tell us the people challenge.</h2>
     <a class="phone" href="tel:7033180838">703-318-0838</a>
     <div class="cta-row"><span>We will point you to the right course or program. Call or send a note.</span><span>Chantilly, Virginia</span></div>
@@ -324,7 +342,7 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
 </section>
 </main>
 
-<footer class="on-ink">
+<footer class="sheet">
   <div class="wrap">
     <div class="fgrid">
       <div><a class="logo" href="#"><i></i>Training Solutions</a><p>Chantilly, Virginia. Training, coaching and consulting since 1995.</p></div>
@@ -356,34 +374,29 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
   ];
   var byCode = {}; courses.forEach(function (c) { byCode[c.code] = c; });
   var topics = [
-    ['Harassment', 19, 'Harassment'], ['Diversity', 12, 'Diversity'], ['Everything DiSC and personal development', 13, null],
-    ['Leadership', 12, 'Leadership'], ['Management', 12, null], ['Hiring and interviewing', 10, null],
-    ['Coaching and discipline', 8, 'Coaching'], ['Ethics and attitude', 7, 'Ethics'], ['Teams', 7, 'Teams'],
-    ['Sales and customer service', 6, 'Sales'], ['Conflict resolution', 5, 'Conflict'], ['Meetings and time management', 5, 'Meetings'],
-    ['Communication and EQ', 4, null], ['Legal', 2, null]
+    ['Harassment', 19], ['Diversity', 12], ['Everything DiSC and personal development', 13],
+    ['Leadership', 12], ['Management', 12], ['Hiring and interviewing', 10],
+    ['Coaching and discipline', 8], ['Ethics and attitude', 7], ['Teams', 7],
+    ['Sales and customer service', 6], ['Conflict resolution', 5], ['Meetings and time management', 5],
+    ['Communication and EQ', 4], ['Legal', 2]
   ];
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function img(c, extra) { return '<img src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '"' + (extra || '') + '>'; }
   function go(id) { document.getElementById(id).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
 
-  /* ---- hero: one featured course from the catalog ---- */
-  var stagePic = document.getElementById('stagePic'), result = document.getElementById('result');
-  var hero = byCode['VP012'];
-  stagePic.classList.add('live');
-  stagePic.innerHTML = '<img class="on" src="images/' + hero.img + '.jpg" alt="' + esc(hero.alt) + '">';
-  result.innerHTML = '<span class="tag">' + hero.topic + '</span><h3>' + esc(hero.title) + '</h3><p class="meta">' + hero.code + '</p><div class="row"><span class="price">$' + hero.price + '</span><a class="btn btn-blue" href="#courses" data-code="' + hero.code + '">View course</a></div>';
-  result.addEventListener('click', function (e) { var a = e.target.closest('a[data-code]'); if (!a) return; e.preventDefault(); go('courses'); });
+  /* hero: one featured course from the catalog */
+  var hero = byCode['VP012'], result = document.getElementById('result');
+  result.innerHTML = '<span class="tag">' + hero.topic + '</span><h3>' + esc(hero.title) + '</h3><p class="meta">' + hero.code + '</p><div class="row"><span class="price">$' + hero.price + '</span><a class="btn btn-blue" href="#courses">View course</a></div>';
+  result.addEventListener('click', function (e) { if (e.target.closest('a')) { e.preventDefault(); go('courses'); } });
 
-  /* ---- catalog: card grid ---- */
+  /* course cards */
   var grid = document.getElementById('grid');
   grid.innerHTML = courses.map(function (c) {
-    return '<a class="card hot" href="#" data-code="' + c.code + '"><div class="pic' + (c.top ? ' top' : '') + '">' + img(c, ' loading="lazy"') + '</div><div class="body"><div><div class="meta"><span>' + c.code + '</span><span class="topic">' + c.topic + '</span></div><h3>' + esc(c.title) + '</h3></div><div class="foot"><span class="price">$' + c.price + '</span><span class="btn btn-line go">View course <i aria-hidden="true">→</i></span></div></div></a>';
+    return '<a class="card hot" href="#"><div class="pic' + (c.top ? ' top' : '') + '"><div class="pills"><span>' + c.code + '</span><span class="topic">' + c.topic + '</span></div><img src="images/' + c.img + '.jpg" alt="' + esc(c.alt) + '" loading="lazy"></div><div class="body"><h3>' + esc(c.title) + '</h3><div class="foot"><span class="price">$' + c.price + '</span><span class="go">View course <i aria-hidden="true">→</i></span></div></div></a>';
   }).join('');
   grid.addEventListener('click', function (e) { if (e.target.closest('.card')) e.preventDefault(); });
 
-  /* ---- topic cards ---- */
+  /* topic cards */
   var topicPics = {
     'Harassment': ['harassment', 'Colleagues in a respectful workplace discussion'],
     'Diversity': ['diversity', 'Diverse team looking at a laptop together'],
@@ -400,10 +413,11 @@ footer { background: var(--ink); color: var(--white); padding-block: 56px 32px; 
     'Communication and EQ': ['svc-classes', 'Facilitator leading a discussion at a whiteboard'],
     'Legal': ['svc-catalyst', 'Quiet office corridor']
   };
-  document.getElementById('tgrid').innerHTML = topics.map(function (t) {
+  var tgrid = document.getElementById('tgrid');
+  tgrid.innerHTML = topics.map(function (t) {
     var pc = topicPics[t[0]];
     return '<a class="tcard hot" href="#courses"><div class="pic' + (pc[2] ? ' top' : '') + '"><img src="images/' + pc[0] + '.jpg" alt="' + esc(pc[1]) + '" loading="lazy"></div><div class="tb"><h3>' + esc(t[0]) + '</h3><span class="n">' + t[1] + ' titles</span></div></a>';
   }).join('') + '<a class="tmore" href="#"><span>See all topics</span><i aria-hidden="true">→</i></a>';
-  document.getElementById('tgrid').addEventListener('click', function (e) { var a = e.target.closest('a.tcard'); if (a) { e.preventDefault(); go('courses'); } });
+  tgrid.addEventListener('click', function (e) { var a = e.target.closest('a.tcard'); if (a) { e.preventDefault(); go('courses'); } });
 })();
 </script>
