@@ -56,6 +56,15 @@
         ],
         "createdAt": "2026-11-13T11:51:40.829Z",
         "reason": "Claude triage: false positive; section content sits inside .wrap with 20px side gutters and 56 to 72px vertical padding, not user confirmed"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "/home/user/trainingsolutions/column-style.html"
+        ],
+        "createdAt": "2026-11-13T12:56:14.294Z",
+        "reason": "Claude triage: false positive; shadows are low-opacity near-black navy elevation shadows on light cards, no chromatic halo, not user confirmed"
       }
     ]
   }
