@@ -48,12 +48,9 @@ section { padding-block: 80px; }
 .pill.blue { color: var(--blue); border-color: rgba(29, 104, 216, .25); }
 .pill.orange { color: var(--orange-text); border-color: rgba(184, 79, 0, .25); }
 
-/* photo placeholders */
-.ph { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100%; background: var(--t, #E6EEFA); color: rgba(0, 15, 35, .16); }
-.ph > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.ph > span { position: relative; display: inline-flex; align-items: center; gap: 8px; max-width: 84%; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); font: 500 12px var(--sans); text-align: center; line-height: 1.3; }
-.ph > span svg { width: 16px; height: 16px; flex: none; color: var(--blue); }
-.ph.sm > span { display: none; }
+/* photos */
+.pic { display: block; width: 100%; height: 100%; object-fit: cover; background: #E6EEFA; }
+.pic.top { object-position: center 18%; }
 
 /* header */
 .bar { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-block: 22px; }
@@ -88,7 +85,7 @@ section { padding-block: 80px; }
 .float.l { left: 0; top: 70px; }
 .float.r { right: 0; top: 24px; }
 .mini { display: flex; align-items: center; gap: 12px; text-align: left; background: var(--white); border-radius: 16px; padding: 10px 16px 10px 10px; box-shadow: var(--shadow); border: 1px solid rgba(0, 15, 35, .05); }
-.mini .ph { width: 46px; height: 46px; border-radius: 10px; flex: none; }
+.mini .pic { width: 46px; height: 46px; border-radius: 10px; flex: none; }
 .mini b { display: block; font-weight: 500; font-size: 14px; line-height: 1.25; }
 .mini small { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--ink-2); margin-top: 3px; }
 .mini small em { font-style: normal; color: var(--blue); font-weight: 600; }
@@ -121,7 +118,6 @@ section { padding-block: 80px; }
 .card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
 .card[hidden] { display: none; }
 .card .thumb { aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden; }
-.card .thumb .ph { height: 100%; }
 .card .body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 16px 10px 8px; }
 .meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-2); }
 .meta .topic { color: var(--blue); background: var(--blue-soft); padding: 2px 10px; border-radius: 999px; font-weight: 500; }
@@ -147,7 +143,7 @@ section { padding-block: 80px; }
 .more-info .pill { margin-top: 14px; }
 .tab[data-active="true"]::after { content: ""; display: block; width: 52px; height: 2px; background: var(--blue); margin-top: -1px; }
 .stagebox { background: var(--white); border-radius: 28px; padding: 14px; box-shadow: var(--shadow); position: sticky; top: 24px; }
-.stagebox .ph { border-radius: 18px; aspect-ratio: 4 / 3.1; }
+.stagebox .pic { border-radius: 18px; aspect-ratio: 4 / 3.1; height: auto; }
 
 /* proof */
 .pgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -155,7 +151,7 @@ section { padding-block: 80px; }
 .stat b { display: block; font-size: clamp(44px, 5vw, 68px); font-weight: 400; letter-spacing: -.04em; line-height: 1; color: var(--blue); }
 .stat span { display: block; margin-top: 14px; color: var(--ink-2); max-width: 24ch; }
 .qcard { grid-column: 1 / -1; display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; border: 1px dashed rgba(0, 15, 35, .25); border-radius: 28px; padding: 18px; }
-.qcard .ph { border-radius: 18px; aspect-ratio: 1 / 1; }
+.qcard .pic { border-radius: 18px; aspect-ratio: 1 / 1; height: auto; }
 .qcard p { font-size: clamp(20px, 2.1vw, 28px); letter-spacing: -.025em; line-height: 1.3; max-width: 32ch; }
 .qcard small { display: block; margin-top: 14px; color: var(--ink-2); font-size: 14px; }
 
@@ -237,11 +233,11 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 36px; }
 <div class="hero">
   <div class="wrap">
     <div class="float l" aria-hidden="true">
-      <div class="mini"><div id="mA"></div><div><b>Conflict 101™</b><small><em>$30</em><span>VP090</span></small></div></div>
+      <div class="mini"><img class="pic" src="images/conflict.jpg" alt="" width="46" height="46"><div><b>Conflict 101™</b><small><em>$30</em><span>VP090</span></small></div></div>
       <div class="strand"></div>
     </div>
     <div class="float r" aria-hidden="true">
-      <div class="mini"><div id="mB"></div><div><b>Leadership 101</b><small><em>$50</em><span>VP064</span></small></div></div>
+      <div class="mini"><img class="pic" src="images/leadership.jpg" alt="" width="46" height="46"><div><b>Leadership 101</b><small><em>$50</em><span>VP064</span></small></div></div>
       <div class="strand"></div>
     </div>
 
@@ -323,7 +319,7 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 36px; }
       <div class="stat"><b>1995</b><span>Serving HR and training teams since</span></div>
       <div class="stat"><b>122</b><span>Courses, assessments, kits and books in the catalog</span></div>
       <div class="stat"><b>$30</b><span>Starting price for an online course</span></div>
-      <div class="qcard"><div id="qPh"></div><div><p>[Customer quote from an HR or L&amp;D buyer]</p><small>[Name, role, company]</small></div></div>
+      <div class="qcard"><img class="pic top" src="images/portrait.jpg" alt="Portrait of a smiling HR professional (sample photo, replace with the customer)" width="220" height="220"><div><p>[Customer quote from an HR or L&amp;D buyer]</p><small>[Name, role, company]</small></div></div>
     </div>
   </div>
 </section>
@@ -362,7 +358,7 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 36px; }
       <div><h4>Services</h4><ul><li><a href="#">Classes</a></li><li><a href="#">Executive coaching</a></li><li><a href="#">TAG</a></li></ul></div>
       <div><h4>Customer service</h4><ul><li><a href="#">Order help</a></li><li><a href="#">Returns</a></li><li>703-318-0838</li></ul></div>
     </div>
-    <div class="legal"><span>© Training Solutions, Inc.</span><span>Authorized partner of Wiley and Sollah</span></div>
+    <div class="legal"><span>© Training Solutions, Inc.</span><span>Authorized partner of Wiley and Sollah. Sample photos from Unsplash.</span></div>
   </div>
 </footer>
 
@@ -391,41 +387,38 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 36px; }
     ['Communication and EQ', 4, null], ['Legal', 2, null]
   ];
   var services = [
-    { t: 'Classes and training facilitation', d: 'Live classes and facilitated sessions for your team.', tag: 'Live', ph: 'Photo: facilitated class in session' },
-    { t: 'TAG, Training Assets Gateway', d: 'An eLearning library from Sollah for your whole organization.', tag: 'Online', ph: 'Photo or screenshot: the TAG course library' },
-    { t: 'Executive coaching', d: 'One-to-one coaching for executives and business owners.', tag: 'One to one', ph: 'Photo: executive coaching session' },
-    { t: 'Everything DiSC Certification', d: 'Requires the Practitioner Experience first. Bundle price $3,995.', tag: '$2,495', ph: 'Photo: certification workshop' },
-    { t: 'The Five Behaviors Certification', d: 'Become certified to facilitate The Five Behaviors.', tag: '$2,495', ph: 'Photo: team workshop with facilitator' },
-    { t: 'Catalyst', d: 'Wiley\'s online platform for delivering Everything DiSC.', tag: 'Platform', ph: 'Screenshot: Catalyst platform' }
+    { t: 'Classes and training facilitation', d: 'Live classes and facilitated sessions for your team.', tag: 'Live', img: 'svc-classes', alt: 'Facilitator leading a class at a whiteboard' },
+    { t: 'TAG, Training Assets Gateway', d: 'An eLearning library from Sollah for your whole organization.', tag: 'Online', img: 'svc-tag', alt: 'Team members working on laptops' },
+    { t: 'Executive coaching', d: 'One-to-one coaching for executives and business owners.', tag: 'One to one', img: 'svc-exec', alt: 'Executive in a one-to-one coaching setting', cls: 'top' },
+    { t: 'Everything DiSC Certification', d: 'Requires the Practitioner Experience first. Bundle price $3,995.', tag: '$2,495', img: 'svc-disc', alt: 'Workshop with participants at a table' },
+    { t: 'The Five Behaviors Certification', d: 'Become certified to facilitate The Five Behaviors.', tag: '$2,495', img: 'svc-five', alt: 'Team collaborating in a workshop' },
+    { t: 'Catalyst', d: 'Wiley\'s online platform for delivering Everything DiSC.', tag: 'Platform', img: 'svc-catalyst', alt: 'Team in a meeting room' }
   ];
   var filterTopics = ['All', 'Harassment', 'Diversity', 'Leadership', 'Coaching', 'Conflict', 'Teams', 'Ethics', 'Meetings', 'Sales'];
   var state = { topic: 'All', q: '' };
 
-  var ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="10" r="2" fill="currentColor"/><path d="M4 18l5-5 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
-  // Photo placeholder. Replace each .ph with an <img> when real photography is ready.
-  function ph(label, tone, ratio, small) {
-    return '<div class="ph' + (small ? ' sm' : '') + '" role="img" aria-label="' + label + '" style="' + (ratio ? 'aspect-ratio:' + ratio + ';' : '') + '--t:' + tone + '"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0L100 100M100 0L0 100" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg><span>' + ICON + label + '</span></div>';
-  }
-  var THUMB = {
-    Harassment: ['Photo: respectful workplace conversation', '#E6EEFA'],
-    Diversity: ['Photo: diverse team together', '#EAF1FB'],
-    Leadership: ['Photo: manager leading a team', '#DDE9F9'],
-    Coaching: ['Photo: one-to-one coaching', '#ECF2FB'],
-    Conflict: ['Photo: colleagues resolving a disagreement', '#E1EBF9'],
-    Teams: ['Photo: team collaborating', '#E9F0FA'],
-    Ethics: ['Photo: employee at a desk', '#EDF3FB'],
-    Meetings: ['Photo: meeting in progress', '#DFEAF9'],
-    Sales: ['Photo: sales call', '#E6EEFA']
+  // Sample photos from Unsplash, saved in /images. Replace any file with a real photo of the same name.
+  function pic(file, alt, cls) { return '<img class="pic' + (cls ? ' ' + cls : '') + '" src="images/' + file + '.jpg" alt="' + alt + '" loading="lazy">'; }
+  var PICS = {
+    VP012: ['harassment', 'Colleagues in a respectful workplace discussion'],
+    VP075: ['svc-tag', 'Team members working together on laptops'],
+    VP078: ['diversity', 'Diverse team looking at a laptop together'],
+    VP064: ['leadership', 'Manager presenting to a team'],
+    VP069: ['coaching', 'Professional in a coaching conversation'],
+    VP090: ['conflict', 'Colleagues working through a disagreement'],
+    VP063: ['svc-exec', 'Professional giving and receiving feedback'],
+    VP059: ['teams', 'Team collaborating around a table'],
+    VP065: ['ethics', 'Professional in a suit on a staircase'],
+    VP079: ['svc-classes', 'Facilitator leading a discussion at a whiteboard'],
+    VP037: ['meetings', 'Team in a meeting room'],
+    VP043: ['sales', 'Colleagues celebrating a sale']
   };
-  function thumb(topic) { var t = THUMB[topic] || ['Photo', '#E6EEFA']; return ph(t[0], t[1]); }
+  function thumb(c) { var t = PICS[c.code] || ['teams', 'Team at work']; return pic(t[0], t[1], (t[0] === 'ethics' || t[0] === 'coaching' || t[0] === 'svc-exec') ? 'top' : ''); }
 
   var grid = document.getElementById('grid'), status = document.getElementById('status'),
       filters = document.getElementById('filters'), q = document.getElementById('q');
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-  document.getElementById('mA').innerHTML = ph('Course photo', '#E1EBF9', null, true);
-  document.getElementById('mB').innerHTML = ph('Course photo', '#DDE9F9', null, true);
-  document.getElementById('qPh').innerHTML = ph('Photo: customer portrait', '#E6EEFA', '1 / 1', true);
 
   // floating hero cards get a topic chip that filters, like a trail label
   Array.prototype.forEach.call(document.querySelectorAll('.float'), function (el, i) {
@@ -442,7 +435,7 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 36px; }
   }).join('');
 
   grid.innerHTML = courses.map(function (c, i) {
-    return '<a class="card" href="#" data-i="' + i + '"><div class="thumb">' + thumb(c.topic) + '</div><div class="body"><div><div class="meta"><span>' + c.code + '</span><span class="topic">' + c.topic + '</span></div><h3>' + esc(c.title) + '</h3></div><div class="foot"><span class="price">$' + c.price + '</span><span class="btn btn-line go">View course <span aria-hidden="true">→</span></span></div></div></a>';
+    return '<a class="card" href="#" data-i="' + i + '"><div class="thumb">' + thumb(c) + '</div><div class="body"><div><div class="meta"><span>' + c.code + '</span><span class="topic">' + c.topic + '</span></div><h3>' + esc(c.title) + '</h3></div><div class="foot"><span class="price">$' + c.price + '</span><span class="btn btn-line go">View course <span aria-hidden="true">→</span></span></div></div></a>';
   }).join('') + '<p class="empty" id="empty" hidden>No course matches that yet. <a href="#" id="clear">Show all courses</a>, or call 703-318-0838.</p>';
 
   function render() {
@@ -483,7 +476,7 @@ footer { border-top: 1px solid var(--line); padding-block: 56px 36px; }
     tabs.innerHTML = services.map(function (s, k) {
       return '<div class="tab" data-active="' + (k === i) + '"><button type="button" data-k="' + k + '" aria-expanded="' + (k === i) + '">' + esc(s.t) + '</button><div class="more-info"><p>' + esc(s.d) + '</p><span class="pill ' + (s.tag.charAt(0) === '$' ? 'blue' : '') + '">' + esc(s.tag) + '</span></div></div>';
     }).join('');
-    stage.innerHTML = ph(services[i].ph, i % 2 ? '#E1EBF9' : '#E9F0FA');
+    stage.innerHTML = pic(services[i].img, services[i].alt, services[i].cls);
   }
   tabs.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) showService(+b.getAttribute('data-k')); });
   showService(0);
