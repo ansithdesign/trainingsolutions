@@ -2747,6 +2747,11 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="t"] .foot h4 { color: #9FB3C8; }
 #app[data-d="t"] .foot .logo { color: #fff; }
 /* ===== END OPTION 4 ENTERPRISE ===== */
+
+/* Option 2 hero partners: full content width, label left, logos spread to the right edge */
+#app[data-d="j"] .hpart { width: 100%; max-width: 1280px; margin-inline: auto; box-sizing: border-box; }
+#app[data-d="j"] .hpart .logos { justify-content: space-between; }
+@media (max-width: 900px) { #app[data-d="j"] .hpart .logos { justify-content: flex-start; } }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
