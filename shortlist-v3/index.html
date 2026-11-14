@@ -2658,14 +2658,7 @@ header.hd > .hpart { margin-top: 0; }
 /* ===== END OPTION 3 POLISH ===== */
 
 /* ===== OPTION 3 PLAY ===== */
-/* Partners: logos sit in white pills, like stickers on the page */
-#app[data-d="s"] .trust .logos { gap: 14px; }
-#app[data-d="s"] .trust .logos li { background: #fff; border-radius: 999px; padding: 14px 26px; box-shadow: 0 0 0 1.5px #12162A; transition: transform .45s cubic-bezier(.3,1.6,.5,1), background .3s; }
-#app[data-d="s"] .trust .logos li:hover { transform: translateY(-4px) rotate(-3deg); background: #FFF6CC; }
 
-/* Section headings: the same yellow marker as the hero, under the accent word */
-#app[data-d="s"] .sx .sh h2 em { background: linear-gradient(#FFD84A, #FFD84A) 0 88% / 100% .22em no-repeat; padding: 0 .04em; }
-#app[data-d="s"] .courses .sh h2 em { background-image: linear-gradient(#F9B4C7, #F9B4C7); color: #FFD84A; }
 
 /* Featured products band: scalloped top and bottom edges, a row of half-circles */
 #app[data-d="s"] .courses { overflow: visible; z-index: 1; margin-block: 28px; }
@@ -2678,24 +2671,7 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="s"] .cg .cv { border-radius: 20px; }
 #app[data-d="s"] .cg .c:hover .cv::before { background: #FFD84A; }
 #app[data-d="s"] .cg .c:nth-child(4n+1):hover .cv::before { background: #F9B4C7; }
-#app[data-d="s"] .cg .price { display: inline-flex; align-items: baseline; gap: 6px; background: #FFD84A; color: #12162A; padding: 6px 12px; border-radius: 999px; transform: rotate(-4deg); transition: transform .45s cubic-bezier(.3,1.6,.5,1); }
-#app[data-d="s"] .cg .c:hover .price { transform: rotate(3deg) scale(1.06); }
-#app[data-d="s"] .cg .go { transition: transform .45s cubic-bezier(.3,1.6,.5,1); }
-#app[data-d="s"] .cg .c:hover .go { transform: rotate(-45deg); }
 
-/* Services: each card takes a colour from the palette, illustration sits in a white circle */
-#app[data-d="s"] .svf-card { border-radius: 32px; padding: 14px 14px 26px; box-shadow: none; background: var(--sv, #E3EBFD); }
-#app[data-d="s"] .svf-card:nth-child(6n+1) { --sv: #FFE68A; }
-#app[data-d="s"] .svf-card:nth-child(6n+2) { --sv: #FBD0DC; }
-#app[data-d="s"] .svf-card:nth-child(6n+3) { --sv: #BFE6FF; }
-#app[data-d="s"] .svf-card:nth-child(6n+4) { --sv: #DDE6FC; }
-#app[data-d="s"] .svf-card:nth-child(6n+5) { --sv: #FFE68A; }
-#app[data-d="s"] .svf-card:nth-child(6n+6) { --sv: #FBD0DC; }
-#app[data-d="s"] .svf-img { width: 74%; aspect-ratio: 1; margin: 6px auto 0; border-radius: 50%; background: #fff; display: grid; place-items: center; transition: transform .6s cubic-bezier(.3,1.6,.5,1); }
-#app[data-d="s"] .svf-img img { width: 92%; height: auto; object-fit: contain; }
-#app[data-d="s"] .svf-card:hover .svf-img { transform: rotate(-6deg) scale(1.04); }
-#app[data-d="s"] .svf-card:hover { translate: 0 -8px; box-shadow: 0 0 0 2px #12162A, 0 10px 0 #12162A; }
-#app[data-d="s"] .svf-arrow { background: #12162A; color: #fff; }
 
 /* Proof: each figure sits in its own yellow disc */
 #app[data-d="s"] .stats { border-top: 0; gap: 18px; }
@@ -2711,7 +2687,66 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="s"] .phone:hover span { transform: translateY(-10px); color: #1B47C9; }
 @media (prefers-reduced-motion: reduce) { #app[data-d="s"] .phone span { transition: none; } }
 @media (max-width: 720px) { #app[data-d="s"] .stats { grid-template-columns: 1fr 1fr 1fr; gap: 8px; } #app[data-d="s"] .stat b { font-size: 26px; } #app[data-d="s"] .stat span { font-size: 11px; } }
+
+/* Prices: straight yellow pill */
+#app[data-d="s"] .cg .price { display: inline-flex; align-items: baseline; gap: 6px; background: #FFD84A; color: #12162A; padding: 6px 12px; border-radius: 999px; }
+/* View course: arrow only, it turns in place */
+#app[data-d="s"] .cg .go > span, #app[data-d="s"] .cg .c:hover .go > span { display: none; }
+#app[data-d="s"] .cg .go { width: 38px; padding: 0; justify-content: center; border-radius: 50%; }
+#app[data-d="s"] .cg .go .i { transition: transform .45s cubic-bezier(.3,1.6,.5,1); }
+#app[data-d="s"] .cg .c:hover .go .i { transform: rotate(-45deg); }
+/* Authorized partners: a calm row of equal soft pills under a centred label */
+#app[data-d="s"] .trust .tr-in { justify-content: center; }
+#app[data-d="s"] .trust .tr-r { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 100%; }
+#app[data-d="s"] .trust .plab { margin: 0; }
+#app[data-d="s"] .trust .logos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; width: min(100%, 960px); }
+#app[data-d="s"] .trust .logos li { display: grid; place-items: center; height: 76px; padding: 0 24px; background: #F3F6FE; border-radius: 999px; transition: background .3s, transform .45s cubic-bezier(.3,1.6,.5,1); }
+#app[data-d="s"] .trust .logos li img { max-height: 30px; width: auto; max-width: 100%; }
+#app[data-d="s"] .trust .logos li:hover { background: #FFF1B8; transform: translateY(-3px); }
+@media (max-width: 720px) { #app[data-d="s"] .trust .logos { grid-template-columns: 1fr 1fr; } #app[data-d="s"] .trust .logos li { height: 64px; } }
 /* ===== END OPTION 3 PLAY ===== */
+
+/* ===== OPTION 4 ENTERPRISE ===== */
+/* Enterprise rhythm: square-ish corners everywhere, hairline structure, restrained motion */
+#app[data-d="t"] { --r: 6px; --rs: 4px; --rb: 4px; }
+
+/* Partners: one ruled strip, label at the left like a document header */
+#app[data-d="t"] .trust { border-top: 1px solid #E3E9F0; border-bottom: 1px solid #E3E9F0; }
+#app[data-d="t"] .trust .tr-in { display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: center; gap: 32px; }
+#app[data-d="t"] .trust .tr-r { display: contents; }
+#app[data-d="t"] .trust .plab { margin: 0; text-align: left; font-size: 11px; letter-spacing: .14em; color: #6A7D90; }
+@media (max-width: 900px) { #app[data-d="t"] .trust .tr-in { grid-template-columns: 1fr; gap: 20px; } }
+
+/* Featured list: a proper table header rule and tabular prices */
+#app[data-d="t"] .clist .lst { border-top: 2px solid #0F2234; }
+#app[data-d="t"] .clist .price { font-variant-numeric: tabular-nums; }
+#app[data-d="t"] .pv .btn, #app[data-d="t"] .btn { border-radius: 4px; }
+
+/* Welcome: a framed portrait, no decorative circle; the letter set like a statement */
+#app[data-d="t"] .wph::before { display: none; }
+#app[data-d="t"] .wpf { border-radius: 6px; box-shadow: 0 40px 70px -48px rgba(15,34,52,.5); }
+#app[data-d="t"] .wl-split .wg { column-gap: clamp(48px, 7vw, 112px); align-items: center; }
+#app[data-d="t"] .wl-split .wh { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #E3E9F0; }
+#app[data-d="t"] .wl-split .wc { max-width: 60ch; line-height: 1.8; color: #3F5367; }
+#app[data-d="t"] .wl-split .wsig { margin-top: 20px; }
+#app[data-d="t"] .wl-split .cat { margin-top: 36px; }
+
+/* Proof: quote gets a navy rule; stats aligned as a figures column */
+#app[data-d="t"] .quote blockquote { border-left: 2px solid #9EC3E6; padding-left: 28px; }
+#app[data-d="t"] .stat b { font-variant-numeric: tabular-nums; }
+
+/* CTA: a light closing band so it does not merge with the navy proof section */
+#app[data-d="t"] .cta { --sbg: #F2F6FA; --ink: #0F2234; --mu: #4E6377; border-top: 1px solid #E3E9F0; }
+#app[data-d="t"] .cta::before { display: none; }
+#app[data-d="t"] .cta h2 em { color: #2F5F8A; }
+#app[data-d="t"] .cta .phone { color: #1B4263; }
+#app[data-d="t"] .cta .kick { color: #3C6A92; }
+
+/* Footer: navy base closes the page with authority */
+#app[data-d="t"] .foot { --f-bg: #0F2234; --f-fg: #fff; --f-mu: #9FB3C8; --f-ln: rgba(255,255,255,.12); }
+#app[data-d="t"] .foot h4 { color: #9FB3C8; }
+#app[data-d="t"] .foot .logo { color: #fff; }
+/* ===== END OPTION 4 ENTERPRISE ===== */
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
