@@ -2820,6 +2820,28 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="t"] .pv .pvb h3 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.5em; line-height: 1.25; }
 #app[data-d="t"] .pv .pvf { margin-top: auto; }
 @media (max-width: 900px) { #app[data-d="t"] .pv { height: auto; } #app[data-d="t"] .pv .pvc { height: 320px; } }
+
+
+/* ===== SEARCH + TITLE TIDY ===== */
+/* Hero search, all options: equal 6px inset on top, right and bottom around the button, 18px before the icon */
+#app .hs-f { min-height: 58px; padding: 6px 6px 6px 18px; gap: 12px; box-sizing: border-box; }
+#app .hs-f > .i { flex: none; }
+#app .hs-f input { padding: 0; height: 46px; }
+#app .hs-f .hs-b { flex: none; height: 46px; padding: 0 22px; display: inline-flex; align-items: center; justify-content: center; margin: 0; }
+#app .hs-pop { margin-top: 16px; }
+#app[data-d="j"] .hs-f .hs-b { border-radius: 5px !important; }
+/* Option 3: no marker under "better teams"; the words carry the mid blue instead */
+#app[data-d="s"] h1 em { background: none !important; padding: 0; animation: none; color: #3D5F8F; }
+
+/* Buttons, pills and chips: text sits optically centred. Line boxes are trimmed to cap height so
+   fonts with tall ascenders (Overpass, Commissioner) no longer ride high in their containers. */
+#app .btn, #app .hs-b, #app .hs-pop a, #app .more-l, #app .cart, #app .est9, #app .sp, #app .price, #app .tag,
+#app .mm-box, #app .mm-k, #app .cat-a, #app .st-btn, #app .mchip, #app .mchips button, #app .go, #app .nv-b {
+  display: inline-flex; align-items: center; line-height: 1; text-box: trim-both cap alphabetic; }
+#app .hs-pop a, #app .btn, #app .hs-b { padding-block: 0; height: 36px; }
+#app .hs-f .hs-b { height: 46px; }
+#app .btn { height: 44px; }
+/* ===== END SEARCH + TITLE TIDY ===== */
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
