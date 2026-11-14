@@ -1,0 +1,162 @@
+<title>Book Rack Options</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@200;300;400;500;600&family=Sometype+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Ten ways to stand the same eight products on a shelf. Each book cell draws its own piece of shelf, so rows always line up at any column count. */
+:root { color-scheme: light; --bg:#EEF2F7; --ink:#0F2234; --mu:#4E6377; --ln:#E3E9F0; --ac:#1B4263; --ai:#3C6A92; --hl:#9EC3E6; --tint:#E8F0F8;
+  --fd:'Commissioner','Segoe UI',system-ui,sans-serif; --fm:'Sometype Mono',ui-monospace,Menlo,monospace; }
+* { box-sizing:border-box; margin:0; }
+body { background:var(--bg); color:var(--ink); font-family:var(--fd); font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; color:inherit; cursor:pointer; }
+img { display:block; max-width:100%; }
+:focus-visible { outline:2px solid var(--ai); outline-offset:3px; }
+.page { max-width:1180px; margin-inline:auto; padding-block:48px 96px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); }
+.intro { max-width:68ch; }
+.intro h1 { font-weight:300; font-size:clamp(30px,4.4vw,46px); letter-spacing:-.04em; line-height:1.05; }
+.intro p { margin-top:12px; color:var(--mu); }
+.pickbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:10px 0; margin-top:24px; background:var(--bg); border-bottom:1px solid #CBD6E2; font-size:14px; }
+.pickbar b { font-weight:600; } .pickbar output { color:var(--ai); font-family:var(--fm); font-size:13px; }
+.pickbar button { margin-left:auto; padding:7px 12px; border:1px solid #CBD6E2; border-radius:6px; background:#fff; font-size:13px; }
+.opt { margin-top:56px; }
+.oh { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin-bottom:12px; }
+.oh .n { font:500 12px var(--fm); color:var(--ai); } .oh h2 { font-weight:600; font-size:19px; letter-spacing:-.02em; }
+.oh .dn { font:400 11px var(--fm); text-transform:uppercase; letter-spacing:.06em; color:var(--mu); }
+.oh button { margin-left:auto; padding:7px 12px; border:1px solid #CBD6E2; border-radius:6px; background:#fff; font-size:13px; }
+.oh button[aria-pressed="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+.nt { margin-top:10px; color:var(--mu); font-size:14px; max-width:84ch; }
+.nt b { color:var(--ink); font-weight:600; }
+
+/* shared rack */
+.rk { --ch:236px; --bw:min(150px,64%); position:relative; border:1px solid #CBD6E2; border-radius:8px; background:#fff; padding:40px 24px 28px; overflow:hidden; }
+.gr { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); row-gap:44px; }
+.bk { position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; min-width:0; padding-inline:14px; }
+.cvw { position:relative; height:var(--ch); width:100%; display:flex; align-items:flex-end; justify-content:center; }
+.cv { display:block; width:var(--bw); transition:transform .5s cubic-bezier(.2,.8,.2,1); position:relative; z-index:2; filter:drop-shadow(0 10px 12px rgba(15,34,52,.2)); }
+.cv img { width:100%; height:auto; mix-blend-mode:multiply; }
+.bk:hover .cv, .bk:focus-visible .cv { transform:translateY(-8px) rotate(-1.2deg); }
+.tg { margin-top:var(--tgm,26px); display:inline-flex; align-items:baseline; gap:7px; padding:5px 14px; border-radius:999px; background:var(--hl); color:var(--ink); font-weight:500; font-size:16px; font-variant-numeric:tabular-nums; white-space:nowrap; position:relative; z-index:2; }
+.tg s { font-size:11.5px; font-weight:400; opacity:.6; }
+.tp { margin-top:14px; font:500 10.5px var(--fm); letter-spacing:.08em; text-transform:uppercase; color:var(--ai); }
+.ti { margin-top:6px; font-size:14.5px; line-height:1.35; max-width:22ch; text-wrap:balance; }
+
+/* 1 navy plank, clean */
+.d1 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-12px; height:12px; background:var(--ac); z-index:1; box-shadow:0 14px 18px -10px rgba(15,34,52,.35); }
+.d1 .cvw::before { content:""; position:absolute; left:50%; bottom:-26px; height:14px; border-left:1px solid #9FB3C6; z-index:0; }
+.d1 .bk:first-child .cvw::after { border-radius:3px 0 0 3px; } .d1 .bk:last-child .cvw::after { border-radius:0 3px 3px 0; }
+.d1 { --tgm:34px; }
+
+/* 2 oak */
+.d2 { background:linear-gradient(180deg,#FBF7F1,#fff 60%); --tgm:34px; }
+.d2 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-16px; height:16px; z-index:1; background:linear-gradient(180deg,#E2C49C 0 3px,#C79A68 3px 100%); box-shadow:0 16px 20px -10px rgba(90,60,30,.4); }
+.d2 .tg { background:#F1E3D0; color:#4A3524; }
+.d2 .tp { color:#8A6A4A; }
+
+/* 3 glass */
+.d3 { background:linear-gradient(180deg,#EAF2FB,#F7FAFE); --tgm:58px; }
+.d3 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-12px; height:12px; z-index:3; background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(158,195,230,.45)); border-bottom:1px solid rgba(60,106,146,.35); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+.d3 .cv { -webkit-box-reflect:below 10px linear-gradient(transparent 86%,rgba(255,255,255,.4)); }
+.d3 .tg { background:rgba(255,255,255,.7); border:1px solid rgba(60,106,146,.25); }
+
+/* 4 floating brackets */
+.d4 { --tgm:34px; }
+.d4 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-4px; height:4px; background:var(--ink); z-index:1; }
+.d4 .cvw::before { content:""; position:absolute; left:0; right:0; bottom:-24px; height:20px; z-index:1; background:linear-gradient(var(--ink),var(--ink)) 24% 0/3px 100% no-repeat,linear-gradient(var(--ink),var(--ink)) 76% 0/3px 100% no-repeat; clip-path:polygon(0 0,100% 0,100% 100%,0 100%); opacity:.9; }
+.d4 .tg { background:transparent; padding:0; font-size:17px; }
+
+/* 5 hairline rail, price as plain text */
+.d5 { --tgm:22px; }
+.d5 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:var(--ink); z-index:3; }
+.d5 .cv { filter:drop-shadow(0 8px 8px rgba(15,34,52,.14)); }
+.d5 .tg { background:none; padding:0; font:400 14px var(--fm); color:var(--ink); }
+.d5 .tp { margin-top:8px; }
+
+/* 6 plinths */
+.d6 { background:var(--pa,#F5F8FC); --tgm:34px; }
+.d6 .bk { padding-inline:22px; }
+.d6 .cvw::after { content:""; position:absolute; left:6%; right:6%; bottom:-14px; height:14px; z-index:1; border-radius:4px; background:linear-gradient(180deg,#fff,#DCE7F3); box-shadow:0 10px 14px -8px rgba(15,34,52,.35), inset 0 -1px 0 rgba(15,34,52,.08); }
+.d6 .tg { background:#fff; box-shadow:0 0 0 1px var(--ln); }
+
+/* 7 alcove */
+.d7 { --tgm:36px; padding-top:28px; }
+.d7 .cvw { background:linear-gradient(180deg,#DFEAF6,#EEF4FB); }
+.d7 .bk:first-child .cvw { border-radius:8px 0 0 0; } .d7 .bk:last-child .cvw { border-radius:0 8px 0 0; }
+.d7 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-14px; height:14px; z-index:1; background:#fff; border:1px solid #CBD6E2; box-shadow:0 14px 18px -10px rgba(15,34,52,.3); }
+.d7 .cvw::before { content:""; position:absolute; inset:0; background:radial-gradient(60% 70% at 50% 100%,rgba(255,255,255,.7),transparent); z-index:0; }
+.d7 .tg { background:#fff; box-shadow:0 0 0 1px var(--ln); }
+
+/* 8 dark bookcase */
+.d8 { background:#0F2234; border-color:#0F2234; color:#fff; --tgm:34px; padding-inline:0; }
+.d8 .bk { padding-inline:14px; border-right:1px solid rgba(255,255,255,.07); }
+.d8 .bk:nth-child(4n) { border-right:0; }
+.d8 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-3px; height:3px; z-index:1; background:var(--hl); box-shadow:0 0 22px 2px rgba(158,195,230,.45); }
+.d8 .cv { filter:drop-shadow(0 12px 16px rgba(0,0,0,.5)); }
+.d8 .cv img { mix-blend-mode:normal; border-radius:5px; clip-path:inset(1px round 5px); }
+.d8 .tg { background:transparent; color:#fff; box-shadow:inset 0 0 0 1px rgba(158,195,230,.55); }
+.d8 .tp { color:var(--hl); } .d8 .ti { color:#E8F0F8; }
+
+/* 9 risers */
+.d9 { --tgm:30px; --st:0px; }
+.d9 .bk:nth-child(4n+1) { --st:0px; } .d9 .bk:nth-child(4n+2) { --st:22px; } .d9 .bk:nth-child(4n+3) { --st:44px; } .d9 .bk:nth-child(4n) { --st:66px; }
+.d9 .cvw { height:calc(var(--ch) + 66px); padding-bottom:var(--st); }
+.d9 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:0; height:calc(var(--st) + 12px); z-index:1; background:linear-gradient(180deg,#2B5A86,#1B4263); box-shadow:inset 0 3px 0 #9EC3E6; }
+.d9 .bk { padding-inline:0; } .d9 .cv { margin-inline:auto; margin-bottom:12px; }
+.d9 .tg, .d9 .tp, .d9 .ti { margin-inline:14px; }
+
+/* 10 catalogue rail */
+.d10 { --tgm:34px; }
+.d10 .cvw::after { content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--ink); z-index:3; }
+.d10 .cvw::before { content:""; position:absolute; left:0; right:0; bottom:-12px; height:10px; z-index:1; background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 12.5%); opacity:.5; }
+.d10 .tg { background:none; padding:0; color:var(--ink); font:500 11.5px var(--fm); letter-spacing:.06em; }
+.d10 .tg span.p { margin-left:10px; color:var(--ai); font-size:15px; font-family:var(--fd); letter-spacing:0; }
+
+@media (max-width:860px) { .gr { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:48px; } .rk { padding-inline:12px; --ch:210px; } .d8 .bk:nth-child(4n) { border-right:1px solid rgba(255,255,255,.07); } .d8 .bk:nth-child(2n) { border-right:0; }
+  .d9 .bk:nth-child(2n+1) { --st:0px; } .d9 .bk:nth-child(2n) { --st:30px; } .d9 .cvw { height:calc(var(--ch) + 30px); } .d1 .bk:nth-child(2n) .cvw::after, .d1 .bk:last-child .cvw::after { border-radius:0 3px 3px 0; } }
+@media (prefers-reduced-motion:reduce) { * { transition-duration:.001ms!important; } }
+</style>
+
+<div class="page">
+  <header class="intro">
+    <h1>Book rack, ten ways</h1>
+    <p>The same eight products on ten different racks. Each book draws its own piece of shelf, so the rows always sit on the shelf line whether there are four across or two. Hover a book to see it lift. Price tags, shelf material and backdrop change per option.</p>
+  </header>
+  <div class="pickbar"><b>Your picks</b><output id="out" aria-live="polite">None yet</output><button type="button" id="clr">Clear</button></div>
+  <div id="list"></div>
+</div>
+
+<script>
+var C=[
+ {code:'D08',reg:'1,495',topic:'Team Behaviors',title:'The Five Behaviors® Team & Personal Downloadable Kits',price:'1,345',img:'cover-d08.jpg'},
+ {code:'B107',topic:'DiSC/Personal Development',title:'Everything DiSC® Workplace on Catalyst',price:'90',img:'cover-b107.jpg'},
+ {code:'CER3',reg:'4,695',topic:'DiSC/Personal Development',title:'The Everything DiSC® Certification & Catalyst Practitioner Experience',price:'3,995',img:'cover-cer3.jpg'},
+ {code:'B101',topic:'Sales',title:'Everything DiSC® Sales Profile',price:'150',img:'cover-b101.jpg'},
+ {code:'PI04',topic:'Interviewing',title:'PXT Select™',price:'295',img:'cover-pi04.jpg'},
+ {code:'FB1',topic:'Team Behaviors',title:'The Five Behaviors™ Assessment',price:'210',img:'cover-fb1.jpg'},
+ {code:'PI01',topic:'Management',title:'CheckPoint 360 Feedback',price:'400',img:'cover-pi01.jpg'},
+ {code:'B104',topic:'Leadership',title:'Everything DiSC® Work of Leaders™ Profile',price:'150',img:'cover-b104.jpg'}
+];
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function book(c,cat){var tag=cat?'<span class="tg">'+c.code+'<span class="p">$'+c.price+'</span></span>':'<span class="tg">'+(c.reg?'<s>$'+c.reg+'</s>':'')+'$'+c.price+'</span>';
+ return '<a class="bk" href="#" onclick="return false"><span class="cvw"><span class="cv"><img src="images/cover-'+c.img.replace('cover-','')+'" alt="'+esc(c.title)+' cover" loading="lazy"></span></span>'+tag+'<span class="tp">'+esc(c.topic)+'</span><span class="ti">'+esc(c.title)+'</span></a>';}
+var O=[
+ ['Navy plank','Light backdrop','One solid navy shelf with a soft shadow under it and a short hanger line under each book. The cleanest evolution of what you have now.','Closest to today and the lowest risk. Fits the Delcap palette.',0],
+ ['Oak shelf','Warm','A real wood plank in warm oak, with a lit top edge and tan price tags. Reads like a bookshop.','Friendliest and most tactile. Brings a second colour family, so it only suits a brand that wants warmth.',0],
+ ['Glass shelf','Cool, premium','A frosted glass shelf with soft reflections under each book on a pale blue backdrop.','Most premium and airy. Reflections only render in Chrome and Safari, and fall back to plain glass elsewhere.',0],
+ ['Floating brackets','Minimal','A thin dark shelf held by two small brackets under every book. Price is plain text, no pill.','Architectural and very light. Less colour, so covers do all the talking.',0],
+ ['Hairline rail','Minimal','Just a one-pixel line. Books stand on it and the price is small mono text.','The quietest option. Works best if you want the section to disappear into the page.',0],
+ ['Plinths','Gallery','No continuous shelf. Each book stands on its own small rounded plinth on a soft grey field.','Feels like a gallery. Gives each product weight, but the section loses the shelf metaphor.',0],
+ ['Alcove','Depth','A tinted back wall behind each book and a white ledge in front, with a soft glow at the base.','Adds depth without adding objects. Strongest if the section sits on a white page.',0],
+ ['Dark bookcase','Dark section','A navy case with thin dividers, glowing light-blue shelf edges and outlined price tags.','Most dramatic and makes light covers pop. Introduces a dark band mid-page.',0],
+ ['Risers','Playful','Books step up left to right on blue risers, so the row has a rhythm instead of a flat line.','Most distinctive and good for a shop display. Busier, and the steps reset on every row.',0],
+ ['Catalogue rail','Catalogue','A ruled line with tick marks, product code under each book and price beside it, like a library index.','Best for comparing items fast. Feels technical and suits a trained buyer.',1]
+];
+var picks=[];try{picks=JSON.parse(localStorage.getItem('rack-picks')||'[]');}catch(e){}
+function save(){try{localStorage.setItem('rack-picks',JSON.stringify(picks));}catch(e){}}
+function paint(){document.getElementById('out').textContent=picks.length?picks.map(function(n){return n+' '+O[n-1][0];}).join('  ·  '):'None yet';[].forEach.call(document.querySelectorAll('.oh button'),function(b){var on=picks.indexOf(+b.dataset.n)>-1;b.setAttribute('aria-pressed',on);b.textContent=on?'Picked':'Pick';});}
+document.getElementById('list').innerHTML=O.map(function(o,k){var n=k+1;return '<section class="opt"><div class="oh"><span class="n">'+(n<10?'0'+n:n)+'</span><h2>'+o[0]+'</h2><span class="dn">'+o[1]+'</span><button type="button" data-n="'+n+'" aria-pressed="false">Pick</button></div><div class="rk d'+n+'"><div class="gr">'+C.map(function(c){return book(c,o[4]);}).join('')+'</div></div><p class="nt"><b>'+o[2]+'</b> '+o[3]+'</p></section>';}).join('');
+document.getElementById('list').addEventListener('click',function(e){var b=e.target.closest('.oh button');if(!b)return;var n=+b.dataset.n,i=picks.indexOf(n);if(i>-1)picks.splice(i,1);else picks.push(n);save();paint();});
+document.getElementById('clr').addEventListener('click',function(){picks=[];save();paint();});
+paint();
+</script>

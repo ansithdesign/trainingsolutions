@@ -1,0 +1,81 @@
+<title>Option 2 Blue Palettes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Wix+Madefor+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: a calm two-up grid of palette cards, each a miniature of the option 2 hero so colour is judged in context. */
+:root { color-scheme: light; --bg:#F2F4F6; --card:#fff; --ink:#0B2434; --mu:#5A6672; --ln:rgba(11,36,52,.12);
+  --fd:'Wix Madefor Display','Segoe UI',system-ui,sans-serif; --fm:'Azeret Mono',ui-monospace,Menlo,monospace; }
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--fd); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+main { max-width: 1120px; margin-inline: auto; padding-block: 48px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { max-width: 60ch; margin-bottom: 36px; }
+h1 { font-weight: 600; font-size: clamp(28px, 4vw, 40px); letter-spacing: -.035em; line-height: 1.08; text-wrap: balance; }
+header p { margin-top: 12px; color: var(--mu); font-size: 15px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr)); gap: 20px; }
+.pal { background: var(--card); border: 1px solid var(--ln); border-radius: 14px; overflow: hidden; min-width: 0; }
+.mock { position: relative; padding: 22px 20px 24px; background: #F2F4F5; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: center; min-height: 270px; }
+.mock::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(11,36,52,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(11,36,52,.06) 1px, transparent 1px); background-size: 28px 28px; -webkit-mask: radial-gradient(90% 80% at 70% 40%, #000, transparent); mask: radial-gradient(90% 80% at 70% 40%, #000, transparent); }
+.est { font: 500 9.5px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--p-ink); opacity: .7; }
+.mock h2 { margin-top: 10px; font-weight: 600; font-size: clamp(21px, 2.6vw, 27px); letter-spacing: -.04em; line-height: 1.04; color: var(--p-ink); text-wrap: balance; }
+.mock h2 em { font-style: normal; color: var(--p-ac); }
+.mock .btn { margin-top: 16px; display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 8px; background: var(--p-ink); color: #fff; font-weight: 600; font-size: 12px; }
+.mock .btn.l { background: transparent; color: var(--p-ink); border: 1px solid var(--p-ink); margin-left: 6px; }
+.art { position: relative; height: 210px; }
+.bg { position: absolute; right: 0; top: 18px; width: 82%; height: calc(100% - 18px); border-radius: 18px; background: var(--p-tint); }
+.ph { position: absolute; right: 6%; top: 0; width: 82%; height: calc(100% - 14px); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 40px -22px var(--p-sh); }
+.ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.chip { position: absolute; left: -4%; bottom: 36px; display: flex; align-items: center; gap: 9px; padding: 6px 13px 6px 6px; border-radius: 12px; background: #fff; border: 1px solid rgba(11,36,52,.07); box-shadow: 0 1px 2px rgba(11,36,52,.06), 0 16px 30px -14px var(--p-sh); }
+.chip i { width: 28px; height: 28px; border-radius: 8px; background: var(--p-tint); color: var(--p-ac); display: grid; place-items: center; }
+.chip svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: square; stroke-linejoin: miter; }
+.chip b { display: block; font-weight: 600; font-size: 11.5px; line-height: 1.15; color: var(--p-ink); }
+.chip small { display: block; font: 500 9px var(--fm); color: var(--p-ac); margin-top: 1px; }
+.chip.c3 { left: auto; right: -2%; bottom: 8px; }
+.meta { padding: 16px 20px 18px; display: grid; gap: 12px; }
+.name { display: flex; align-items: baseline; gap: 10px; }
+.name span { font: 500 12px var(--fm); color: var(--mu); }
+.name h3 { font-weight: 600; font-size: 17px; letter-spacing: -.02em; }
+.note { color: var(--mu); font-size: 13.5px; margin-top: -6px; }
+.sw { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.sw div { min-width: 0; }
+.sw i { display: block; height: 34px; border-radius: 7px; border: 1px solid var(--ln); }
+.sw b { display: block; margin-top: 6px; font: 500 10px var(--fm); color: var(--mu); letter-spacing: .02em; }
+.sw u { display: block; text-decoration: none; font: 500 10.5px var(--fm); color: var(--ink); }
+@media (max-width: 520px) { .mock { grid-template-columns: 1fr; } .art { height: 220px; } }
+</style>
+
+<main>
+  <header>
+    <h1>Option 2, in blue</h1>
+    <p>Ten palettes for the teal and navy hero. Each card shows the same hero with the blue swapped in. Reply with a letter. Neutrals, type and layout stay as they are.</p>
+  </header>
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+var P = [
+ ['A','Cobalt','Clean and confident. The most “classic blue” of the set, closest to a fintech feel.','#0A1F44','#1D4ED8','#9DB8FF','#E4EBFA'],
+ ['B','Ultramarine','Slight violet lean. More character, a little more playful.','#0E1A4B','#3340D6','#A9B2FF','#E8EAFB'],
+ ['C','Azure','Bright and open. Reads as friendly and approachable.','#0A2540','#0B6BCB','#8CCBFF','#E1EFFB'],
+ ['D','Steel','Muted and serious. Suits a compliance audience that wants calm.','#14263A','#2F5F8F','#A7C4E2','#E6EDF4'],
+ ['E','Glacier','Cyan-leaning blue. Closest to the current teal, so the change feels gentle.','#0B2A3D','#0A7FA8','#8FDDF0','#DFF1F6'],
+ ['F','Denim','Warm, grounded mid-blue. Less techy, more established.','#1B2A41','#2C5282','#90B1DC','#E5ECF5'],
+ ['G','Powder','Lighter and softer overall. The most spacious feel, lowest contrast on accents.','#1E3A5F','#3B82C4','#BBD9F5','#EAF2FA'],
+ ['H','Slate Blue','Greyed periwinkle. Quiet and editorial, very little saturation.','#1F2A44','#4A62A6','#B3C0EA','#E9ECF6'],
+ ['I','Prussian','Deep, inky blue. Strongest authority, heaviest tone.','#002B49','#00598F','#6FB7E9','#DEEBF4'],
+ ['J','Electric','Near-black ink with a vivid blue accent. Highest contrast, most modern.','#0B1226','#2563EB','#60A5FA','#E3ECFE']
+];
+var icon = '<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M12 8v5M12 16v.01"/></svg>';
+var flag = '<svg viewBox="0 0 24 24"><path d="M6 3v18M6 4h12l-3 4 3 4H6"/></svg>';
+function hexA(h,a){var n=parseInt(h.slice(1),16);return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')';}
+document.getElementById('grid').innerHTML = P.map(function (p) {
+  var s = '--p-ink:'+p[3]+';--p-ac:'+p[4]+';--p-hl:'+p[5]+';--p-tint:'+p[6]+';--p-sh:'+hexA(p[3],.42);
+  return '<article class="pal" style="'+s+'"><div class="mock"><div><p class="est">Educating and serving since 1995</p><h2>Training your team will <em>actually finish</em></h2><div><span class="btn">Browse courses</span><span class="btn l">Search</span></div></div>'
+   + '<div class="art"><span class="bg"></span><div class="ph"><img src="images/diversity.jpg" alt=""></div>'
+   + '<div class="chip"><i>'+icon+'</i><span><b>Harassment</b><small>19 products</small></span></div>'
+   + '<div class="chip c3"><i>'+flag+'</i><span><b>Leadership</b><small>12 products</small></span></div></div></div>'
+   + '<div class="meta"><div class="name"><span>'+p[0]+'</span><h3>'+p[1]+'</h3></div><p class="note">'+p[2]+'</p>'
+   + '<div class="sw"><div><i style="background:'+p[3]+'"></i><b>Ink</b><u>'+p[3]+'</u></div><div><i style="background:'+p[4]+'"></i><b>Accent</b><u>'+p[4]+'</u></div><div><i style="background:'+p[5]+'"></i><b>Highlight</b><u>'+p[5]+'</u></div><div><i style="background:'+p[6]+'"></i><b>Tint</b><u>'+p[6]+'</u></div></div></div></article>';
+}).join('');
+</script>
