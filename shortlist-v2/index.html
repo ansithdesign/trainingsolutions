@@ -193,7 +193,7 @@ svg.lm { fill: currentColor; stroke: none; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* sections */
-.sx { padding-block: var(--sp, 120px); position: relative; }
+.sx { padding-block: var(--sp, 76px); position: relative; }
 .sh { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; margin-bottom: var(--shm, 52px); }
 .sh > div { max-width: 680px; min-width: 0; }
 .sh p { margin-top: 16px; color: var(--mu); font-size: 16px; max-width: 54ch; }
@@ -222,7 +222,7 @@ svg.lm { fill: currentColor; stroke: none; }
   .bar-end { margin-left: auto; }
 }
 @media (max-width: 720px) {
-  .sx { padding-block: var(--sp-m, 76px); }
+  .sx { padding-block: var(--sp-m, 48px); }
   .sh { margin-bottom: 34px; }
   .b-cart { padding-left: 14px; }
 }
@@ -979,7 +979,7 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 [data-d="j"] .tr-in { margin-top: -48px; background: #fff; border: 1px solid var(--ln); border-radius: 14px; padding: 28px 32px; box-shadow: 0 30px 60px -40px rgba(15,34,52,.35); max-width: calc(1280px - 40px); width: calc(100% - 40px); }
 [data-d="j"] .since { font-size: 20px; font-weight: 600; }
 [data-d="j"] .logos { justify-content: space-around; }
-[data-d="j"] .topics { --sp: 110px 120px; }
+[data-d="j"] .topics { --sp: 76px; }
 [data-d="j"] .welcome { --sbg: #F5F8FC; }
 [data-d="j"] .wrib { --rib: #3C6A92; }
 [data-d="j"] .wl-card .wtop { border-radius: 14px; }
@@ -1695,7 +1695,7 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 @media (max-width: 900px) { [data-d="h"] .wl-pol .pg { grid-template-columns: 1fr; } [data-d="h"] .wl-pol .pol { max-width: 520px; } [data-d="h"] .wl-pol .stamp .cat-a { margin-left: 0; } }
 </style>
 <style>
-[data-d="h"] main .welcome { padding-top: var(--sp, 120px); }
+[data-d="h"] main .welcome { padding-top: var(--sp, 76px); }
 [data-d="h"] .wl-pol .pol { order: 2; transform: rotate(3deg); }
 [data-d="h"] .wl-pol .pt { order: 1; }
 [data-d="h"] .wl-pol .stamp { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 20px 28px; padding: 24px 26px; border: 0; border-radius: 18px; background: linear-gradient(135deg, #1B4263 0%, #1B4263 100%); color: #fff; position: relative; overflow: hidden; isolation: isolate; }
@@ -1879,7 +1879,7 @@ header.hd > .hpart { margin-top: 0; }
 [data-d="j"] .wl-pol .stamp .cat-l { mix-blend-mode: multiply; }
 [data-d="j"] .wl-pol .stamp .cat-a { margin-left: auto; border: 0; color: var(--ac); }
 [data-d="j"] .wl-pol .cat-c { margin-top: 12px; }
-[data-d="j"] main .welcome { padding-top: var(--sp, 120px); }
+[data-d="j"] main .welcome { padding-top: var(--sp, 76px); }
 [data-d="j"] .wl-pol .pol { order: 2; transform: rotate(3deg); }
 [data-d="j"] .wl-pol .pt { order: 1; }
 [data-d="j"] .wl-pol .stamp { margin-top: 32px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 20px 28px; padding: 24px 26px; border: 0; border-radius: 18px; background: linear-gradient(135deg, #1B4263 0%, #1B4263 100%); color: #fff; position: relative; overflow: hidden; isolation: isolate; }
@@ -2188,7 +2188,7 @@ header.hd > .hpart { margin-top: 0; }
 [data-d="h"] .hs-pop { margin-top: clamp(16px, 2.6vh, 26px); }
 [data-d="h"] .hpart { padding-top: clamp(20px, 3.4vh, 36px); padding-bottom: clamp(24px, 3.6vh, 40px); }
 /* Option 1: centred section headings, buttons under the content, more air between sections, option 2's proof layout */
-[data-d="h"] main .sx { --sp: 136px; --sp-m: 84px; }
+[data-d="h"] main .sx { --sp: 80px; --sp-m: 52px; }
 [data-d="h"] main .topics > .wrap, [data-d="h"] main .courses > .wrap { display: flex; flex-direction: column; }
 [data-d="h"] main .topics .sh, [data-d="h"] main .courses .sh { display: contents; }
 [data-d="h"] main .topics .sh > div, [data-d="h"] main .courses .sh > div, [data-d="h"] main .svc .sh > div { text-align: center; margin: 0 auto 56px; max-width: 720px; }
@@ -2261,6 +2261,18 @@ header.hd > .hpart { margin-top: 0; }
 [data-d="h"] .hglass .logos li { flex: 1 1 0; min-width: 0; justify-content: center; }
 [data-d="h"] .hglass .logos img { height: 26px; max-width: 80%; width: auto; object-fit: contain; opacity: .92; }
 @media (max-width: 860px) { [data-d="h"] .hglass .plab { margin-right: 0; } [data-d="h"] .hglass .logos { gap: 14px 28px; } [data-d="h"] .hglass .logos li { flex: none; } }
+/* Minimal learn strip + tighter section rhythm */
+.learn, [data-d] .learn { margin-top: 40px; padding: 22px 0 0; background: none !important; border: 0; border-top: 1px solid rgba(245,248,252,.18); border-radius: 0; box-shadow: none; grid-template-columns: minmax(0, .7fr) repeat(3, minmax(0, 1.25fr)); gap: 0 24px; }
+[data-d] .learn .ld { font-size: 15px; font-weight: 400; }
+#app .learn .li, #app .learn p span { display: none !important; }
+[data-d] .learn .lc { display: block; padding: 0; margin: 0; }
+[data-d] .learn h4 { font-size: 10.5px; margin-bottom: 4px; }
+[data-d] .learn p { font-size: 14.5px; font-weight: 400; }
+@media (max-width: 900px) { [data-d] .learn { grid-template-columns: 1fr 1fr; row-gap: 18px; } }
+@media (max-width: 600px) { [data-d] .learn { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { [data-d="h"] main .welcome, [data-d="j"] main .welcome { padding-top: 48px; } }
+.hs-stick { height: auto; max-height: 100vh; padding-block: 76px; box-sizing: border-box; }
+.hs-run.native .hs-stick { height: auto; padding-block: 48px; }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2482,22 +2494,22 @@ header.hd > .hpart { margin-top: 0; }
     /* horizontal track driven by vertical scroll */
     var run = $q('.hs-run');
     if (run) {
-      var view = $q('.hs-view'), track = $q('.hs-track'), dots = app.querySelectorAll('.hd-dot'), num = $q('#hsn'), ttl = $q('#hst'), n = dots.length, dist = 0, last = -1;
+      var stick = $q('.hs-stick'), view = $q('.hs-view'), track = $q('.hs-track'), dots = app.querySelectorAll('.hd-dot'), num = $q('#hsn'), ttl = $q('#hst'), n = dots.length, dist = 0, last = -1;
       var mq = window.matchMedia('(max-width: 860px)');
       function mark(k) { if (k === last) return; last = k; num.textContent = '0' + (k + 1); ttl.textContent = SERVICES[k].t; [].forEach.call(dots, function (d, j) { if (j === k) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); }); }
       function native() { return mq.matches || reduce; }
       function update() {
         if (native()) { var cw = track.firstElementChild ? track.firstElementChild.offsetWidth + 24 : 1; mark(Math.min(n - 1, Math.round(view.scrollLeft / cw))); return; }
-        var r = run.getBoundingClientRect(), span = run.offsetHeight - window.innerHeight, p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+        var r = run.getBoundingClientRect(), span = run.offsetHeight - stick.offsetHeight, p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
         track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
         mark(Math.round(p * (n - 1)));
       }
       function size() {
         if (native()) { run.classList.add('native'); run.style.height = ''; track.style.transform = ''; update(); return; }
-        run.classList.remove('native'); dist = Math.max(0, track.scrollWidth - view.clientWidth); run.style.height = (window.innerHeight + dist) + 'px'; update();
+        run.classList.remove('native'); dist = Math.max(0, track.scrollWidth - view.clientWidth); run.style.height = (stick.offsetHeight + dist) + 'px'; update();
       }
       on(window, 'scroll', update, { passive: true }); on(window, 'resize', size); on(view, 'scroll', function () { if (native()) update(); }, { passive: true });
-      [].forEach.call(dots, function (d) { on(d, 'click', function () { var k = +d.dataset.i; if (native()) { var c = track.children[k]; view.scrollTo({ left: c.offsetLeft - track.firstElementChild.offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); return; } var span = run.offsetHeight - window.innerHeight, top = run.getBoundingClientRect().top + window.pageYOffset + (k / (n - 1)) * span; window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' }); }); });
+      [].forEach.call(dots, function (d) { on(d, 'click', function () { var k = +d.dataset.i; if (native()) { var c = track.children[k]; view.scrollTo({ left: c.offsetLeft - track.firstElementChild.offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); return; } var span = run.offsetHeight - stick.offsetHeight, top = run.getBoundingClientRect().top + window.pageYOffset + (k / (n - 1)) * span; window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' }); }); });
       size(); setTimeout(size, 500); window.addEventListener('load', size, { once: true });
     }
     /* tilted cards straighten toward the middle of the screen */
