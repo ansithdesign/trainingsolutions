@@ -402,6 +402,28 @@ em { font-style: normal; }
 
 .arw { width: 1em; height: 1em; display: inline-block; vertical-align: -.14em; flex: none; }
 ::selection { background: color-mix(in srgb, var(--accent, var(--green, #3b6fd4)) 22%, #fff); color: inherit; }
+
+.wl { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: stretch; }
+.wl-note { display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 32px; align-items: center; }
+.wl-note img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; display: block; }
+.wl-h { font-size: clamp(20px, 2vw, 27px); line-height: 1.15; max-width: 22ch; text-wrap: balance; }
+.wl-text p { margin-top: 14px; max-width: 58ch; text-wrap: pretty; }
+.wl-text .wl-sign { font-weight: 600; margin-top: 18px; }
+.wl-promo { display: grid; justify-items: center; align-content: center; gap: 18px; text-align: center; padding: 36px; }
+.wl-promo img { width: min(100%, 340px); height: auto; display: block; }
+.wl-c { font-size: 11.5px; }
+@media (max-width: 900px) { .wl { grid-template-columns: 1fr; } .wl-note { grid-template-columns: minmax(0, 150px) 1fr; gap: 20px; } }
+@media (max-width: 560px) { .wl-note { grid-template-columns: 1fr; } .wl-note img { max-width: 220px; aspect-ratio: 4 / 3; } .wl-promo { padding: 24px; } }
+
+.welcome.s-trust { padding-block: 80px; border-bottom: 0; }
+.welcome .wl-note img { border-radius: calc(var(--rs) * .6); }
+.welcome .wl-h { font-family: var(--fd); font-weight: var(--wd); letter-spacing: var(--ls); }
+.welcome .wl-text p { color: var(--mu); }
+.welcome .wl-text .wl-sign { color: var(--fg-s); }
+.welcome .wl-c { color: var(--mu); }
+.welcome .wl-promo { background: var(--bg-s); border: 1px solid var(--ln); border-radius: var(--rd); }
+.pp, .price { white-space: nowrap; }
+.was { text-decoration: line-through; text-decoration-thickness: 1px; opacity: .6; font-weight: 400; margin-right: .45em; font-size: .86em; }
 </style>
 </head>
 <body>
@@ -409,10 +431,11 @@ em { font-style: normal; }
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" title="Layered Night">1</a><a href="#c" title="Airy Light">2</a><a href="#e" title="Color Block">3</a><a href="#f" title="Column">4</a><a href="#g" title="Maze">5</a><a href="#h" title="Ledgerhouse">6</a><a href="#j" title="Paylytix">7</a><a href="#k" title="Advisio">8</a><a href="#m" title="Arcline">9</a><a href="#o" title="Gridixx" aria-current="true">10</a><span class="sw-n">Gridixx</span></nav>
 <script>
 (function () {
+  function pr(c) { return (c.reg ? '<s class="was">$' + c.reg + '</s>' : '') + '$' + c.price; }
   var COURSES = [
-    { code: 'D08', topic: 'Team Behaviors', title: 'The Five Behaviors® Team & Personal Downloadable Kits', price: '1,345', img: 'cover-d08.jpg', alt: 'Five Behaviors Team and Personal Development kit cover' },
+    { code: 'D08', reg: '1,495', topic: 'Team Behaviors', title: 'The Five Behaviors® Team & Personal Downloadable Kits', price: '1,345', img: 'cover-d08.jpg', alt: 'Five Behaviors Team and Personal Development kit cover' },
     { code: 'B107', topic: 'DiSC/Personal Development', title: 'Everything DiSC® Workplace on Catalyst', price: '90', img: 'cover-b107.jpg', alt: 'Your DiSC Profile report cover' },
-    { code: 'CER3', topic: 'DiSC/Personal Development', title: 'The Everything DiSC® Certification & Catalyst Practitioner Experience', price: '3,995', img: 'cover-cer3.jpg', alt: 'Catalyst Practitioner Experience certification cover' },
+    { code: 'CER3', reg: '4,695', topic: 'DiSC/Personal Development', title: 'The Everything DiSC® Certification & Catalyst Practitioner Experience', price: '3,995', img: 'cover-cer3.jpg', alt: 'Catalyst Practitioner Experience certification cover' },
     { code: 'B101', topic: 'Sales', title: 'Everything DiSC® Sales Profile', price: '150', img: 'cover-b101.jpg', alt: 'Everything DiSC Sales Profile cover' },
     { code: 'PI04', topic: 'Interviewing', title: 'PXT Select™', price: '295', img: 'cover-pi04.jpg', alt: 'PXT Select Comprehensive Selection Report cover' },
     { code: 'FB1', topic: 'Team Behaviors', title: 'The Five Behaviors™ Assessment', price: '210', img: 'cover-fb1.jpg', alt: 'The Five Behaviors of a Cohesive Team report cover' },
@@ -492,13 +515,16 @@ em { font-style: normal; }
     if (v === 'pills') more = '<a class="t more" href="#"><span class="tt">See all topics</span><span class="ti"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a>';
     return '<section class="s-topics sec" id="topics"><div class="wrap"><div class="sec-head"><h2>Browse by <em>topic</em></h2></div><div class="tl tv-' + v + '">' + items + more + '</div></div></section>';
   }
+  function welcome(d) {
+    return "<section class=\"welcome sec s-trust\" id=\"welcome\"><div class=\"wrap\"><div class=\"wl\"><div class=\"wl-note\"><img src=\"images/founders.jpg\" alt=\"Sharon and Michael Ferraro\" width=\"400\" height=\"300\" loading=\"lazy\"><div class=\"wl-text\"><h2 class=\"wl-h\">Thank you for coming to our website!</h2><p>We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator’s kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you’d like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p><p class=\"wl-sign\">Sharon and Michael Ferraro.</p></div></div><div class=\"wl-promo\"><img src=\"images/catalyst-promo.png\" alt=\"Meet Catalyst. The new way to experience Everything DiSC\" width=\"450\" height=\"312\" loading=\"lazy\"><p class=\"wl-c\">© by John Wiley &amp; Sons, Inc. All rights reserved.</p><a class=\"btn\" href=\"#\">Learn More About Catalyst Here</a></div></div></div></section>";
+  }
   function courses(d) {
     var v = d.L.courses, items;
     if (v === 'list') {
-      items = '<div class="lst">' + COURSES.map(function (c, i) { return '<a class="r rv-i' + (i === 0 ? ' on' : '') + '" href="#" data-i="' + i + '"><span class="th">' + img(c.img, '') + '</span><span class="rc">' + c.code + '</span><span class="rt">' + esc(c.title) + '<span class="rk">' + esc(c.topic) + '</span></span><span class="price">$' + c.price + '</span></a>'; }).join('') + '</div><aside class="pv" aria-live="polite"></aside>';
+      items = '<div class="lst">' + COURSES.map(function (c, i) { return '<a class="r rv-i' + (i === 0 ? ' on' : '') + '" href="#" data-i="' + i + '"><span class="th">' + img(c.img, '') + '</span><span class="rc">' + c.code + '</span><span class="rt">' + esc(c.title) + '<span class="rk">' + esc(c.topic) + '</span></span><span class="price">' + pr(c) + '</span></a>'; }).join('') + '</div><aside class="pv" aria-live="polite"></aside>';
       return '<section class="s-courses sec" id="courses"><div class="wrap">' + chead(false) + '<div class="cv-list">' + items + '</div></div></section>';
     }
-    items = COURSES.map(function (c) { return '<a class="c rv-i" href="#"><div class="cover"><span class="cc">' + c.code + '</span>' + img(c.img, c.alt, 'loading="lazy"') + '</div><div class="cb"><span class="ct">' + esc(c.topic) + '</span><h3>' + esc(c.title) + '</h3><div class="cf"><span class="price">$' + c.price + '</span><span class="go">View course <span class="ga" aria-hidden="true"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></span></div></div></a>'; }).join('');
+    items = COURSES.map(function (c) { return '<a class="c rv-i" href="#"><div class="cover"><span class="cc">' + c.code + '</span>' + img(c.img, c.alt, 'loading="lazy"') + '</div><div class="cb"><span class="ct">' + esc(c.topic) + '</span><h3>' + esc(c.title) + '</h3><div class="cf"><span class="price">' + pr(c) + '</span><span class="go">View course <span class="ga" aria-hidden="true"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></span></div></div></a>'; }).join('');
     return '<section class="s-courses sec" id="courses"><div class="wrap">' + chead(v === 'rail') + (v === 'rail' ? '<div class="cv-rail" tabindex="0" aria-label="Popular online courses">' + items + '</div>' : '<div class="cv-grid">' + items + '</div>') + '</div></section>';
   }
   function chead(rail) {
@@ -532,7 +558,7 @@ em { font-style: normal; }
     var d = D[n]; current = n;
     app.setAttribute('data-d', n); app.setAttribute('style', vars(d));
     document.body.style.background = d.s.foot[0];
-    app.innerHTML = '<div class="mini" id="mini"><div class="wrap">' + logo() + '<span class="tel">703-318-0838</span></div></div>' + hero(d) + trust() + topics(d) + courses(d) + services(d) + proof(d) + cta(d) + footer();
+    app.innerHTML = '<div class="mini" id="mini"><div class="wrap">' + logo() + '<span class="tel">703-318-0838</span></div></div>' + hero(d) + trust() + topics(d) + welcome(d) + courses(d) + services(d) + proof(d) + cta(d) + footer();
     if (d.L.cta === 'panel') app.querySelector('.s-cta').classList.add('cv-panel');
     wire(d); window.scrollTo(0, 0);
   }
@@ -553,7 +579,7 @@ em { font-style: normal; }
     var pv = app.querySelector('.pv');
     if (pv) {
       var rows = app.querySelectorAll('.cv-list .r');
-      var show = function (i) { var c = COURSES[i]; rows.forEach(function (r) { r.classList.toggle('on', +r.getAttribute('data-i') === i); }); pv.innerHTML = '<div class="pvc">' + img(c.img, c.alt) + '</div><div class="pvb"><span class="ct" style="font-size:12px;font-weight:600;color:var(--ai)">' + esc(c.topic) + ' · ' + c.code + '</span><h3>' + esc(c.title) + '</h3><div class="pr"><span class="price">$' + c.price + '</span><a class="btn" href="#">View course <span class="arr"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a></div></div>'; };
+      var show = function (i) { var c = COURSES[i]; rows.forEach(function (r) { r.classList.toggle('on', +r.getAttribute('data-i') === i); }); pv.innerHTML = '<div class="pvc">' + img(c.img, c.alt) + '</div><div class="pvb"><span class="ct" style="font-size:12px;font-weight:600;color:var(--ai)">' + esc(c.topic) + ' · ' + c.code + '</span><h3>' + esc(c.title) + '</h3><div class="pr"><span class="price">' + pr(c) + '</span><a class="btn" href="#">View course <span class="arr"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a></div></div>'; };
       rows.forEach(function (r) { r.addEventListener('mouseenter', function () { show(+r.getAttribute('data-i')); }); r.addEventListener('focus', function () { show(+r.getAttribute('data-i')); }); r.addEventListener('click', function (e) { e.preventDefault(); show(+r.getAttribute('data-i')); }); });
       show(0);
     }

@@ -409,6 +409,28 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 
 .arw { width: 1em; height: 1em; display: inline-block; vertical-align: -.14em; flex: none; }
 ::selection { background: color-mix(in srgb, var(--accent, var(--green, #3b6fd4)) 22%, #fff); color: inherit; }
+
+.wl { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: stretch; }
+.wl-note { display: grid; grid-template-columns: minmax(0, 220px) 1fr; gap: 32px; align-items: center; }
+.wl-note img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; display: block; }
+.wl-h { font-size: clamp(20px, 2vw, 27px); line-height: 1.15; max-width: 22ch; text-wrap: balance; }
+.wl-text p { margin-top: 14px; max-width: 58ch; text-wrap: pretty; }
+.wl-text .wl-sign { font-weight: 600; margin-top: 18px; }
+.wl-promo { display: grid; justify-items: center; align-content: center; gap: 18px; text-align: center; padding: 36px; }
+.wl-promo img { width: min(100%, 340px); height: auto; display: block; }
+.wl-c { font-size: 11.5px; }
+@media (max-width: 900px) { .wl { grid-template-columns: 1fr; } .wl-note { grid-template-columns: minmax(0, 150px) 1fr; gap: 20px; } }
+@media (max-width: 560px) { .wl-note { grid-template-columns: 1fr; } .wl-note img { max-width: 220px; aspect-ratio: 4 / 3; } .wl-promo { padding: 24px; } }
+
+.welcome { background: color-mix(in srgb, var(--tint) 42%, #fff); color: var(--ink); position: relative; z-index: 1; padding-block: 24px calc(var(--sheet) + 88px); }
+.wl-note img { border-radius: var(--r-img); }
+.wl-c { color: var(--ink-2); }
+.wl-promo { background: var(--card); border-radius: var(--r-card); }
+.wl-text p { color: var(--ink-2); }
+.wl-text .wl-sign { color: var(--ink); }
+@media (max-width: 900px) { .welcome { padding-block: 16px calc(var(--sheet) + 56px); } }
+.pp, .price { white-space: nowrap; }
+.was { text-decoration: line-through; text-decoration-thickness: 1px; opacity: .6; font-weight: 400; margin-right: .45em; font-size: .86em; }
 </style>
 </head>
 <body>
@@ -460,6 +482,8 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
     <div class="tgrid" id="tgrid"></div>
   </div>
 </section>
+
+<section class="welcome" id="welcome"><div class="wrap"><div class="wl"><div class="wl-note"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro" width="400" height="300" loading="lazy"><div class="wl-text"><h2 class="wl-h">Thank you for coming to our website!</h2><p>We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator’s kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you’d like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p><p class="wl-sign">Sharon and Michael Ferraro.</p></div></div><div class="wl-promo"><img src="images/catalyst-promo.png" alt="Meet Catalyst. The new way to experience Everything DiSC" width="450" height="312" loading="lazy"><p class="wl-c">© by John Wiley &amp; Sons, Inc. All rights reserved.</p><a class="btn btn-accent" href="#">Learn More About Catalyst Here</a></div></div></div></section>
 
 <section id="courses" class="sheet">
   <div class="wrap">
@@ -541,10 +565,11 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 <script>
 (function () {
   // Real catalog data from trainingsolutions.com. Course length is not published in the listings, so it is left out.
+  function pr(c) { return (c.reg ? '<s class="was">$' + c.reg + '</s>' : '') + '$' + c.price; }
   var courses = [
-    { code: "D08", topic: "Team Behaviors", title: "The Five Behaviors® Team & Personal Downloadable Kits", price: "1,345", img: "cover-d08.jpg", alt: "Five Behaviors Team and Personal Development kit cover" },
+    { code: "D08", reg: '1,495', topic: "Team Behaviors", title: "The Five Behaviors® Team & Personal Downloadable Kits", price: "1,345", img: "cover-d08.jpg", alt: "Five Behaviors Team and Personal Development kit cover" },
     { code: "B107", topic: "DiSC/Personal Development", title: "Everything DiSC® Workplace on Catalyst", price: "90", img: "cover-b107.jpg", alt: "Your DiSC Profile report cover" },
-    { code: "CER3", topic: "DiSC/Personal Development", title: "The Everything DiSC® Certification & Catalyst Practitioner Experience", price: "3,995", img: "cover-cer3.jpg", alt: "Catalyst Practitioner Experience certification cover" },
+    { code: "CER3", reg: '4,695', topic: "DiSC/Personal Development", title: "The Everything DiSC® Certification & Catalyst Practitioner Experience", price: "3,995", img: "cover-cer3.jpg", alt: "Catalyst Practitioner Experience certification cover" },
     { code: "B101", topic: "Sales", title: "Everything DiSC® Sales Profile", price: "150", img: "cover-b101.jpg", alt: "Everything DiSC Sales Profile cover" },
     { code: "PI04", topic: "Interviewing", title: "PXT Select™", price: "295", img: "cover-pi04.jpg", alt: "PXT Select Comprehensive Selection Report cover" },
     { code: "FB1", topic: "Team Behaviors", title: "The Five Behaviors™ Assessment", price: "210", img: "cover-fb1.jpg", alt: "The Five Behaviors of a Cohesive Team report cover" },
@@ -583,7 +608,7 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   /* course cards: full photo with an info panel */
   var grid = document.getElementById('grid');
   grid.innerHTML = courses.map(function (c) {
-    return '<a class="card hot" href="#"><span class="code">' + c.code + '</span><span class="pp">$' + c.price + '</span><div class="pic' + ' prod' + '"><img src="images/' + c.img + '" alt="' + esc(c.alt) + '" loading="lazy"></div><div class="info"><span class="tp">' + c.topic + '</span><h3>' + esc(c.title) + '</h3></div></a>';
+    return '<a class="card hot" href="#"><span class="code">' + c.code + '</span><span class="pp">' + pr(c) + '</span><div class="pic' + ' prod' + '"><img src="images/' + c.img + '" alt="' + esc(c.alt) + '" loading="lazy"></div><div class="info"><span class="tp">' + c.topic + '</span><h3>' + esc(c.title) + '</h3></div></a>';
   }).join('');
   grid.addEventListener('click', function (e) { if (e.target.closest('.card')) e.preventDefault(); });
 
