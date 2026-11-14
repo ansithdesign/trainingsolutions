@@ -1821,7 +1821,8 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 </style>
 <style>
 /* Paylytix services: auto-advancing rows, thin timer line under the open row */
-[data-d="j"] .srows .lst { border-top-color: var(--ink); position: relative; }
+[data-d="j"] .srows { align-items: center; }
+[data-d="j"] .srows .lst { border-top: 0; position: relative; min-height: 476px; display: flex; flex-direction: column; justify-content: center; }
 [data-d="j"] .srows h3 { font-size: clamp(17px, 1.5vw, 21px); font-weight: 500; letter-spacing: -.02em; }
 [data-d="j"] .srows .s { padding-block: 20px; }
 [data-d="j"] .srows .s { position: relative; }
