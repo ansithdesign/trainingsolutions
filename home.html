@@ -262,19 +262,6 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 [data-theme="k"] .stat b { color: #1F2E7A; }
 
 
-[data-theme="m"] { --ink: #212529; --ink-2: #495057; --paper: #FFFFFF; --card: #FFFFFF; --accent: #0052E0; --accent-ink: #FFFFFF; --accent-deep: #0041B3; --accent-text: #0052E0; --tint: #DCE6F8; --pale: #F1F4FA; --chalk: #F1F4FA; --hl: #F59E0B; --line: rgba(33, 37, 41, .12); --hero-bg: #0A0F1E; --hero-fg: #FFFFFF; --hero-muted: #D5DCEC; --em: #F59E0B; --dots: transparent; --topics-bg: #F1F4FA; --topics-fg: #212529; --topics-line: rgba(33, 37, 41, .2); --quote-bg: #0052E0; --quote-fg: #FFFFFF; --quote-muted: #D6E3FF; --cta-bg: #0A0F1E; --cta-fg: #FFFFFF; --cta-muted: #C8D0E0; --foot-bg: #0A0F1E; --foot-fg: #FFFFFF; --foot-muted: #8E98B2; --svc-bg: #0A1B4D; --svc-fg: #FFFFFF; --svc-muted: #C8D3F0; --r-card: 14px; --r-img: 10px; --r-btn: 8px; --r-panel: 20px; --r-hero: 0px; --sheet: 0px; --r-round: 8px; --r-logo: 6px; --w-d: 600; --w-n: 500; --ls-d: -.04em; --font: 'Figtree', 'Segoe UI', system-ui, sans-serif; --font-d: 'Figtree', 'Segoe UI', system-ui, sans-serif; color-scheme: light; }
-[data-theme="m"] .hero { margin: 0; padding-bottom: 70px; overflow: hidden; background: #0A0F1E; min-height: 720px; }
-[data-theme="m"] .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6, 12, 38, .94) 0%, rgba(6, 12, 38, .6) 52%, rgba(6, 12, 38, .2) 100%), url(images/diversity.jpg) center 35% / cover; }
-[data-theme="m"] .hero > .wrap { z-index: 1; }
-[data-theme="m"] .hero-grid { grid-template-columns: 1fr; padding-top: 140px; gap: 24px; }
-[data-theme="m"] .hero h1 { font-size: clamp(40px, 5.4vw, 74px); max-width: 15ch; line-height: 1.02; }
-[data-theme="m"] .hero h1 em { box-shadow: inset 0 -.1em 0 #F59E0B; color: #fff; }
-[data-theme="m"] .collage { height: 150px; }
-[data-theme="m"] .cshape, [data-theme="m"] .badge { display: none; }
-[data-theme="m"] .trust { margin-top: 0; padding-top: 40px; }
-[data-theme="m"] .trust-card { box-shadow: none; }
-[data-theme="m"] .stat b { color: #0052E0; }
-[data-theme="m"] .tcard:hover { background: #0052E0; }
 
 
 [data-theme="o"] { --ink: #112359; --ink-2: #4A587F; --paper: #FFFFFF; --card: #FFFFFF; --accent: #0070CE; --accent-ink: #FFFFFF; --accent-deep: #0059A6; --accent-text: #0070CE; --tint: #DDE9FB; --pale: #F7F6FF; --chalk: #F7F6FF; --hl: #0070CE; --line: rgba(17, 35, 89, .12); --hero-bg: #F7F6FF; --hero-fg: #112359; --hero-muted: #4A587F; --em: #0070CE; --dots: transparent; --topics-bg: #F7F6FF; --topics-fg: #112359; --topics-line: rgba(17, 35, 89, .2); --quote-bg: #0070CE; --quote-fg: #FFFFFF; --quote-muted: #D6E8FA; --cta-bg: #0070CE; --cta-fg: #FFFFFF; --cta-muted: #D6E8FA; --foot-bg: #112359; --foot-fg: #FFFFFF; --foot-muted: #9DABD0; --svc-bg: #F7F6FF; --svc-fg: #112359; --svc-muted: #4A587F; --r-card: 22px; --r-img: 16px; --r-btn: 999px; --r-panel: 30px; --r-hero: 0px; --sheet: 0px; --r-round: 50%; --r-logo: 8px; --w-d: 500; --w-n: 500; --ls-d: -.045em; --font: 'Figtree', 'Segoe UI', system-ui, sans-serif; --font-d: 'Figtree', 'Segoe UI', system-ui, sans-serif; color-scheme: light; }
@@ -299,8 +286,8 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
 
 
 @media (max-width: 1080px) {
-  [data-theme="h"] .hero-grid, [data-theme="m"] .hero-grid { padding-top: 70px; }
-  [data-theme="h"] .collage, [data-theme="m"] .collage, [data-theme="j"] .collage { height: auto; max-width: none; display: flex; justify-content: flex-start; }
+  [data-theme="h"] .hero-grid { padding-top: 70px; }
+  [data-theme="h"] .collage, [data-theme="j"] .collage { height: auto; max-width: none; display: flex; justify-content: flex-start; }
   [data-theme="j"] .c-arch { display: none; }
   [data-theme="o"] .c-arch { right: 30px; }
 }
@@ -638,7 +625,7 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   </div>
 </footer>
 
-<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#c" data-t="c" title="Airy Light">2</a><a href="#e" data-t="e" title="Color Block">3</a><a href="#f" title="Column" data-p="column">4</a><a href="#g" title="Maze" data-p="maze">5</a><a href="#h" data-t="h" title="Ledgerhouse">6</a><a href="#j" data-t="j" title="Paylytix">7</a><a href="#k" data-t="k" title="Advisio">8</a><a href="#m" data-t="m" title="Arcline">9</a><a href="#o" data-t="o" title="Gridixx">10</a><span class="sw-n" id="swName"></span></nav>
+<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Design</span><a href="#a" data-t="a" title="Layered Night">1</a><a href="#c" data-t="c" title="Airy Light">2</a><a href="#e" data-t="e" title="Color Block">3</a><a href="#f" title="Column" data-p="column">4</a><a href="#g" title="Maze" data-p="maze">5</a><a href="#h" data-t="h" title="Ledgerhouse">6</a><a href="#j" data-t="j" title="Paylytix">7</a><a href="#k" data-t="k" title="Advisio">8</a><a href="#o" data-t="o" title="Gridixx">9</a><span class="sw-n" id="swName"></span></nav>
 
 <script>
 (function () {
@@ -673,10 +660,10 @@ footer { background: var(--foot-bg); color: var(--foot-fg); padding-block: 72px 
   /* theme from the URL hash */
   function applyTheme() {
     var t = (location.hash || '#a').replace('#', '');
-    if (!/^[acehjkmo]$/.test(t)) t = 'a';
+    if (!/^[acehjko]$/.test(t)) t = 'a';
     document.documentElement.setAttribute('data-theme', t);
     Array.prototype.forEach.call(document.querySelectorAll('#switch [data-t]'), function (a) { a.setAttribute('aria-current', String(a.getAttribute('data-t') === t)); });
-    var NAMES = { a: 'Layered Night', c: 'Airy Light', e: 'Color Block', h: 'Ledgerhouse', j: 'Paylytix', k: 'Advisio', m: 'Arcline', o: 'Gridixx' };
+    var NAMES = { a: 'Layered Night', c: 'Airy Light', e: 'Color Block', h: 'Ledgerhouse', j: 'Paylytix', k: 'Advisio', o: 'Gridixx' };
     var sn = document.getElementById('swName'); if (sn) sn.textContent = NAMES[t];
   }
   window.addEventListener('hashchange', function () { if (!document.getElementById('ring')) return; applyTheme(); window.scrollTo(0, 0); });
