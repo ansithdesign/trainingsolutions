@@ -3308,7 +3308,7 @@ header.hd > .hpart { margin-top: 0; }
 
   /* ---------- switcher + routing ---------- */
   var swL = document.getElementById('swLinks'), swN = document.getElementById('swName');
-  var STYLE = { h: 'Editorial', j: 'SaaS', s: 'Playful', t: 'Enterprise' };
+  var STYLE = { h: 'Contemporary', j: 'SaaS', s: 'Playful', t: 'Enterprise' };
   swL.outerHTML = ORDER.map(function (k) { return '<a href="#' + k + '" data-k="' + k + '" aria-label="Option ' + NUM[k] + ': ' + STYLE[k] + '"><span class="sw-k">' + NUM[k] + '</span><span class="sw-t">' + STYLE[k] + '</span></a>'; }).join('');
   function cur() { var h = (location.hash || '').slice(1); return NUM[h] ? h : 'h'; }
   function route() {

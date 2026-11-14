@@ -1,6 +1,6 @@
 # Training Solutions homepage options
 
-A static site with four homepage directions (Editorial, SaaS, Playful, Enterprise). Switch between them with the control at the bottom of the page. No build step.
+A static site with four homepage directions (Contemporary, SaaS, Playful, Enterprise). Switch between them with the control at the bottom of the page. No build step.
 
 ## Publish on GitHub Pages
 
@@ -14,7 +14,7 @@ A static site with four homepage directions (Editorial, SaaS, Playful, Enterpris
 
 Each option has its own address:
 
-- Editorial: `…/#h`
+- Contemporary: `…/#h`
 - SaaS: `…/#j`
 - Playful: `…/#s`
 - Enterprise: `…/#t`
