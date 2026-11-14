@@ -469,6 +469,16 @@ em { font-style: normal; }
 @media (max-width: 980px) { .nv { display: none; } .nv-burger { display: inline-grid; } }
 @media (prefers-reduced-motion: reduce) { .nv-b svg, .nv-drawer summary svg { transition: none; } }
 .bar { --nv-r: var(--rd); }
+
+.nv-i.open > .nv-p { animation: nvIn .16s ease-out; }
+@keyframes nvIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.nv-t a, .nv-box { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.nv-n { font-size: 12px; color: #5A6275; font-variant-numeric: tabular-nums; font-weight: 400; }
+.nv-box { border: 1px solid rgba(15, 20, 40, .14); margin-bottom: 8px; }
+.nv-box svg, .nv-f svg { width: 14px; height: 14px; flex: none; }
+.nv-f { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(15, 20, 40, .1); margin-top: 4px; padding-top: 12px; }
+.nv-f a { display: inline-flex !important; align-items: center; gap: 8px; font-weight: 600 !important; }
+@media (prefers-reduced-motion: reduce) { .nv-i.open > .nv-p { animation: none; } }
 </style>
 </head>
 <body>
@@ -654,7 +664,7 @@ render(10);
     var bar = document.querySelector('.bar'); if (!bar || bar.querySelector('.nv')) return;
     var P = { down: 'M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z', search: 'M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z', list: 'M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z', x: 'M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z' };
     function ic(k) { return '<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="' + P[k] + '"/></svg>'; }
-    var T = ['Harassment', 'Diversity', 'Everything DiSC and personal development', 'Leadership', 'Management', 'Hiring and interviewing', 'Coaching and discipline', 'Ethics and attitude', 'Teams', 'Sales and customer service', 'Conflict resolution', 'Meetings and time management', 'Communication and EQ', 'Legal'];
+    var T = [['Harassment', 19], ['Diversity', 12], ['Everything DiSC and personal development', 13], ['Leadership', 12], ['Management', 12], ['Hiring and interviewing', 10], ['Coaching and discipline', 8], ['Ethics and attitude', 7], ['Teams', 7], ['Sales and customer service', 6], ['Conflict resolution', 5], ['Meetings and time management', 5], ['Communication and EQ', 4], ['Legal', 2]];
     var G = [
       { n: 'Certification', l: ['Everything DiSC® Certification', 'PXT Select™ Certification', 'The Five Behaviors Of A Cohesive Team™ Facilitator Accreditation'] },
       { n: 'Services', l: ['Classes / Training Facilitation', 'Executive Coaching'] },
@@ -662,10 +672,13 @@ render(10);
       { n: 'Support', l: ['FAQ', 'Shipping / Policies', 'Special Payment', 'Contact Info'] }
     ];
     var S1 = ['Online And Video Training', 'Workforce Hiring/Retention Tools'], S2 = ['Sollah Interactive, LLC', 'John Wiley & Sons, Inc.'];
+    function tl(a) { return a.map(function (x) { return '<a href="#courses">' + e(x[0]) + '<span class="nv-n">' + x[1] + '</span></a>'; }).join(''); }
+    var AR = '<svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>';
+    function bx(a) { return a.map(function (x) { return '<a class="nv-box" href="#">' + e(x) + AR + '</a>'; }).join(''); }
     function e(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
     function links(a, h) { return a.map(function (x) { return '<a href="' + (h || '#') + '">' + e(x) + '</a>'; }).join(''); }
     var nav = document.createElement('nav'); nav.className = 'nv'; nav.setAttribute('aria-label', 'Primary');
-    var h = '<div class="nv-i mega"><button class="nv-b" type="button" aria-expanded="false">Courses' + ic('down') + '</button><div class="nv-p nv-mega"><div><div class="nv-h">Browse by topic</div><div class="nv-t">' + links(T, '#courses') + '</div></div><div class="nv-s"><div class="nv-h">Browse</div>' + links(S1) + '<div class="nv-h">By publisher</div>' + links(S2) + '</div></div></div>';
+    var h = '<div class="nv-i mega"><button class="nv-b" type="button" aria-expanded="false">Courses' + ic('down') + '</button><div class="nv-p nv-mega"><div><div class="nv-h">Browse by topic</div><div class="nv-t">' + tl(T) + '</div></div><div class="nv-s"><div class="nv-h">Browse</div>' + bx(S1) + '<div class="nv-h">By publisher</div>' + bx(S2) + '</div><div class="nv-f"><a href="#courses">See all topics' + AR + '</a><a href="#courses">See all online courses' + AR + '</a></div></div></div>';
     G.forEach(function (g) { h += '<div class="nv-i"><button class="nv-b" type="button" aria-expanded="false">' + g.n + ic('down') + '</button><div class="nv-p">' + links(g.l) + '</div></div>'; });
     nav.innerHTML = h;
     var logo = bar.querySelector('.logo'); logo.insertAdjacentElement('afterend', nav);
@@ -676,16 +689,17 @@ render(10);
     var bg = document.createElement('button'); bg.className = 'nv-ic nv-burger'; bg.type = 'button'; bg.setAttribute('aria-label', 'Open menu'); bg.innerHTML = ic('list'); end.appendChild(bg);
     var dr = document.createElement('div'); dr.className = 'nv-drawer'; dr.setAttribute('role', 'dialog'); dr.setAttribute('aria-label', 'Menu');
     var dh = '<div class="nv-dh"><b>Menu</b><button class="nv-ic" type="button" aria-label="Close menu">' + ic('x') + '</button></div>';
-    dh += '<details><summary>Courses' + ic('down') + '</summary><div class="nv-h">Browse by topic</div>' + links(T, '#courses') + '<div class="nv-h">Browse</div>' + links(S1) + '<div class="nv-h">By publisher</div>' + links(S2) + '</details>';
+    dh += '<details><summary>Courses' + ic('down') + '</summary><div class="nv-h">Browse by topic</div>' + tl(T) + '<div class="nv-h">Browse</div>' + links(S1) + '<div class="nv-h">By publisher</div>' + links(S2) + '</details>';
     G.forEach(function (g) { dh += '<details><summary>' + g.n + ic('down') + '</summary>' + links(g.l) + '</details>'; });
     dr.innerHTML = dh; document.body.appendChild(dr);
     var items = Array.prototype.slice.call(nav.querySelectorAll('.nv-i')), hov = window.matchMedia('(hover: hover)').matches, tm;
     function closeAll(except) { items.forEach(function (i) { if (i !== except) { i.classList.remove('open'); i.firstChild.setAttribute('aria-expanded', 'false'); } }); }
     function open(i) { closeAll(i); i.classList.add('open'); i.firstChild.setAttribute('aria-expanded', 'true'); sw.classList.remove('open'); }
     items.forEach(function (i) {
-      i.firstChild.addEventListener('click', function () { i.classList.contains('open') ? closeAll() : open(i); });
+      i.firstChild.addEventListener('click', function () { (i.classList.contains('open') && !hov) ? closeAll() : open(i); });
       if (hov) { i.addEventListener('mouseenter', function () { clearTimeout(tm); open(i); }); i.addEventListener('mouseleave', function () { tm = setTimeout(closeAll, 140); }); }
-      i.addEventListener('focusout', function (ev) { if (!i.contains(ev.relatedTarget)) i.classList.remove('open'); });
+      i.addEventListener('focusout', function (ev) { if (!i.contains(ev.relatedTarget)) { i.classList.remove('open');} });
+      i.addEventListener('keydown', function (ev) { var k = ev.key, ix = items.indexOf(i); if (k === 'ArrowDown' && ev.target === i.firstChild) { ev.preventDefault(); open(i); var a = i.querySelector('.nv-p a'); if (a) a.focus(); } else if (k === 'ArrowRight' || k === 'ArrowLeft') { if (ev.target === i.firstChild) { var n = items[(ix + (k === 'ArrowRight' ? 1 : items.length - 1)) % items.length]; ev.preventDefault(); n.firstChild.focus(); } } });
     });
     sw.firstChild.addEventListener('click', function () { var o = sw.classList.toggle('open'); sw.firstChild.setAttribute('aria-expanded', o); closeAll(); if (o) sw.querySelector('input').focus(); });
     function shut() { dr.classList.remove('open'); document.body.style.overflow = ''; }
