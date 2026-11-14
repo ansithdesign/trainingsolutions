@@ -2312,7 +2312,6 @@ header.hd > .hpart { margin-top: 0; }
 [data-d="t"] .fchip .ti { width: 8cqw; height: 8cqw; font-size: 4.2cqw; }
 [data-d="t"] .fchip b { font-size: 3.7cqw; }
 [data-d="t"] .fchip small { font-size: 2.7cqw; }
-[data-d="j"] .hs-pop, [data-d="t"] .hs-pop { display: none; }
 [data-d="t"] .hero-sky .fart { width: min(100%, 500px); aspect-ratio: 5 / 6; justify-self: center; margin-right: 0; }
 [data-d="t"] .fchip.f1 { top: 14%; }
 [data-d="t"] .fchip.f2 { top: 34%; }
@@ -2345,6 +2344,18 @@ header.hd > .hpart { margin-top: 0; }
 [data-d="t"] .fchip.f2 { right: 0; top: 56%; }
 [data-d="t"] .fchip.f3 { left: 4%; bottom: 10%; }
 [data-d="t"] .fsmall { right: 2%; bottom: 2%; width: 30%; }
+[data-d="t"] .fhills { inset: 0; width: 100%; height: 100%; }
+[data-d="t"] .fhills .h1 { fill: #BFD3E7; }
+[data-d="t"] .fhills .h2 { fill: #7E9CB8; }
+[data-d="t"] .fhills .h3 { fill: #1B4263; }
+/* Option 2 eyebrow as a badge */
+[data-d="j"] .est9 { padding: 8px 16px 8px 12px; border: 1px solid rgba(60,106,146,.35); border-radius: 999px; background: #fff; font: 500 13.5px var(--fb); letter-spacing: 0; text-transform: none; color: #0F2234; box-shadow: 0 10px 24px -16px rgba(15,34,52,.35); gap: 10px; }
+[data-d="j"] .est9 .d { width: 8px; height: 8px; border-radius: 50%; background: #3C6A92; opacity: 1; animation: est9 2s infinite; }
+/* Hero badge: no stroke, soft tint, dot centred on the text */
+#app .est9 { border: 0; box-shadow: none; background: color-mix(in srgb, var(--c) 14%, transparent); line-height: 1; align-items: center; padding: 11px 18px 11px 14px; }
+#app .est9 .d { align-self: center; margin: 0; }
+#app .est9 b { line-height: 1; }
+#app [data-d="j"] .est9, [data-d="j"] #app .est9 { color: #0F2234; }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2456,7 +2467,7 @@ header.hd > .hpart { margin-top: 0; }
     bleed: function () { return '<div class="hbg">' + img('teams.jpg', '') + '</div><div class="wrap hero-in">' + copy() + '</div>'; },
     arches: function () { return '<div class="wrap hero-in">' + copy() + '</div><div class="wrap arches">' + fig('meetings.jpg', 'a1') + fig('diversity.jpg', 'a2', ALT0) + fig('coaching.jpg', 'a3', '', 1) + '</div>'; },
     circles: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><span class="disc"></span><span class="drop"></span><span class="ring"></span>' + fig('hero-team.jpg', 'c1', ALT_TEAM) + fig('meetings.jpg', 'c2') + fig('coaching.jpg', 'c3', '', 1) + '</div></div>'; },
-    sky: function () { function ch(k, n, c) { return '<a class="fchip ' + c + '" href="#courses"><span class="ti">' + ti(k) + '</span><span><b>' + TOPICS[n][0] + '</b><small>' + TOPICS[n][1] + ' products</small></span></a>'; } return '<div class="wrap hero-in">' + copy() + '<div class="art fart"><span class="fback"></span><span class="fdisc"></span><figure class="fphoto">' + img('hero-team.jpg', ALT_TEAM) + '</figure><figure class="fsmall">' + img('coaching.jpg', '') + '</figure>' + ch(0, 0, 'f1') + ch(1, 1, 'f2') + ch(3, 3, 'f3') + '</div></div>'; },
+    sky: function () { function ch(k, n, c) { return '<a class="fchip ' + c + '" href="#courses"><span class="ti">' + ti(k) + '</span><span><b>' + TOPICS[n][0] + '</b><small>' + TOPICS[n][1] + ' products</small></span></a>'; } return '<div class="wrap hero-in">' + copy() + '<div class="art fart"><svg class="fhills" viewBox="0 0 800 960" preserveAspectRatio="none" aria-hidden="true"><g transform="scale(1 1.3714)"><path class="h1" d="M800 60V700H90C320 620 460 500 410 380C370 290 240 250 262 140C278 70 380 70 470 60Z"/><path class="h2" d="M800 210V700H300C470 610 560 500 520 400C490 320 400 290 410 220C418 170 490 180 560 210Z"/><path class="h3" d="M800 400V700H520C620 640 680 560 660 500C645 455 700 410 800 400Z"/></g></svg><figure class="fphoto">' + img('hero-team.jpg', ALT_TEAM) + '</figure><figure class="fsmall">' + img('coaching.jpg', '') + '</figure>' + ch(0, 0, 'f1') + ch(1, 1, 'f2') + ch(3, 3, 'f3') + '</div></div>'; },
     mosaic: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art">' + fig('diversity.jpg', 'q1', ALT0) + fig('meetings.jpg', 'q2') + fig('coaching.jpg', 'q3', '', 1) + fig('teams.jpg', 'q4') + badge() + '</div></div>'; },
     radar: function () { return '<div class="wrap hero-in">' + copy() + '</div><div class="wrap"><div class="scope"><span class="rings"></span><span class="sweep"></span>' + fig('meetings.jpg', 'r2') + fig('diversity.jpg', 'r1', ALT0) + fig('coaching.jpg', 'r3', '', 1) + '</div></div>'; }
   };
