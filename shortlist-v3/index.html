@@ -2799,6 +2799,11 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="t"] .fchip.f2 { left: auto; right: 4%; top: 50%; bottom: auto; }
 #app[data-d="t"] .fchip.f3 { left: 10%; right: auto; top: 76%; bottom: auto; }
 /* ===== END OPTION 4 LOCKUP ===== */
+
+/* Mega menu: quiet text link under the publishers */
+#app .mm-all { display: inline-flex; align-items: center; gap: 8px; margin: 4px 0 6px; font-weight: 600; font-size: 13.5px; color: var(--mm-ac, var(--ac)); width: fit-content; }
+#app .mm-all .i { transition: transform .3s; }
+#app .mm-all:hover .i { transform: translateX(4px); }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2878,13 +2883,13 @@ header.hd > .hpart { margin-top: 0; }
   function bar() {
     var cats = TOPICS.map(function (t, k) { return '<a class="mm-c" href="#courses" data-k="' + k + '" style="--n:' + t[1] + ';--i:' + k + '"><span class="ti">' + ti(k) + '</span><span class="mm-n">' + esc(t[0]) + '</span><span class="mm-bar"></span><span class="mm-k">' + t[1] + '</span></a>'; }).join('');
     function box(a) { return a.map(function (x) { return '<a class="mm-box" href="#">' + esc(x) + i('r') + '</a>'; }).join(''); }
-    var h = '<div class="nv-i mega"><button class="nv-b" type="button" aria-expanded="false">Courses' + i('dn') + '</button><div class="pn mm mm-' + d.mm + '"><div class="mm-cats"><p class="mm-h">Browse by category</p><div class="mm-list">' + cats + '</div></div><div class="mm-pv" aria-hidden="true"><span class="pv-ic">' + ti(0) + '</span><span class="pv-k">19</span><div><p class="pv-n">Harassment</p><p class="pv-u">products</p></div></div><div class="mm-side"><p class="mm-h">By publisher</p>' + box(S2) + '<p class="mm-h">Others</p>' + box(S1) + '</div><div class="mm-foot"><a href="#topics">See all categories' + i('r') + '</a><a href="#courses">See all online courses' + i('r') + '</a></div></div></div>';
+    var h = '<div class="nv-i mega"><button class="nv-b" type="button" aria-expanded="false">Courses' + i('dn') + '</button><div class="pn mm mm-' + d.mm + '"><div class="mm-cats"><p class="mm-h">Browse by category</p><div class="mm-list">' + cats + '</div></div><div class="mm-pv" aria-hidden="true"><span class="pv-ic">' + ti(0) + '</span><span class="pv-k">19</span><div><p class="pv-n">Harassment</p><p class="pv-u">products</p></div></div><div class="mm-side"><p class="mm-h">By publisher</p>' + box(S2) + '<a class="mm-all" href="#">View all publishers' + i('r') + '</a><p class="mm-h">Others</p>' + box(S1) + '</div><div class="mm-foot"><a href="#topics">See all categories' + i('r') + '</a></div></div></div>';
     NAVG.forEach(function (g) { h += '<div class="nv-i"><button class="nv-b" type="button" aria-expanded="false">' + g.n + i('dn') + '</button><div class="pn dd">' + g.l.map(function (x) { return '<a href="#">' + esc(x) + i('r') + '</a>'; }).join('') + '</div></div>'; });
     return '<div class="barh"><div class="bar nav-' + d.nav + '" id="bar"><div class="wrap bar-in">' + logo() + '<nav class="nv" aria-label="Primary">' + h + '</nav><div class="bar-end"><a class="b-login" href="#">Log in</a><a class="b-cart" href="#" aria-label="Cart (0)"><svg class="i cic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 01-2 1.8H8.2a2 2 0 01-2-1.8z"/><path d="M9 8V6.5a3 3 0 016 0V8"/></svg>Cart <b>0</b></a><button class="burger" type="button" aria-label="Open menu">' + i('m') + '</button></div></div></div></div>';
   }
   function drawer() {
     var h = '<div class="drawer" role="dialog" aria-modal="true" aria-label="Menu"><div class="dr-h">' + logo() + '<button class="burger dr-x" type="button" aria-label="Close menu">' + i('x') + '</button></div>';
-    h += '<details><summary>Courses' + i('dn') + '</summary><p class="mm-h">Browse by category</p>' + TOPICS.map(function (t) { return '<a href="#courses">' + esc(t[0]) + '<span>' + t[1] + '</span></a>'; }).join('') + '<p class="mm-h">By publisher</p>' + S2.map(function (x) { return '<a href="#">' + esc(x) + '</a>'; }).join('') + '<p class="mm-h">Others</p>' + S1.map(function (x) { return '<a href="#">' + esc(x) + '</a>'; }).join('') + '</details>';
+    h += '<details><summary>Courses' + i('dn') + '</summary><p class="mm-h">Browse by category</p>' + TOPICS.map(function (t) { return '<a href="#courses">' + esc(t[0]) + '<span>' + t[1] + '</span></a>'; }).join('') + '<p class="mm-h">By publisher</p>' + S2.map(function (x) { return '<a href="#">' + esc(x) + '</a>'; }).join('') + '<a href="#">View all publishers</a><p class="mm-h">Others</p>' + S1.map(function (x) { return '<a href="#">' + esc(x) + '</a>'; }).join('') + '</details>';
     NAVG.forEach(function (g) { h += '<details><summary>' + g.n + i('dn') + '</summary>' + g.l.map(function (x) { return '<a href="#">' + esc(x) + '</a>'; }).join('') + '</details>'; });
     return h + '<a class="dr-login" href="#">Log in</a></div>';
   }
