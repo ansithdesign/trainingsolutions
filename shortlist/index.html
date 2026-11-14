@@ -1830,6 +1830,20 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 [data-d="j"] .srows .sp { --sp-bg: #E2EDEB; --sp-fg: #035C53; }
 @media (prefers-reduced-motion: reduce) { [data-d="j"] .srows .lst.tick .s.on::after { animation: none; } }
 </style>
+<style>
+/* Paylytix hero lockup: one large natural photo, soft backing, category chips overlapping its edges */
+[data-d="j"] .sm { display: none; }
+[data-d="j"] .art { height: 540px; }
+[data-d="j"] .devbg { position: absolute; right: 0; top: 40px; width: 76%; height: calc(100% - 40px); border-radius: 32px; background: #DDE9E7; z-index: 0; }
+[data-d="j"] .dev { left: auto; right: 5%; top: 0; width: 76%; height: calc(100% - 36px); border: 0; border-radius: 28px; overflow: hidden; box-shadow: 0 40px 80px -34px rgba(11,36,52,.5); z-index: 1; }
+[data-d="j"] .dev img { object-position: 50% 30%; }
+[data-d="j"] .chip { z-index: 3; }
+[data-d="j"] .chip:not(.c2):not(.c3) { right: auto; left: 8%; top: 64px; }
+[data-d="j"] .chip.c2 { left: 0; bottom: 120px; }
+[data-d="j"] .chip.c3 { right: 0; bottom: 8px; }
+@media (max-width: 1060px) { [data-d="j"] .art { height: 460px; } [data-d="j"] .chip:not(.c2):not(.c3) { left: 4%; top: 36px; } [data-d="j"] .chip.c2 { bottom: 90px; } [data-d="j"] .chip.c3 { bottom: 4px; } [data-d="j"] .devbg, [data-d="j"] .dev { width: 88%; } }
+</style>
+
 
 
 
@@ -2034,7 +2048,7 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
     poster: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art">' + fig('diversity.jpg', 's1', ALT0) + fig('meetings.jpg', 's2') + fig('coaching.jpg', 's3', '', 1) + '<span class="star">' + i('st') + '</span>' + badge() + '</div></div><div class="mq" aria-hidden="true"><div class="mq-t">' + MQ + MQ + '</div></div>'; },
     frames: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><canvas class="px" aria-hidden="true"></canvas>' + fig('diversity.jpg', 'fa', ALT0) + fig('meetings.jpg', 'fb') + fig('coaching.jpg', 'fc', '', 1) + '</div></div>'; },
     word: function () { return '<div class="hbg">' + img('hero-h.webp', '') + '</div><div class="wrap hero-in">' + copy() + '</div>' + '<div class="wrap hpart fade-up" style="--dl:.8s"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc-w.png', 'Everything DiSC, a Wiley brand') + img('logo-everything-disc.png', '', 'class="lc" aria-hidden="true"') + '</li><li>' + img('logo-pxt-select-w.png', 'PXT Select, a Wiley brand') + img('logo-pxt-select.png', '', 'class="lc" aria-hidden="true"') + '</li><li>' + img('logo-five-behaviors-w.png', 'The Five Behaviors, a Wiley brand') + img('logo-five-behaviors.png', '', 'class="lc" aria-hidden="true"') + '</li><li>' + img('logo-sollah-w.png', 'Sollah Interactive, LLC') + img('logo-sollah.png', '', 'class="lc" aria-hidden="true"') + '</li></ul></div>'; },
-    device: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><div class="dev">' + img('diversity.jpg', ALT0) + '</div>' + fig('coaching.jpg', 'sm', '', 1) + '<a class="chip" href="#courses"><span class="ti">' + ti(0) + '</span><span><b>Harassment</b><small>19 products</small></span></a><a class="chip c2" href="#courses"><span class="ti">' + ti(1) + '</span><span><b>Diversity</b><small>12 products</small></span></a><a class="chip c3" href="#courses"><span class="ti">' + ti(3) + '</span><span><b>Leadership</b><small>12 products</small></span></a></div></div>' + '<div class="wrap hpart fade-up" style="--dl:.8s"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah.png', 'Sollah Interactive, LLC') + '</li></ul></div>'; },
+    device: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><span class="devbg"></span><div class="dev">' + img('diversity.jpg', ALT0) + '</div><a class="chip" href="#courses"><span class="ti">' + ti(0) + '</span><span><b>Harassment</b><small>19 products</small></span></a><a class="chip c2" href="#courses"><span class="ti">' + ti(1) + '</span><span><b>Diversity</b><small>12 products</small></span></a><a class="chip c3" href="#courses"><span class="ti">' + ti(3) + '</span><span><b>Leadership</b><small>12 products</small></span></a></div></div>' + '<div class="wrap hpart fade-up" style="--dl:.8s"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah.png', 'Sollah Interactive, LLC') + '</li></ul></div>'; },
     collage: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><span class="blk"></span>' + fig('diversity.jpg', 'p1', ALT0) + fig('meetings.jpg', 'p2') + fig('coaching.jpg', 'p3', '', 1) + badge() + '</div></div>'; },
     bleed: function () { return '<div class="hbg">' + img('teams.jpg', '') + '</div><div class="wrap hero-in">' + copy() + '</div>'; },
     arches: function () { return '<div class="wrap hero-in">' + copy() + '</div><div class="wrap arches">' + fig('meetings.jpg', 'a1') + fig('diversity.jpg', 'a2', ALT0) + fig('coaching.jpg', 'a3', '', 1) + '</div>'; },
