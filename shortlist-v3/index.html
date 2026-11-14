@@ -2573,6 +2573,13 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="t"] .hcb { background: #fff; border-top: 1px solid #E3E9F0; }
 #app[data-d="t"] .hcb h3 { font-size: 23px; letter-spacing: -.025em; }
 #app[data-d="t"] .hc:hover { box-shadow: 0 0 0 1px #1B4263, 0 30px 60px -40px rgba(15,34,52,.5); }
+
+/* Option 1 categories: hide the divider of the row directly above a hovered row */
+#app[data-d="h"] .v-ledger .t:has(+ .t + .t:hover) { background-size: 0 1px; }
+@media (max-width: 1060px) {
+  #app[data-d="h"] .v-ledger .t:has(+ .t + .t:hover) { background-size: calc(100% - 28px) 1px; }
+  #app[data-d="h"] .v-ledger .t:has(+ .t:hover) { background-size: 0 1px; }
+}
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
