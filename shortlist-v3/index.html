@@ -2747,6 +2747,10 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="j"] .hpart { width: 100%; max-width: 1280px; margin-inline: auto; box-sizing: border-box; }
 #app[data-d="j"] .hpart .logos { justify-content: space-between; }
 @media (max-width: 900px) { #app[data-d="j"] .hpart .logos { justify-content: flex-start; } }
+
+/* Option 3 services: neutral, soft shadow only; no tinted glow on hover */
+#app[data-d="s"] .svf-card { box-shadow: 0 0 0 1px rgba(18,22,42,.08), 0 2px 6px rgba(18,22,42,.04) !important; }
+#app[data-d="s"] .svf-card:hover, #app[data-d="s"] .svf-card:focus-visible { box-shadow: 0 0 0 1px rgba(18,22,42,.1), 0 14px 28px -18px rgba(18,22,42,.22) !important; }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
