@@ -437,6 +437,56 @@ em { font-style: normal; }
 .logos img { filter: grayscale(1); opacity: .7; }
 .logos img { mix-blend-mode: multiply; filter: grayscale(1); }
 
+
+/* ===== spacing and rhythm for all new designs ===== */
+[data-d] { --gap: 24px; }
+[data-d] .s-topics, [data-d] .s-courses, [data-d] .s-svc, [data-d] .s-proof { --sp: 136px; }
+[data-d] .s-cta { --sp: 128px; }
+[data-d] .s-cta.cv-panel { --sp: 96px !important; }
+[data-d] .s-trust:not(.welcome) { padding-block: 72px !important; }
+[data-d] .welcome.s-trust { padding-block: 136px !important; border: 0; }
+[data-d] .s-foot { padding-block: 104px 48px !important; }
+[data-d] .bar { padding-block: 30px; }
+[data-d] .sec-head { margin-bottom: 68px; gap: 32px; }
+[data-d] .sec-head p { margin-top: 18px; line-height: 1.6; }
+[data-d] .hero .sub { margin-top: 28px; line-height: 1.65; }
+[data-d] .hs { margin-top: 40px; }
+[data-d] .hs-pop { margin-top: 20px; gap: 10px; flex-wrap: nowrap; white-space: nowrap; }
+[data-d] .hs-pop a { padding: 7px 15px; }
+[data-d] .hv-collage .hero-grid { padding-block: 40px 120px; gap: 72px; }
+[data-d] .hv-center .hero-grid { padding-block: 56px 120px; }
+[data-d] .tv-cards { gap: 18px; }
+[data-d] .tv-cards .t { padding: 26px 24px 22px; min-height: 196px; }
+[data-d] .tv-index .t { padding-block: 24px; }
+[data-d] .tv-pills { gap: 16px; }
+[data-d] .cv-grid { gap: 40px 24px; }
+[data-d] .cb { padding: 24px 24px 26px; gap: 14px; }
+[data-d] .cb h3 { line-height: 1.3; }
+[data-d] .cover { padding: 44px 44px 32px; }
+[data-d] .cf { padding-top: 14px; flex-wrap: nowrap; gap: 10px; }
+[data-d] .price { white-space: nowrap; }
+[data-d] .go .gl { display: none; }
+[data-d] .sv-cards { gap: 24px; }
+[data-d] .sv-cards .s { padding: 12px; }
+[data-d] .sv-cards .sb { padding: 24px 14px 18px; gap: 12px; }
+[data-d] .sv-cards p { line-height: 1.6; }
+[data-d] .sv-rows { gap: 96px; }
+[data-d] .sv-rows .s { padding: 30px 6px; }
+[data-d] .cv-list { gap: 88px; }
+[data-d] .cv-list .r { padding-block: 18px; }
+[data-d] .pf { gap: 80px; }
+[data-d] .learn { margin-top: 96px; padding-top: 36px; gap: 36px; }
+[data-d] .stat { padding-top: 32px; }
+[data-d] .quote { padding: 30px; gap: 36px; }
+[data-d] .cta-row { margin-top: 36px; }
+[data-d] .phone { margin-top: 48px; padding-bottom: 28px; }
+[data-d] .cv-panel .cta-in { padding: clamp(48px, 7vw, 104px); }
+[data-d] .fgrid { gap: 48px; }
+[data-d] .wl { gap: 72px; }
+[data-d] .wl-promo { padding: 52px; }
+[data-d] .more:not(.t) { border-left: 0; padding-left: 0; }
+@media (max-width: 1080px) { [data-d] .hs-pop { flex-wrap: wrap; } [data-d] .s-topics, [data-d] .s-courses, [data-d] .s-svc, [data-d] .s-proof { --sp: 96px; } [data-d] .welcome.s-trust { padding-block: 96px !important; } [data-d] .sec-head { margin-bottom: 44px; } [data-d] .cv-grid { gap: 28px 18px; } }
+@media (max-width: 720px) { [data-d] .s-topics, [data-d] .s-courses, [data-d] .s-svc, [data-d] .s-proof { --sp: 72px; } [data-d] .s-cta { --sp: 80px; } [data-d] .welcome.s-trust { padding-block: 72px !important; } [data-d] .hs-pop a:nth-child(n+4) { display: none; } [data-d] .s-trust:not(.welcome) { padding-block: 48px !important; } }
 /* ===================== new designs 10 to 17 ===================== */
 [data-d] .sec h2 em { color: var(--mu); }
 [data-d] .sv-cards .s, [data-d] .sv-stack .s { padding: 10px; }
@@ -632,6 +682,37 @@ em { font-style: normal; }
 [data-d="24"] .s-proof::before { left: auto; right: -60px; bottom: -120px; }
 [data-d] .logos img { mix-blend-mode: normal; filter: none; opacity: .8; }
 [data-d="21"] .logos img, [data-d="24"] .logos img, [data-d="25"] .logos img, [data-d="26"] .logos img, [data-d="28"] .logos img, [data-d="22"] .logos img { mix-blend-mode: multiply; filter: grayscale(1); opacity: .72; }
+
+/* ===== fixes ===== */
+[data-d="21"] .s-topics .wrap, [data-d="21"] .s-courses .wrap, [data-d="21"] .s-svc .wrap { padding: 80px 72px; }
+[data-d="21"] .s-topics, [data-d="21"] .s-courses, [data-d="21"] .s-svc { --sp: 28px; }
+@media (max-width: 720px) { [data-d="21"] .s-topics .wrap, [data-d="21"] .s-courses .wrap, [data-d="21"] .s-svc .wrap { padding: 40px 22px; } }
+[data-d="22"] .bgph::after { background: linear-gradient(180deg, rgba(10, 18, 14, .6) 0%, transparent 24%), linear-gradient(90deg, rgba(10, 18, 14, .78) 0%, rgba(10, 18, 14, .5) 45%, rgba(10, 18, 14, .14) 100%), linear-gradient(0deg, rgba(10, 18, 14, .5), transparent 40%); }
+[data-d="22"] .tv-index .t:hover { background: #EEF0EE; color: #0B8F62; }
+[data-d="22"] .sv-rows .viz { border-radius: 22px; }
+[data-d="23"] .hs-f { --hs-bg: #0E3F3F; --hs-ink: #fff; border: 1px solid rgba(255, 255, 255, .2); }
+[data-d="23"] .hs-f input::placeholder, [data-d="23"] .hs-f > svg { color: #A9CBC2; }
+[data-d="23"] .tv-pills .t { background: #fff; border-color: transparent; }
+[data-d="23"] .tv-pills .t:hover { background: #072929; color: #fff; }
+[data-d="23"] .rail-nav button { background: #fff; }
+[data-d="24"] .cv-panel .phone, [data-d="24"] .s-cta .phone { color: #fff; }
+[data-d="24"] .cv-panel .cta-in h2 em { color: #FFD84A; opacity: 1; }
+[data-d="24"] .cv-panel .cta-in { background: #12162A; color: #fff; }
+[data-d="25"] .s-proof { background: #1B4263 !important; }
+[data-d="25"] .pf { gap: 56px; }
+[data-d="25"] .pf .stats { order: 1; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255, 255, 255, .3); }
+[data-d="25"] .pf .quote { order: 2; }
+[data-d="25"] .s-proof .stat, [data-d="25"] .s-proof .stat + .stat { padding: 32px 20px 0 0; border: 0; }
+[data-d="25"] .s-proof .stat + .stat { padding-left: 24px; border-left: 1px solid rgba(255, 255, 255, .22); }
+[data-d="25"] .tv-index .t:hover { background: #F1F5FA; color: #1B4263; padding-left: 12px; }
+[data-d="25"] .sv-rows .viz { border-radius: 8px; }
+[data-d="26"] .phone { font-family: var(--fb); font-weight: 300; letter-spacing: -.05em; }
+[data-d="26"] .stat b { font-weight: 300; }
+[data-d="27"] .sv-stack .si { max-height: 300px; }
+[data-d="27"] .sv-stack .s { margin-bottom: 24px; }
+[data-d="28"] .tv-pills .t { background: #F2F4F3; border-color: transparent; }
+[data-d="28"] .tv-pills .tc { background: #101312; color: #D4F44A; }
+[data-d="28"] .tv-pills .t:hover { background: var(--ac); color: var(--af); }
 </style>
 </head>
 <body>
@@ -671,19 +752,19 @@ em { font-style: normal; }
   var D = {
     21: { n: 'Finpay', fd: "'Figtree'", fb: "'Figtree'", wd: 500, ls: '-.035em', h1: 'clamp(40px,4.6vw,64px)', rd: 22, rs: 14, rb: 10, ac: '#2B8E9C', af: '#fff', ai: '#1D7482', at: '#E1F0F2', L: { hero: 'collage', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'band', cta: 'panel' }, panel: ['#07374C', '#fff'],
       s: { hero: ['#F2F8F8', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.12)', '#fff', '#0A2C3A'], trust: ['#F2F8F8', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.1)'], topics: ['#F2F8F8', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.12)', '#fff', '#0A2C3A'], courses: ['#F2F8F8', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.12)', '#fff', '#0A2C3A'], svc: ['#F2F8F8', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.12)', '#fff', '#0A2C3A'], proof: ['#07374C', '#fff', '#A9C8D3', 'rgba(255,255,255,.2)', 'rgba(255,255,255,.07)', '#fff'], cta: ['#F2F8F8', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.2)'], foot: ['#fff', '#0A2C3A', '#4C6772', 'rgba(10,44,58,.12)'] }, hero: { img: 'diversity.jpg', a: 'meetings.jpg', b: 'coaching.jpg' } },
-    22: { n: 'Xurya', page: '#E4E7EC', fd: "'Figtree'", fb: "'Figtree'", wd: 400, ls: '-.03em', h1: 'clamp(40px,5.6vw,80px)', rd: 18, rs: 12, rb: 999, ac: '#12D18C', af: '#04251A', ai: '#0B8F62', at: '#E4F7EE', L: { hero: 'bleed', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'split', cta: 'full' }, bleed: 'linear-gradient(90deg,rgba(10,18,14,.78) 0%,rgba(10,18,14,.5) 45%,rgba(10,18,14,.12) 100%)',
+    22: { n: 'Xurya', page: '#E4E7EC', fd: "'Figtree'", fb: "'Figtree'", wd: 400, ls: '-.03em', h1: 'clamp(40px,5.6vw,80px)', rd: 18, rs: 12, rb: 999, ac: '#12D18C', af: '#04251A', ai: '#0B8F62', at: '#E4F7EE', L: { hero: 'bleed', topics: 'index', courses: 'grid', svc: 'rows', proof: 'split', cta: 'full' }, bleed: 'linear-gradient(90deg,rgba(10,18,14,.78) 0%,rgba(10,18,14,.5) 45%,rgba(10,18,14,.12) 100%)',
       s: { hero: ['#1B2A22', '#fff', '#E3EAE5', 'rgba(255,255,255,.32)', '#fff', '#111'], trust: ['#fff', '#141414', '#6B706C', '#E4E7E4'], topics: ['#F1F3F1', '#141414', '#6B706C', '#E1E4E1', '#fff', '#141414'], courses: ['#fff', '#141414', '#6B706C', '#E1E4E1', '#fff', '#141414'], svc: ['#F1F3F1', '#141414', '#6B706C', '#E1E4E1', '#fff', '#141414'], proof: ['#fff', '#141414', '#6B706C', '#E3E6E3', '#F1F3F1', '#141414'], cta: ['#0B0B0B', '#fff', '#A6ABA7', 'rgba(255,255,255,.3)'], foot: ['#0B0B0B', '#fff', '#9AA09B', 'rgba(255,255,255,.14)'] }, hero: { img: 'leadership.jpg', a: 'meetings.jpg', b: 'coaching.jpg' } },
-    23: { n: 'Aria', fd: "'Figtree'", fb: "'Figtree'", wd: 300, ls: '-.04em', h1: 'clamp(44px,6.4vw,92px)', rd: 14, rs: 10, rb: 999, ac: '#2FF3C6', af: '#062B2B', ai: '#0E6657', at: '#E3F3D4', L: { hero: 'center', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'band', cta: 'panel' }, panel: ['#072929', '#fff'], dk: 1,
+    23: { n: 'Aria', fd: "'Figtree'", fb: "'Figtree'", wd: 300, ls: '-.04em', h1: 'clamp(44px,6.4vw,92px)', rd: 14, rs: 10, rb: 999, ac: '#2FF3C6', af: '#062B2B', ai: '#0E6657', at: '#E3F3D4', L: { hero: 'center', topics: 'pills', courses: 'rail', svc: 'cards', proof: 'band', cta: 'panel' }, panel: ['#072929', '#fff'], dk: 1,
       s: { hero: ['#072929', '#fff', '#B9D0CA', 'rgba(255,255,255,.22)', '#0D3A3A', '#fff'], trust: ['#072929', '#fff', '#8FB1AA', 'rgba(255,255,255,.14)'], topics: ['#F4F6EC', '#062B2B', '#587068', 'rgba(6,43,43,.14)', '#fff', '#062B2B'], courses: ['#fff', '#062B2B', '#587068', 'rgba(6,43,43,.14)', '#F4F6EC', '#062B2B'], svc: ['#F4F6EC', '#062B2B', '#587068', 'rgba(6,43,43,.14)', '#fff', '#062B2B'], proof: ['#D3E79B', '#062B2B', '#3F5A4A', 'rgba(6,43,43,.22)', '#fff', '#062B2B'], cta: ['#fff', '#062B2B', '#587068', 'rgba(6,43,43,.2)'], foot: ['#041E1E', '#fff', '#8FB1AA', 'rgba(255,255,255,.14)'] }, hero: { img: 'meetings.jpg', a: 'diversity.jpg', b: 'coaching.jpg' } },
     24: { n: 'Overpass', fd: "'Figtree'", fb: "'Figtree'", wd: 600, ls: '-.04em', h1: 'clamp(42px,5.4vw,78px)', rd: 16, rs: 10, rb: 999, ac: '#12162A', af: '#fff', ai: '#1B47C9', at: '#E3EBFD', L: { hero: 'collage', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'band', cta: 'panel' }, panel: ['#12162A', '#fff'],
       s: { hero: ['#fff', '#12162A', '#4A5068', 'rgba(18,22,42,.14)', '#fff', '#12162A'], trust: ['#fff', '#12162A', '#4A5068', 'rgba(18,22,42,.12)'], topics: ['#fff', '#12162A', '#4A5068', 'rgba(18,22,42,.14)', '#F2F5FF', '#12162A'], courses: ['#1B47C9', '#fff', '#D8E3FF', 'rgba(255,255,255,.3)', '#fff', '#12162A'], svc: ['#fff', '#12162A', '#4A5068', 'rgba(18,22,42,.14)', '#F2F5FF', '#12162A'], proof: ['#1B47C9', '#fff', '#D8E3FF', 'rgba(255,255,255,.3)', '#fff', '#12162A'], cta: ['#FFD84A', '#12162A', 'rgba(18,22,42,.78)', 'rgba(18,22,42,.4)'], foot: ['#12162A', '#fff', '#A9AFC8', 'rgba(255,255,255,.16)'] }, hero: { img: 'diversity.jpg', a: 'meetings.jpg', b: 'coaching.jpg' } },
-    25: { n: 'Delcap', fd: "'Inter'", fb: "'Inter'", wd: 300, ls: '-.03em', h1: 'clamp(38px,4.6vw,66px)', rd: 6, rs: 4, rb: 6, ac: '#1B4263', af: '#fff', ai: '#1B4263', at: '#E8F0F8', L: { hero: 'collage', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'split', cta: 'full' },
+    25: { n: 'Delcap', fd: "'Inter'", fb: "'Inter'", wd: 300, ls: '-.03em', h1: 'clamp(38px,4.6vw,66px)', rd: 6, rs: 4, rb: 6, ac: '#1B4263', af: '#fff', ai: '#1B4263', at: '#E8F0F8', L: { hero: 'collage', topics: 'index', courses: 'list', svc: 'rows', proof: 'band', cta: 'full' },
       s: { hero: ['linear-gradient(180deg,#DCEAF8 0%,#EAF3FB 55%,#fff 100%)', '#0F2234', '#4E6377', 'rgba(15,34,52,.14)', '#fff', '#0F2234'], trust: ['#fff', '#0F2234', '#4E6377', 'rgba(15,34,52,.1)'], topics: ['#fff', '#0F2234', '#4E6377', '#E3E9F0', '#FAFBFD', '#0F2234'], courses: ['#F5F8FC', '#0F2234', '#4E6377', '#E3E9F0', '#fff', '#0F2234'], svc: ['#fff', '#0F2234', '#4E6377', '#E3E9F0', '#FAFBFD', '#0F2234'], proof: ['#1B4263', '#fff', '#BDD0E2', 'rgba(255,255,255,.22)', 'rgba(255,255,255,.08)', '#fff'], cta: ['#1F4B6E', '#fff', '#C5D7E7', 'rgba(255,255,255,.3)'], foot: ['#fff', '#0F2234', '#4E6377', '#E3E9F0'] }, hero: { img: 'diversity.jpg', a: 'meetings.jpg', b: 'coaching.jpg' } },
     26: { n: 'Statamic', fd: "'Fraunces'", fb: "'Figtree'", wd: 300, ls: '-.02em', h1: 'clamp(40px,5.2vw,74px)', rd: 14, rs: 10, rb: 8, ac: '#14183D', af: '#fff', ai: '#14183D', at: '#F3E7DA', L: { hero: 'center', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'band', cta: 'panel' }, panel: ['#14183D', '#fff'],
       s: { hero: ['linear-gradient(180deg,#F6D4BA 0%,#FAE5D5 40%,#FDF7EF 100%)', '#1A1A24', '#5A5560', 'rgba(26,26,36,.14)', '#fff', '#1A1A24'], trust: ['#FDF7EF', '#1A1A24', '#5A5560', 'rgba(26,26,36,.1)'], topics: ['linear-gradient(180deg,#FDF7EF 0%,#F9ECF3 55%,#FDF7EF 100%)', '#1A1A24', '#5A5560', 'rgba(26,26,36,.12)', '#fff', '#1A1A24'], courses: ['#FDF7EF', '#1A1A24', '#5A5560', 'rgba(26,26,36,.12)', '#fff', '#1A1A24'], svc: ['linear-gradient(180deg,#FDF7EF 0%,#F4EEFA 55%,#FDF7EF 100%)', '#1A1A24', '#5A5560', 'rgba(26,26,36,.12)', '#fff', '#1A1A24'], proof: ['#FDF7EF', '#1A1A24', '#5A5560', 'rgba(26,26,36,.14)', '#fff', '#1A1A24'], cta: ['#FDF7EF', '#1A1A24', '#5A5560', 'rgba(26,26,36,.2)'], foot: ['#14183D', '#fff', '#A9ACCB', 'rgba(255,255,255,.16)'] }, hero: { img: 'teams.jpg', a: 'meetings.jpg', b: 'coaching.jpg' } },
     27: { n: 'HRFlow', fd: "'Mona Sans','Figtree'", fb: "'Figtree'", wd: 600, ls: '-.035em', h1: 'clamp(40px,4.8vw,66px)', rd: 16, rs: 10, rb: 8, ac: '#0E5C3D', af: '#fff', ai: '#0E5C3D', at: '#DCEBD8', L: { hero: 'collage', topics: 'cards', courses: 'grid', svc: 'stack', proof: 'band', cta: 'full' }, dk: 1,
       s: { hero: ['linear-gradient(180deg,#E7F3DF 0%,#F5FAF0 65%,#fff 100%)', '#0B2A1C', '#4B6254', 'rgba(11,42,28,.14)', '#fff', '#0B2A1C'], trust: ['#04201A', '#fff', '#A3BBAE', 'rgba(255,255,255,.16)'], topics: ['#fff', '#0B2A1C', '#4B6254', '#E4E1D6', '#fff', '#0B2A1C'], courses: ['#F1EFE8', '#0B2A1C', '#5C685F', '#E0DCCF', '#fff', '#0B2A1C'], svc: ['#fff', '#0B2A1C', '#4B6254', '#E4E1D6', '#F1EFE8', '#0B2A1C'], proof: ['#04201A', '#fff', '#A3BBAE', 'rgba(255,255,255,.2)', 'rgba(255,255,255,.06)', '#fff'], cta: ['#0E5C3D', '#fff', '#CFE4D8', 'rgba(255,255,255,.35)'], foot: ['#F1EFE8', '#0B2A1C', '#5C685F', '#E0DCCF'] }, hero: { img: 'coaching.jpg', a: 'meetings.jpg', b: 'diversity.jpg' } },
-    28: { n: 'Radar', fd: "'Figtree'", fb: "'Figtree'", wd: 500, ls: '-.04em', h1: 'clamp(40px,5.2vw,74px)', rd: 28, rs: 16, rb: 999, ac: '#D4F44A', af: '#0E1110', ai: '#3F5A00', at: '#EDF5C9', L: { hero: 'center', topics: 'cards', courses: 'grid', svc: 'cards', proof: 'split', cta: 'panel' }, panel: ['#101312', '#fff'],
+    28: { n: 'Radar', fd: "'Figtree'", fb: "'Figtree'", wd: 500, ls: '-.04em', h1: 'clamp(40px,5.2vw,74px)', rd: 28, rs: 16, rb: 999, ac: '#D4F44A', af: '#0E1110', ai: '#3F5A00', at: '#EDF5C9', L: { hero: 'center', topics: 'pills', courses: 'grid', svc: 'cards', proof: 'split', cta: 'panel' }, panel: ['#101312', '#fff'],
       s: { hero: ['#E9ECEA', '#101312', '#626766', 'rgba(16,19,18,.12)', '#fff', '#101312'], trust: ['#E9ECEA', '#101312', '#626766', 'rgba(16,19,18,.1)'], topics: ['#fff', '#101312', '#626766', 'rgba(16,19,18,.12)', '#F2F4F3', '#101312'], courses: ['#fff', '#101312', '#626766', 'rgba(16,19,18,.12)', '#F2F4F3', '#101312'], svc: ['#E9ECEA', '#101312', '#626766', 'rgba(16,19,18,.12)', '#0E1110', '#fff'], proof: ['#fff', '#101312', '#626766', 'rgba(16,19,18,.14)', '#F2F4F3', '#101312'], cta: ['#E9ECEA', '#101312', '#626766', 'rgba(16,19,18,.2)'], foot: ['#E9ECEA', '#101312', '#626766', 'rgba(16,19,18,.12)'] }, hero: { img: 'diversity.jpg', a: 'meetings.jpg', b: 'coaching.jpg' } }
   };
 
@@ -704,7 +785,7 @@ em { font-style: normal; }
     var v = d.L.hero, h = d.hero;
     var fc = '';
     var bg = v === 'bleed' ? '<div class="bgph">' + img(h.img, '', 'fetchpriority="high"') + '</div>' : '';
-    return '<header class="hero s-hero sec hv-' + v + '" id="top" style="--sp:0">' + bg + '<div class="wrap"><div class="bar">' + logo() + '<div class="bar-end"><a class="cart bar-login" href="#">Log in</a><a class="btn" href="#">Cart (0)</a></div></div><div class="hero-grid"><div class="hero-copy"><h1>Training that builds <em>better teams</em>.</h1><p class="sub">Buy online courses today, or work with us on certification, coaching and live programs.</p><form class="hs" role="search" onsubmit="event.preventDefault();var c=document.getElementById(\'courses\');if(c)c.scrollIntoView({behavior:\'smooth\'});"><label class="hs-f"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg><input type="search" placeholder="Search courses, categories or keywords" aria-label="Search courses, categories or keywords"><button class="btn " type="submit">Search</button></label><div class="hs-pop"><span>Popular:</span><a href="#courses">Harassment</a><a href="#courses">Diversity</a><a href="#courses">Leadership</a><a href="#courses">Everything DiSC</a><a href="#courses">Five Behaviors</a><a href="#courses">Coaching</a></div></form></div><div class="hero-art"><figure class="ph p1">' + img(h.img, 'Diverse team looking at a laptop together') + '</figure><figure class="ph p2">' + img(h.a, '') + '</figure><figure class="ph p3">' + img(h.b, '') + '</figure>' + fc + '</div></div></div></header>';
+    return '<header class="hero s-hero sec hv-' + v + '" id="top" style="--sp:0">' + bg + '<div class="wrap"><div class="bar">' + logo() + '<div class="bar-end"><a class="cart bar-login" href="#">Log in</a><a class="btn" href="#">Cart (0)</a></div></div><div class="hero-grid"><div class="hero-copy"><h1>Training that builds <em>better teams</em>.</h1><p class="sub">Buy online courses today, or work with us on certification, coaching and live programs.</p><form class="hs" role="search" onsubmit="event.preventDefault();var c=document.getElementById(\'courses\');if(c)c.scrollIntoView({behavior:\'smooth\'});"><label class="hs-f"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg><input type="search" placeholder="Search courses, categories or keywords" aria-label="Search courses, categories or keywords"><button class="btn " type="submit">Search</button></label><div class="hs-pop"><span>Popular:</span><a href="#courses">Harassment</a><a href="#courses">Diversity</a><a href="#courses">Leadership</a><a href="#courses">Everything DiSC</a></div></form></div><div class="hero-art"><figure class="ph p1">' + img(h.img, 'Diverse team looking at a laptop together') + '</figure><figure class="ph p2">' + img(h.a, '') + '</figure><figure class="ph p3">' + img(h.b, '') + '</figure>' + fc + '</div></div></div></header>';
   }
   function trust(d) { var sx = d && d.dk ? '-w' : '';
     return '<div class="s-trust sec" style="--sp:28px"><div class="wrap trust-in"><p class="since">Educating, inspiring and serving since 1995</p><div class="tl-r"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc' + sx + '.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select' + sx + '.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors' + sx + '.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah' + sx + '.png', 'Sollah Interactive, LLC') + '</li></ul></div></div></div>';
@@ -728,7 +809,7 @@ em { font-style: normal; }
       items = '<div class="lst">' + COURSES.map(function (c, i) { return '<a class="r rv-i' + (i === 0 ? ' on' : '') + '" href="#" data-i="' + i + '"><span class="th">' + img(c.img, '') + '</span><span class="rc">' + c.code + '</span><span class="rt">' + esc(c.title) + '<span class="rk">' + esc(c.topic) + '</span></span><span class="price">' + pr(c) + '</span></a>'; }).join('') + '</div><aside class="pv" aria-live="polite"></aside>';
       return '<section class="s-courses sec" id="courses"><div class="wrap">' + chead(false) + '<div class="cv-list">' + items + '</div></div></section>';
     }
-    items = COURSES.map(function (c) { return '<a class="c rv-i" href="#"><div class="cover"><span class="cc">' + c.code + '</span>' + img(c.img, c.alt, 'loading="lazy"') + '</div><div class="cb"><span class="ct">' + esc(c.topic) + '</span><h3>' + esc(c.title) + '</h3><div class="cf"><span class="price">' + pr(c) + '</span><span class="go">View course <span class="ga" aria-hidden="true"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></span></div></div></a>'; }).join('');
+    items = COURSES.map(function (c) { return '<a class="c rv-i" href="#"><div class="cover"><span class="cc">' + c.code + '</span>' + img(c.img, c.alt, 'loading="lazy"') + '</div><div class="cb"><span class="ct">' + esc(c.topic) + '</span><h3>' + esc(c.title) + '</h3><div class="cf"><span class="price">' + pr(c) + '</span><span class="go"><span class="gl">View course</span> <span class="ga" aria-hidden="true"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></span></div></div></a>'; }).join('');
     return '<section class="s-courses sec" id="courses"><div class="wrap">' + chead(v === 'rail') + (v === 'rail' ? '<div class="cv-rail" tabindex="0" aria-label="Popular online courses">' + items + '</div>' : '<div class="cv-grid">' + items + '</div>') + '</div></section>';
   }
   function chead(rail) {
