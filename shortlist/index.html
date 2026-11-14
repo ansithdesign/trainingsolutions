@@ -949,7 +949,7 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
    5 · PAYLYTIX — precise product UI, navy and teal, measured grid
    ===================================================================== */
 [data-d="j"] { --bg: #fff; --ink: #0B2434; --mu: #5A6267; --ln: rgba(11,36,52,.12); --ac: #0B2434; --af: #fff; --ai: #035C53; --at: #DDE9E7; --pa: #F2F4F5; --cd: #fff; --hl: #8FD6C9;
-  --fd: 'Wix Madefor Display', 'Segoe UI', system-ui, sans-serif; --fb: 'Wix Madefor Text', 'Segoe UI', system-ui, sans-serif; --fm: 'Azeret Mono', ui-monospace, monospace;
+  --fd: 'Wix Madefor Display', 'Segoe UI', system-ui, sans-serif; --fb: 'Wix Madefor Display', 'Segoe UI', system-ui, sans-serif; --fm: 'Azeret Mono', ui-monospace, monospace;
   --wd: 600; --ls: -.04em; --h1: clamp(42px, 5.6vw, 84px); --h2: clamp(30px, 3.5vw, 50px); --r: 12px; --rs: 8px; --rb: 8px; --icw: 1.75; --cap: square; --join: miter; --mm-r: 12px; --mm-ac: #035C53; --mm-hv: #F2F4F5; --mm-mu: #5A6267; }
 [data-d="j"] .hd { --h-bg: #F2F4F5; }
 [data-d="j"] .hd::before { content: ""; position: absolute; inset: 0; z-index: -1; background-image: linear-gradient(rgba(11,36,52,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(11,36,52,.06) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask: radial-gradient(80% 70% at 70% 40%, #000, transparent); mask: radial-gradient(80% 70% at 70% 40%, #000, transparent); }
@@ -1778,17 +1778,17 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 @media (max-width: 720px) { [data-d="h"] .svr { height: 380px; } }
 </style>
 <style>
-/* Paylytix: partners are part of the hero, same grid, no card */
+/* Paylytix: partners are part of the hero, one centred row */
 [data-d="j"] main .trust { display: none; }
 [data-d="j"] .hero-in { padding-block: 40px 56px; }
-[data-d="j"] .hpart { position: relative; padding-block: 8px 72px; }
-[data-d="j"] .hpart::before { content: ""; display: block; height: 1px; background: var(--ln); margin-bottom: 30px; }
-[data-d="j"] .hpart .plab { font: 500 11.5px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--mu); margin: 0 0 26px; text-align: left; }
-[data-d="j"] .hpart .logos { list-style: none; padding: 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px 64px; }
-[data-d="j"] .hpart .logos li { mix-blend-mode: multiply; transition: transform .4s; }
-[data-d="j"] .hpart .logos img { height: 36px; width: auto; display: block; filter: none; }
+[data-d="j"] .hpart { animation: none !important; opacity: 1 !important; transform: none !important; position: relative; display: flex; align-items: center; gap: 48px; padding-block: 34px 64px; }
+[data-d="j"] .hpart::before { content: ""; position: absolute; left: 20px; right: 20px; top: 0; height: 1px; background: var(--ln); }
+[data-d="j"] .hpart .plab { flex: none; font: 500 11.5px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--mu); margin: 0; text-align: left; }
+[data-d="j"] .hpart .logos { flex: 1; list-style: none; padding: 0; margin: 0; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 20px 40px; }
+[data-d="j"] .hpart .logos li { display: flex; align-items: center; transition: transform .4s; }
+[data-d="j"] .hpart .logos img { height: 34px; width: auto; display: block; mix-blend-mode: multiply; }
 [data-d="j"] .hpart .logos li:hover { transform: translateY(-2px); }
-@media (max-width: 720px) { [data-d="j"] .hpart { padding-bottom: 48px; } [data-d="j"] .hpart .logos { gap: 20px 40px; } [data-d="j"] .hpart .logos img { height: 28px; } }
+@media (max-width: 900px) { [data-d="j"] .hpart { flex-direction: column; align-items: flex-start; gap: 22px; padding-bottom: 48px; } [data-d="j"] .hpart .logos { justify-content: flex-start; gap: 20px 32px; } [data-d="j"] .hpart .logos img { height: 28px; } }
 </style>
 <style>
 /* Paylytix: category highlights instead of a course card, subtle established line */
@@ -1805,13 +1805,16 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 @media (max-width: 1060px) { [data-d="j"] .chip.c2 { bottom: 70px; } [data-d="j"] .chip.c3 { bottom: 20px; } }
 </style>
 <style>
-/* Paylytix courses: grey filled cards, no stroke, no expanding button */
-[data-d="j"] .crow .c { background: #EEF0F1; border: 0; box-shadow: none; transition: background .3s, transform .4s; }
-[data-d="j"] .crow .c:hover { background: #E6E9EA; border: 0; box-shadow: none; transform: none; }
-[data-d="j"] .crow .cv { background: #fff; }
-[data-d="j"] .crow .go > span, [data-d="j"] .crow .c:hover .go > span, [data-d="j"] .crow .c:focus-visible .go > span { max-width: 0; opacity: 0; margin: 0; display: none; }
-[data-d="j"] .crow .go { width: 38px; padding: 0; justify-content: center; transition: background .25s, transform .25s; }
-[data-d="j"] .crow .c:hover .go { background: #0B2434; }
+/* Paylytix courses: grey filled grid cards, cover floats on a soft tint, no stroke, no expanding button */
+[data-d="j"] .cg { --cg-gap: 20px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+[data-d="j"] .c { background: #EEF0F1; border: 0; box-shadow: none; border-radius: 16px; padding: 10px; transition: background .3s; }
+[data-d="j"] .c:hover { background: #E6E9EA; border: 0; box-shadow: none; transform: none; }
+[data-d="j"] .cv { background: #DDE9E7; border-radius: 10px; padding: 26px 30px 20px; }
+[data-d="j"] .cv .bk img { box-shadow: 0 2px 4px rgba(11,36,52,.14), 0 18px 28px -6px rgba(11,36,52,.32); border-radius: 3px; }
+[data-d="j"] .cb { padding: 18px 12px 12px; }
+[data-d="j"] .go > span, [data-d="j"] .c:hover .go > span, [data-d="j"] .c:focus-visible .go > span { display: none; max-width: 0; opacity: 0; margin: 0; }
+[data-d="j"] .go { width: 38px; padding: 0; justify-content: center; border-radius: 8px; --go-bg: #035C53; transition: background .25s; }
+[data-d="j"] .c:hover .go { background: #0B2434; }
 </style>
 
 
@@ -1967,7 +1970,7 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
     e: { n: 'Color Block', f: ['Anybody:wdth,wght@50..150,100..900', 'Reddit+Sans:wght@400;500;600;700'], ar: 'r', nav: 'soft', mm: 'tiles', hero: 'poster', top: 'bento', cr: 'grid', sv: 'stack', wl: 'card', page: '#14112B' },
     g: { n: 'Maze', f: ['Funnel+Display:wght@300;400;500;600', 'Funnel+Sans:wght@400;500;600', 'Martian+Mono:wght@400;500'], ar: 'r', nav: 'line', mm: 'preview', hero: 'frames', top: 'index', cr: 'grid', sv: 'grid', wl: 'split', page: '#1E1E1E', split: 1 },
     h: { n: 'Ledgerhouse', f: ['Figtree:wght@300..900'], ar: 'd', nav: 'line', mm: 'tiles', hero: 'word', top: 'ledger', cr: 'shelf', sv: 'srail', wl: 'pol', page: '#0A1526', split: 1, fw: 1 },
-    j: { n: 'Paylytix', f: ['Wix+Madefor+Display:wght@400;500;600;700', 'Wix+Madefor+Text:wght@400;500;600;700', 'Azeret+Mono:wght@400;500;600'], ar: 'r', nav: 'soft', mm: 'ledger', hero: 'device', top: 'tiles', cr: 'row', sv: 'tabs', wl: 'card', page: '#021725' },
+    j: { n: 'Paylytix', f: ['Wix+Madefor+Display:wght@400;500;600;700', 'Wix+Madefor+Text:wght@400;500;600;700', 'Azeret+Mono:wght@400;500;600'], ar: 'r', nav: 'soft', mm: 'ledger', hero: 'device', top: 'tiles', cr: 'grid', sv: 'tabs', wl: 'card', page: '#021725' },
     p: { n: 'Finpay', f: ['Red+Hat+Display:wght@400;500;600;700;800', 'Red+Hat+Text:wght@400;500;600', 'Red+Hat+Mono:wght@400;500'], ar: 'r', nav: 'soft', mm: 'tiles', hero: 'collage', top: 'cards', cr: 'rail', sv: 'bento', wl: 'card', page: '#F2F8F8' },
     q: { n: 'Xurya', f: ['Host+Grotesk:wght@300;400;500;600'], ar: 'd', nav: 'line', mm: 'preview', hero: 'bleed', top: 'index', cr: 'grid', sv: 'rows', wl: 'split', page: '#DADDE3', split: 1, fw: 1 },
     r: { n: 'Aria', f: ['Petrona:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400', 'Albert+Sans:wght@400;500;600;700'], ar: 'd', nav: 'line', mm: 'type', hero: 'arches', top: 'pills', cr: 'rail', sv: 'grid', wl: 'letter', page: '#041E1E', split: 1, tw: 1 },
