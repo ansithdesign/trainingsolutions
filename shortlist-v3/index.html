@@ -56,7 +56,7 @@ svg.lm { fill: currentColor; stroke: none; }
 @keyframes barIn { from { transform: translateY(-100%); } }
 .logo { display: inline-flex; align-items: center; gap: 11px; font-family: var(--fd); font-weight: var(--logo-w, 600); font-size: 18px; letter-spacing: -.025em; white-space: nowrap; flex: none; }
 .logo .lm { width: 27px; height: 26px; color: var(--logo-c, currentColor); transition: transform .6s cubic-bezier(.2,.8,.2,1); }
-.logo:hover .lm { transform: rotate(-90deg); }
+.logo:hover .lm { transform: none; }
 .nv { display: flex; align-items: center; gap: 2px; margin-inline: auto; }
 .nv-i { position: relative; }
 .nv-i.mega { position: static; }
@@ -2857,10 +2857,19 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="s"] .b-cart b, #app[data-d="s"] .est9 .d, #app[data-d="s"] .more-l .ic, #app[data-d="s"] .hs-b .i, #app[data-d="s"] .btn .i, #app[data-d="s"] .go .i, #app[data-d="s"] .nv-b .i, #app[data-d="s"] .mm-box .i, #app[data-d="s"] .cat-a .i { position: relative; top: -2px; }
 #app[data-d="s"] .b-cart b { padding-top: 4px; }
 #app[data-d="s"] .price { padding-top: 8px !important; padding-bottom: 4px !important; }
-/* Option 1 hero photo: slid to the right */
-#app[data-d="h"] .hbg img { width: 116%; right: -16%; left: auto; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%); mask-image: linear-gradient(90deg, transparent 0%, #000 22%); }
-@media (max-width: 720px) { #app[data-d="h"] .hbg img { width: 100%; right: 0; } }
 /* ===== END MISC 3 ===== */
+/* ===== OPTION 1 HERO PHOTO ===== */
+/* Full-bleed office photo, subject on the right. A soft dark pool behind the centred copy, an edge
+   vignette, and a deeper floor so the partner strip reads. Kept cool to match the navy palette. */
+#app[data-d="h"] .hbg img { position: absolute; inset: 0; width: 100%; height: 100%; right: auto; left: 0; object-fit: cover; object-position: 70% 35%; -webkit-mask-image: none; mask-image: none; filter: saturate(.85) contrast(1.02); }
+#app[data-d="h"] .hbg::after { background:
+  radial-gradient(ellipse 46% 52% at 50% 46%, rgba(6,10,18,.72) 0%, rgba(6,10,18,.5) 55%, rgba(6,10,18,0) 100%),
+  radial-gradient(ellipse 120% 95% at 55% 40%, rgba(6,10,18,0) 40%, rgba(6,10,18,.65) 100%),
+  linear-gradient(0deg, rgba(6,10,18,.92) 0%, rgba(6,10,18,.55) 16%, rgba(6,10,18,0) 40%),
+  linear-gradient(180deg, rgba(6,10,18,.6) 0%, rgba(6,10,18,0) 20%),
+  linear-gradient(rgba(10,26,48,.28), rgba(10,26,48,.28)) !important; }
+@media (max-width: 720px) { #app[data-d="h"] .hbg img { object-position: 78% 30%; } }
+/* ===== END OPTION 1 HERO PHOTO ===== */
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2966,7 +2975,7 @@ header.hd > .hpart { margin-top: 0; }
     strip: function () { return '<div class="wrap hero-in">' + copy() + '</div><div class="wrap strip">' + fig('meetings.jpg', 'st1', '', 0, ' data-par=".06"') + fig('diversity.jpg', 'st2', ALT0, 0, ' data-par=".02"') + fig('coaching.jpg', 'st3', '', 1, ' data-par=".1"') + badge() + '</div>'; },
     poster: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art">' + fig('diversity.jpg', 's1', ALT0) + fig('meetings.jpg', 's2') + fig('coaching.jpg', 's3', '', 1) + '<span class="star">' + i('st') + '</span>' + badge() + '</div></div><div class="mq" aria-hidden="true"><div class="mq-t">' + MQ + MQ + '</div></div>'; },
     frames: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><canvas class="px" aria-hidden="true"></canvas>' + fig('diversity.jpg', 'fa', ALT0) + fig('meetings.jpg', 'fb') + fig('coaching.jpg', 'fc', '', 1) + '</div></div>'; },
-    word: function () { return '<div class="hbg">' + img('hero-h.webp', '') + '</div><div class="wrap hero-in">' + copy() + '</div>' + '<div class="wrap hpart fade-up" style="--dl:.8s"><div class="hglass"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc-w.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select-w.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors-w.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah-w.png', 'Sollah Interactive, LLC') + '</li></ul></div></div>'; },
+    word: function () { return '<div class="hbg">' + img('hero-h2.webp', '') + '</div><div class="wrap hero-in">' + copy() + '</div>' + '<div class="wrap hpart fade-up" style="--dl:.8s"><div class="hglass"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc-w.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select-w.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors-w.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah-w.png', 'Sollah Interactive, LLC') + '</li></ul></div></div>'; },
     device: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><span class="devbg"></span><div class="dev">' + img('hero-team.jpg', 'Four colleagues talking around a laptop in an office') + '</div><a class="chip" href="#courses"><span class="ti">' + ti(13) + '</span><span><b>Legal</b><small>2 products</small></span></a><a class="chip c2" href="#courses"><span class="ti">' + ti(1) + '</span><span><b>Diversity</b><small>12 products</small></span></a><a class="chip c3" href="#courses"><span class="ti">' + ti(3) + '</span><span><b>Leadership</b><small>12 products</small></span></a></div></div>' + '<div class="wrap hpart fade-up" style="--dl:.8s"><p class="plab">Authorized partners</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah.png', 'Sollah Interactive, LLC') + '</li></ul></div>'; },
     collage: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><span class="blk"></span>' + fig('diversity.jpg', 'p1', ALT0) + fig('meetings.jpg', 'p2') + fig('coaching.jpg', 'p3', '', 1) + badge() + '</div></div>'; },
     bleed: function () { return '<div class="hbg">' + img('teams.jpg', '') + '</div><div class="wrap hero-in">' + copy() + '</div>'; },
