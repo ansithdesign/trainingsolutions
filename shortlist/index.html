@@ -1786,9 +1786,8 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 [data-d="j"] .hpart .plab { font: 500 11.5px var(--fm); letter-spacing: .06em; text-transform: uppercase; color: var(--mu); margin: 0 0 26px; text-align: left; }
 [data-d="j"] .hpart .logos { list-style: none; padding: 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px 64px; }
 [data-d="j"] .hpart .logos li { mix-blend-mode: multiply; transition: transform .4s; }
-[data-d="j"] .hpart .logos img { height: 34px; width: auto; display: block; filter: grayscale(1) contrast(.92); }
+[data-d="j"] .hpart .logos img { height: 36px; width: auto; display: block; filter: none; }
 [data-d="j"] .hpart .logos li:hover { transform: translateY(-2px); }
-[data-d="j"] .hpart .logos li:hover img { filter: none; }
 @media (max-width: 720px) { [data-d="j"] .hpart { padding-bottom: 48px; } [data-d="j"] .hpart .logos { gap: 20px 40px; } [data-d="j"] .hpart .logos img { height: 28px; } }
 </style>
 <style>
@@ -1805,6 +1804,16 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 [data-d="j"] .est9 b { color: #035C53; font-weight: 600; }
 @media (max-width: 1060px) { [data-d="j"] .chip.c2 { bottom: 70px; } [data-d="j"] .chip.c3 { bottom: 20px; } }
 </style>
+<style>
+/* Paylytix courses: grey filled cards, no stroke, no expanding button */
+[data-d="j"] .crow .c { background: #EEF0F1; border: 0; box-shadow: none; transition: background .3s, transform .4s; }
+[data-d="j"] .crow .c:hover { background: #E6E9EA; border: 0; box-shadow: none; transform: none; }
+[data-d="j"] .crow .cv { background: #fff; }
+[data-d="j"] .crow .go > span, [data-d="j"] .crow .c:hover .go > span, [data-d="j"] .crow .c:focus-visible .go > span { max-width: 0; opacity: 0; margin: 0; display: none; }
+[data-d="j"] .crow .go { width: 38px; padding: 0; justify-content: center; transition: background .25s, transform .25s; }
+[data-d="j"] .crow .c:hover .go { background: #0B2434; }
+</style>
+
 
 
 <style>
