@@ -437,6 +437,10 @@ em { font-style: normal; }
 .logos img { filter: grayscale(1); opacity: .7; }
 .logos img { mix-blend-mode: multiply; filter: grayscale(1); }
 
+.logo { gap: 10px; }
+.logo .lm { width: 27px; height: 26px; flex: none; display: block; }
+.logo i { display: none; }
+
 
 /* ===== spacing and rhythm for all new designs ===== */
 [data-d] { --gap: 24px; }
@@ -713,6 +717,14 @@ em { font-style: normal; }
 [data-d="28"] .tv-pills .t { background: #F2F4F3; border-color: transparent; }
 [data-d="28"] .tv-pills .tc { background: #101312; color: #D4F44A; }
 [data-d="28"] .tv-pills .t:hover { background: var(--ac); color: var(--af); }
+
+/* wordmark typography per design (mark is the brand logo) */
+[data-d="23"] .logo { font-weight: 300; font-size: 20px; letter-spacing: -.04em; }
+[data-d="24"] .logo { text-transform: uppercase; letter-spacing: .14em; font-size: 13px; font-weight: 600; }
+[data-d="25"] .logo { text-transform: uppercase; letter-spacing: .16em; font-size: 12.5px; font-weight: 400; }
+[data-d="26"] .logo { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 20px; letter-spacing: -.02em; }
+[data-d="27"] .logo { font-weight: 600; letter-spacing: -.03em; }
+[data-d="28"] .logo { font-weight: 600; }
 </style>
 </head>
 <body>
@@ -779,7 +791,7 @@ em { font-style: normal; }
     v += '--mini-bg:' + (d.s.hero[0].indexOf('gradient') > -1 ? d.s.trust[0] : d.s.hero[0]) + ';--mini-fg:' + (d.s.hero[0].indexOf('gradient') > -1 ? d.s.trust[1] : d.s.hero[1]) + ';--mini-ln:' + d.s.hero[3] + ';--cta-out:' + d.s.cta[0] + ';--wd-n:' + (d.wd > 500 ? 500 : d.wd) + ';';
     return v;
   }
-  function logo() { return '<a class="logo" href="#top"><i></i>Training Solutions</a>'; }
+  function logo() { return '<a class="logo" href="#top"><svg class="lm" viewBox="0 0 129 124" fill="currentColor" fill-rule="evenodd" aria-hidden="true"><path d="M128.906,1l0,122.548l-128.906,0l0,-122.548l128.906,0ZM71.109,68.89l0,-21.189l23.861,0l0,-13.273l-37.134,-0.135l0,47.844l5.36,0l0,0.026l18.521,0l0,18.508l-58.324,0l0,-66.3l-13.368,0l0,79.595l5.428,0l0,0.025l79.525,0l0,-0.071l0.013,0l0,-31.782l-0.012,0l0,-13.248l-23.87,0l0,0ZM118.881,113.965l0,-103.346l-13.32,0l0,0.005l-58.271,0l0,-0.066l-13.32,0l0,0.066l-23.928,0l0.06,13.414l23.868,-0.094l0,66.208l13.32,0l0,-66.208l58.271,0l0,90.021l13.32,0Z"/></svg>Training Solutions</a>'; }
 
   function hero(d) {
     var v = d.L.hero, h = d.hero;
