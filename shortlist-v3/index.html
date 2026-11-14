@@ -2592,6 +2592,10 @@ header.hd > .hpart { margin-top: 0; }
 #app .wl-pol .wq p { margin: 0; max-width: 54ch; line-height: 1.75; text-wrap: pretty; }
 #app .wl-pol .wq .wlead { max-width: 26ch; line-height: 1.4; margin-bottom: 8px; text-wrap: balance; }
 #app .wl-pol .wsig { margin-top: clamp(16px, 2vw, 24px); }
+
+/* Option 1: the courses button already carries space below it; trim the section end so the gap to Services matches the page rhythm */
+#app[data-d="h"] main .courses { padding-bottom: 24px; }
+@media (max-width: 720px) { #app[data-d="h"] main .courses { padding-bottom: 8px; } }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
