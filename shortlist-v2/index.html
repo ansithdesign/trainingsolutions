@@ -2295,6 +2295,29 @@ header.hd > .hpart { margin-top: 0; }
 [data-d="t"] .hero-copy { padding-bottom: 0; }
 [data-d="t"] .hero-sky h1 { font-size: clamp(38px, 5.1vw, 76px); }
 [data-d="t"] .fart { align-self: center; }
+/* Option 4 hero v2: narrower, arch photo with navy block, disc, second photo */
+[data-d="t"] .fart { aspect-ratio: 5 / 6; width: min(100%, 500px); justify-self: center; background: none; }
+[data-d="t"] .fback { left: auto; right: 0; top: 16%; width: 56%; height: 72%; background: #1B4263; border-radius: 6px; box-shadow: none; }
+[data-d="t"] .fdisc { left: 0; bottom: 8%; width: 42%; aspect-ratio: 1; border-radius: 50%; background: #BFD3E7; }
+[data-d="t"] .fdots { right: 2%; top: 0; width: 22%; height: 12%; background: radial-gradient(circle, #7E9CB8 1.6px, transparent 2px) 0 0 / 14px 14px; }
+[data-d="t"] .fphoto { left: 14%; top: 0; width: 64%; height: 80%; border-radius: 999px 999px 6px 6px; }
+[data-d="t"] .fphoto img { object-position: 62% 40%; }
+[data-d="t"] .fsmall { margin: 0; right: 0; bottom: 3%; width: 34%; aspect-ratio: 1; border: 4px solid #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 24px 40px -18px rgba(15,34,52,.5); animation: riseIn 1.2s .6s cubic-bezier(.2,.8,.2,1) both; }
+[data-d="t"] .fsmall img { width: 100%; height: 100%; object-fit: cover; }
+[data-d="t"] .fchip { font-size: inherit; }
+[data-d="t"] .fchip.f1 { left: 0; top: 16%; }
+[data-d="t"] .fchip.f2 { left: auto; right: 0; top: 46%; }
+[data-d="t"] .fchip.f3 { left: 2%; right: auto; bottom: 4%; }
+[data-d="t"] .fchip { padding: 2.2cqw 4cqw 2.2cqw 2.2cqw; gap: 2.8cqw; }
+[data-d="t"] .fchip .ti { width: 8cqw; height: 8cqw; font-size: 4.2cqw; }
+[data-d="t"] .fchip b { font-size: 3.7cqw; }
+[data-d="t"] .fchip small { font-size: 2.7cqw; }
+[data-d="j"] .hs-pop, [data-d="t"] .hs-pop { display: none; }
+[data-d="t"] .hero-sky .fart { width: min(100%, 500px); aspect-ratio: 5 / 6; justify-self: center; margin-right: 0; }
+[data-d="t"] .fchip.f1 { top: 14%; }
+[data-d="t"] .fchip.f2 { top: 34%; }
+[data-d="t"] .fsmall { bottom: 2%; width: 32%; }
+[data-d="t"] .fchip.f3 { bottom: 8%; }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2406,7 +2429,7 @@ header.hd > .hpart { margin-top: 0; }
     bleed: function () { return '<div class="hbg">' + img('teams.jpg', '') + '</div><div class="wrap hero-in">' + copy() + '</div>'; },
     arches: function () { return '<div class="wrap hero-in">' + copy() + '</div><div class="wrap arches">' + fig('meetings.jpg', 'a1') + fig('diversity.jpg', 'a2', ALT0) + fig('coaching.jpg', 'a3', '', 1) + '</div>'; },
     circles: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art"><span class="disc"></span><span class="drop"></span><span class="ring"></span>' + fig('hero-team.jpg', 'c1', ALT_TEAM) + fig('meetings.jpg', 'c2') + fig('coaching.jpg', 'c3', '', 1) + '</div></div>'; },
-    sky: function () { function ch(k, n, c) { return '<a class="fchip ' + c + '" href="#courses"><span class="ti">' + ti(k) + '</span><span><b>' + TOPICS[n][0] + '</b><small>' + TOPICS[n][1] + ' products</small></span></a>'; } return '<div class="wrap hero-in">' + copy() + '<div class="art fart"><span class="fback"></span><figure class="fphoto">' + img('hero-team.jpg', ALT_TEAM) + '</figure>' + ch(0, 0, 'f1') + ch(1, 1, 'f2') + ch(3, 3, 'f3') + '</div></div>'; },
+    sky: function () { function ch(k, n, c) { return '<a class="fchip ' + c + '" href="#courses"><span class="ti">' + ti(k) + '</span><span><b>' + TOPICS[n][0] + '</b><small>' + TOPICS[n][1] + ' products</small></span></a>'; } return '<div class="wrap hero-in">' + copy() + '<div class="art fart"><span class="fback"></span><span class="fdisc"></span><span class="fdots"></span><figure class="fphoto">' + img('hero-team.jpg', ALT_TEAM) + '</figure><figure class="fsmall">' + img('coaching.jpg', '') + '</figure>' + ch(0, 0, 'f1') + ch(1, 1, 'f2') + ch(3, 3, 'f3') + '</div></div>'; },
     mosaic: function () { return '<div class="wrap hero-in">' + copy() + '<div class="art">' + fig('diversity.jpg', 'q1', ALT0) + fig('meetings.jpg', 'q2') + fig('coaching.jpg', 'q3', '', 1) + fig('teams.jpg', 'q4') + badge() + '</div></div>'; },
     radar: function () { return '<div class="wrap hero-in">' + copy() + '</div><div class="wrap"><div class="scope"><span class="rings"></span><span class="sweep"></span>' + fig('meetings.jpg', 'r2') + fig('diversity.jpg', 'r1', ALT0) + fig('coaching.jpg', 'r3', '', 1) + '</div></div>'; }
   };
