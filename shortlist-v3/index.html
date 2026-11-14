@@ -2423,18 +2423,6 @@ header.hd > .hpart { margin-top: 0; }
    OPTION 2  Paylytix
    ===================================================================== */
 /* Categories: separate cards on a tinted ground instead of a ruled table. */
-#app[data-d="j"] .topics { --sbg: #F3F7FB; }
-#app[data-d="j"] .v-tiles .tl { gap: 12px; background: none; border: 0; border-radius: 0; overflow: visible; }
-#app[data-d="j"] .v-tiles .t { min-height: 172px; padding: 22px; border-radius: 18px; background: #fff; box-shadow: 0 1px 0 rgba(15,34,52,.04), 0 12px 30px -24px rgba(15,34,52,.3); transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s, background .3s; }
-#app[data-d="j"] .v-tiles .ti { width: 44px; height: 44px; border-radius: 12px; background: #E8F0F8; color: #1B4263; }
-#app[data-d="j"] .v-tiles .tn { font-size: 16px; letter-spacing: -.015em; }
-#app[data-d="j"] .v-tiles .tc { font-size: 11.5px; color: #5C7088; }
-#app[data-d="j"] .v-tiles .tc b { color: #1B4263; }
-#app[data-d="j"] .v-tiles .t:hover { transform: translateY(-4px); background: #fff; box-shadow: 0 1px 0 rgba(15,34,52,.04), 0 26px 44px -26px rgba(15,34,52,.4); }
-#app[data-d="j"] .v-tiles .t:hover .ti { background: #1B4263; color: #9EC3E6; }
-#app[data-d="j"] .v-tiles .t.more { background: linear-gradient(150deg, #23527A 0%, #0F2234 100%); color: #fff; box-shadow: 0 20px 40px -24px rgba(15,34,52,.6); }
-#app[data-d="j"] .v-tiles .t.more .ta { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #9EC3E6; color: #0F2234; font-size: 16px; }
-#app[data-d="j"] .v-tiles .t.more .tn { font-size: 20px; }
 
 /* =====================================================================
    OPTION 4  Delcap
@@ -2751,6 +2739,9 @@ header.hd > .hpart { margin-top: 0; }
 /* Option 3 services: neutral, soft shadow only; no tinted glow on hover */
 #app[data-d="s"] .svf-card { box-shadow: 0 0 0 1px rgba(18,22,42,.08), 0 2px 6px rgba(18,22,42,.04) !important; }
 #app[data-d="s"] .svf-card:hover, #app[data-d="s"] .svf-card:focus-visible { box-shadow: 0 0 0 1px rgba(18,22,42,.1), 0 14px 28px -18px rgba(18,22,42,.22) !important; }
+
+/* Sticky nav: no slide-in animation on stick; it only appears when scrolling back up */
+#app .bar.stuck { animation: none; }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -3053,8 +3044,8 @@ header.hd > .hpart { margin-top: 0; }
     var lastY = window.scrollY, ticking = false, pars = Array.prototype.slice.call(app.querySelectorAll('[data-par]'));
     function onScroll() {
       var y = window.scrollY, past = y > hero.offsetHeight - 40;
-      if (past !== barEl.classList.contains('stuck')) { barEl.classList.toggle('stuck', past); if (!past) barEl.classList.remove('away'); }
-      if (past) { var open = items.some(function (it) { return it.classList.contains('open'); }); barEl.classList.toggle('away', y > lastY + 2 && !open && y > hero.offsetHeight + 200); if (y < lastY - 2) barEl.classList.remove('away'); }
+      if (past !== barEl.classList.contains('stuck')) { if (past) barEl.classList.add('away'); else barEl.classList.remove('away'); barEl.classList.toggle('stuck', past); }
+      if (past) { var open = items.some(function (it) { return it.classList.contains('open'); }); if (open || y < lastY - 4) barEl.classList.remove('away'); else if (y > lastY + 4) barEl.classList.add('away'); }
       lastY = y;
       if (!reduce) pars.forEach(function (el) { if (y < hero.offsetHeight + 200) el.style.transform = 'translate3d(0,' + (-y * parseFloat(el.getAttribute('data-par'))).toFixed(1) + 'px,0)'; });
       ticking = false;
