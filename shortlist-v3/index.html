@@ -2596,6 +2596,20 @@ header.hd > .hpart { margin-top: 0; }
 /* Option 1: the courses button already carries space below it; trim the section end so the gap to Services matches the page rhythm */
 #app[data-d="h"] main .courses { padding-bottom: 24px; }
 @media (max-width: 720px) { #app[data-d="h"] main .courses { padding-bottom: 8px; } }
+
+/* Call-to-action band (all options): one-line heading, no rule under the number, quiet supporting row */
+#app .cta h2 { max-width: none; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.15; white-space: nowrap; }
+#app .cta h2 br { display: none; }
+@media (max-width: 560px) { #app .cta h2 { white-space: normal; } }
+#app .cta .phone { border-bottom: 0 !important; background: none !important; padding-bottom: 0; margin-top: clamp(20px, 2.4vw, 32px); }
+#app .cta .cta-row { margin-top: clamp(20px, 2.2vw, 28px); font-size: 14px; opacity: .78; justify-content: flex-start; gap: 6px 14px; align-items: center; }
+#app .cta .cta-row span + span::before { content: ""; display: inline-block; width: 4px; height: 4px; margin-right: 14px; border-radius: 50%; background: currentColor; opacity: .55; vertical-align: middle; }
+
+/* CTA accent word stays readable on the dark bands */
+#app[data-d="j"] .cta h2 em, #app[data-d="t"] .cta h2 em { color: #9EC3E6; }
+/* Pinned services: give hover lift and shadow room inside the clipped viewport */
+#app .hs-view { padding-block: 80px; margin-block: -80px; }
+#app .hs-run:not(.native) .hs-stick { overflow: visible; }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
