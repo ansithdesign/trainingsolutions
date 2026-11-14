@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome Lockup Options</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap">
+<style>
+:root { --ink: #0A2C3A; --ink2: #4C6772; --teal: #2B8E9C; --teal-d: #1D7482; --navy: #07374C; --pale: #F2F8F8; --line: rgba(10, 44, 58, .12); --sky: #0072B5; --sans: 'Figtree', system-ui, sans-serif; color-scheme: light; }
+* { box-sizing: border-box; margin: 0; }
+body { font-family: var(--sans); font-size: 14px; line-height: 1.6; color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 20px; border-radius: 10px; background: var(--teal-d); color: #fff; font: 600 13px/1 var(--sans); white-space: nowrap; border: 1px solid transparent; transition: transform .2s, background .2s; }
+.btn:hover { transform: translateY(-1px); background: #165A66; }
+.btn.w { background: #fff; color: var(--navy); } .btn.w:hover { background: #E6F3F5; }
+.btn.o { background: transparent; color: inherit; border-color: currentColor; } .btn.o:hover { background: rgba(127, 127, 127, .14); }
+.btn svg { width: 14px; height: 14px; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+.copy { color: var(--ink2); max-width: 56ch; text-wrap: pretty; }
+.sign { font-weight: 600; margin-top: 18px; }
+h2 { font-weight: 500; letter-spacing: -.035em; line-height: 1.1; text-wrap: balance; }
+.ph { border-radius: 24px; overflow: hidden; background: #DCE7EA; }
+.ph img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+/* the Catalyst lockup, rebuilt as live type */
+.mc { font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--navy); font-size: 26px; }
+.mc i { font-style: normal; color: var(--sky); }
+.mc em { font-style: normal; color: var(--navy); }
+.ne { font-size: 13px; line-height: 1.3; } .ne b { color: var(--sky); font-weight: 700; }
+.dl { height: 26px; width: auto; }
+.cr { font-size: 12px; color: var(--ink2); }
+.lab { background: var(--ink); color: #fff; }
+.lab .wrap { display: flex; gap: 14px; align-items: baseline; padding-block: 14px; flex-wrap: wrap; }
+.lab b { font-size: 13px; } .lab span { font-size: 12.5px; color: #A9C8D3; }
+.head { padding: 72px 0 48px; background: var(--pale); }
+.head h1 { font-size: clamp(26px, 3vw, 38px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; max-width: 22ch; }
+.head p { margin-top: 14px; color: var(--ink2); max-width: 64ch; }
+.o { padding-block: 120px; background: var(--pale); }
+.mini { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+@media (max-width: 860px) { .o { padding-block: 72px; } }
+
+/* 1 portrait left, Catalyst chip row below the copy */
+.o1 .g { display: grid; grid-template-columns: 5fr 6fr; gap: 88px; align-items: center; }
+.o1 .ph { aspect-ratio: 1 / 1; border-radius: 32px; }
+.o1 h2 { font-size: clamp(26px, 3vw, 38px); max-width: 16ch; } .o1 .copy { margin-top: 20px; }
+.o1 .chip { margin-top: 36px; padding: 16px 18px 16px 22px; background: #fff; border: 1px solid var(--line); border-radius: 16px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.o1 .chip .t { display: grid; gap: 4px; flex: 1; min-width: 180px; }
+
+/* 2 wide photo band with overlapping text card, slim Catalyst bar */
+.o2 { background: #fff; }
+.o2 .band { position: relative; border-radius: 32px; overflow: hidden; height: 460px; }
+.o2 .band img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; }
+.o2 .card { position: relative; margin: -150px 0 0 56px; max-width: 560px; background: #fff; border-radius: 24px; padding: 40px 44px; box-shadow: 0 30px 70px rgba(0, 0, 0, .14); }
+.o2 h2 { font-size: 28px; } .o2 .copy { margin-top: 14px; }
+.o2 .bar { margin-top: 48px; background: var(--navy); color: #fff; border-radius: 18px; padding: 22px 28px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: space-between; }
+.o2 .bar .mc { color: #fff; } .o2 .bar .mc em { color: #fff; } .o2 .bar .ne { color: #CFE4EA; }
+.o2 .bar .l { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+/* 3 centred, round portrait with Catalyst sticker */
+.o3 { text-align: center; background: #fff; }
+.o3 .pt { position: relative; width: 300px; height: 300px; margin: 0 auto 44px; }
+.o3 .pt .ph { width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 10px var(--pale); }
+.o3 .pt .stk { position: absolute; right: -92px; bottom: 6px; background: var(--navy); color: #fff; border-radius: 18px 18px 18px 4px; padding: 14px 18px; text-align: left; box-shadow: 0 16px 36px rgba(0, 0, 0, .24); }
+.o3 .stk .mc { color: #fff; font-size: 20px; } .o3 .stk .mc em { color: #fff; } .o3 .stk .ne { color: #CFE4EA; font-size: 12px; }
+.o3 h2 { font-size: clamp(28px, 3.4vw, 44px); max-width: 18ch; margin-inline: auto; }
+.o3 .copy { margin: 22px auto 0; max-width: 62ch; }
+.o3 .row { margin-top: 36px; display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+/* 4 full-height photo bleeding left, navy Catalyst card bottom right */
+.o4 { padding-block: 0; background: #fff; overflow: hidden; }
+.o4 .g { display: grid; grid-template-columns: 7fr 6fr; }
+.o4 .ph { border-radius: 0 40px 40px 0; margin-left: calc(-1 * max(24px, (100vw - 1160px) / 2 + 24px)); height: 520px; align-self: center; }
+.o4 .ph img { object-position: 50% 30%; }
+.o4 .r { padding: 80px 0 80px 80px; display: grid; align-content: center; gap: 12px; }
+.o4 h2 { font-size: clamp(26px, 3vw, 38px); max-width: 15ch; }
+.o4 .cat { margin-top: 36px; background: var(--navy); color: #fff; border-radius: 20px; padding: 24px 26px; display: grid; gap: 12px; max-width: 440px; }
+.o4 .cat .mc, .o4 .cat .mc em { color: #fff; } .o4 .cat .ne { color: #CFE4EA; } .o4 .cat .cr { color: #8FB4C0; }
+.o4 .cat .top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+
+@media (max-width: 860px) { .o4 .ph { margin-left: 0; border-radius: 28px; } .o4 .r { padding: 40px 0 72px; } }
+
+/* 5 photo with name plate, Catalyst ticket under the copy */
+.o5 .g { display: grid; grid-template-columns: 6fr 5fr; gap: 88px; align-items: center; }
+.o5 .ph { aspect-ratio: 5 / 4.4; position: relative; }
+.o5 .plate { position: absolute; left: 20px; bottom: 20px; background: #fff; border-radius: 12px; padding: 12px 16px; font-weight: 600; font-size: 13px; box-shadow: 0 12px 30px rgba(0, 0, 0, .18); }
+.o5 h2 { font-size: clamp(26px, 3vw, 36px); max-width: 15ch; } .o5 .copy { margin-top: 20px; }
+.o5 .tk { margin-top: 36px; display: grid; grid-template-columns: 1fr auto; border: 1px dashed rgba(10, 44, 58, .3); border-radius: 16px; background: #fff; }
+.o5 .tk .a { padding: 18px 20px; display: grid; gap: 6px; } .o5 .tk .mc { white-space: nowrap; } .o5 .tk .b { padding: 18px 20px; display: grid; place-items: center; border-left: 1px dashed rgba(10, 44, 58, .3); }
+
+/* 6 arch portrait with overlapping Catalyst card */
+.o6 { background: #fff; }
+.o6 .g { display: grid; grid-template-columns: 6fr 5fr; gap: 96px; align-items: center; padding-bottom: 56px; }
+.o6 h2 { font-size: clamp(26px, 3vw, 38px); max-width: 15ch; } .o6 .copy { margin-top: 20px; }
+.o6 .arch { position: relative; max-width: 520px; justify-self: end; width: 100%; }
+.o6 .arch .ph { aspect-ratio: 1.12 / 1; border-radius: 999px 999px 28px 28px; }
+.o6 .arch .ph img { object-position: 50% 30%; }
+.o6 .arch .cat { position: absolute; left: -64px; bottom: -56px; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; display: grid; gap: 10px; box-shadow: 0 24px 50px rgba(0, 0, 0, .16); max-width: 280px; }
+.o6 .cat .cr { font-size: 12px; }
+.o6 .l { order: 1; } .o6 .arch { order: 2; }
+
+/* 7 navy section, light type, outlined Catalyst */
+.o7 { background: var(--navy); color: #fff; }
+.o7 .g { display: grid; grid-template-columns: 5fr 6fr; gap: 88px; align-items: center; }
+.o7 .ph { aspect-ratio: 4 / 4.4; border-radius: 28px; }
+.o7 h2 { font-size: clamp(26px, 3vw, 38px); max-width: 15ch; } .o7 .copy { margin-top: 20px; color: #B9D3DB; }
+.o7 .cat { margin-top: 36px; border: 1px solid rgba(255, 255, 255, .26); border-radius: 18px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.o7 .cat .t { display: grid; gap: 6px; }
+.o7 .mc, .o7 .mc em { color: #fff; } .o7 .ne { color: #CFE4EA; }  .o7 .cr { color: #8FB4C0; }
+
+/* 8 three columns: copy, tall photo, slim Catalyst column */
+.o8 { background: #fff; }
+.o8 .g { display: grid; grid-template-columns: 4fr 5fr 3fr; gap: 40px; align-items: stretch; }
+.o8 .t { display: grid; align-content: center; gap: 0; }
+.o8 h2 { font-size: 28px; } .o8 .copy { margin-top: 16px; }
+.o8 .ph { min-height: 440px; border-radius: 220px 220px 24px 24px; }
+.o8 .ph img { object-position: 30% 30%; }
+.o8 .col { background: var(--pale); border: 1px solid var(--line); border-radius: 24px; padding: 30px 26px; display: grid; align-content: center; justify-items: start; gap: 16px; }
+.o8 .col .mc { font-size: 30px; }
+
+/* 9 offset-block photo, text-link Catalyst */
+.o9 .g { display: grid; grid-template-columns: 5fr 6fr; gap: 96px; align-items: center; }
+.o9 .ph-w { position: relative; padding: 0 28px 28px 0; }
+.o9 .ph-w::before { content: ""; position: absolute; right: 0; bottom: 0; width: 82%; height: 82%; background: var(--teal); border-radius: 28px; }
+.o9 .ph { position: relative; aspect-ratio: 4 / 4.6; border-radius: 28px; border: 8px solid #fff; box-shadow: 0 30px 60px rgba(0, 0, 0, .14); }
+.o9 h2 { font-size: clamp(26px, 3vw, 38px); max-width: 15ch; } .o9 .copy { margin-top: 20px; }
+.o9 .lk { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.o9 .lk a.u { font-weight: 600; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; display: inline-flex; gap: 8px; align-items: center; }
+.o9 .lk a.u svg { width: 14px; height: 14px; }
+
+/* 10 photo card with copy, full-width teal Catalyst ribbon */
+.o10 { background: #fff; }
+.o10 .top { display: grid; grid-template-columns: 5fr 7fr; background: var(--pale); border-radius: 32px; overflow: hidden; }
+.o10 .top .ph { border-radius: 0; min-height: 420px; }
+.o10 .top .t { padding: 64px 56px; display: grid; align-content: center; }
+.o10 h2 { font-size: clamp(26px, 2.8vw, 36px); max-width: 16ch; } .o10 .copy { margin-top: 18px; }
+.o10 .rib { margin-top: 16px; background: var(--teal-d); color: #fff; border-radius: 24px; padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+.o10 .rib .mc, .o10 .rib .mc em { color: #fff; font-size: 32px; } .o10 .rib .mc i, .o10 .rib .ne b { color: #fff; }
+.o10 .rib .ne { color: #fff; font-size: 14px; } .o10 .rib .cr { color: #fff; }
+.o10 .rib .btn { color: var(--navy); }
+.o10 .rib .l { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+
+/* light blue on dark grounds */
+.o2 .bar .mc i, .o2 .bar .ne b, .o3 .stk .mc i, .o3 .stk .ne b, .o4 .cat .mc i, .o4 .cat .ne b, .o7 .mc i, .o7 .ne b { color: #6CCBF5; }
+.o2 .bar .btn, .o4 .cat .btn, .o7 .btn { color: var(--navy); }
+@media (max-width: 900px) {
+  .o5 .tk { grid-template-columns: 1fr; } .o5 .tk .b { border-left: 0; border-top: 1px dashed rgba(10, 44, 58, .3); } .o5 .g > * , .o1 .g > *, .o7 .g > *, .o9 .g > *, .o6 .g > *, .o4 .g > *, .o8 .g > * { min-width: 0; }
+  .o1 .g, .o5 .g, .o6 .g, .o7 .g, .o8 .g, .o9 .g, .o4 .g, .o10 .top { grid-template-columns: 1fr; gap: 40px; }
+  .o2 .card { margin: -60px 16px 0; padding: 28px; } .o2 .band { height: 320px; }
+  .o3 .pt .stk { position: relative; right: auto; bottom: auto; margin: -28px auto 0; display: inline-block; }
+  .o6 .arch { justify-self: start; } .o6 .arch .cat { left: 12px; right: 12px; max-width: none; }
+  .o6 .l { order: 2; } .o6 .arch { order: 1; }
+  .o8 .ph { min-height: 360px; } .o10 .top .t { padding: 36px 28px; } .o10 .rib { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+</style>
+</head>
+<body>
+<header class="head"><div class="wrap">
+  <h1>Welcome and Catalyst: ten lockups</h1>
+  <p>The founders' photo leads in every option and Catalyst becomes the supporting piece. The Catalyst block is rebuilt as live type (Meet Catalyst, The NEW way to experience, the Everything DiSC mark, the Wiley copyright and the button), so it can be small, light or dark. Same facts and copy in all ten, styled in the Finpay theme.</p>
+</div></header>
+
+<!-- 1 -->
+<div class="lab"><div class="wrap"><b>1 · Portrait and chip</b><span>Tall portrait on the left. Catalyst is a compact chip under the copy, with its button.</span></div></div>
+<section class="o o1"><div class="wrap"><div class="g">
+  <div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+  <div><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign">Sharon and Michael Ferraro.</p>
+    <div class="chip"><div class="t"><span class="mc">Meet <i>Catalyst.</i></span><span class="ne">The <b>NEW</b> way to experience</span></div><img class="dl" src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"><a class="btn" href="#">Learn More About Catalyst Here</a></div>
+    <p class="cr" style="margin-top:12px">© by John Wiley &amp; Sons, Inc. All rights reserved.</p></div>
+</div></div></section>
+
+<!-- 2 -->
+<div class="lab"><div class="wrap"><b>2 · Wide band and slim bar</b><span>A cinematic wide crop of the founders with the note on an overlapping card. Catalyst becomes a one-line navy bar underneath.</span></div></div>
+<section class="o o2"><div class="wrap">
+  <div class="band"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+  <div class="card"><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign">Sharon and Michael Ferraro.</p></div>
+  <div class="bar"><div class="l"><span class="mc">Meet <i>Catalyst.</i></span><span class="ne">The <b>NEW</b> way to experience</span><img class="dl" src="images/logo-everything-disc-w.png" alt="Everything DiSC, a Wiley brand"></div><div class="mini"><span class="cr" style="color:#8FB4C0">© by John Wiley &amp; Sons, Inc. All rights reserved.</span><a class="btn w" href="#">Learn More About Catalyst Here</a></div></div>
+</div></section>
+
+<!-- 3 -->
+<div class="lab"><div class="wrap"><b>3 · Round portrait with sticker</b><span>Centred and warm. Catalyst is a speech-bubble sticker on the portrait, the button sits under the note.</span></div></div>
+<section class="o o3"><div class="wrap">
+  <div class="pt"><div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div><div class="stk"><div class="mc">Meet <i>Catalyst.</i></div><div class="ne">The <b>NEW</b> way to experience</div></div></div>
+  <h2>Thank you for coming to our website!</h2>
+  <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+  <p class="sign">Sharon and Michael Ferraro.</p>
+  <div class="row"><img class="dl" src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"><a class="btn" href="#">Learn More About Catalyst Here</a></div>
+  <p class="cr" style="margin-top:14px">© by John Wiley &amp; Sons, Inc. All rights reserved.</p>
+</div></section>
+
+<!-- 4 -->
+<div class="lab"><div class="wrap"><b>4 · Full-height bleed</b><span>The photo runs from the page edge, tall and dominant. A compact navy Catalyst card closes the text column.</span></div></div>
+<section class="o o4"><div class="wrap"><div class="g">
+  <div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+  <div class="r"><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign" style="margin-top:6px">Sharon and Michael Ferraro.</p>
+    <div class="cat"><div class="top"><div><div class="mc">Meet <i>Catalyst.</i></div><div class="ne">The <b>NEW</b> way to experience</div></div><img class="dl" src="images/logo-everything-disc-w.png" alt="Everything DiSC, a Wiley brand"></div><a class="btn w" href="#" style="justify-self:start">Learn More About Catalyst Here</a><span class="cr">© by John Wiley &amp; Sons, Inc. All rights reserved.</span></div></div>
+</div></div></section>
+
+<!-- 5 -->
+<div class="lab"><div class="wrap"><b>5 · Name plate and ticket</b><span>Photo with the signature as a caption plate. Catalyst is a perforated ticket, text on the left, action on the right.</span></div></div>
+<section class="o o5"><div class="wrap"><div class="g">
+  <div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"><span class="plate">Sharon and Michael Ferraro.</span></div>
+  <div><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <div class="tk"><div class="a"><span class="mc">Meet <i>Catalyst.</i></span><span class="ne">The <b>NEW</b> way to experience</span><img class="dl" style="margin-top:4px" src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"></div><div class="b"><a class="btn" href="#">Learn More About Catalyst Here</a></div></div>
+    <p class="cr" style="margin-top:12px">© by John Wiley &amp; Sons, Inc. All rights reserved.</p></div>
+</div></div></section>
+
+<!-- 6 -->
+<div class="lab"><div class="wrap"><b>6 · Arch portrait, overlapping card</b><span>An arch-framed portrait with the Catalyst card laid across its lower edge. Adds depth without taking over.</span></div></div>
+<section class="o o6"><div class="wrap"><div class="g">
+  <div class="l"><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign">Sharon and Michael Ferraro.</p></div>
+  <div class="arch"><div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+    <div class="cat"><div><div class="mc" style="font-size:22px">Meet <i>Catalyst.</i></div><div class="ne">The <b>NEW</b> way to experience</div></div><img class="dl" src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"><a class="btn" href="#">Learn More About Catalyst Here</a><span class="cr">© by John Wiley &amp; Sons, Inc. All rights reserved.</span></div></div>
+</div></div></section>
+
+<!-- 7 -->
+<div class="lab"><div class="wrap"><b>7 · Navy section, outlined Catalyst</b><span>A dark section for contrast with its neighbours. Catalyst is a thin outlined row, so the photo and note stay the stars.</span></div></div>
+<section class="o o7"><div class="wrap"><div class="g">
+  <div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+  <div><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign" style="color:#fff">Sharon and Michael Ferraro.</p>
+    <div class="cat"><div class="t"><span class="mc">Meet <i>Catalyst.</i></span><span class="ne">The <b>NEW</b> way to experience</span><img class="dl" src="images/logo-everything-disc-w.png" alt="Everything DiSC, a Wiley brand"></div><div style="display:grid;gap:12px;justify-items:start"><a class="btn w" href="#">Learn More About Catalyst Here</a><span class="cr">© by John Wiley &amp; Sons, Inc. All rights reserved.</span></div></div></div>
+</div></div></section>
+
+<!-- 8 -->
+<div class="lab"><div class="wrap"><b>8 · Three columns</b><span>Note, a tall arched photo, and a slim Catalyst column. Reads left to right in the order of importance.</span></div></div>
+<section class="o o8"><div class="wrap"><div class="g">
+  <div class="t"><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign">Sharon and Michael Ferraro.</p></div>
+  <div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+  <div class="col"><span class="mc">Meet <i>Catalyst.</i></span><span class="ne">The <b>NEW</b> way to experience</span><img class="dl" src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"><a class="btn" href="#">Learn More About Catalyst Here</a><span class="cr">© by John Wiley &amp; Sons, Inc. All rights reserved.</span></div>
+</div></div></section>
+
+<!-- 9 -->
+<div class="lab"><div class="wrap"><b>9 · Offset block, text link</b><span>The Finpay hero treatment on the photo (a teal block behind it). Catalyst is reduced to a quiet row with a text link.</span></div></div>
+<section class="o o9"><div class="wrap"><div class="g">
+  <div class="ph-w"><div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div></div>
+  <div><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign">Sharon and Michael Ferraro.</p>
+    <div class="lk"><span class="mc" style="font-size:20px">Meet <i>Catalyst.</i></span><span class="ne">The <b>NEW</b> way to experience</span><img class="dl" style="height:22px" src="images/logo-everything-disc.png" alt="Everything DiSC, a Wiley brand"><a class="u" href="#">Learn More About Catalyst Here <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a></div>
+    <p class="cr" style="margin-top:12px">© by John Wiley &amp; Sons, Inc. All rights reserved.</p></div>
+</div></div></section>
+
+<!-- 10 -->
+<div class="lab"><div class="wrap"><b>10 · Card and teal ribbon</b><span>The note and photo sit in one rounded card. Catalyst gets a full-width teal ribbon beneath it, so it still has presence at a smaller height.</span></div></div>
+<section class="o o10"><div class="wrap">
+  <div class="top"><div class="ph"><img src="images/founders.jpg" alt="Sharon and Michael Ferraro"></div>
+    <div class="t"><h2>Thank you for coming to our website!</h2>
+    <p class="copy">We are committed to providing high quality customer service to all. We offer virtual and classroom training as well as e-learning sessions, videos and online assessments. Many of our programs have a facilitator's kit available for those who would like to conduct the training internally. We can help you become knowledgeable and comfortable if you'd like to conduct the facilitation yourself. Check out our site, and please let us know if you have questions or feedback.</p>
+    <p class="sign">Sharon and Michael Ferraro.</p></div></div>
+  <div class="rib"><div class="l"><div><div class="mc">Meet <i>Catalyst.</i></div><div class="ne">The <b>NEW</b> way to experience</div></div><img class="dl" src="images/logo-everything-disc-w.png" alt="Everything DiSC, a Wiley brand"></div><div class="mini"><span class="cr">© by John Wiley &amp; Sons, Inc. All rights reserved.</span><a class="btn w" href="#">Learn More About Catalyst Here</a></div></div>
+</div></section>
+</body>
+</html>
