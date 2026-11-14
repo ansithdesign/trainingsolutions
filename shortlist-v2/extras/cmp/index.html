@@ -1,0 +1,75 @@
+<title>Five Options Compared</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: sections down the side, the five options across the top. Every cell is the real rendered section, so styles compare by eye. */
+:root { color-scheme: light; --bg:#F4F6F9; --card:#fff; --ink:#0F2234; --mu:#5D6E80; --ln:#DDE3EA; --ac:#1B4263;
+  --fd:'Inter Tight','Segoe UI',system-ui,sans-serif; --fb:'Inter','Segoe UI',system-ui,sans-serif; }
+* { box-sizing:border-box; margin:0; }
+body { background:var(--bg); color:var(--ink); font-family:var(--fb); font-size:14px; line-height:1.45; -webkit-font-smoothing:antialiased; }
+.top { padding-block:36px 20px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); max-width:1700px; margin-inline:auto; }
+h1 { font:600 clamp(26px,3.4vw,36px)/1.1 var(--fd); letter-spacing:-.03em; }
+.top p { margin-top:8px; color:var(--mu); max-width:62ch; }
+.bar { display:flex; gap:8px; flex-wrap:wrap; margin-top:18px; }
+.bar button { font:500 13px var(--fb); padding:8px 14px; border-radius:8px; border:1px solid var(--ln); background:var(--card); color:var(--ink); cursor:pointer; }
+.bar button[aria-pressed="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+.scroller { overflow-x:auto; padding-bottom:40px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); }
+.mx { display:grid; grid-template-columns:132px repeat(5, minmax(300px,1fr)); gap:0 14px; min-width:1760px; max-width:1700px; margin-inline:auto; }
+.hd, .lb { position:sticky; z-index:3; background:var(--bg); }
+.hd { top:0; padding:12px 0 12px; border-bottom:1px solid var(--ln); }
+.hd b { display:block; font:600 15px var(--fd); letter-spacing:-.01em; }
+.hd span { color:var(--mu); font-size:12.5px; }
+.corner { position:sticky; left:0; top:0; z-index:5; background:var(--bg); border-bottom:1px solid var(--ln); }
+.lb { left:0; z-index:2; padding:22px 12px 0 0; font:600 13px var(--fd); letter-spacing:.01em; border-bottom:1px solid var(--ln); }
+.lb small { display:block; margin-top:2px; font:400 12px var(--fb); color:var(--mu); }
+.cell { padding:16px 0 20px; border-bottom:1px solid var(--ln); min-width:0; }
+.cell figure { border:1px solid var(--ln); border-radius:6px; overflow:hidden; background:#fff; cursor:zoom-in; }
+.cell img { display:block; width:100%; height:auto; }
+.cell p { margin-top:8px; font-size:12.5px; color:var(--mu); min-height:2.9em; }
+.cell p b { color:var(--ink); font-weight:600; }
+.na { padding:60px 10px; text-align:center; color:var(--mu); font-size:12.5px; border:1px dashed var(--ln); border-radius:6px; }
+.hide { display:none; }
+dialog { border:0; padding:0; background:transparent; max-width:min(1200px,96vw); width:100%; }
+dialog::backdrop { background:rgba(8,16,28,.82); }
+dialog img { width:100%; height:auto; border-radius:8px; display:block; }
+dialog p { color:#fff; margin-top:10px; font-size:13px; text-align:center; }
+</style>
+<div class="top">
+  <h1>Five options, section by section</h1>
+  <p>Each cell is the live render of that section. Scroll sideways to compare, filter to one section, or click a cell to enlarge it.</p>
+  <div class="bar" id="bar" role="group" aria-label="Filter sections"></div>
+</div>
+<div class="scroller"><div class="mx" id="mx"></div></div>
+<dialog id="dlg"><img id="dimg" alt=""><p id="dcap"></p></dialog>
+<script>
+var OPTS=[['h','1','Ledgerhouse','Full photo, wide grotesk'],['j','2','Paylytix','Product UI, navy and blue'],['q','3','Xurya','Full-bleed photo, thin type'],['s','4','Overpass','Circles, cobalt field'],['t','5','Delcap','Sky gradient, thin type']];
+var SECS=[['hero','Hero','Top of page'],['trust','Partners','Logo row'],['topics','Categories','Browse by topic'],['courses','Courses','Featured products'],['services','Services','What we offer'],['welcome','Welcome','Founders note and Catalyst'],['proof','Proof','Testimonial, numbers, Learn with us'],['cta','Contact','Phone band'],['footer','Footer','Links']];
+var LAB={
+ hero:{h:'Wordmark over photo',j:'Photo with floating chips',q:'Full-bleed photo',s:'Overlapping circles',t:'Sky gradient with floating photos'},
+ topics:{h:'Dotted-leader ledger',j:'Icon tile grid',q:'Numbered index list',s:'Bubbles sized by count',t:'Hairline grid'},
+ courses:{h:'Books on a shelf',j:'Horizontal scroll rail',q:'Four-column grid',s:'Four-column grid',t:'List with live preview'},
+ services:{h:'Scrolling photo rail',j:'Accordion rows, photo beside',q:'Accordion rows, photo beside',s:'Card grid',t:'Accordion rows, photo beside'},
+ welcome:{h:'Polaroid, text beside',j:'Polaroid, text beside',q:'Photo on a disc, text beside',s:'Photo on a disc, text beside',t:'Photo on a disc, text beside'},
+ proof:{h:'Navy field, light quote card, portrait on top',j:'Split blue field, no portrait',q:'Grey quote card, stacked numbers',s:'Cobalt field, yellow numerals',t:'Split blue field, no portrait'}
+};
+var bar=document.getElementById('bar'),mx=document.getElementById('mx'),cur='all';
+function build(){
+ var h='<div class="corner"></div>'+OPTS.map(function(o){return '<div class="hd"><b>'+o[1]+' · '+o[2]+'</b><span>'+o[3]+'</span></div>';}).join('');
+ SECS.forEach(function(s){
+  h+='<div class="lb" data-s="'+s[0]+'">'+s[1]+'<small>'+s[2]+'</small></div>';
+  OPTS.forEach(function(o){
+   var l=(LAB[s[0]]||{})[o[0]]||'';
+   h+='<div class="cell" data-s="'+s[0]+'"><figure data-src="images/'+o[0]+'-'+s[0]+'.jpg" data-cap="Option '+o[1]+' · '+s[1]+'"><img loading="lazy" src="images/'+o[0]+'-'+s[0]+'.jpg" alt="Option '+o[1]+' '+s[1]+'" onerror="this.parentNode.outerHTML=\'<div class=na>Not shown in this option</div>\'"></figure><p>'+(l?'<b>'+l+'</b>':'')+'</p></div>';
+  });
+ });
+ mx.innerHTML=h;
+}
+function filter(v){cur=v;[].forEach.call(mx.querySelectorAll('[data-s]'),function(e){e.classList.toggle('hide',v!=='all'&&e.getAttribute('data-s')!==v);});[].forEach.call(bar.children,function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v);});}
+bar.innerHTML='<button type="button" data-v="all" aria-pressed="true">All</button>'+SECS.map(function(s){return '<button type="button" data-v="'+s[0]+'" aria-pressed="false">'+s[1]+'</button>';}).join('');
+bar.addEventListener('click',function(e){var b=e.target.closest('button');if(b)filter(b.getAttribute('data-v'));});
+mx.addEventListener('click',function(e){var f=e.target.closest('figure');if(!f)return;document.getElementById('dimg').src=f.getAttribute('data-src');document.getElementById('dcap').textContent=f.getAttribute('data-cap');document.getElementById('dlg').showModal();});
+document.getElementById('dlg').addEventListener('click',function(){this.close();});
+build();
+</script>
