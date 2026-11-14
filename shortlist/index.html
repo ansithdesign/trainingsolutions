@@ -1763,13 +1763,25 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 @media (max-width: 640px) { [data-d="h"] .srl { grid-template-columns: 1fr; } [data-d="h"] .svr { height: 340px; } }
 </style>
 <style>
-/* illustrations sit on a light panel above the text, no photo overlay */
-[data-d="h"] .svr { height: auto; justify-content: flex-start; background: #0A1526; }
-[data-d="h"] .sri { position: relative; inset: auto; z-index: 0; aspect-ratio: 8 / 5; background: #fff; }
-[data-d="h"] .sri img { width: 100%; height: 100%; object-fit: cover; }
+/* Ledgerhouse services: light tinted cards, scaled illustration, text laid over the card */
+[data-d="h"] .svr { --tint: #E7F0FF; height: 410px; justify-content: flex-end; background: linear-gradient(180deg, #fff 0%, var(--tint) 100%); color: #0A1526; border: 1px solid rgba(10, 21, 38, .08); }
+[data-d="h"] .svr:nth-child(3n+2) { --tint: #FBF0E0; }
+[data-d="h"] .svr:nth-child(3n) { --tint: #E4F3EC; }
+[data-d="h"] .svr:nth-child(n+4) { --tint: #ECE8FA; }
+[data-d="h"] .svr:nth-child(5) { --tint: #E2F1FA; }
+[data-d="h"] .svr:nth-child(6) { --tint: #FBE9E4; }
+[data-d="h"] .sri { position: absolute; inset: 22px 22px auto 22px; height: 54%; z-index: 0; background: none; display: grid; place-items: center; mix-blend-mode: multiply; }
+[data-d="h"] .sri img { width: 100%; height: 100%; object-fit: contain; transform: scale(.94); transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+[data-d="h"] .svr:hover .sri img { transform: scale(1.02); }
 [data-d="h"] .svr::after { display: none; }
-[data-d="h"] .srb { padding: 24px 26px 76px; min-height: 190px; }
-@media (max-width: 720px) { [data-d="h"] .svr { height: auto; } }
+[data-d="h"] .srb { position: static; padding: 0 26px 26px; height: 116px; justify-content: flex-start; gap: 8px; }
+[data-d="h"] .srb .sp { position: absolute; top: 18px; left: 22px; z-index: 2; }
+[data-d="h"] .srb h3 { color: #0A1526; font-size: 21px; padding-right: 56px; }
+[data-d="h"] .srb p { color: #43506A; font-size: 14px; padding-right: 60px; }
+[data-d="h"] .srb .sp { --sp-bg: #0A1526; --sp-fg: #fff; }
+[data-d="h"] .sra { right: 22px; bottom: 22px; color: #0A1526; border: 1px solid rgba(10, 21, 38, .25); background: rgba(255, 255, 255, .6); }
+[data-d="h"] .svr:hover .sra { background: #0A1526; color: #fff; border-color: #0A1526; }
+@media (max-width: 720px) { [data-d="h"] .svr { height: 380px; } }
 </style>
 <style>
 [data-d="h"] .wl-pol .stamp { background: #fff; color: #0A1526; border: 1px solid rgba(10,21,38,.08); box-shadow: 0 20px 44px -34px rgba(10,21,38,.4); align-items: center; }
