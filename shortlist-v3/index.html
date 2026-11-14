@@ -2859,17 +2859,20 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="s"] .price { padding-top: 8px !important; padding-bottom: 4px !important; }
 /* ===== END MISC 3 ===== */
 
+
+
 /* ===== OPTION 1 HERO PHOTO ===== */
 /* Full-bleed office photo, subject on the right. A soft dark pool behind the centred copy, an edge
    vignette, and a deeper floor so the partner strip reads. Kept cool to match the navy palette. */
-#app[data-d="h"] .hbg img { position: absolute; top: 0; bottom: 0; left: 0; right: auto; width: 110%; height: 100%; object-fit: cover; object-position: 0% 35%; -webkit-mask-image: none; mask-image: none; filter: saturate(.85) contrast(1.02); }
+#app[data-d="h"] .hbg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 45% 35%; -webkit-mask-image: none; mask-image: none; filter: saturate(.85) contrast(1.02); }
 #app[data-d="h"] .hbg::after { background:
   radial-gradient(ellipse 46% 52% at 50% 46%, rgba(6,10,18,.82) 0%, rgba(6,10,18,.62) 55%, rgba(6,10,18,0) 100%),
   radial-gradient(ellipse 120% 95% at 55% 40%, rgba(6,10,18,0) 34%, rgba(6,10,18,.8) 100%),
   linear-gradient(0deg, rgba(6,10,18,.95) 0%, rgba(6,10,18,.65) 18%, rgba(6,10,18,0) 40%),
   linear-gradient(180deg, rgba(6,10,18,.7) 0%, rgba(6,10,18,0) 22%),
   linear-gradient(rgba(10,26,48,.38), rgba(10,26,48,.38)) !important; }
-@media (max-width: 720px) { #app[data-d="h"] .hbg img { width: 100%; object-position: 72% 30%; } }
+@media (max-width: 1099px) { #app[data-d="h"] .hbg img { object-position: 62% 35%; } }
+@media (max-width: 720px) { #app[data-d="h"] .hbg img { object-position: 72% 30%; } }
 /* ===== END OPTION 1 HERO PHOTO ===== */
 </style>
 <div id="app"></div>
