@@ -1846,6 +1846,24 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
 [data-d="j"] .chip.c3 { right: 0; bottom: 8px; }
 @media (max-width: 1060px) { [data-d="j"] .art { height: 460px; } [data-d="j"] .chip:not(.c2):not(.c3) { left: 4%; top: 36px; } [data-d="j"] .chip.c2 { bottom: 90px; } [data-d="j"] .chip.c3 { bottom: 4px; } [data-d="j"] .devbg, [data-d="j"] .dev { width: 88%; } }
 </style>
+<style>
+/* Paylytix courses: horizontal scroll of products, own look, no container, no see-all link */
+[data-d="j"] .sh-r .more-l { display: none; }
+[data-d="j"] .rn button { border-radius: 8px; border: 1px solid var(--ln); background: #fff; color: #0B2434; }
+[data-d="j"] .rn button:hover { background: #0B2434; color: #fff; border-color: #0B2434; }
+[data-d="j"] .rail { grid-auto-columns: minmax(300px, 340px); gap: 16px; }
+[data-d="j"] .rail .c { background: #EEF0F1; border: 0; box-shadow: none; border-radius: 16px; padding: 10px; display: flex; flex-direction: column; transition: background .3s; }
+[data-d="j"] .rail .c:hover { background: #E6E9EA; transform: none; box-shadow: none; }
+[data-d="j"] .rail .cv { isolation: auto; background: none; padding: 14px 20px 6px; aspect-ratio: auto; height: 250px; display: grid; place-items: center; }
+[data-d="j"] .rail .cv .bk { width: 74%; margin-inline: auto; background: none; box-shadow: none; transform-style: flat; }
+[data-d="j"] .rail .cv .bk img { box-shadow: none; border-radius: 0; filter: drop-shadow(0 16px 14px rgba(11,36,52,.28)); mix-blend-mode: normal; }
+[data-d="j"] .rail .cb { padding: 14px 12px 12px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+[data-d="j"] .rail .cb h3 { font-size: 18px; line-height: 1.25; letter-spacing: -.02em; }
+[data-d="j"] .rail-pg { height: 2px; background: var(--ln); }
+[data-d="j"] .rail-pg span { background: #035C53; }
+@media (max-width: 720px) { [data-d="j"] .rail { grid-auto-columns: 78%; } }
+</style>
+
 
 
 
@@ -1996,13 +2014,13 @@ main .sx:not(.trust) { background: var(--sbg, transparent); }
   var LM = '<svg class="lm" viewBox="0 0 129 124" fill-rule="evenodd" aria-hidden="true"><path d="M128.906,1l0,122.548l-128.906,0l0,-122.548l128.906,0ZM71.109,68.89l0,-21.189l23.861,0l0,-13.273l-37.134,-0.135l0,47.844l5.36,0l0,0.026l18.521,0l0,18.508l-58.324,0l0,-66.3l-13.368,0l0,79.595l5.428,0l0,0.025l79.525,0l0,-0.071l0.013,0l0,-31.782l-0.012,0l0,-13.248l-23.87,0l0,0ZM118.881,113.965l0,-103.346l-13.32,0l0,0.005l-58.271,0l0,-0.066l-13.32,0l0,0.066l-23.928,0l0.06,13.414l23.868,-0.094l0,66.208l13.32,0l0,-66.208l58.271,0l0,90.021l13.32,0Z"/></svg>';
 
   /* ---------- the twelve directions ---------- */
-  var ORDER = ['h', 'j', 'p', 'q', 's', 't', 'v']; var NUM = { h: 1, j: 2, p: 3, q: 4, s: 5, t: 6, v: 7 };
+  var ORDER = ['h', 'j', 'q', 's', 't', 'v']; var NUM = { h: 1, j: 2, q: 3, s: 4, t: 5, v: 6 };
   var D = {
     c: { n: 'Airy Light', f: ['Geologica:wght@200;300;400;500;600', 'Rethink+Sans:wght@400;500;600;700'], ar: 'd', nav: 'soft', mm: 'bars', hero: 'strip', top: 'pills', cr: 'grid', sv: 'accordion', wl: 'split', page: '#F1F6FD', split: 1, tilt: 1 },
     e: { n: 'Color Block', f: ['Anybody:wdth,wght@50..150,100..900', 'Reddit+Sans:wght@400;500;600;700'], ar: 'r', nav: 'soft', mm: 'tiles', hero: 'poster', top: 'bento', cr: 'grid', sv: 'stack', wl: 'card', page: '#14112B' },
     g: { n: 'Maze', f: ['Funnel+Display:wght@300;400;500;600', 'Funnel+Sans:wght@400;500;600', 'Martian+Mono:wght@400;500'], ar: 'r', nav: 'line', mm: 'preview', hero: 'frames', top: 'index', cr: 'grid', sv: 'grid', wl: 'split', page: '#1E1E1E', split: 1 },
     h: { n: 'Ledgerhouse', f: ['Figtree:wght@300..900'], ar: 'd', nav: 'line', mm: 'tiles', hero: 'word', top: 'ledger', cr: 'shelf', sv: 'srail', wl: 'pol', page: '#0A1526', split: 1, fw: 1 },
-    j: { n: 'Paylytix', f: ['Wix+Madefor+Display:wght@400;500;600;700', 'Wix+Madefor+Text:wght@400;500;600;700', 'Azeret+Mono:wght@400;500;600'], ar: 'r', nav: 'soft', mm: 'ledger', hero: 'device', top: 'tiles', cr: 'row', sv: 'rows', wl: 'card', page: '#021725' },
+    j: { n: 'Paylytix', f: ['Wix+Madefor+Display:wght@400;500;600;700', 'Wix+Madefor+Text:wght@400;500;600;700', 'Azeret+Mono:wght@400;500;600'], ar: 'r', nav: 'soft', mm: 'ledger', hero: 'device', top: 'tiles', cr: 'rail', sv: 'rows', wl: 'card', page: '#021725' },
     p: { n: 'Finpay', f: ['Red+Hat+Display:wght@400;500;600;700;800', 'Red+Hat+Text:wght@400;500;600', 'Red+Hat+Mono:wght@400;500'], ar: 'r', nav: 'soft', mm: 'tiles', hero: 'collage', top: 'cards', cr: 'rail', sv: 'bento', wl: 'card', page: '#F2F8F8' },
     q: { n: 'Xurya', f: ['Host+Grotesk:wght@300;400;500;600'], ar: 'd', nav: 'line', mm: 'preview', hero: 'bleed', top: 'index', cr: 'grid', sv: 'rows', wl: 'split', page: '#DADDE3', split: 1, fw: 1 },
     r: { n: 'Aria', f: ['Petrona:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400', 'Albert+Sans:wght@400;500;600;700'], ar: 'd', nav: 'line', mm: 'type', hero: 'arches', top: 'pills', cr: 'rail', sv: 'grid', wl: 'letter', page: '#041E1E', split: 1, tw: 1 },
