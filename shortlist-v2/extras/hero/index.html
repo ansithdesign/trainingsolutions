@@ -1,0 +1,222 @@
+<title>Quieter Hero Options</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@200;300;400;500;600&family=Sometype+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Ten calmer hero layouts with identical content. Palette and type follow the Delcap blues. The only variable is how much is on screen and where. */
+:root { color-scheme: light; --bg:#EEF2F7; --ink:#0F2234; --mu:#4E6377; --ln:#E3E9F0; --ac:#1B4263; --ai:#3C6A92; --hl:#9EC3E6; --tint:#E8F0F8; --pa:#F5F8FC;
+  --sky:linear-gradient(180deg,#D3E4F6 0%,#E7F0FA 60%,#fff 100%);
+  --fd:'Commissioner','Segoe UI',system-ui,sans-serif; --fm:'Sometype Mono',ui-monospace,Menlo,monospace; }
+* { box-sizing:border-box; margin:0; }
+body { background:var(--bg); color:var(--ink); font-family:var(--fd); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+button, input { font:inherit; color:inherit; }
+img { display:block; max-width:100%; }
+:focus-visible { outline:2px solid var(--ai); outline-offset:3px; }
+.page { max-width:1240px; margin-inline:auto; padding-block:48px 96px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); }
+.intro { max-width:70ch; }
+.intro h1 { font-weight:300; font-size:clamp(30px,4.4vw,46px); letter-spacing:-.04em; line-height:1.05; }
+.intro p { margin-top:12px; color:var(--mu); }
+.fix { margin-top:20px; display:flex; flex-wrap:wrap; gap:8px 8px; }
+.fix span { font:400 12px var(--fm); padding:6px 10px; border:1px solid #CBD6E2; border-radius:4px; color:var(--mu); background:#fff; }
+.pickbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:10px 0; margin-top:24px; background:var(--bg); border-bottom:1px solid #CBD6E2; font-size:14px; }
+.pickbar b { font-weight:600; }
+.pickbar output { color:var(--ai); font-family:var(--fm); font-size:13px; }
+.pickbar button { margin-left:auto; padding:7px 12px; border:1px solid #CBD6E2; border-radius:6px; background:#fff; cursor:pointer; font-size:13px; }
+.opt { margin-top:56px; }
+.oh { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin-bottom:12px; }
+.oh .n { font:500 12px var(--fm); color:var(--ai); }
+.oh h2 { font-weight:600; font-size:19px; letter-spacing:-.02em; }
+.oh .dn { font:400 11px var(--fm); text-transform:uppercase; letter-spacing:.06em; color:var(--mu); }
+.oh button { margin-left:auto; padding:7px 12px; border:1px solid #CBD6E2; border-radius:6px; background:#fff; cursor:pointer; font-size:13px; }
+.oh button[aria-pressed="true"] { background:var(--ink); color:#fff; border-color:var(--ink); }
+.nt { margin-top:10px; color:var(--mu); font-size:14px; max-width:84ch; }
+
+/* shared hero parts */
+.f { position:relative; overflow:hidden; border:1px solid #CBD6E2; border-radius:8px; background:#fff; color:var(--ink); isolation:isolate; }
+.nav { display:flex; align-items:center; gap:24px; padding:18px 36px; position:relative; z-index:2; }
+.nav .lg { display:flex; align-items:center; gap:9px; font-weight:500; font-size:16px; letter-spacing:-.02em; white-space:nowrap; }
+.nav .lg i { width:22px; height:22px; border:1.5px solid currentColor; display:block; }
+.nav ul { list-style:none; padding:0; display:flex; gap:22px; margin-inline:auto; font-size:13.5px; }
+.nav .ct { font-size:13px; font-weight:500; padding:8px 14px; border-radius:6px; background:var(--ac); color:#fff; white-space:nowrap; }
+.dk .nav .ct { background:var(--hl); color:var(--ink); }
+.dk { color:#fff; }
+.eb { font:400 11.5px var(--fm); letter-spacing:.08em; text-transform:uppercase; color:var(--ai); }
+.dk .eb { color:var(--hl); }
+.t { font-weight:200; letter-spacing:-.045em; line-height:1.04; text-wrap:balance; font-size:clamp(34px,4.6vw,62px); }
+.t em { font-style:normal; font-weight:300; color:var(--ai); }
+.dk .t em { color:var(--hl); }
+.sub { margin-top:16px; color:var(--mu); font-size:17px; max-width:44ch; }
+.dk .sub { color:#D7E3F0; }
+.sr { display:flex; align-items:center; gap:8px; margin-top:28px; padding:6px 6px 6px 18px; width:min(520px,100%); background:#fff; border:1px solid var(--ln); border-radius:8px; box-shadow:0 24px 40px -30px rgba(15,34,52,.5); color:var(--ink); }
+.sr svg { width:17px; height:17px; fill:none; stroke:var(--mu); stroke-width:1.4; flex:none; }
+.sr input { flex:1; min-width:0; border:0; outline:0; background:none; padding:11px 0; font-size:15px; }
+.sr input::placeholder { color:#7A8CA0; }
+.sr button { height:40px; padding:0 18px; border:0; border-radius:6px; background:var(--ac); color:#fff; font-weight:500; font-size:14px; cursor:pointer; }
+.pop { margin-top:16px; font-size:13px; color:var(--mu); display:flex; flex-wrap:wrap; gap:4px 16px; }
+.pop a { border-bottom:1px solid currentColor; }
+.dk .pop { color:#C9D9E8; }
+.ph { overflow:hidden; background:var(--tint); }
+.ph img { width:100%; height:100%; object-fit:cover; }
+.lg4 { display:flex; align-items:center; gap:28px 44px; flex-wrap:wrap; }
+.lg4 img { height:28px; width:auto; filter:grayscale(1); opacity:.6; mix-blend-mode:multiply; }
+.dk .lg4 img { mix-blend-mode:normal; opacity:.8; filter:none; }
+.pl { font:400 11px var(--fm); letter-spacing:.1em; text-transform:uppercase; color:var(--mu); }
+.dk .pl { color:#C9D9E8; }
+.band { padding:0 36px; }
+
+/* 1 centred, text only */
+.v1 { background:var(--sky); }
+.v1 .in { text-align:center; padding:72px 36px 64px; display:flex; flex-direction:column; align-items:center; }
+.v1 .sub { margin-inline:auto; }
+.v1 .pop { justify-content:center; }
+.v1 .ft { padding:0 36px 36px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+
+/* 2 left text, one photo */
+.v2 .g { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.9fr); gap:56px; align-items:center; padding:48px 36px 40px; }
+.v2 .ph { aspect-ratio:4/4.3; border-radius:10px; }
+.v2 .ft { padding:22px 36px; border-top:1px solid var(--ln); display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
+
+/* 3 search first */
+.v3 { background:var(--pa); }
+.v3 .in { padding:80px 36px 56px; max-width:900px; margin-inline:auto; }
+.v3 .t { font-size:clamp(30px,3.8vw,50px); }
+.v3 .sr { width:100%; padding:10px 10px 10px 22px; margin-top:32px; box-shadow:0 30px 50px -34px rgba(15,34,52,.55); }
+.v3 .sr input { font-size:18px; padding:14px 0; }
+.v3 .sr button { height:48px; padding:0 26px; }
+.v3 .ft { padding:12px 36px 40px; max-width:900px; margin-inline:auto; }
+.v3 .pl { margin-bottom:14px; display:block; }
+
+/* 4 half bleed photo */
+.v4 .g { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); min-height:560px; }
+.v4 .l { display:flex; flex-direction:column; justify-content:center; padding:24px 48px 40px 36px; }
+.v4 .ph { min-height:100%; border-radius:0; }
+.v4 .ph img { object-position:40% 40%; }
+
+/* 5 text then panoramic strip */
+.v5 .in { padding:48px 36px 36px; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:40px 64px; align-items:end; }
+.v5 .sr { margin-top:0; width:100%; }
+.v5 .pop { margin-top:14px; }
+.v5 .ph { margin:0 36px; aspect-ratio:16/5.2; border-radius:10px; }
+.v5 .ph img { object-position:50% 35%; }
+.v5 .ft { padding:24px 36px 28px; display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
+
+/* 6 type only */
+.v6 { background:#fff; }
+.v6 .in { padding:96px 36px 56px; max-width:980px; }
+.v6 .t { font-size:clamp(40px,6vw,84px); font-weight:200; max-width:12ch; }
+.v6 .sub { margin-top:24px; }
+.v6 .ln { margin-top:48px; display:flex; align-items:center; gap:18px; border-bottom:1px solid var(--ink); padding-bottom:14px; max-width:640px; }
+.v6 .ln svg { width:18px; height:18px; fill:none; stroke:var(--ink); stroke-width:1.3; }
+.v6 .ln input { flex:1; border:0; outline:0; background:none; font-size:20px; font-weight:300; padding:6px 0; }
+.v6 .ln input::placeholder { color:#7A8CA0; }
+.v6 .ln button { border:0; background:none; font-weight:500; cursor:pointer; border-bottom:1px solid var(--ink); padding:0; }
+.v6 .ft { padding:8px 36px 40px; display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
+
+/* 7 photo background */
+.v7 { background:#0F2234; min-height:620px; display:flex; flex-direction:column; }
+.v7 .bgp { position:absolute; inset:0; z-index:-1; }
+.v7 .bgp img { width:100%; height:100%; object-fit:cover; object-position:60% 35%; }
+.v7 .bgp::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(15,34,52,.94) 0%,rgba(15,34,52,.7) 45%,rgba(15,34,52,.2) 100%); }
+.v7 .in { margin-block:auto; padding:40px 36px 56px; }
+.v7 .t { max-width:14ch; }
+.v7 .sr { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3); box-shadow:none; color:#fff; }
+.v7 .sr svg { stroke:#C9D9E8; }
+.v7 .sr input::placeholder { color:#C9D9E8; }
+.v7 .sr button { background:var(--hl); color:var(--ink); }
+
+/* 8 left text with a quiet topic list, small portrait photo */
+.v8 { background:var(--sky); }
+.v8 .g { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.7fr); gap:56px; align-items:center; padding:56px 36px 48px; }
+.v8 .ph { aspect-ratio:4/5; border-radius:200px 200px 10px 10px; }
+.v8 .tp { margin-top:32px; border-top:1px solid #BFD0E2; max-width:520px; }
+.v8 .tp a { display:flex; justify-content:space-between; padding:12px 2px; border-bottom:1px solid #BFD0E2; font-size:15px; }
+.v8 .ft { padding:4px 36px 28px; }
+.v4 .l .lg4 { gap:18px 28px; } .v4 .l .lg4 .pl { flex-basis:100%; }
+.v8 .tp a span { font:400 12px var(--fm); color:var(--mu); }
+
+/* 9 editorial two column header, wide search */
+.v9 .top { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:32px 64px; align-items:end; padding:64px 36px 32px; }
+.v9 .sub { margin:0; max-width:40ch; }
+.v9 .wide { padding:0 36px 24px; }
+.v9 .wide .sr { width:100%; margin-top:0; padding:8px 8px 8px 22px; }
+.v9 .wide .sr input { font-size:17px; padding:14px 0; }
+.v9 .wide .sr button { height:46px; padding:0 24px; }
+.v9 .ph { margin:8px 36px 0; aspect-ratio:16/4.4; border-radius:10px; }
+.v9 .ft { padding:22px 36px 28px; display:flex; gap:32px; align-items:center; flex-wrap:wrap; }
+
+/* 10 centred, photo rising from the bottom edge */
+.v10 { background:var(--sky); }
+.v10 .in { text-align:center; padding:56px 36px 0; display:flex; flex-direction:column; align-items:center; }
+.v10 .sub { margin-inline:auto; }
+.v10 .pop { justify-content:center; }
+.v10 .ph { margin:40px auto 0; width:min(860px,88%); aspect-ratio:16/6.2; border-radius:12px 12px 0 0; box-shadow:0 -20px 60px -30px rgba(15,34,52,.5); }
+.v10 .ph img { object-position:50% 25%; }
+
+@media (max-width:860px) {
+  .nav ul { display:none; } .nav { padding:14px 18px; } .nav .ct { margin-left:auto; }
+  .v2 .g, .v4 .g, .v8 .g, .v5 .in, .v9 .top { grid-template-columns:1fr; gap:28px; }
+  .v2 .g, .v8 .g { padding:32px 18px; } .v4 .l { padding:24px 18px 32px; } .v4 .ph { aspect-ratio:4/3; min-height:0; }
+  .v1 .in, .v3 .in, .v6 .in, .v10 .in, .v7 .in { padding-inline:18px; } .v5 .in, .v9 .top { padding-inline:18px; }
+  .v5 .ph, .v9 .ph { margin-inline:18px; aspect-ratio:16/8; } .band, .ft, .v1 .ft, .v3 .ft, .v9 .wide { padding-inline:18px !important; }
+  .v10 .ph { aspect-ratio:16/9; width:92%; } .v7 { min-height:560px; }
+}
+@media (prefers-reduced-motion:reduce) { * { transition-duration:.001ms!important; } }
+</style>
+
+<div class="page">
+  <header class="intro">
+    <h1>Quieter hero, ten ways</h1>
+    <p>All ten use the same content from option 2: the eyebrow, headline, one line of copy, search, popular topics, the team photo and the four partner logos. They are built in the Delcap blues. What changes is how much shows at once and where it sits.</p>
+    <div class="fix">
+      <span>Removed: three floating category chips</span>
+      <span>Removed: grid backdrop and photo backing panel</span>
+      <span>Headline: 84px, three lines to about 62px, two lines or fewer</span>
+      <span>Popular topics: pills become plain text links</span>
+    </div>
+  </header>
+  <div class="pickbar"><b>Your picks</b><output id="out" aria-live="polite">None yet</output><button type="button" id="clr">Clear</button></div>
+  <div id="list"></div>
+</div>
+
+<script>
+var SEARCH='<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.5 13.5L18 18"/></svg>';
+function nav(){return '<nav class="nav" aria-label="Example navigation"><a class="lg" href="#"><i></i>Training Solutions</a><ul><li>Courses</li><li>Certification</li><li>Services</li><li>About</li><li>Support</li></ul><a class="ct" href="#">Cart 0</a></nav>';}
+function T(){return '<h1 class="t">Training that builds <em>better teams.</em></h1>';}
+var EB='<p class="eb" style="margin-bottom:18px">Educating, inspiring and serving since 1995</p>';
+var SUB='<p class="sub">Buy online courses today, or work with us on certification, coaching and live programs.</p>';
+function SR(){return '<form class="sr" onsubmit="return false" role="search">'+SEARCH+'<input type="search" placeholder="Search courses, categories or keywords" aria-label="Search"><button type="submit">Search</button></form>';}
+var POP='<p class="pop"><span>Popular:</span><a href="#">Harassment</a><a href="#">Diversity</a><a href="#">Leadership</a><a href="#">Everything DiSC</a></p>';
+function LG(w){var s=w?'-w':'';return '<div class="lg4"><span class="pl">Authorized partners</span><img src="images/logo-everything-disc'+s+'.png" alt="Everything DiSC"><img src="images/logo-pxt-select'+s+'.png" alt="PXT Select"><img src="images/logo-five-behaviors'+s+'.png" alt="The Five Behaviors"><img src="images/logo-sollah'+s+'.png" alt="Sollah Interactive"></div>';}
+var PH={team:'<div class="ph"><img src="images/diversity.jpg" alt="Diverse team looking at a laptop together"></div>'};
+var O=[
+ ['Centred, text only','Elements: 5','No photo. Everything is on one centred axis, with the logos as a quiet row at the foot.','Strongest calm and the clearest hierarchy. Loses the human photo, so it leans on the headline and search to carry the page.',
+  '<div class="f v1">'+nav()+'<div class="in">'+EB+T()+SUB+SR()+POP+'</div><div class="ft">'+LG()+'</div></div>'],
+ ['Text left, one photo right','Elements: 6','The photo stays, as a single clean rectangle. No chips, no backing panel.','The safest evolution of today. Familiar split, far less noise, logos move under a hairline.',
+  '<div class="f v2">'+nav()+'<div class="g"><div>'+EB+T()+SUB+SR()+POP+'</div>'+PH.team+'</div><div class="ft">'+LG()+'</div></div>'],
+ ['Search first','Elements: 4','A shorter headline over a large search bar. The photo is dropped and topics become the only secondary line.','Best if search is the main job of the page. Fast to understand, but gives up the brand imagery.',
+  '<div class="f v3">'+nav()+'<div class="in">'+EB+T()+SR()+POP+'</div><div class="ft">'+LG()+'</div></div>'],
+ ['Half-bleed photo','Elements: 5','The photo takes the right half edge to edge. Text sits in a calm left column.','More visual and still tidy. The photo does the work the chips used to do.',
+  '<div class="f v4">'+nav()+'<div class="g"><div class="l">'+EB+T()+SUB+SR()+POP+'<div style="margin-top:36px">'+LG()+'</div></div>'+PH.team+'</div></div>'],
+ ['Text, then a wide photo strip','Elements: 6','Headline left, search right, then a panoramic photo strip across the page.','Splits the reading from the image so neither competes. Search sits with the headline.',
+  '<div class="f v5">'+nav()+'<div class="in"><div>'+EB+T()+'</div><div>'+SUB+'<div style="height:20px"></div>'+SR()+POP+'</div></div>'+PH.team+'<div class="ft">'+LG()+'</div></div>'],
+ ['Type only, underlined search','Elements: 4','Large light headline, one line of copy, and a search that is just an underlined field.','The most editorial and premium. Zero decoration, so the copy has to earn its place.',
+  '<div class="f v6">'+nav()+'<div class="in">'+EB+T()+SUB+'<form class="ln" onsubmit="return false" role="search">'+SEARCH+'<input type="search" placeholder="Search courses, categories or keywords" aria-label="Search"><button type="submit">Search</button></form>'+POP+'</div><div class="ft">'+LG()+'</div></div>'],
+ ['Photo background, navy wash','Elements: 5','The photo sits behind everything under a left-weighted navy gradient. Light type, one search bar.','High impact without extra objects. Needs a good photo, and legibility depends on the wash.',
+  '<div class="f v7 dk"><div class="bgp"><img src="images/hero-h.webp" alt=""></div>'+nav()+'<div class="in">'+EB+T()+SUB+SR()+POP+'</div><div class="band" style="padding-bottom:28px">'+LG(1)+'</div></div>'],
+ ['Arched photo and a topic list','Elements: 6','A narrow arched portrait on the right. The popular topics become a quiet ruled list under the search.','Gives topics real weight as navigation. The arch adds one soft, deliberate shape.',
+  '<div class="f v8">'+nav()+'<div class="g"><div>'+EB+T()+SUB+SR()+'<div class="tp"><a href="#">Harassment<span>19</span></a><a href="#">Diversity<span>12</span></a><a href="#">Leadership<span>12</span></a><a href="#">Everything DiSC<span>13</span></a></div></div>'+PH.team+'</div><div class="ft">'+LG()+'</div></div>'],
+ ['Editorial header, wide search','Elements: 6','Headline and copy sit side by side, with a full-width search under them and a slim photo band.','Reads like a publication front page. The wide bar makes search feel like the primary action.',
+  '<div class="f v9">'+nav()+'<div class="top"><div>'+EB+T()+'</div>'+SUB+'</div><div class="wide">'+SR()+POP+'</div>'+PH.team+'<div class="ft">'+LG()+'</div></div>'],
+ ['Centred, photo rising from the edge','Elements: 5','Centred text with the photo cropped off the bottom of the section, as if it continues below.','Pulls the eye down the page and invites scrolling. Photo is a supporting actor, not a frame.',
+  '<div class="f v10">'+nav()+'<div class="in">'+EB+T()+SUB+SR()+POP+'</div>'+PH.team+'</div>']
+];
+var picks=[];try{picks=JSON.parse(localStorage.getItem('hero-picks')||'[]');}catch(e){}
+function save(){try{localStorage.setItem('hero-picks',JSON.stringify(picks));}catch(e){}}
+function paint(){document.getElementById('out').textContent=picks.length?picks.map(function(n){return n+' '+O[n-1][0];}).join('  ·  '):'None yet';[].forEach.call(document.querySelectorAll('.oh button'),function(b){b.setAttribute('aria-pressed',picks.indexOf(+b.dataset.n)>-1);b.textContent=picks.indexOf(+b.dataset.n)>-1?'Picked':'Pick';});}
+document.getElementById('list').innerHTML=O.map(function(o,k){var n=k+1;return '<section class="opt"><div class="oh"><span class="n">'+(n<10?'0'+n:n)+'</span><h2>'+o[0]+'</h2><span class="dn">'+o[1]+'</span><button type="button" data-n="'+n+'" aria-pressed="false">Pick</button></div>'+o[4]+'<p class="nt"><b>'+o[2]+'</b> '+o[3]+'</p></section>';}).join('');
+document.getElementById('list').addEventListener('click',function(e){var b=e.target.closest('.oh button');if(!b)return;var n=+b.dataset.n,i=picks.indexOf(n);if(i>-1)picks.splice(i,1);else picks.push(n);save();paint();});
+document.getElementById('clr').addEventListener('click',function(){picks=[];save();paint();});
+paint();
+</script>
