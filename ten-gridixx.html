@@ -479,6 +479,27 @@ em { font-style: normal; }
 .nv-f { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(15, 20, 40, .1); margin-top: 4px; padding-top: 12px; }
 .nv-f a { display: inline-flex !important; align-items: center; gap: 8px; font-weight: 600 !important; }
 @media (prefers-reduced-motion: reduce) { .nv-i.open > .nv-p { animation: none; } }
+
+.hs { margin-top: 28px; width: min(560px, 100%); }
+.hs-f { display: flex; align-items: center; gap: 10px; background: var(--hs-bg, #fff); color: var(--hs-ink, #12172B); border: 1px solid var(--hs-ln, rgba(15, 20, 40, .12)); border-radius: var(--hs-r, 999px); padding: 6px 6px 6px 18px; box-shadow: 0 10px 28px rgba(0, 0, 0, .08); }
+.hs-f:focus-within { outline: 2px solid var(--hs-ac, #3A66BD); outline-offset: 2px; }
+.hs-f > svg { width: 18px; height: 18px; flex: none; color: #5A6275; }
+.hs-f input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; font-size: 14.5px; color: inherit; padding: 10px 0; outline: none; }
+.hs-f input::placeholder { color: #5A6275; opacity: 1; }
+.hs-f .btn { min-height: 42px; flex: none; }
+.hs-pop { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; font-size: 13px; }
+.hs-pop span { opacity: .78; margin-right: 2px; }
+.hs-pop a { padding: 6px 13px; border: 1px solid rgba(127, 127, 127, .45); border-radius: var(--hs-r2, 999px); color: inherit; }
+.hs-pop a:hover, .hs-pop a:focus-visible { background: rgba(127, 127, 127, .2); }
+@media (max-width: 560px) { .hs-f .btn { padding: 0 14px; } }
+.hs { --hs-bg: var(--cd, #fff); --hs-ink: var(--cf, #12172B); --hs-ln: var(--ln); --hs-r: var(--rb); --hs-r2: var(--rb); --hs-ac: var(--ac); }
+.hv-center .hs { margin-inline: auto; }
+.hv-center .hs-pop { justify-content: center; }
+.bar-end .btn { min-height: 38px; padding: 0 18px; }
+.logo { white-space: nowrap; }
+.bar-end .btn, .bar-end .cart { white-space: nowrap; }
+@media (max-width: 560px) { .bar-login { display: none; } }
+.nv-lg { display: block; margin-top: 18px; padding: 14px; text-align: center; border: 1px solid rgba(15, 20, 40, .18); border-radius: 999px; font-weight: 600; font-size: 15px; color: #12172B; }
 </style>
 </head>
 <body>
@@ -555,7 +576,7 @@ em { font-style: normal; }
     var v = d.L.hero, h = d.hero;
     var fc = '';
     var bg = v === 'bleed' ? '<div class="bgph">' + img(h.img, '', 'fetchpriority="high"') + '</div>' : '';
-    return '<header class="hero s-hero sec hv-' + v + '" id="top" style="--sp:0">' + bg + '<div class="wrap"><div class="bar">' + logo() + '<div class="bar-end"><span class="tel">703-318-0838</span><a class="cart" href="#">Cart (0)</a></div></div><div class="hero-grid"><div class="hero-copy"><h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1><p class="sub">Buy online courses today, or work with us on certification, coaching and live programs.</p></div><div class="hero-art"><figure class="ph p1">' + img(h.img, 'Diverse team looking at a laptop together') + '</figure><figure class="ph p2">' + img(h.a, '') + '</figure><figure class="ph p3">' + img(h.b, '') + '</figure>' + fc + '</div></div></div></header>';
+    return '<header class="hero s-hero sec hv-' + v + '" id="top" style="--sp:0">' + bg + '<div class="wrap"><div class="bar">' + logo() + '<div class="bar-end"><a class="cart bar-login" href="#">Log in</a><a class="btn" href="#">Cart (0)</a></div></div><div class="hero-grid"><div class="hero-copy"><h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1><p class="sub">Buy online courses today, or work with us on certification, coaching and live programs.</p><form class="hs" role="search" onsubmit="event.preventDefault();var c=document.getElementById(\'courses\');if(c)c.scrollIntoView({behavior:\'smooth\'});"><label class="hs-f"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg><input type="search" placeholder="Search courses, topics or keywords" aria-label="Search courses, topics or keywords"><button class="btn " type="submit">Search</button></label><div class="hs-pop"><span>Popular:</span><a href="#courses">Harassment</a><a href="#courses">Diversity</a><a href="#courses">Leadership</a><a href="#courses">Everything DiSC</a><a href="#courses">Five Behaviors</a><a href="#courses">Coaching</a></div></form></div><div class="hero-art"><figure class="ph p1">' + img(h.img, 'Diverse team looking at a laptop together') + '</figure><figure class="ph p2">' + img(h.a, '') + '</figure><figure class="ph p3">' + img(h.b, '') + '</figure>' + fc + '</div></div></div></header>';
   }
   function trust() {
     return '<div class="s-trust sec" style="--sp:28px"><div class="wrap trust-in"><p class="since">Educating, inspiring and serving since 1995</p><ul class="logos" aria-label="Partners"><li>' + img('logo-everything-disc.png', 'Everything DiSC, a Wiley brand') + '</li><li>' + img('logo-pxt-select.png', 'PXT Select, a Wiley brand') + '</li><li>' + img('logo-five-behaviors.png', 'The Five Behaviors, a Wiley brand') + '</li><li>' + img('logo-sollah.png', 'Sollah Interactive, LLC') + '</li></ul></div></div>';
@@ -613,7 +634,7 @@ em { font-style: normal; }
     var d = D[n]; current = n;
     app.setAttribute('data-d', n); app.setAttribute('style', vars(d));
     document.body.style.background = d.s.foot[0];
-    app.innerHTML = '<div class="mini" id="mini"><div class="wrap">' + logo() + '<span class="tel">703-318-0838</span></div></div>' + hero(d) + trust() + topics(d) + welcome(d) + courses(d) + services(d) + proof(d) + cta(d) + footer();
+    app.innerHTML = '<div class="mini" id="mini"><div class="wrap">' + logo() + '</div></div>' + hero(d) + trust() + topics(d) + welcome(d) + courses(d) + services(d) + proof(d) + cta(d) + footer();
     if (d.L.cta === 'panel') app.querySelector('.s-cta').classList.add('cv-panel');
     mountNav(); wire(d); window.scrollTo(0, 0);
   }
@@ -683,31 +704,28 @@ render(10);
     nav.innerHTML = h;
     var logo = bar.querySelector('.logo'); logo.insertAdjacentElement('afterend', nav);
     var end = bar.querySelector('.bar-end');
-    var sw = document.createElement('div'); sw.className = 'nv-sw';
-    sw.innerHTML = '<button class="nv-ic" type="button" aria-label="Search courses" aria-expanded="false">' + ic('search') + '</button><div class="nv-sp"><input type="search" placeholder="Search courses by keyword" aria-label="Search courses by keyword"></div>';
-    end.insertBefore(sw, end.firstChild);
     var bg = document.createElement('button'); bg.className = 'nv-ic nv-burger'; bg.type = 'button'; bg.setAttribute('aria-label', 'Open menu'); bg.innerHTML = ic('list'); end.appendChild(bg);
     var dr = document.createElement('div'); dr.className = 'nv-drawer'; dr.setAttribute('role', 'dialog'); dr.setAttribute('aria-label', 'Menu');
     var dh = '<div class="nv-dh"><b>Menu</b><button class="nv-ic" type="button" aria-label="Close menu">' + ic('x') + '</button></div>';
     dh += '<details><summary>Courses' + ic('down') + '</summary><div class="nv-h">Browse by topic</div>' + tl(T) + '<div class="nv-h">Browse</div>' + links(S1) + '<div class="nv-h">By publisher</div>' + links(S2) + '</details>';
     G.forEach(function (g) { dh += '<details><summary>' + g.n + ic('down') + '</summary>' + links(g.l) + '</details>'; });
+    dh += '<a class="nv-lg" href="#">Log in</a>';
     dr.innerHTML = dh; document.body.appendChild(dr);
     var items = Array.prototype.slice.call(nav.querySelectorAll('.nv-i')), hov = window.matchMedia('(hover: hover)').matches, tm;
     function closeAll(except) { items.forEach(function (i) { if (i !== except) { i.classList.remove('open'); i.firstChild.setAttribute('aria-expanded', 'false'); } }); }
-    function open(i) { closeAll(i); i.classList.add('open'); i.firstChild.setAttribute('aria-expanded', 'true'); sw.classList.remove('open'); }
+    function open(i) { closeAll(i); i.classList.add('open'); i.firstChild.setAttribute('aria-expanded', 'true'); }
     items.forEach(function (i) {
       i.firstChild.addEventListener('click', function () { (i.classList.contains('open') && !hov) ? closeAll() : open(i); });
       if (hov) { i.addEventListener('mouseenter', function () { clearTimeout(tm); open(i); }); i.addEventListener('mouseleave', function () { tm = setTimeout(closeAll, 140); }); }
       i.addEventListener('focusout', function (ev) { if (!i.contains(ev.relatedTarget)) { i.classList.remove('open');} });
       i.addEventListener('keydown', function (ev) { var k = ev.key, ix = items.indexOf(i); if (k === 'ArrowDown' && ev.target === i.firstChild) { ev.preventDefault(); open(i); var a = i.querySelector('.nv-p a'); if (a) a.focus(); } else if (k === 'ArrowRight' || k === 'ArrowLeft') { if (ev.target === i.firstChild) { var n = items[(ix + (k === 'ArrowRight' ? 1 : items.length - 1)) % items.length]; ev.preventDefault(); n.firstChild.focus(); } } });
     });
-    sw.firstChild.addEventListener('click', function () { var o = sw.classList.toggle('open'); sw.firstChild.setAttribute('aria-expanded', o); closeAll(); if (o) sw.querySelector('input').focus(); });
     function shut() { dr.classList.remove('open'); document.body.style.overflow = ''; }
     bg.addEventListener('click', function () { dr.classList.add('open'); document.body.style.overflow = 'hidden'; });
     dr.querySelector('.nv-dh .nv-ic').addEventListener('click', shut);
     dr.addEventListener('click', function (ev) { if (ev.target.closest('a')) shut(); });
-    function off(ev) { if (!nav.isConnected) { document.removeEventListener('click', off); document.removeEventListener('keydown', esc); dr.remove(); document.body.style.overflow = ''; return; } if (!ev.target.closest('.nv, .nv-sw')) { closeAll(); sw.classList.remove('open'); } }
-    function esc(ev) { if (ev.key === 'Escape') { closeAll(); sw.classList.remove('open'); shut(); } }
+    function off(ev) { if (!nav.isConnected) { document.removeEventListener('click', off); document.removeEventListener('keydown', esc); dr.remove(); document.body.style.overflow = ''; return; } if (!ev.target.closest('.nv')) { closeAll(); } }
+    function esc(ev) { if (ev.key === 'Escape') { closeAll(); shut(); } }
     document.addEventListener('click', off); document.addEventListener('keydown', esc);
   }
 </script>
