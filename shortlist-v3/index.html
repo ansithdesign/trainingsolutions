@@ -2479,11 +2479,11 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="j"] .rail .c:hover .go > span { max-width: 110px; }
 #app[data-d="j"] .rail-pg { height: 3px; border-radius: 3px; }
 /* Menu: replace dotted leaders with a count pill and a tinted row */
-#app[data-d="j"] .mm-ledger .mm-bar { display: none; }
-#app[data-d="j"] .mm-ledger .mm-c { grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px; border-radius: 10px; transition: background .25s, padding .3s; }
-#app[data-d="j"] .mm-ledger .mm-k { min-width: 30px; text-align: center; padding: 3px 8px; border-radius: 999px; background: #EEF3F9; color: #1B4263; font-size: 11.5px; transition: background .25s, color .25s; }
-#app[data-d="j"] .mm-ledger .mm-c:hover { background: #F3F7FB; padding-left: 16px; }
-#app[data-d="j"] .mm-ledger .mm-c:hover .mm-k { background: #1B4263; color: #fff; }
+#app[data-d="j"] .mm-ledger .mm-bar, #app[data-d="t"] .mm-ledger .mm-bar { display: none; }
+#app[data-d="j"] .mm-ledger .mm-c, #app[data-d="t"] .mm-ledger .mm-c { grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px; border-radius: 10px; transition: background .25s, padding .3s; }
+#app[data-d="j"] .mm-ledger .mm-k, #app[data-d="t"] .mm-ledger .mm-k { min-width: 30px; text-align: center; padding: 3px 8px; border-radius: 999px; background: #EEF3F9; color: #1B4263; font-size: 11.5px; transition: background .25s, color .25s; }
+#app[data-d="j"] .mm-ledger .mm-c:hover, #app[data-d="t"] .mm-ledger .mm-c:hover { background: #F3F7FB; padding-left: 16px; }
+#app[data-d="j"] .mm-ledger .mm-c:hover .mm-k, #app[data-d="t"] .mm-ledger .mm-c:hover .mm-k { background: #1B4263; color: #fff; }
 
 /* ---------- Option 3: cards bounce, book pops off its orb ---------- */
 #app[data-d="s"] .cg .bk { transition: transform .6s cubic-bezier(.3,1.6,.5,1); }
@@ -2773,6 +2773,34 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="t"] .fchip.f2 { left: auto; right: 0; top: 52%; bottom: auto; }
 #app[data-d="t"] .fchip.f3 { left: 0; right: auto; top: 74%; bottom: auto; }
 /* ===== END OPTION 4 LOCKUP ===== */
+
+/* Option 1 footer wordmark: sits half below the page edge, rises into view on hover */
+#app[data-d="h"] .foot { padding-bottom: 0; overflow: hidden; }
+#app[data-d="h"] .fword { overflow: visible; margin-top: .6em; margin-bottom: -.46em; padding-bottom: 0; transform: translateY(0); transition: transform .9s cubic-bezier(.2,.8,.2,1), color .6s; }
+#app[data-d="h"] .fword:hover, #app[data-d="h"] .foot:hover .fword { transform: translateY(-.4em); color: #9EC3E6; }
+@media (prefers-reduced-motion: reduce) { #app[data-d="h"] .fword { transition: color .6s; } }
+/* ===== OPTION 2 RADIUS SYSTEM ===== */
+/* Two radii only. 16px for surfaces (photos, cards, panels, menus). 10px for controls and anything nested
+   inside a surface (inputs, buttons, chips, pills, icon tiles, inner images). Dots stay round. */
+#app[data-d="j"] { --r: 16px; --rs: 10px; --rb: 10px; --hs-r: 10px; --mm-r: 16px; }
+/* surfaces */
+#app[data-d="j"] .dev, #app[data-d="j"] .devbg, #app[data-d="j"] .rail .c, #app[data-d="j"] .hc, #app[data-d="j"] .learn,
+#app[data-d="j"] .v-tiles .tl, #app[data-d="j"] .pn, #app[data-d="j"] .mm, #app[data-d="j"] .quote, #app[data-d="j"] .cat,
+#app[data-d="j"] .wl-pol .stamp, #app[data-d="j"] .tr-in, #app[data-d="j"] .srows .viz, #app[data-d="j"] .crow .c,
+#app[data-d="j"] .wl-card .wtop, #app[data-d="j"] .cta-in { border-radius: 16px !important; }
+/* controls and nested elements */
+#app[data-d="j"] .hs-f, #app[data-d="j"] .btn, #app[data-d="j"] .hs-b, #app[data-d="j"] .hs-pop a, #app[data-d="j"] .est9,
+#app[data-d="j"] .chip, #app[data-d="j"] .chip.c2, #app[data-d="j"] .chip.c3, #app[data-d="j"] .chip .ti,
+#app[data-d="j"] .rail .cv, #app[data-d="j"] .hci, #app[data-d="j"] .rail .go, #app[data-d="j"] .go, #app[data-d="j"] .rn button,
+#app[data-d="j"] .v-tiles .ti, #app[data-d="j"] .mm-box, #app[data-d="j"] .mm-c, #app[data-d="j"] .mm-tiles .mm-c .ti,
+#app[data-d="j"] .mm-ledger .mm-k, #app[data-d="j"] .wl-pol .st-btn, #app[data-d="j"] .wl-pol .st-logo, #app[data-d="j"] .cart,
+#app[data-d="j"] .cart-n, #app[data-d="j"] .nv-b, #app[data-d="j"] .more-l, #app[data-d="j"] .tpb .sp, #app[data-d="j"] .sp,
+#app[data-d="j"] .li, #app[data-d="j"] .wl-pol .pol, #app[data-d="j"] .qp { border-radius: 10px !important; }
+/* the tile grid's first and last cells follow the outer corner */
+#app[data-d="j"] .v-tiles .tl { overflow: hidden; }
+/* button sitting inside the search field follows the field's inner curve */
+#app[data-d="j"] .hs-f .hs-b { border-radius: 6px !important; }
+/* ===== END OPTION 2 RADIUS SYSTEM ===== */
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2835,7 +2863,7 @@ header.hd > .hpart { margin-top: 0; }
     q: { n: 'Xurya', f: ['Host+Grotesk:wght@300;400;500;600'], ar: 'd', nav: 'line', mm: 'preview', hero: 'bleed', top: 'index', cr: 'grid', sv: 'hscroll', wl: 'split', page: '#DADDE3', split: 1, fw: 1 },
     r: { n: 'Aria', f: ['Petrona:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400', 'Albert+Sans:wght@400;500;600;700'], ar: 'd', nav: 'line', mm: 'type', hero: 'arches', top: 'pills', cr: 'rail', sv: 'grid', wl: 'letter', page: '#041E1E', split: 1, tw: 1 },
     s: { n: 'Overpass', f: ['Parkinsans:wght@400;500;600;700;800', 'Overpass:wght@400;500;600;700'], ar: 'r', nav: 'soft', mm: 'bubbles', hero: 'circles', top: 'bubbles', cr: 'grid', sv: 'fan', wl: 'split', page: '#0B1D3A' },
-    t: { n: 'Delcap', f: ['Commissioner:wght@200;300;400;500;600', 'Sometype+Mono:wght@400;500'], ar: 'r', nav: 'line', mm: 'bars', hero: 'sky', top: 'hair', cr: 'list', sv: 'hscroll', wl: 'split', page: '#fff', split: 1 },
+    t: { n: 'Delcap', f: ['Commissioner:wght@200;300;400;500;600', 'Sometype+Mono:wght@400;500'], ar: 'r', nav: 'line', mm: 'ledger', hero: 'sky', top: 'hair', cr: 'list', sv: 'hscroll', wl: 'split', page: '#fff', split: 1 },
     v: { n: 'HRFlow', f: ['Gabarito:wght@500;600;700;800', 'Golos+Text:wght@400;500;600;700'], ar: 'r', nav: 'soft', mm: 'tiles', hero: 'mosaic', top: 'cards', cr: 'grid', sv: 'stack', wl: 'split', page: '#F1EFE8', tw: 1 },
     w: { n: 'Radar', f: ['Chivo:wght@300;400;500;600;700', 'Chivo+Mono:wght@400;500'], ar: 'r', nav: 'soft', mm: 'preview', hero: 'radar', top: 'pills', cr: 'grid', sv: 'grid', wl: 'card', page: '#E9ECEA' }
   };
