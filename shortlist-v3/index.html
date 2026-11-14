@@ -2745,6 +2745,8 @@ header.hd > .hpart { margin-top: 0; }
 #app[data-d="t"] .fchip.f2 { left: auto; right: 0; top: 44%; bottom: auto; }
 #app[data-d="t"] .fchip.f3 { left: 0; right: auto; top: 72%; bottom: auto; }
 #app[data-d="t"] .fchip { animation-name: riseIn; }
+/* Hills sit in a rounded panel inset from the art edges, so chips overhang it cleanly instead of being cut flush */
+#app[data-d="t"] .fhills { inset: 0 7% 0 7%; width: auto; height: auto; clip-path: inset(0 round 18px); }
 /* Founding line under the subtext: a hairline and a quiet second line */
 #app[data-d="t"] .sub-since { display: flex; align-items: center; gap: 12px; margin-top: 18px; font-size: 14px; color: #4E6377; }
 #app[data-d="t"] .sub-since::before { content: ""; width: 28px; height: 1px; background: #1B4263; opacity: .5; }
