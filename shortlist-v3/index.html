@@ -2874,9 +2874,26 @@ header.hd > .hpart { margin-top: 0; }
 @media (max-width: 1099px) { #app[data-d="h"] .hbg img { object-position: 62% 35%; } }
 @media (max-width: 720px) { #app[data-d="h"] .hbg img { object-position: 72% 30%; } }
 /* ===== END OPTION 1 HERO PHOTO ===== */
+/* ===== SWITCHER ===== */
+/* A compact segmented control: label, then four named styles. Dark glass so it reads on every option. */
+@keyframes swIn { from { opacity: 0; transform: translate(-50%, 16px); } }
+.switch { gap: 4px; padding: 5px; background: rgba(12,16,26,.88); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 18px 40px -16px rgba(0,0,0,.55); font: 500 13px/1 system-ui, -apple-system, 'Segoe UI', sans-serif; animation: swIn .6s .6s cubic-bezier(.2,.8,.2,1) both; }
+.switch .sw-l { display: inline-flex; align-items: center; gap: 8px; padding: 0 12px 0 12px; color: #C6CCDA; font-size: 12px; letter-spacing: .02em; border-right: 1px solid rgba(255,255,255,.12); margin-right: 2px; height: 22px; }
+.switch .sw-l svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.switch a { display: inline-flex; align-items: center; gap: 8px; height: 34px; min-width: 0; padding: 0 14px 0 6px; border-radius: 999px; color: #E7EAF2; font-weight: 500; white-space: nowrap; transition: background .25s, color .25s; }
+.switch .sw-k { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.12); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; transition: background .25s, color .25s; }
+.switch a:hover { background: rgba(255,255,255,.1); }
+.switch a[aria-current="true"] { background: #fff; color: #0C101A; }
+.switch a[aria-current="true"] .sw-k { background: #0C101A; color: #fff; }
+.switch a:focus-visible { outline: 2px solid #9EC3E6; outline-offset: 2px; }
+@media (max-width: 720px) { .switch .sw-l { display: none; } .switch a { padding: 0 10px 0 5px; gap: 6px; font-size: 12px; } .switch .sw-k { width: 20px; height: 20px; } }
+@media (max-width: 380px) { .switch .sw-k { display: none; } .switch a { padding: 0 10px; } }
+@media (prefers-reduced-motion: reduce) { .switch { animation: none; } }
+/* ===== END SWITCHER ===== */
 </style>
 <div id="app"></div>
-<nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
+<nav class="switch" id="switch" aria-label="Switch design style"><span class="sw-l"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>Switch style</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName" hidden></span></nav>
 <script>
 (function () {
   'use strict';
@@ -3291,7 +3308,8 @@ header.hd > .hpart { margin-top: 0; }
 
   /* ---------- switcher + routing ---------- */
   var swL = document.getElementById('swLinks'), swN = document.getElementById('swName');
-  swL.outerHTML = ORDER.map(function (k, n) { return '<a href="#' + k + '" data-k="' + k + '" title="' + D[k].n + '">' + NUM[k] + '</a>'; }).join('');
+  var STYLE = { h: 'Modern', j: 'SaaS', s: 'Playful', t: 'Enterprise' };
+  swL.outerHTML = ORDER.map(function (k) { return '<a href="#' + k + '" data-k="' + k + '" aria-label="Option ' + NUM[k] + ': ' + STYLE[k] + '"><span class="sw-k">' + NUM[k] + '</span><span class="sw-t">' + STYLE[k] + '</span></a>'; }).join('');
   function cur() { var h = (location.hash || '').slice(1); return NUM[h] ? h : 'h'; }
   function route() {
     var k = cur(); if (k !== key) render(k);
