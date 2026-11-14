@@ -2756,6 +2756,23 @@ header.hd > .hpart { margin-top: 0; }
 /* Option 4 categories: original ruled tile grid, with the outer edge matching the inner rules */
 #app[data-d="t"] .v-hair .tl { border-color: #E3E9F0; }
 #app[data-d="t"] .v-hair .t { border-color: #E3E9F0; }
+/* ===== OPTION 4 LOCKUP ===== */
+/* One arched photo, a solid navy plinth offset behind it, and a fine outline echo of the arch.
+   Three layers, one shape language, chips aligned to a single vertical rhythm. */
+#app[data-d="t"] .fhills { display: none; }
+#app[data-d="t"] .hero-sky .fart { width: min(100%, 460px); aspect-ratio: 5 / 6; }
+#app[data-d="t"] .fart::before, #app[data-d="t"] .fart::after { content: ""; position: absolute; pointer-events: none; }
+/* outline echo, offset up and left */
+#app[data-d="t"] .fart::before { left: 6%; top: 0; width: 70%; height: 80%; border: 1.5px solid rgba(27,66,99,.28); border-radius: 999px 999px 10px 10px; }
+/* navy plinth, offset down and right */
+#app[data-d="t"] .fart::after { left: 26%; top: 26%; width: 70%; height: 72%; border-radius: 12px; background: linear-gradient(160deg, #24557F 0%, #1B4263 45%, #12304A 100%); box-shadow: 0 40px 70px -40px rgba(15,34,52,.6); }
+#app[data-d="t"] .fphoto { z-index: 1; left: 14%; top: 6%; width: 70%; height: 80%; border-radius: 999px 999px 10px 10px; box-shadow: 0 30px 60px -30px rgba(15,34,52,.45); }
+#app[data-d="t"] .fphoto img { object-position: 55% 40%; }
+#app[data-d="t"] .fchip { z-index: 2; }
+#app[data-d="t"] .fchip.f1 { left: 0; right: auto; top: 30%; bottom: auto; }
+#app[data-d="t"] .fchip.f2 { left: auto; right: 0; top: 52%; bottom: auto; }
+#app[data-d="t"] .fchip.f3 { left: 0; right: auto; top: 74%; bottom: auto; }
+/* ===== END OPTION 4 LOCKUP ===== */
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
@@ -2853,7 +2870,7 @@ header.hd > .hpart { margin-top: 0; }
     return '<h1 class="split">' + W.map(function (w, k) { var t = w[1] ? '<em>' + w[0] + '</em>' : w[0]; if (k === 4) t += '.'; return '<span class="w"><span class="wi" style="--k:' + k + '">' + t + '</span></span>'; }).join(' ') + '</h1>';
   }
   function search() { return '<form class="hs fade-up" style="--dl:.55s" role="search"><label class="hs-f">' + i('s') + '<input id="hero-q" type="search" placeholder="Search courses, categories or keywords" aria-label="Search courses, categories or keywords"><button class="btn hs-b" type="submit">Search</button></label><div class="hs-pop"><span>Popular:</span><a href="#courses">Harassment</a><a href="#courses">Diversity</a><a href="#courses">Leadership</a><a href="#courses">Everything DiSC</a></div></form>'; }
-  function copy() { if (key === 't') return '<div class="hero-copy">' + h1() + '<p class="sub fade-up" style="--dl:.4s">' + SUBT + '<span class="sub-since">Educating, inspiring and serving <b>since 1995</b></span></p>' + search() + '</div>'; return '<div class="hero-copy"><p class="est9 fade-up" style="--dl:.05s"><span class="d" aria-hidden="true"></span>Educating, inspiring and serving <b>since 1995</b></p>' + h1() + '<p class="sub fade-up" style="--dl:.4s">' + SUBT + '</p>' + search() + '</div>'; }
+  function copy() { if (key === 't') return '<div class="hero-copy">' + h1() + '<p class="sub fade-up" style="--dl:.4s">' + SUBT + '</p>' + search() + '</div>'; return '<div class="hero-copy"><p class="est9 fade-up" style="--dl:.05s"><span class="d" aria-hidden="true"></span>Educating, inspiring and serving <b>since 1995</b></p>' + h1() + '<p class="sub fade-up" style="--dl:.4s">' + SUBT + '</p>' + search() + '</div>'; }
   function badge() { return '<div class="badge" aria-hidden="true"><svg viewBox="0 0 124 124"><defs><path id="ring-' + key + '" d="M62 62 m-47 0 a47 47 0 1 1 94 0 a47 47 0 1 1 -94 0"/></defs><circle cx="62" cy="62" r="62"/><text><textPath href="#ring-' + key + '" textLength="292" lengthAdjust="spacing">EDUCATING, INSPIRING AND SERVING SINCE 1995 ·</textPath></text></svg><span class="core">1995</span></div>'; }
   function letters(s) { return s.split('').map(function (ch, k) { return ch === ' ' ? '<span class="wsp"> </span>' : '<span style="--k:' + k + '">' + ch + '</span>'; }).join(''); }
   var MQ = TOPICS.map(function (t) { return '<span>' + esc(t[0]) + '</span>' + i('st'); }).join('');
