@@ -2273,6 +2273,13 @@ header.hd > .hpart { margin-top: 0; }
 @media (max-width: 720px) { [data-d="h"] main .welcome, [data-d="j"] main .welcome { padding-top: 48px; } }
 .hs-stick { height: auto; max-height: 100vh; padding-block: 76px; box-sizing: border-box; }
 .hs-run.native .hs-stick { height: auto; padding-block: 48px; }
+/* Option 4 hero art: same graphic, proportional at every width */
+[data-d="t"] .art, [data-d="t"] .hero-sky .art { height: auto; aspect-ratio: 8 / 7; width: 100%; max-width: 100%; align-self: end; }
+[data-d="t"] .hills { preserveAspectRatio: none; }
+[data-d="t"] .p1 { right: 8%; top: 25%; width: 52%; height: 46%; }
+[data-d="t"] .p2 { left: 12%; top: 8%; width: 24%; height: auto; aspect-ratio: 3 / 4; }
+@media (max-width: 1100px) { [data-d="t"] .art { margin-right: 0; } }
+@media (max-width: 720px) { [data-d="t"] .art { aspect-ratio: 1 / 1; } [data-d="t"] .p1 { top: 26%; width: 62%; height: 44%; right: 4%; } [data-d="t"] .p2 { left: 6%; top: 8%; width: 28%; } }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
