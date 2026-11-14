@@ -2580,6 +2580,18 @@ header.hd > .hpart { margin-top: 0; }
   #app[data-d="h"] .v-ledger .t:has(+ .t + .t:hover) { background-size: calc(100% - 28px) 1px; }
   #app[data-d="h"] .v-ledger .t:has(+ .t:hover) { background-size: 0 1px; }
 }
+
+/* Option 1: section titles one step smaller */
+#app[data-d="h"] .topics .sh h2, #app[data-d="h"] .courses .sh h2, #app[data-d="h"] .svc .sh h2 { font-size: clamp(26px, 2.9vw, 44px); }
+
+/* Welcome letter (options 1 and 2): roomier rhythm and a comfortable measure */
+#app .wl-pol .pg { column-gap: clamp(48px, 7vw, 112px); align-items: center; }
+#app .wl-pol .pt { max-width: 600px; }
+#app .wl-pol .wh { margin: 0 0 clamp(28px, 3vw, 40px); }
+#app .wl-pol .wq { margin: 0; display: grid; gap: 20px; }
+#app .wl-pol .wq p { margin: 0; max-width: 54ch; line-height: 1.75; text-wrap: pretty; }
+#app .wl-pol .wq .wlead { max-width: 26ch; line-height: 1.4; margin-bottom: 8px; text-wrap: balance; }
+#app .wl-pol .wsig { margin-top: clamp(16px, 2vw, 24px); }
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
