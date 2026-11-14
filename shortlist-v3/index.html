@@ -2610,6 +2610,52 @@ header.hd > .hpart { margin-top: 0; }
 /* Pinned services: give hover lift and shadow room inside the clipped viewport */
 #app .hs-view { padding-block: 80px; margin-block: -80px; }
 #app .hs-run:not(.native) .hs-stick { overflow: visible; }
+
+/* ===== OPTION 3 POLISH ===== */
+/* Hero: one connected composition. Every circle sits on the edge of the main disc. */
+#app[data-d="s"] .hero-circles .art { height: auto; aspect-ratio: 1; width: min(100%, 560px); justify-self: end; }
+#app[data-d="s"] .disc { left: 10%; top: 10%; right: auto; width: 80%; }
+#app[data-d="s"] .c1 { left: 20%; top: 20%; right: auto; width: 60%; border-width: 8px; box-shadow: 0 30px 60px -30px rgba(18,22,42,.45); }
+#app[data-d="s"] .c2 { left: 0; top: 50%; width: 24%; border-width: 6px; box-shadow: 0 18px 30px -16px rgba(18,22,42,.4); }
+#app[data-d="s"] .c3 { left: 69%; top: 67%; right: auto; width: 22%; box-shadow: 0 18px 30px -16px rgba(18,22,42,.4); }
+#app[data-d="s"] .drop { left: 71%; top: 13%; right: auto; width: 14%; border-radius: 50%; transform: none; animation: bob 6s ease-in-out infinite; box-shadow: 0 0 0 6px #fff; }
+@media (max-width: 1100px) { #app[data-d="s"] .hero-circles .art { justify-self: center; } }
+
+/* Categories: a honeycomb of equal circles, 6 / 5 / 4, touching like a cluster */
+#app[data-d="s"] .v-bubbles .tl { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 0; width: min(100%, 1080px); margin-inline: auto; }
+#app[data-d="s"] .v-bubbles .t { --sz: auto; grid-column: span 2; width: auto; height: auto; aspect-ratio: 1; margin: 5px; padding: 12%; gap: 6px; transition: transform .5s cubic-bezier(.3,1.5,.5,1), box-shadow .4s; position: relative; z-index: 1; }
+#app[data-d="s"] .v-bubbles .t:nth-child(1) { grid-column: 1 / span 2; }
+#app[data-d="s"] .v-bubbles .t:nth-child(7) { grid-column: 2 / span 2; }
+#app[data-d="s"] .v-bubbles .t:nth-child(12) { grid-column: 3 / span 2; }
+#app[data-d="s"] .v-bubbles .t:nth-child(n+7) { margin-top: calc(5px - 2.2%); }
+#app[data-d="s"] .v-bubbles .ti { font-size: 20px; }
+#app[data-d="s"] .v-bubbles .tn { font-size: clamp(12.5px, 1.1vw, 15px); line-height: 1.15; max-width: 12ch; }
+#app[data-d="s"] .v-bubbles .tc { font-size: 12px; }
+#app[data-d="s"] .v-bubbles .t:hover { transform: scale(1.07); z-index: 2; box-shadow: 0 20px 40px -20px rgba(18,22,42,.45); }
+#app[data-d="s"] .v-bubbles .t.more { --sz: auto; }
+@media (max-width: 900px) {
+  #app[data-d="s"] .v-bubbles .tl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #app[data-d="s"] .v-bubbles .t, #app[data-d="s"] .v-bubbles .t:nth-child(n) { grid-column: auto; margin: 4px; }
+}
+
+/* Featured products: drop the cut-off corner blobs; the orbs in the cards carry the shape language */
+#app[data-d="s"] .courses::before, #app[data-d="s"] .courses::after { display: none; }
+
+/* Services: straight, aligned cards; playful lift on hover instead of a permanent tilt */
+#app[data-d="s"] .svf-card { transform: none !important; margin-top: 0 !important; transition: translate .5s cubic-bezier(.3,1.5,.5,1), box-shadow .4s; }
+#app[data-d="s"] .svf-card:hover { translate: 0 -8px; }
+#app[data-d="s"] .svf-grid { align-items: stretch; }
+
+/* Welcome: comfortable measure and rhythm */
+#app[data-d="s"] .wl-split .wg { column-gap: clamp(48px, 7vw, 104px); align-items: center; }
+#app[data-d="s"] .wl-split .wh { margin-bottom: 24px; }
+#app[data-d="s"] .wl-split .wc { max-width: 58ch; line-height: 1.75; }
+#app[data-d="s"] .wl-split .wsig { margin-top: 20px; }
+#app[data-d="s"] .wl-split .cat { margin-top: 32px; }
+
+/* Proof: no stray circle crossing the learn panel */
+#app[data-d="s"] .proof::before { display: none; }
+/* ===== END OPTION 3 POLISH ===== */
 </style>
 <div id="app"></div>
 <nav class="switch" id="switch" aria-label="Design options"><span class="sw-l">Shortlist</span><span id="swLinks" style="display:contents"></span><span class="sw-n" id="swName"></span></nav>
