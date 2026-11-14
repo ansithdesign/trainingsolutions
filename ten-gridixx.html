@@ -475,7 +475,7 @@ em { font-style: normal; }
 
   function hero(d) {
     var v = d.L.hero, h = d.hero;
-    var fc = '<article class="fcard" aria-label="Featured course"><div class="fc">' + img(FEATURED.img, FEATURED.alt) + '</div><span class="ft">' + esc(FEATURED.topic) + '</span><h3>' + esc(FEATURED.title) + '</h3><span class="fm">' + FEATURED.code + '</span><div class="fr"><span class="price">$' + FEATURED.price + '</span><a class="btn" href="#courses">View course <span class="arr"><svg class="arw" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a></div></article>';
+    var fc = '';
     var bg = v === 'bleed' ? '<div class="bgph">' + img(h.img, '', 'fetchpriority="high"') + '</div>' : '';
     return '<header class="hero s-hero sec hv-' + v + '" id="top" style="--sp:0">' + bg + '<div class="wrap"><div class="bar">' + logo() + '<div class="bar-end"><span class="tel">703-318-0838</span><a class="cart" href="#">Cart (0)</a></div></div><div class="hero-grid"><div class="hero-copy"><h1>Training, coaching and consulting for the <em>people side</em> of your business.</h1><p class="sub">Buy online courses today, or work with us on certification, coaching and live programs.</p></div><div class="hero-art"><figure class="ph p1">' + img(h.img, 'Diverse team looking at a laptop together') + '</figure><figure class="ph p2">' + img(h.a, '') + '</figure><figure class="ph p3">' + img(h.b, '') + '</figure>' + fc + '</div></div></div></header>';
   }
